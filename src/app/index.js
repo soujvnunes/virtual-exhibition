@@ -1,22 +1,24 @@
 import logo from "./logo.svg";
-import { AppRoot, AppHeader, AppLogo, AppLink } from "./index.module.css";
+import { root, header, logo as appLogo, link } from "./index.module.css";
 
 function App() {
   return (
-    <div className={AppRoot}>
-      <header className={AppHeader}>
-        <img src={logo} className={AppLogo} alt="logo" />
+    <div className={root}>
+      <header className={header}>
+        <img src={logo} className={appLogo} alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className={AppLink}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          <a
+            className={link}
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </h1>
       </header>
     </div>
   );
