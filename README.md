@@ -20,20 +20,31 @@ In this project you'll find:
 
 2. Project Tree:
 
-- Components: are set right directly on `/src/` directory;
-- Modules: on `modules.js` file at `/src/` directory;
-- Constants: on `constants.js` file at `/src/` directory;
-- Used APIs: are found in each source component that use it;
+- Components: are set according of its hierarchy, following the [Atomic Design Methodology](https://atomicdesign.bradfrost.com/chapter-2/):
+  - `/src/atoms` as **typography**, **button-base**, **grid**, **grid-item** or **icon**;
+  - `/src/molecules` as **button** or **input** both with icon support capability;
+  - `/src/organisms` as **card**, **header** or **section**;
+  - `/src/templates` as **page**;
+  - `/src/pages` still be a template, but has context or some data exchange;
+- Modules: on `modules.js` file at `/src/app` directory;
+- Constants: on `constants.js` file at `/src/app` directory;
+- Used APIs: are found in each source component that uses it;
 
 3. Documentation:
 
 - Params description:
 
 ```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({ div: "#foo" });
-  }
+/**
+ * Returns x raised to the n-th power.
+ *
+ * @param {number} x The number to raise.
+ * @param {number} n The power, must be a natural number.
+ * @return {number} x raised to the n-th power.
+ */
+
+function pow({ x = 0, n = 0 } = {}) {
+  return x ** n;
 }
 ```
 
