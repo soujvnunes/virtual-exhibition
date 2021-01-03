@@ -6,18 +6,10 @@ import { getElementVariant } from "../modules";
 
 function Typography({
   variant = "",
-  size = "",
   href = "",
   children = "" || null,
   className = "",
-  color = "",
-  weight = "",
 } = {}) {
-  const renderColorClass =
-    (href && cssModules.main) ||
-    (variant === "paragraph" && cssModules.reading) ||
-    cssModules[color];
-
   if (!children) {
     return null;
   }
@@ -27,9 +19,6 @@ function Typography({
     {
       className: clsx(
         { [cssModules[getElementVariant({ variant })]]: variant },
-        { [cssModules[size]]: size },
-        { [renderColorClass]: color },
-        { [cssModules[weight]]: weight },
         { [className]: className },
       ),
       ...(!(variant === "title") &&
@@ -47,24 +36,18 @@ function Typography({
 
 Typography.propTypes = {
   variant: PropTypes.oneOf(["title", "paragraph", "label"]),
-  size: PropTypes.oneOf(["large", "medium", "small"]),
   href: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node])),
   ]).isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(["main", "reading", "base", "disabled"]),
-  weight: PropTypes.oneOf(["bolder", "normal", "lighter"]),
 };
 
 Typography.defaultProps = {
   variant: "paragraph",
-  size: null,
   href: null,
   className: null,
-  color: "base",
-  weight: null,
 };
 
 export default Typography;
