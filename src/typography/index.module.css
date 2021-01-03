@@ -1,28 +1,17 @@
-h2,
-label {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.h2,
+.label {
+  font-family: var(--font-family-main);
   text-transform: uppercase;
+  color: var(--color-base);
 }
 
 .h2 {
-  font-size: 2.25rem;
-}
-
-@media screen and (min-width: 1920px) {
-  .h2 {
-    font-size: 3.75rem;
-  }
-}
-
-@media screen and (max-width: 1440px) and (min-width: 960px) {
-  .h2 {
-    font-size: 2.75rem;
-  }
+  font-size: var(--font-size--heading-two);
 }
 
 .p,
 .label {
-  font-size: 1rem;
+  font-size: var(--font-size--paragraph);
 }
 
 .p {
