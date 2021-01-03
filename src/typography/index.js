@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import classes from "./index.module.css";
+import cssModules from "./index.module.css";
 import { getElementVariant } from "../modules";
 
 function Typography({
@@ -14,9 +14,9 @@ function Typography({
   weight = "",
 } = {}) {
   const renderColorClass =
-    (href && classes.main) ||
-    (variant === "paragraph" && classes.reading) ||
-    classes[color];
+    (href && cssModules.main) ||
+    (variant === "paragraph" && cssModules.reading) ||
+    cssModules[color];
 
   if (!children) {
     return null;
@@ -26,10 +26,10 @@ function Typography({
     href ? "a" : getElementVariant({ variant }),
     {
       className: clsx(
-        { [classes[getElementVariant({ variant })]]: variant },
-        { [classes[size]]: size },
+        { [cssModules[getElementVariant({ variant })]]: variant },
+        { [cssModules[size]]: size },
         { [renderColorClass]: color },
-        { [classes[weight]]: weight },
+        { [cssModules[weight]]: weight },
         { [className]: className },
       ),
       ...(!(variant === "title") &&
