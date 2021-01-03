@@ -4,70 +4,37 @@ label {
   text-transform: uppercase;
 }
 
-.h2,
-.p,
-.label,
-.medium {
-  font-size: var(--font-size);
-}
-
 .h2 {
-  --font-size: 2.25rem;
+  font-size: 2.25rem;
 }
 
 @media screen and (min-width: 1920px) {
   .h2 {
-    --font-size: 3.75rem;
+    font-size: 3.75rem;
   }
 }
 
 @media screen and (max-width: 1440px) and (min-width: 960px) {
   .h2 {
-    --font-size: 2.75rem;
+    font-size: 2.75rem;
   }
 }
 
 .p,
 .label {
-  --font-size: 1rem;
+  font-size: 1rem;
 }
 
 .p {
   line-height: 1.618rem;
-}
-
-.large {
-  font-size: calc(var(--font-size) * 1.25);
-}
-
-.small {
-  font-size: calc(var(--font-size) * 0.75);
-}
-
-.main {
-  color: var(--color-primary);
-}
-
-.reading {
   color: var(--color-reading);
 }
 
-.base {
-  color: var(--color-base);
-}
-
-.disabled {
-  color: var(--color-disabled);
-}
-
-.lighter {
-  font-weight: lighter;
-}
-
-.normal {
-  font-weight: normal;
-}
-
-.bolder {
+.label,
+.h2 {
   font-weight: bolder;
+}
+
+a.p {
+  color: var(--color-primary);
 }
