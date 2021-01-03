@@ -6,7 +6,7 @@ function App() {
     <div className={root}>
       <Typography variant="title">This is a title.</Typography>
       <Typography variant="label">This is a label.</Typography>
-      <Typography>This is a parahraph.</Typography>
+      <Typography>This is a paragraph.</Typography>
       <Typography href="https://reactjs.org">Learn React</Typography>
     </div>
   );
