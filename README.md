@@ -16,7 +16,7 @@ In this project you'll find:
   ```javascript
   // example for index.js at /component/ folder
   import MyComponent from "./my-component";
-  import AnotherComponent from "./my-component";
+  import AnotherComponent from "./another-component";
 
   export { MyComponent, AnotherComponent };
   ```
@@ -33,22 +33,20 @@ In this project you'll find:
   const myComponent = <MyComponent>;
   ```
 
-  In case importing css modules, should always be imported as _cssModules_:
+  **Classes** on cascade stylesheet **modules** are named with just a word, because _Create React App_ will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_ as:
+
+  ```css
+  /* example for a index.module.css from MyComponent */
+  .root {
+    prop: "value";
+  }
+  ```
 
   ```javascript
   // example for instancing styles from css modules
   import cssModules from "./index.module.css";
 
   const rootStyle = cssModules[root];
-  ```
-
-- **Classes** on cascade stylesheet **modules** are named with just a word, because _Create React App_ will generate a unique name on render, as:
-
-  ```css
-  /* example for a index.module.css from MyComponent */
-  .class {
-    prop: "value";
-  }
   ```
 
 2. Project Tree:
@@ -60,7 +58,7 @@ In this project you'll find:
 
 3. Documentation:
 
-- Params description:
+Params description:
 
 ```javascript
 /**
@@ -76,41 +74,41 @@ function pow({ x = 0, n = 0 } = {}) {
 }
 ```
 
-- JSX component usages:
+JSX component usages:
 
 ```javascript
 <Component prop={value1|value2|etc...} />
 ```
 
-- Component or module props:
+Component or module props:
 
-  - Functional:
+- Functional:
 
-  ```javascript
-  function Component({
-    iAmString = "",
-    iAmBool = false,
-    iAmFunc = () => {},
-    iAmNumber = 0,
-  } = {}) {
-    return <div />;
-  }
-  ```
+```javascript
+function Component({
+  iAmString = "",
+  iAmBool = false,
+  iAmFunc = () => {},
+  iAmNumber = 0,
+} = {}) {
+  return <div />;
+}
+```
 
-  - Class:
+- Class:
 
-  ```javascript
-  const defaultProps = {
-    iAmString = "",
-    iAmBool = false,
-    iAmFunc = () => {},
-    iAmNumber = 0,
-  }
+```javascript
+const defaultProps = {
+  iAmString = "",
+  iAmBool = false,
+  iAmFunc = () => {},
+  iAmNumber = 0,
+}
 
-  export default class MyComponent extends React.Component {}
+export default class MyComponent extends React.Component {}
 
-  MyComponent.defaultProps = defaultProps;
-  ```
+MyComponent.defaultProps = defaultProps;
+```
 
 ### `Components`
 
