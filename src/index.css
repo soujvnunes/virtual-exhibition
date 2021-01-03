@@ -23,19 +23,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  text-transform: uppercase;
-}
