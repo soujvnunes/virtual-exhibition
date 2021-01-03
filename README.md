@@ -21,7 +21,7 @@ In this project you'll find:
   export { MyComponent, AnotherComponent };
   ```
 
-- **Instances** from components or **modules** are named with camelCase, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming), as:
+- **Instances** from components or **modules** are named with _camelCase_, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming), as:
 
   ```javascript
   // example for modules.js
@@ -33,7 +33,7 @@ In this project you'll find:
   const myComponent = <MyComponent>;
   ```
 
-  **Classes** on cascade stylesheet **modules** are named with just a word, because _Create React App_ will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_ as:
+  **Classes** on cascade stylesheet **modules** are named with just a word, because [Create React App](https://github.com/facebook/create-react-app) will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_, following:
 
   ```css
   /* example for a index.module.css from MyComponent */
@@ -47,6 +47,11 @@ In this project you'll find:
   import cssModules from "./index.module.css";
 
   const rootStyle = cssModules[root];
+  ```
+
+  ```jsx
+  // using the css module class
+  <div className={rootStyle} />
   ```
 
 2. Project Tree:
