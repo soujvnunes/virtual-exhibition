@@ -1,3 +1,10 @@
+.h2,
+.p,
+.label,
+.medium {
+  font-size: var(--font-size);
+}
+
 .h2 {
   --font-size: 2.25rem;
 }
@@ -13,10 +20,6 @@
 
 .large {
   font-size: calc(var(--font-size) * 1.25);
-}
-
-.medium {
-  font-size: var(--font-size);
 }
 
 .small {

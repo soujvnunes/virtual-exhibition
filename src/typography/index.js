@@ -60,7 +60,7 @@ Typography.propTypes = {
 
 Typography.defaultProps = {
   variant: "paragraph",
-  size: "medium",
+  size: null,
   href: null,
   className: null,
   color: "base",
