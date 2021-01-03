@@ -13,11 +13,6 @@ function Typography({
   color = "",
   weight = "",
 } = {}) {
-  const renderElementClass =
-    (variant === "label" && classes.p) ||
-    classes[getElementVariant({ variant })];
-  const renderSizeClass = classes[size];
-  const renderWeightClass = classes[weight];
   const renderColorClass =
     (href && classes.main) ||
     (variant === "paragraph" && classes.reading) ||
@@ -31,10 +26,10 @@ function Typography({
     href ? "a" : getElementVariant({ variant }),
     {
       className: clsx(
-        { [renderElementClass]: variant },
-        { [renderSizeClass]: size },
+        { [classes[getElementVariant({ variant })]]: variant },
+        { [classes[size]]: size },
         { [renderColorClass]: color },
-        { [renderWeightClass]: weight },
+        { [classes[weight]]: weight },
         { [className]: className },
       ),
       ...(!(variant === "title") &&
@@ -51,7 +46,7 @@ function Typography({
 }
 
 Typography.propTypes = {
-  variant: PropTypes.oneOf(["title", "paragraph", "label", "caption"]),
+  variant: PropTypes.oneOf(["title", "paragraph", "label"]),
   size: PropTypes.oneOf(["large", "medium", "small"]),
   href: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -69,7 +64,7 @@ Typography.defaultProps = {
   href: null,
   className: null,
   color: "base",
-  weight: "normal",
+  weight: null,
 };
 
 export default Typography;

@@ -7,8 +7,6 @@ export function getElementVariant({ variant = "" } = {}) {
       return "p";
     case "label":
       return variant;
-    case "caption":
-      return "span";
     default:
       return null;
   }

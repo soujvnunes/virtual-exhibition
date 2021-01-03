@@ -32,11 +32,6 @@
   line-height: 1.618rem;
 }
 
-.span {
-  --font-size: 0.75rem;
-  letter-spacing: 1.618px;
-}
-
 .large {
   font-size: calc(var(--font-size) * 1.25);
 }

@@ -13,10 +13,6 @@ function App() {
         <Typography variant="label" weight="bolder">
           This is a label.
         </Typography>
-        <Typography variant="caption">This is a caption.</Typography>
-        <Typography variant="caption" size="large">
-          This is a caption with large size.
-        </Typography>
         <Typography size="small">
           Edit <code>src/App.js</code> and save to reload.
         </Typography>
