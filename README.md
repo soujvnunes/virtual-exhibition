@@ -6,7 +6,7 @@ This project will follows this planned [prototype](https://drive.google.com/driv
 
 In this project you'll find:
 
-### `Conventions`
+### Conventions
 
 1. Naming:
 
@@ -115,18 +115,32 @@ export default class MyComponent extends React.Component {}
 MyComponent.defaultProps = defaultProps;
 ```
 
-### `Components`
+### Components
+
+#### `Typography`
+
+```jsx
+import Typography from "./src/typography";
+
+<Typography
+  color="main|reading|base|disabled"
+  href="https://website.com"
+  size="large|medium|small"
+  variant="title|paragraph|label"
+  weight="bolder|normal|lighter"
+>
+  "" || <code>""</code>
+</Typography>;
+```
+
+### Modules
 
 Nothing yet.
 
-### `Modules`
+### Constants
 
 Nothing yet.
 
-### `Constants`
-
-Nothing yet.
-
-### `Used APIs`
+### Used APIs
 
 Nothing yet.
