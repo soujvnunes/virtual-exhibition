@@ -1,0 +1,78 @@
+.h1 {
+  --font-size: 2.5rem;
+}
+
+.h2 {
+  --font-size: 2.25rem;
+}
+
+.h3 {
+  --font-size: 2rem;
+}
+
+.h4 {
+  --font-size: 1.75rem;
+}
+
+.h5 {
+  --font-size: 1.5rem;
+}
+
+.h5 {
+  --font-size: 1.25rem;
+}
+
+.p,
+.label {
+  --font-size: 1rem;
+}
+
+.p {
+  --font-size: 1rem;
+  line-height: 1.618rem;
+}
+
+.span {
+  --font-size: 0.75rem;
+  letter-spacing: 1.618px;
+}
+
+.large {
+  font-size: calc(var(--font-size) * 1.25);
+}
+
+.medium {
+  font-size: var(--font-size);
+}
+
+.small {
+  font-size: calc(var(--font-size) * 0.75);
+}
+
+.main {
+  color: var(--color-primary);
+}
+
+.reading {
+  color: var(--color-reading);
+}
+
+.base {
+  color: var(--color-base);
+}
+
+.disabled {
+  color: var(--color-disabled);
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.bolder {
+  font-weight: bolder;
+}
