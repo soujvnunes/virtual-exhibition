@@ -14,13 +14,11 @@ function App() {
           This is a label.
         </Typography>
         <Typography size="small">
-          Edit <code>src/App.js</code> and save to reload.
+          Edit src/App.js and save to reload.
         </Typography>
-        <Typography>
-          Edit <code>src/App.js</code> and save to reload.
-        </Typography>
+        <Typography>Edit src/App.js and save to reload.</Typography>
         <Typography size="large">
-          Edit <code>src/App.js</code> and save to reload.
+          Edit src/App.js and save to reload.
         </Typography>
         <Typography className={link} href="https://reactjs.org">
           Learn React
