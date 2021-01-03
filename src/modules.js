@@ -1,4 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
+import { useState, useEffect } from "react";
+import { THEME_DARK, THEME_LIGHT } from "./constants";
+
 export function getElementVariant({ variant = "" } = {}) {
   switch (variant) {
     case "title":
@@ -10,4 +12,15 @@ export function getElementVariant({ variant = "" } = {}) {
     default:
       return null;
   }
+}
+
+export function useTheme() {
+  const [theme, setTheme] = useState(false);
+  const { documentElement } = document;
+
+  useEffect(() => {
+    documentElement.dataset.theme = theme ? THEME_LIGHT : THEME_DARK;
+  }, [theme]);
+
+  return [theme, setTheme];
 }
