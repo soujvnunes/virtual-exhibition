@@ -10,24 +10,52 @@ In this project you'll find:
 
 1. Naming:
 
-- kebab-case: Classes from stylesheets, JSON object property and directory or files names;
-  - i.e.: `.component-variation`
-  - i.e.: `src/component-name/index-file.js`
-- camelCase: Instances from componentes, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming);
-  - i.e.: `const componentItem = <MyComponent />;`
-- PascalCase: For components;
-  - i.e.: `import MyComponent from './MyComponent';`
+- JS, JSX and CSS **files** names and directory **folders** are named with _kebab-case_ as `src/my-component/index.js`
+- **Components** are named with _PascalCase_ as:
+
+  ```javascript
+  // example for index.js at /component/ folder
+  import MyComponent from "./my-component";
+  import AnotherComponent from "./my-component";
+
+  export { MyComponent, AnotherComponent };
+  ```
+
+- **Instances** from components or **modules** are named with camelCase, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming), as:
+
+  ```javascript
+  // example for modules.js
+  export function someModule({ prop = "" } = {}) {}
+
+  // example for instancing a component
+  import MyComponent from "./my-component";
+
+  const myComponent = <MyComponent>;
+  ```
+
+  In case importing css modules, should always be imported as _cssModules_:
+
+  ```javascript
+  // example for instancing styles from css modules
+  import cssModules from "./index.module.css";
+
+  const rootStyle = cssModules[root];
+  ```
+
+- **Classes** on cascade stylesheet **modules** are named with just a word, because _Create React App_ will generate a unique name on render, as:
+
+  ```css
+  /* example for a index.module.css from MyComponent */
+  .class {
+    prop: "value";
+  }
+  ```
 
 2. Project Tree:
 
-- Components: are set according of its hierarchy, following the [Atomic Design Methodology](https://atomicdesign.bradfrost.com/chapter-2/):
-  - `/src/atoms` as **typography**, **button-base**, **grid**, **grid-item** or **icon**;
-  - `/src/molecules` as **button** or **input** both with icon support capability;
-  - `/src/organisms` as **card**, **header** or **section**;
-  - `/src/templates` as **page**;
-  - `/src/pages` still be a template, but has context or some data exchange;
-- Modules: on `modules.js` file at `/src/app` directory;
-- Constants: on `constants.js` file at `/src/app` directory;
+- Components: are set right directly on `/src/` directory, following the naming convention;
+- Modules: on `modules.js` file at `/src/` directory;
+- Constants: on `constants.js` file at `/src/` directory;
 - Used APIs: are found in each source component that uses it;
 
 3. Documentation:
