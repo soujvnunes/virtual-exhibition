@@ -16,10 +16,14 @@ export function getElementVariant({ variant = "" } = {}) {
 
 export function useTheme() {
   const [theme, setTheme] = useState(false);
-  const { documentElement } = document;
+  const { dataset } = document.documentElement;
 
   useEffect(() => {
-    documentElement.dataset.theme = theme ? THEME_LIGHT : THEME_DARK;
+    dataset.theme = theme ? THEME_LIGHT : THEME_DARK;
+
+    return () => {
+      delete dataset.theme;
+    };
   }, [theme]);
 
   return [theme, setTheme];
