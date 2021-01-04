@@ -20,31 +20,31 @@ html[data-theme="dark"] {
   --background: #333333;
 }
 
-html {
+html[data-theme] {
   --font-family-main: Georgia, "Times New Roman", Times, serif;
   --font-family: "Lucida Sans Unicode", -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans";
   --font-size--heading-two: 2.25rem;
   --font-size--paragraph: 1rem;
   --font-size--base: 16px;
-  font-size: var(--font-size--base);
 }
 
 @media screen and (max-width: 1440px) and (min-width: 960px) {
-  html {
+  html[data-theme] {
     --font-size--heading-two: 2.75rem;
   }
 }
 
 @media screen and (min-width: 1920px) {
-  html {
+  html[data-theme] {
     --font-size--heading-two: 3.75rem;
   }
 }
 
-body {
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--background);
   font-family: var(--font-family);
+  font-size: var(--font-size--base);
 }
