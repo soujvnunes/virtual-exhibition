@@ -28,3 +28,9 @@ export function useTheme() {
 
   return [theme, setTheme];
 }
+
+export function toKebabCase({ value = null } = {}) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[\s|']/g, (character) => ({ " ": "-", "'": "_" }[character]));
+}
