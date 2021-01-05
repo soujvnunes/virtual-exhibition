@@ -1,0 +1,9 @@
+.root {
+  background-color: transparent;
+  border: unset;
+  font: inherit;
+  padding: 0 1.5rem;
+  min-height: 3rem;
+  min-width: 3rem;
+  color: inherit;
+}

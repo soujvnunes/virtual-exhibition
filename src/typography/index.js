@@ -9,6 +9,7 @@ function Typography({
   href = "",
   children = "" || null,
   className = "",
+  htmlFor,
 } = {}) {
   if (!children) {
     return null;
@@ -29,6 +30,7 @@ function Typography({
             rel: "noopener noreferrer",
           }),
         }),
+      ...(variant === "label" && htmlFor),
     },
     children,
   );
@@ -39,15 +41,18 @@ Typography.propTypes = {
   href: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.node,
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node])),
   ]).isRequired,
   className: PropTypes.string,
+  htmlFor: PropTypes.string,
 };
 
 Typography.defaultProps = {
   variant: "paragraph",
   href: null,
   className: null,
+  htmlFor: null,
 };
 
 export default Typography;
