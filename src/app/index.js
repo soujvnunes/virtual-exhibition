@@ -1,3 +1,4 @@
+import Button from "../button";
 import { useTheme } from "../modules";
 import Typography from "../typography";
 import { root } from "./index.module.css";
@@ -8,12 +9,9 @@ function App() {
   return (
     <div className={root}>
       <Typography variant="title">This is a title.</Typography>
-      <Typography variant="label">This is a label.</Typography>
       <Typography>This is a paragraph.</Typography>
       <Typography href="https://reactjs.org">Learn React</Typography>
-      <button type="button" onClick={() => setTheme(!theme)}>
-        Click
-      </button>
+      <Button onClick={() => setTheme(!theme)}>I&apos;m a button</Button>
     </div>
   );
 }
