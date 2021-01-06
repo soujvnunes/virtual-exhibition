@@ -9,12 +9,7 @@ const Button = forwardRef(
   ({ children, onClick, className, type, variant }, ref) => (
     <button
       type="button"
-      className={
-        (clsx(root, {
-          [cssModules[variant]]: variant,
-        }),
-        className)
-      }
+      className={clsx(root, { [cssModules[variant]]: variant }, className)}
       id={toKebabCase({ value: children })}
       name={toKebabCase({ value: children })}
       {...{ ref, onClick, type }}

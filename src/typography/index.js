@@ -9,7 +9,6 @@ function Typography({
   href = "",
   children = "" || null,
   className = "",
-  htmlFor = "",
 } = {}) {
   if (!children) {
     return null;
@@ -21,7 +20,7 @@ function Typography({
       className: clsx(
         root,
         { [cssModules[getElementVariant({ variant })]]: variant },
-        { [className]: className },
+        className,
       ),
       ...(!(variant === "title") &&
         href && {
@@ -31,8 +30,7 @@ function Typography({
             rel: "noopener noreferrer",
           }),
         }),
-      ...(variant === "label" &&
-        htmlFor && { htmlFor: toKebabCase({ value: children }) }),
+      ...(variant === "label" && { htmlFor: toKebabCase({ value: children }) }),
     },
     children,
   );
@@ -47,14 +45,12 @@ Typography.propTypes = {
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node])),
   ]).isRequired,
   className: PropTypes.string,
-  htmlFor: PropTypes.string,
 };
 
 Typography.defaultProps = {
   variant: "paragraph",
   href: null,
   className: null,
-  htmlFor: null,
 };
 
 export default Typography;
