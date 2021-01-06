@@ -7,3 +7,8 @@
   min-width: 3rem;
   color: inherit;
 }
+
+.outlined {
+  border: 1px solid var(--color-base);
+  border-radius: 1.5rem;
+}
