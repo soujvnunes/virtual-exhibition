@@ -2,14 +2,9 @@ import { createElement } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import cssModules, { root } from "./index.module.css";
-import { getElementVariant, toKebabCase } from "../modules";
+import { getElementVariant } from "../modules";
 
-function Typography({
-  variant = "",
-  href = "",
-  children = "" || null,
-  className = "",
-} = {}) {
+function Typography({ variant, href, children, className, htmlFor } = {}) {
   if (!children) {
     return null;
   }
@@ -30,7 +25,7 @@ function Typography({
             rel: "noopener noreferrer",
           }),
         }),
-      ...(variant === "label" && { htmlFor: toKebabCase({ value: children }) }),
+      ...(variant === "label" && htmlFor && { htmlFor }),
     },
     children,
   );
@@ -45,12 +40,14 @@ Typography.propTypes = {
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.node])),
   ]).isRequired,
   className: PropTypes.string,
+  htmlFor: PropTypes.string,
 };
 
 Typography.defaultProps = {
   variant: "paragraph",
   href: null,
   className: null,
+  htmlFor: null,
 };
 
 export default Typography;
