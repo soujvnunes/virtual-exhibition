@@ -13,48 +13,48 @@ In this project you'll find:
 - JS, JSX and CSS **files** names and directory **folders** are named with _kebab-case_ as `src/my-component/index.js`
 - **Components** are named with _PascalCase_ as:
 
-  ```javascript
-  // example for index.js at /component/ folder
-  import MyComponent from "./my-component";
-  import AnotherComponent from "./another-component";
+```javascript
+// example for index.js at /component/ folder
+import MyComponent from "./my-component";
+import AnotherComponent from "./another-component";
 
-  export { MyComponent, AnotherComponent };
-  ```
+export { MyComponent, AnotherComponent };
+```
 
 - **Instances** from components or **modules** are named with _camelCase_, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming), as:
 
-  ```javascript
-  // example for modules.js
-  export function someModule({ prop = "" } = {}) {}
+```javascript
+// example for modules.js
+export function someModule({ prop = "" } = {}) {}
 
-  // example for instancing a component
-  import MyComponent from "./my-component";
+// example for instancing a component
+import MyComponent from "./my-component";
 
-  const myComponent = <MyComponent>;
-  ```
+const myComponent = <MyComponent>;
+```
 
-  **Classes** on cascade stylesheet **modules** are named with just a word, because [Create React App](https://github.com/facebook/create-react-app) will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_, following:
+- **Classes** on cascade stylesheet **modules** are named with just a word, because [Create React App](https://github.com/facebook/create-react-app) will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_, following:
 
-  ```css
-  /* example for a index.module.css from MyComponent */
-  .root {
-    prop: "value";
-  }
+```css
+/* example for a index.module.css from MyComponent */
+.root {
+  prop: "value";
+}
 
-  .variant {
-    exclusive-prop: "value";
-  }
-  ```
+.variant {
+  exclusive-prop: "value";
+}
+```
 
-  ```javascript
-  // example for instancing styles from css modules
-  import cssModules, { root } from "./index.module.css";
-  ```
+```javascript
+// example for instancing styles from css modules
+import cssModules, { root } from "./index.module.css";
+```
 
-  ```jsx
-  // using the css module class
-  <div className={clsx(root, { cssModules[variant]: variant })} />
-  ```
+```jsx
+// using the css module class
+<div className={clsx(root, { cssModules[variant]: variant })} />
+```
 
 2. Project Tree:
 
