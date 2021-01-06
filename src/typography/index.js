@@ -2,14 +2,14 @@ import { createElement } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import cssModules from "./index.module.css";
-import { getElementVariant } from "../modules";
+import { getElementVariant, toKebabCase } from "../modules";
 
 function Typography({
   variant = "",
   href = "",
   children = "" || null,
   className = "",
-  htmlFor,
+  htmlFor = "",
 } = {}) {
   if (!children) {
     return null;
@@ -30,7 +30,8 @@ function Typography({
             rel: "noopener noreferrer",
           }),
         }),
-      ...(variant === "label" && htmlFor),
+      ...(variant === "label" &&
+        htmlFor && { htmlFor: toKebabCase({ value: children }) }),
     },
     children,
   );
