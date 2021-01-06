@@ -1,3 +1,8 @@
+.root {
+  transition-property: color;
+  transition: var(--transition);
+}
+
 .h2,
 .label {
   font-family: var(--font-family-main);
