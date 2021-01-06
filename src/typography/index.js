@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import cssModules from "./index.module.css";
+import cssModules, { root } from "./index.module.css";
 import { getElementVariant, toKebabCase } from "../modules";
 
 function Typography({
@@ -19,6 +19,7 @@ function Typography({
     href ? "a" : getElementVariant({ variant }),
     {
       className: clsx(
+        root,
         { [cssModules[getElementVariant({ variant })]]: variant },
         { [className]: className },
       ),
