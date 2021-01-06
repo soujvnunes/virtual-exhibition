@@ -11,7 +11,9 @@ function App() {
       <Typography variant="title">This is a title.</Typography>
       <Typography>This is a paragraph.</Typography>
       <Typography href="https://reactjs.org">Learn React</Typography>
-      <Button onClick={() => setTheme(!theme)}>I&apos;m a button</Button>
+      <Button onClick={() => setTheme(!theme)} variant="outlined">
+        I&apos;m a button
+      </Button>
     </div>
   );
 }
