@@ -1,12 +1,18 @@
 # UFAL 60 anos
 
-This project will follows this planned [prototype](https://drive.google.com/drive/folders/1jVTV7TA680KU66xiYnqbh3vvNJ7lIjT0?usp=sharing).
+Veja o quanto evoluímos juntos. Já passaram 60 anos! Explore através do decorrer das décadas o valor e prestígio da nossa Universidade Federal de Alagoas expandindo-se.
 
 ## Documentação
 
-In this project you'll find:
+This project will follows this planned prototype:
 
-### Conventions
+![Mobile device layout - home](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/samsung-galaxy-s10--1.png?raw=true)
+![Mobile device layout - decade context](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/samsung-galaxy-s10--2.png?raw=true)
+![Desktop device layout - home](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--1.png?raw=true)
+![Mobile device layout - decade context](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--2.png?raw=true)
+![Mobile device layout - decade context - imagem visibility](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--3.png?raw=true)
+
+## Conventions
 
 1. Naming:
 
@@ -119,9 +125,9 @@ export default class MyComponent extends React.Component {}
 MyComponent.defaultProps = defaultProps;
 ```
 
-### Components
+## Components
 
-#### `Typography`
+### `Typography`
 
 ```jsx
 import Typography from "./src/typography";
@@ -131,14 +137,14 @@ import Typography from "./src/typography";
 </Typography>;
 ```
 
-### Modules
+## Modules
 
 Nothing yet.
 
-### Constants
+## Constants
 
 Nothing yet.
 
-### Used APIs
+## Used APIs
 
 Nothing yet.
