@@ -40,18 +40,20 @@ In this project you'll find:
   .root {
     prop: "value";
   }
+
+  .variant {
+    exclusive-prop: "value";
+  }
   ```
 
   ```javascript
   // example for instancing styles from css modules
-  import cssModules from "./index.module.css";
-
-  const rootStyle = cssModules[root];
+  import cssModules, { root } from "./index.module.css";
   ```
 
   ```jsx
   // using the css module class
-  <div className={rootStyle} />
+  <div className={clsx(root, { cssModules[variant]: variant })} />
   ```
 
 2. Project Tree:
@@ -63,7 +65,7 @@ In this project you'll find:
 
 3. Documentation:
 
-Params description:
+- Params description:
 
 ```javascript
 /**
@@ -79,13 +81,13 @@ function pow({ x = 0, n = 0 } = {}) {
 }
 ```
 
-JSX component usages:
+- JSX component usages:
 
 ```javascript
 <Component prop={value1|value2|etc...} />
 ```
 
-Component or module props:
+- Component or module props:
 
 - Functional:
 
@@ -95,6 +97,7 @@ function Component({
   iAmBool = false,
   iAmFunc = () => {},
   iAmNumber = 0,
+  iAmObject = null,
 } = {}) {
   return <div />;
 }
@@ -108,6 +111,7 @@ const defaultProps = {
   iAmBool = false,
   iAmFunc = () => {},
   iAmNumber = 0,
+  iAmObject = null,
 }
 
 export default class MyComponent extends React.Component {}
@@ -122,13 +126,7 @@ MyComponent.defaultProps = defaultProps;
 ```jsx
 import Typography from "./src/typography";
 
-<Typography
-  color="main|reading|base|disabled"
-  href="https://website.com"
-  size="large|medium|small"
-  variant="title|paragraph|label"
-  weight="bolder|normal|lighter"
->
+<Typography href="https://website.com" variant="title|paragraph|label">
   "" || <code>""</code>
 </Typography>;
 ```
