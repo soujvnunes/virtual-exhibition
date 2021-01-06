@@ -7,7 +7,7 @@ import { toKebabCase } from "../modules";
 
 const Button = forwardRef(
   (
-    { children, onClick, className, type, variant, startIcon, endIcon },
+    { children, onClick, className, type, variant, startIcon, endIcon, name },
     ref,
   ) => {
     const renderStartIcon =
@@ -20,14 +20,13 @@ const Button = forwardRef(
       <button
         type="button"
         className={clsx(root, { [cssModules[variant]]: variant }, className)}
-        id={toKebabCase({ value: children })}
-        name={toKebabCase({ value: children })}
-        {...{ ref, onClick, type }}
+        id={name && toKebabCase({ value: name })}
+        {...{ ref, onClick, type, name }}
       >
         <Typography
           variant="label"
           className={clsx(label)}
-          htmlFor={toKebabCase({ value: children })}
+          htmlFor={name && toKebabCase({ value: name })}
         >
           {renderStartIcon}
           {children}
@@ -46,6 +45,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(["outlined"]),
   startIcon: PropTypes.node,
   endIcon: PropTypes.node,
+  name: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -55,6 +55,7 @@ Button.defaultProps = {
   variant: null,
   startIcon: null,
   endIcon: null,
+  name: null,
 };
 
 Button.displayName = "Button";
