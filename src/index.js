@@ -1,13 +1,9 @@
 import { StrictMode } from "react";
 import { render } from "react-dom";
-import "./index.css";
-import App from "./app";
 import reportWebVitals from "./report-web-vitals";
 
 render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <StrictMode>Preparing for production.</StrictMode>,
   document.getElementById("root"),
 );
 
