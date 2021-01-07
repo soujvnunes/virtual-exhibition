@@ -8,6 +8,10 @@
   color: inherit;
 }
 
+.icon {
+  padding: 0 0.75rem;
+}
+
 .outlined {
   border: 1px solid var(--color-base);
   border-radius: 1.5rem;
@@ -19,11 +23,11 @@
 }
 
 .end-icon {
-  margin-right: -12px;
-  margin-left: 8px;
+  margin-right: -0.75rem;
+  margin-left: 0.5rem;
 }
 
 .start-icon {
-  margin-left: -12px;
-  margin-right: 8px;
+  margin-left: -0.75rem;
+  margin-right: 0.5rem;
 }
