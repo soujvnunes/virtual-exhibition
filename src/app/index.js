@@ -1,4 +1,5 @@
 import Button from "../button";
+import Grid from "../grid";
 import Icon from "../icon";
 import { useTheme } from "../modules";
 import Typography from "../typography";
@@ -9,28 +10,36 @@ function App() {
 
   return (
     <div className={root}>
-      <Typography variant="title">This is a title.</Typography>
-      <Typography>This is a paragraph.</Typography>
-      <Typography href="https://reactjs.org">Learn React</Typography>
-      <Button
-        onClick={() => setTheme(!theme)}
-        variant="outlined"
-        startIcon={<Icon name="face" />}
-      >
-        I&apos;m a button
-      </Button>
-      <Button
-        onClick={() => setTheme(!theme)}
-        variant="outlined"
-        endIcon={<Icon name="face" />}
-      >
-        I&apos;m a button
-      </Button>
-      <Button
-        onClick={() => setTheme(!theme)}
-        variant="outlined"
-        icon={<Icon name="face" />}
-      />
+      <Grid container>
+        <Grid span={4} item>
+          <Typography variant="title">This is a title.</Typography>
+        </Grid>
+        <Grid span={8} item>
+          <Typography variant="title">This is a title.</Typography>
+          <Button
+            onClick={() => setTheme(!theme)}
+            variant="outlined"
+            endIcon={<Icon name="face" />}
+          >
+            I&apos;m a button
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid span={6} item>
+          <Typography variant="title">This is a title.</Typography>
+        </Grid>
+        <Grid span={6} item>
+          <Typography variant="title">This is a title.</Typography>
+          <Button
+            onClick={() => setTheme(!theme)}
+            variant="outlined"
+            endIcon={<Icon name="face" />}
+          >
+            I&apos;m a button
+          </Button>
+        </Grid>
+      </Grid>
     </div>
   );
 }
