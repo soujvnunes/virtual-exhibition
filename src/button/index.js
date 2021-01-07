@@ -7,26 +7,40 @@ import { toKebabCase } from "../modules";
 
 const Button = forwardRef(
   (
-    { children, onClick, className, type, variant, startIcon, endIcon, name },
+    {
+      children,
+      onClick,
+      className,
+      type,
+      variant,
+      startIcon,
+      endIcon,
+      name,
+      icon,
+    },
     ref,
   ) => {
+    const renderEndIcon =
+      endIcon && cloneElement(endIcon, { className: cssModules["end-icon"] });
     const renderStartIcon =
       startIcon &&
       cloneElement(startIcon, { className: cssModules["start-icon"] });
-    const renderEndIcon =
-      endIcon && cloneElement(endIcon, { className: cssModules["end-icon"] });
     const renderId = name && toKebabCase({ value: name });
 
     return (
       <button
         type="button"
-        className={clsx(root, { [cssModules[variant]]: variant }, className)}
+        className={clsx(
+          root,
+          { [cssModules[variant]]: variant, [cssModules.icon]: icon },
+          className,
+        )}
         id={renderId}
         {...{ ref, onClick, type, name }}
       >
         <Typography variant="label" className={clsx(label)} htmlFor={renderId}>
           {renderStartIcon}
-          {children}
+          {icon || children}
           {renderEndIcon}
         </Typography>
       </button>
@@ -43,6 +57,7 @@ Button.propTypes = {
   startIcon: PropTypes.node,
   endIcon: PropTypes.node,
   name: PropTypes.string,
+  icon: PropTypes.node,
 };
 
 Button.defaultProps = {
@@ -53,6 +68,7 @@ Button.defaultProps = {
   startIcon: null,
   endIcon: null,
   name: null,
+  icon: null,
 };
 
 Button.displayName = "Button";

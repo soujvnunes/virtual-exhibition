@@ -1,5 +1,4 @@
 import Button from "../button";
-import ButtonIcon from "../button-icon";
 import Icon from "../icon";
 import { useTheme } from "../modules";
 import Typography from "../typography";
@@ -27,9 +26,11 @@ function App() {
       >
         I&apos;m a button
       </Button>
-      <ButtonIcon onClick={() => setTheme(!theme)} variant="outlined">
-        <Icon name="face" />
-      </ButtonIcon>
+      <Button
+        onClick={() => setTheme(!theme)}
+        variant="outlined"
+        icon={<Icon name="face" />}
+      />
     </div>
   );
 }
