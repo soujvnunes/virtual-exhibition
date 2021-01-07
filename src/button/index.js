@@ -15,19 +15,16 @@ const Button = forwardRef(
       cloneElement(startIcon, { className: cssModules["start-icon"] });
     const renderEndIcon =
       endIcon && cloneElement(endIcon, { className: cssModules["end-icon"] });
+    const renderId = name && toKebabCase({ value: name });
 
     return (
       <button
         type="button"
         className={clsx(root, { [cssModules[variant]]: variant }, className)}
-        id={name && toKebabCase({ value: name })}
+        id={renderId}
         {...{ ref, onClick, type, name }}
       >
-        <Typography
-          variant="label"
-          className={clsx(label)}
-          htmlFor={name && toKebabCase({ value: name })}
-        >
+        <Typography variant="label" className={clsx(label)} htmlFor={renderId}>
           {renderStartIcon}
           {children}
           {renderEndIcon}
