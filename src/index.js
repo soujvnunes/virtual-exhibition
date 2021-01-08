@@ -1,10 +1,12 @@
 import { StrictMode } from "react";
 import { render } from "react-dom";
+import { CssBaseline } from "@material-ui/core";
 import App from "./app";
 import reportWebVitals from "./report-web-vitals";
 
 render(
   <StrictMode>
+    <CssBaseline />
     <App />
   </StrictMode>,
   document.getElementById("root"),
