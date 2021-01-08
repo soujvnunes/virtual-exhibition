@@ -1,10 +1,10 @@
-import { CssBaseline } from "@material-ui/core";
 import Provider from "../provider";
+import Header from "../header";
 
 function App() {
   return (
     <Provider>
-      <CssBaseline />
+      <Header />
     </Provider>
   );
 }
