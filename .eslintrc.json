@@ -71,6 +71,7 @@
     ],
     "react/prefer-stateless-function": "off",
     "object-curly-newline": "off",
-    "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }]
+    "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }],
+    "react/jsx-props-no-spreading": ["off"]
   }
 }
