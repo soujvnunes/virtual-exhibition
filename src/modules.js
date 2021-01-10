@@ -5,6 +5,7 @@ import {
   HEADING_TYPE,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
+  REDUCER_HEIGHT,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -65,4 +66,13 @@ export function theme({ type } = {}) {
       },
     }),
   );
+}
+
+export function reducer(state, action) {
+  switch (action.type) {
+    case REDUCER_HEIGHT:
+      return { height: action.payload };
+    default:
+      throw new Error();
+  }
 }

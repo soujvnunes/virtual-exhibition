@@ -9,3 +9,4 @@ export const HEADING_TYPE = {
 export const PRIMARY_COLOR = "#EA2934";
 export const SECONDARY_COLOR = "#3F9CF9";
 export const BAR_HEIGHT = 64;
+export const REDUCER_HEIGHT = "height";
