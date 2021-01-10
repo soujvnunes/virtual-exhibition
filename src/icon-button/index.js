@@ -7,7 +7,7 @@ function IconButton(props) {
 
 export default withStyles(({ palette }) => ({
   root: {
-    border: `1px solid ${palette.action.disabled}`,
+    border: `2px solid ${palette.action.disabled}`,
     boxSizing: "border-box",
   },
 }))(IconButton);
