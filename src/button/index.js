@@ -9,7 +9,7 @@ export default withStyles(({ spacing, palette }) => ({
   root: {
     borderRadius: spacing(3),
     minHeight: spacing(6),
-    letterSpacing: 2.618,
+    borderWidth: spacing(0.25),
   },
   outlined: {
     padding: spacing(0, 3),
