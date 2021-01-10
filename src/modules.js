@@ -1,11 +1,11 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { useLayoutEffect, useState } from "react";
 import {
   BAR_HEIGHT,
   HEADING_TYPE,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
-  REDUCER_HEIGHT,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -68,11 +68,25 @@ export function theme({ type } = {}) {
   );
 }
 
-export function reducer(state, action) {
-  switch (action.type) {
-    case REDUCER_HEIGHT:
-      return { height: action.payload };
-    default:
-      throw new Error();
+export function useWindowSize(params = "") {
+  const [state, setState] = useState({ width: 0, height: 0 });
+  const updateSize = () => {
+    setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("resize", updateSize);
+    updateSize();
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  if (params) {
+    return state[params];
   }
+
+  return state;
 }
