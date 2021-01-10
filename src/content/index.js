@@ -14,13 +14,12 @@ const useStyles = makeStyles(({ palette }) => ({
   },
 }));
 
-const gridOffset = _("xs down") && <Grid item xs={2} />;
-
 function Content() {
   const classes = useStyles();
   const alignCenter = _("sm down") && { align: "center" };
   const heading6 = _("sm down") && "h6";
   const heading4 = _("md down") && "h4";
+  const gridOffset = _("xs down") && <Grid item xs={2} />;
 
   return (
     <Grid container alignItems="center">
