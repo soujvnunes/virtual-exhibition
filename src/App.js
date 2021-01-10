@@ -2,8 +2,7 @@ import { useMemo } from "react";
 import { CssBaseline, useMediaQuery } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./modules";
-import Header from "./header";
-import Content from "./content";
+import Container from "./container";
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -13,8 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={memoizedTheme}>
       <CssBaseline />
-      <Header />
-      <Content />
+      <Container />
     </ThemeProvider>
   );
 }
