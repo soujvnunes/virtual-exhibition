@@ -2,7 +2,6 @@ import {
   AppBar,
   Toolbar,
   Icon,
-  Container,
   IconButton as MuiIconButton,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,9 +10,6 @@ import Button from "../button";
 import Logos from "../logos";
 
 const useStyles = makeStyles(({ spacing }) => ({
-  toolbar: {
-    minHeight: spacing(8),
-  },
   iconButtonLogos: {
     marginRight: "auto",
   },
@@ -26,8 +22,8 @@ function Header() {
   const { iconButtonAccessibility, iconButtonLogos, toolbar } = useStyles();
 
   return (
-    <AppBar position="fixed" color="transparent" elevation={0}>
-      <Toolbar className={toolbar} component={Container}>
+    <AppBar position="relative" color="transparent" elevation={0}>
+      <Toolbar className={toolbar}>
         <MuiIconButton className={iconButtonLogos} edge="start">
           <Logos variant="outlined" />
         </MuiIconButton>
