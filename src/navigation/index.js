@@ -21,11 +21,11 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   },
 }));
 
-function Footer() {
+function Navigation() {
   const classes = useStyles();
 
   return (
-    <Toolbar component="footer">
+    <Toolbar component="nav">
       <div className={classes.lineWrapper}>
         <Line value={0} />
       </div>
@@ -50,4 +50,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Navigation;
