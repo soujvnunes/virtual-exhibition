@@ -19,15 +19,15 @@ const useStyles = makeStyles(({ spacing }) => ({
 }));
 
 function Header() {
-  const { iconButtonAccessibility, iconButtonLogos, toolbar } = useStyles();
+  const classes = useStyles();
 
   return (
     <AppBar position="relative" color="transparent" elevation={0}>
-      <Toolbar className={toolbar}>
-        <MuiIconButton className={iconButtonLogos} edge="start">
+      <Toolbar className={classes.toolbar}>
+        <MuiIconButton className={classes.iconButtonLogos} edge="start">
           <Logos variant="outlined" />
         </MuiIconButton>
-        <IconButton className={iconButtonAccessibility}>
+        <IconButton className={classes.iconButtonAccessibility}>
           <Icon>accessibility</Icon>
         </IconButton>
         <Button variant="outlined" endIcon={<Icon>chevron_right</Icon>}>
