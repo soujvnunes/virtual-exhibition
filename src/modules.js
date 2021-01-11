@@ -1,5 +1,6 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { useLayoutEffect, useState } from "react";
 import {
   BAR_HEIGHT,
   HEADING_TYPE,
@@ -65,4 +66,32 @@ export function theme({ type } = {}) {
       },
     }),
   );
+}
+
+export function useWindowDimension(params = "") {
+  const [state, setState] = useState({ width: 0, height: 0, scroll: 0 });
+  const updateSize = () => {
+    setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scroll: window.scrollY,
+    });
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener("resize", updateSize);
+    window.addEventListener("scroll", updateSize);
+    updateSize();
+
+    return () => {
+      window.removeEventListener("resize", updateSize);
+      window.removeEventListener("scroll", updateSize);
+    };
+  }, []);
+
+  if (params) {
+    return state[params];
+  }
+
+  return state;
 }
