@@ -2,8 +2,8 @@ import { Box, Container as MuiContainer, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../header";
 import Content from "../content";
-import Footer from "../footer";
-import { useWindowSize } from "../modules";
+import Navigation from "../navigation";
+import { useWindowDimension } from "../modules";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 function Container() {
   const classes = useStyles({
-    minHeight: useWindowSize("height"),
+    minHeight: useWindowDimension("height"),
   });
 
   return (
@@ -27,7 +27,7 @@ function Container() {
       >
         <Header />
         <Content />
-        <Footer />
+        <Navigation />
       </MuiContainer>
     </Box>
   );
