@@ -2,11 +2,19 @@ import { Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Logos from "../logos";
 import { _ } from "../modules";
+import rapport from "../rapport.jpg";
 
 const useStyles = makeStyles(({ palette }) => ({
   typographyTitle: {
     color: palette.text.secondary,
     letterSpacing: 6.853924,
+    "& > span": {
+      WebkitBackgroundClip: "text",
+      textFillColor: "transparent",
+      backgroundImage: `url(${rapport})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    },
   },
   logos: {
     width: "inherit",
@@ -36,7 +44,7 @@ function Content() {
           gutterBottom
           {...alignCenter}
         >
-          Veja o quanto evoluímos juntos.
+          Veja o quanto evoluímos <span>juntos</span>.
         </Typography>
         <Typography variant={_("sm down") ? "body2" : "body1"} {...alignCenter}>
           Já passaram 60 anos! Explore através do decorrer das décadas o valor e
