@@ -1,8 +1,9 @@
 import {
-  AppBar,
   Toolbar,
   Icon,
   IconButton as MuiIconButton,
+  AppBar as MuiAppBar,
+  Container,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "../icon-button";
@@ -18,12 +19,12 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
-function Header() {
+function AppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="relative" color="transparent" elevation={0}>
-      <Toolbar className={classes.toolbar}>
+    <MuiAppBar color="transparent" elevation={0}>
+      <Toolbar component={Container}>
         <MuiIconButton className={classes.iconButtonLogos} edge="start">
           <Logos variant="outlined" />
         </MuiIconButton>
@@ -34,8 +35,8 @@ function Header() {
           Notícias
         </Button>
       </Toolbar>
-    </AppBar>
+    </MuiAppBar>
   );
 }
 
-export default Header;
+export default AppBar;
