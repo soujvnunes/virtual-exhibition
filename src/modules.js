@@ -11,7 +11,9 @@ import {
 export function toKebabCase({ value = null } = {}) {
   return String(value)
     .toLowerCase()
-    .replace(/[\s|']/g, (match) => ({ " ": "-", "'": "_" }[match]));
+    .normalize("NFD")
+    .replace(/[\s|'|.]/g, (match) => ({ " ": "-", "'": "_", ".": "" }[match]))
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 export function _(breakpoint = "sm down") {
