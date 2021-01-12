@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { CssBaseline, useMediaQuery } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./modules";
-import Container from "./container";
+import Main from "./main";
 import { KEY_THEME_DARK, KEY_THEME_LIGHT } from "./constants";
-import HeroScroll from "./hero-scroll";
+import Navigation from "./navigation";
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -14,8 +14,8 @@ function App() {
   return (
     <ThemeProvider theme={memoizedTheme}>
       <CssBaseline />
-      <Container />
-      <HeroScroll />
+      <Navigation />
+      <Main />
     </ThemeProvider>
   );
 }
