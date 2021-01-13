@@ -13,10 +13,6 @@ function HeroScroll() {
   const generateGallery = (index) => {
     const heroGallery = [];
 
-    if (index === 0) {
-      return null;
-    }
-
     for (
       let galleryIndex = 0;
       galleryIndex < HERO_GALLERY[index].length;
@@ -37,7 +33,6 @@ function HeroScroll() {
       id: toKebabCase({ value: HERO_TITLE[index] }),
       description: HERO_DESCRIPTION[index],
       gallery: generateGallery(index),
-      intro: index === 0,
     });
   }
 
