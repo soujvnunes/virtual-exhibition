@@ -58,27 +58,16 @@ export const HEADING_TYPE = {
 export const PRIMARY_COLOR = "#EA2934";
 export const SECONDARY_COLOR = "#3F9CF9";
 export const BAR_HEIGHT = 64;
-export const HERO_SLOTS = new Array(7);
+export const HERO_SLOTS = new Array(6);
 export const HERO_TITLE = [
-  "Veja o quanto evoluímos /juntos/.",
-  "Década de /1960/.",
-  "Década de /1970/.",
-  "Década de /1980/.",
-  "Década de /1990/.",
-  "Década de /2000/.",
-  "Década de /2010/.",
-];
-export const HERO_ID = [
-  "hero-introduction",
-  "hero-60s-decade",
-  "hero-70s-decade",
-  "hero-80s-decade",
-  "hero-90s-decade",
-  "hero-2000s-decade",
-  "hero-2010s-decade",
+  "Década de 1960.",
+  "Década de 1970.",
+  "Década de 1980.",
+  "Década de 1990.",
+  "Década de 2000.",
+  "Década de 2010.",
 ];
 export const HERO_DESCRIPTION = [
-  "Já passaram 60 anos! Explore através do decorrer das décadas o valor e prestígio da nossa Universidade Federal de Alagoas expandindo-se.",
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -87,7 +76,6 @@ export const HERO_DESCRIPTION = [
   "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
 ];
 export const HERO_GALLERY = [
-  null,
   [
     Decade000600001,
     Decade000600002,
@@ -148,7 +136,6 @@ export const HERO_GALLERY = [
   ],
 ];
 export const HERO_CAPTION = [
-  null,
   [
     "Canteiro de obras",
     "Construção do Instituto de Química - outubro de 1968",
