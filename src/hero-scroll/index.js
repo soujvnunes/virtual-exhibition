@@ -1,5 +1,6 @@
 import { toKebabCase } from "../modules";
 import {
+  HERO_CAPTION,
   HERO_DESCRIPTION,
   HERO_GALLERY,
   HERO_SLOTS,
@@ -9,13 +10,33 @@ import Hero from "../hero";
 
 function HeroScroll() {
   const heroes = [];
+  const generateGallery = (index) => {
+    const heroGallery = [];
+
+    if (index === 0) {
+      return null;
+    }
+
+    for (
+      let galleryIndex = 0;
+      galleryIndex < HERO_GALLERY[index].length;
+      galleryIndex += 1
+    ) {
+      heroGallery.push({
+        img: HERO_GALLERY[index][galleryIndex],
+        figcaption: HERO_CAPTION[index][galleryIndex],
+      });
+    }
+
+    return heroGallery;
+  };
 
   for (let index = 0; index < HERO_SLOTS.length; index += 1) {
     heroes.push({
       title: HERO_TITLE[index],
       id: toKebabCase({ value: HERO_TITLE[index] }),
       description: HERO_DESCRIPTION[index],
-      gallery: HERO_GALLERY[index],
+      gallery: generateGallery(index),
       intro: index === 0,
     });
   }
