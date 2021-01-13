@@ -1,45 +1,61 @@
-import { CardActionArea, CardMedia, Dialog } from "@material-ui/core";
+import {
+  CardActionArea,
+  CardMedia,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette, transitions }) => ({
   root: {
-    borderRadius: spacing(3),
     overflow: "hidden",
+    borderRadius: spacing(3),
+    borderStyle: "solid",
+    borderWidth: spacing(0.25),
+    borderColor: ({ hover }) => (hover ? palette.text.primary : "transparent"),
+    transition: transitions.create(["border-color"]),
+    "&:hover img": {
+      opacity: ({ hover }) => (hover ? 0 : 1),
+      transition: transitions.create(["opacity"]),
+    },
+  },
+  paper: {
+    backgroundColor: "transparent",
+    boxShadow: "none",
   },
 }));
 
-// eslint-disable-next-line react/prop-types
-function GalleryItem({ image }) {
-  const [{ open }, setState] = useState({ open: false });
-  const classes = useStyles();
-  const media = ({ height } = {}) => (
-    <CardMedia
-      component="img"
-      alt="Contemplative Reptile"
-      title="Contemplative Reptile"
-      {...{ image, ...(height && { height }) }}
-    />
-  );
-  const handleClick = () => {
-    setState((state) => ({
-      open: !state.open,
-    }));
-  };
+function GalleryItem({ image, alt }) {
+  const [open, setOpen] = useState(false);
+  const [hover, setHover] = useState(false);
+  const { root, paper } = useStyles({ hover });
+  const handleClick = () => setOpen((prevState) => !prevState);
+  const handleMouseEnter = () => setHover(true);
+  const handleMouseLeave = () => setHover(false);
 
   return (
     <>
-      <CardActionArea className={classes.root} onClick={handleClick}>
-        {media({ height: "112" })}
+      <CardActionArea
+        classes={{ root }}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <CardMedia component="img" height="112" {...{ image, alt }} />
       </CardActionArea>
       <Dialog
         maxWidth="lg"
         onClose={handleClick}
-        aria-labelledby="customized-dialog-title"
         open={open}
+        classes={{ paper }}
       >
-        {media()}
+        <CardMedia component="img" {...{ image, alt }} />
+        <DialogContent>
+          <DialogContentText align="center">{alt}</DialogContentText>
+        </DialogContent>
       </Dialog>
     </>
   );
@@ -47,6 +63,7 @@ function GalleryItem({ image }) {
 
 GalleryItem.propTypes = {
   image: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };
 
 export default GalleryItem;
