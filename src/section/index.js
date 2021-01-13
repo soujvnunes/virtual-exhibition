@@ -14,5 +14,6 @@ export default withStyles(() => ({
   root: {
     height: "100vh",
     display: "flex",
+    position: "relative",
   },
 }))(Section);
