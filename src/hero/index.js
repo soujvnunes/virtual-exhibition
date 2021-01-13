@@ -1,20 +1,22 @@
 import { Container, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { Fragment, useEffect, useState } from "react";
-import Gallery from "../gallery";
+import { Fragment } from "react";
 import Logos from "../logos";
 import { useWindowDimension, _ } from "../modules";
-import rapport from "../rapport.jpg";
+import { Rapport } from "../asset";
+import Gallery from "../gallery";
 
-const useStyles = makeStyles(({ palette }) => ({
-  root: ({ image, offset }) =>
+const useStyles = makeStyles(({ palette, transitions }) => ({
+  root: ({ image }) =>
     image && {
       backgroundImage: `url(${image})`,
       position: "relative",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      backgroundPositionY: `-${offset * 0.1}px`,
+      transition: transitions.create(["background-position-y"], {
+        duration: transitions.duration.short,
+      }),
       "&:before": {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         content: "''",
@@ -34,7 +36,7 @@ const useStyles = makeStyles(({ palette }) => ({
     "& > span": {
       WebkitBackgroundClip: "text",
       textFillColor: "transparent",
-      backgroundImage: `url(${rapport})`,
+      backgroundImage: `url(${Rapport})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
     },
@@ -46,11 +48,9 @@ const useStyles = makeStyles(({ palette }) => ({
 }));
 
 function Hero({ title, description, gallery, intro }) {
-  const [offset, setOffset] = useState(0);
   const classes = useStyles({
     minHeight: useWindowDimension("height"),
-    image: gallery && gallery[0],
-    offset,
+    image: gallery && gallery[0].img,
   });
   const alignCenter = intro
     ? _("sm down") && { align: "center" }
@@ -100,18 +100,6 @@ function Hero({ title, description, gallery, intro }) {
       {gridOffsetContent}
     </>
   );
-
-  useEffect(() => {
-    function handleScroll() {
-      setOffset(window.pageYOffset);
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [offset]);
 
   return (
     <section className={classes.root}>
