@@ -29,7 +29,7 @@ export { default as Decade000900005 } from "./decada-0090-0005.jpg";
 export { default as Decade000900006 } from "./decada-0090-0006.jpg";
 export { default as Decade000900007 } from "./decada-0090-0007.jpg";
 export { default as Decade000900008 } from "./decada-0090-0008.jpg";
-export { default as Decade200000001 } from "./decada-2000-0001.tif";
+export { default as Decade200000001 } from "./decada-2000-0001.jpg";
 export { default as Decade200000002 } from "./decada-2000-0002.jpg";
 export { default as Decade200000003 } from "./decada-2000-0003.jpg";
 export { default as Decade200000004 } from "./decada-2000-0004.jpg";
