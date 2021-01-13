@@ -7,6 +7,7 @@ import SectionParagraph from "../section-paragraph";
 
 function Hero({ title, description, gallery }) {
   const gridOffset = <Grid item xs={3} />;
+  const alignCenter = { align: "center" };
 
   return (
     <Section>
@@ -18,8 +19,8 @@ function Hero({ title, description, gallery }) {
       >
         {gridOffset}
         <Grid item sm={6} xs={12}>
-          <SectionTitle>{title}</SectionTitle>
-          <SectionParagraph>{description}</SectionParagraph>
+          <SectionTitle {...alignCenter}>{title}</SectionTitle>
+          <SectionParagraph {...alignCenter}>{description}</SectionParagraph>
         </Grid>
         {gridOffset}
         <Gallery photos={gallery} />
