@@ -46,9 +46,9 @@ function Gallery({ photos }) {
           <Icon>chevron_left</Icon>
         </IconButton>
       </Grid>
-      {photos.slice(prevAmount, amount).map((photo, index) => (
-        <Grid item xs={6} md={2} key={`${photo + 12312 ** index}`}>
-          <GalleryItem image={photo} />
+      {photos.slice(prevAmount, amount).map(({ img, figcaption }) => (
+        <Grid item xs={6} md={2} key={figcaption}>
+          <GalleryItem image={img} alt={figcaption} />
         </Grid>
       ))}
       <Grid container item xs={3} md={1} alignContent="center" justify="center">
