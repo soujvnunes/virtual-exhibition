@@ -1,48 +1,29 @@
-import { toKebabCase } from "../modules";
-import {
-  HERO_CAPTION,
-  HERO_DESCRIPTION,
-  HERO_GALLERY,
-  HERO_SLOTS,
-  HERO_TITLE,
-} from "../constants";
+import PropTypes from "prop-types";
 import Hero from "../hero";
 
-function HeroScroll() {
-  const heroes = [];
-  const generateGallery = (index) => {
-    const heroGallery = [];
-
-    for (
-      let galleryIndex = 0;
-      galleryIndex < HERO_GALLERY[index].length;
-      galleryIndex += 1
-    ) {
-      heroGallery.push({
-        img: HERO_GALLERY[index][galleryIndex],
-        figcaption: HERO_CAPTION[index][galleryIndex],
-      });
-    }
-
-    return heroGallery;
-  };
-
-  for (let index = 0; index < HERO_SLOTS.length; index += 1) {
-    heroes.push({
-      title: HERO_TITLE[index],
-      id: toKebabCase({ value: HERO_TITLE[index] }),
-      description: HERO_DESCRIPTION[index],
-      gallery: generateGallery(index),
-    });
-  }
+function HeroScroll({ heroes }) {
+  console.log(heroes);
 
   return (
     <>
-      {heroes.map(({ id, ...hero }) => (
+      {heroes.slice(0, 1).map(({ id, ...hero }) => (
         <Hero key={id} {...hero} />
       ))}
     </>
   );
 }
+
+HeroScroll.propTypes = {
+  heroes: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.objectOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])),
+        ]),
+      ),
+    ]),
+  ).isRequired,
+};
 
 export default HeroScroll;
