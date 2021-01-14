@@ -13,7 +13,7 @@ const useStyles = makeStyles(({ spacing }) => ({
 }));
 
 function Gallery({ photos }) {
-  const classes = useStyles();
+  const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 4;
   const maxAmount = photos.length;
   const [slice, setSlice] = useState(0);
@@ -23,7 +23,7 @@ function Gallery({ photos }) {
   const handleDecrementClick = () => {
     setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
   };
-  const controllers = (children) => (
+  const controller = (children) => (
     <Grid
       container
       item
@@ -41,8 +41,8 @@ function Gallery({ photos }) {
   }, [deltaSlice]);
 
   return (
-    <Grid container item xs={12} spacing={2} className={classes.root}>
-      {controllers(
+    <Grid container item xs={12} spacing={2} classes={{ root }}>
+      {controller(
         !(slice === 0) && (
           <IconButton onClick={handleDecrementClick}>
             <Icon>chevron_left</Icon>
@@ -56,7 +56,7 @@ function Gallery({ photos }) {
           </Grid>
         ))}
       </Grid>
-      {controllers(
+      {controller(
         !(sliceAmount >= maxAmount) && (
           <IconButton onClick={handleIncrementClick}>
             <Icon>chevron_right</Icon>

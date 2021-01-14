@@ -89,7 +89,7 @@ function GalleryItem({ image, alt }) {
           container
           alignItems="center"
           justify="center"
-          className={fullScreen}
+          classes={{ root: fullScreen }}
         >
           <Icon>fullscreen</Icon>
         </Grid>

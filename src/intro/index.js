@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
 
 function Intro() {
   const { logos } = useStyles();
-  const gridOffsetIntro = _("xs down") && <Grid item xs={2} />;
+  const gridOffset = _("xs down") && <Grid item xs={2} />;
 
   return (
     <Section id="intro">
@@ -25,11 +25,11 @@ function Intro() {
         alignItems="center"
         justify="center"
       >
-        {gridOffsetIntro}
+        {gridOffset}
         <Grid item sm={7} xs={8}>
-          <Logos className={logos} />
+          <Logos classes={{ root: logos }} />
         </Grid>
-        {gridOffsetIntro}
+        {gridOffset}
         <Grid item sm={5} xs={12}>
           <SectionTitle>
             Veja o quanto evoluímos <span>juntos</span>.

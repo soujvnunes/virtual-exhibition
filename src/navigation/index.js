@@ -23,7 +23,12 @@ const useStyles = makeStyles(({ palette, spacing, zIndex }) => ({
 }));
 
 function Navigation() {
-  const classes = useStyles();
+  const {
+    root,
+    gridExplore,
+    iconButtonExpand,
+    typographyExplore,
+  } = useStyles();
   const handleExpandMoreClick = () => {
     setTimeout(() => {
       window.scrollTo(0, 900);
@@ -31,13 +36,13 @@ function Navigation() {
   };
 
   return (
-    <Toolbar component="nav" className={classes.root}>
+    <Toolbar component="nav" classes={{ root }}>
       <Line value={0} />
-      <Grid container justify="center" className={classes.gridExplore}>
+      <Grid container justify="center" classes={{ root: gridExplore }}>
         <Typography
           variant="button"
           color="textSecondary"
-          className={classes.typographyExplore}
+          classes={{ root: typographyExplore }}
           htmlFor="expand_more"
           component="label"
         >
@@ -46,7 +51,7 @@ function Navigation() {
         <IconButton
           onClick={handleExpandMoreClick}
           id="expand_more"
-          className={classes.iconButtonExpand}
+          classes={{ root: iconButtonExpand }}
         >
           <Icon>expand_more</Icon>
         </IconButton>
