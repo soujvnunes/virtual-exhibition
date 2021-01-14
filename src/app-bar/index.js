@@ -1,12 +1,11 @@
 import {
   Toolbar,
   Icon,
-  IconButton as MuiIconButton,
+  IconButton,
   AppBar as MuiAppBar,
   Container,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "../icon-button";
 import Button from "../button";
 import Logos from "../logos";
 import { useWindowDimension } from "../modules";
@@ -16,24 +15,32 @@ const useStyles = makeStyles(({ spacing }) => ({
     marginLeft: "auto",
     marginRight: spacing(1),
   },
+  iconButtonLogos: {
+    padding: 0,
+  },
+  logos: {
+    width: "auto",
+    height: spacing(6),
+  },
 }));
 
 function AppBar() {
-  const { iconButtonAccessibility } = useStyles();
+  const { iconButtonAccessibility, iconButtonLogos, logos } = useStyles();
   const showLogos = useWindowDimension("scroll") >= 900;
 
   return (
     <MuiAppBar color="transparent" elevation={0}>
       <Toolbar component={Container}>
         {showLogos && (
-          <MuiIconButton edge="start">
-            <Logos variant="outlined" />
-          </MuiIconButton>
+          <IconButton classes={{ root: iconButtonLogos }} edge="start">
+            <Logos classes={{ root: logos }} variant="outlined" />
+          </IconButton>
         )}
-        <IconButton classes={{ root: iconButtonAccessibility }}>
-          <Icon>accessibility</Icon>
-        </IconButton>
-        <Button variant="outlined" endIcon={<Icon>chevron_right</Icon>}>
+        <Button
+          classes={{ root: iconButtonAccessibility }}
+          variant="outlined"
+          endIcon={<Icon>chevron_right</Icon>}
+        >
           Notícias
         </Button>
       </Toolbar>
