@@ -9,6 +9,7 @@ export default withStyles(({ palette, spacing }) => ({
   root: {
     height: spacing(0.25),
     width: "100%",
+    position: "absolute",
   },
   colorPrimary: {
     backgroundColor: palette.action.disabled,

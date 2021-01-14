@@ -59,6 +59,14 @@ export const PRIMARY_COLOR = "#EA2934";
 export const SECONDARY_COLOR = "#3F9CF9";
 export const BAR_HEIGHT = 64;
 export const HERO_SLOTS = new Array(6);
+export const HERO_SHORT_TITLE = [
+  "1960",
+  "1970",
+  "1980",
+  "1990",
+  "2000",
+  "2010",
+];
 export const HERO_TITLE = [
   "Década de 1960.",
   "Década de 1970.",
