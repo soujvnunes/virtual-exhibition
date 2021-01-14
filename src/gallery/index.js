@@ -14,46 +14,37 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 function Gallery({ photos }) {
   const classes = useStyles();
-  const deltaAmount = _("sm down") ? 1 : 5;
+  const deltaSlice = _("sm down") ? 1 : 4;
   const maxAmount = photos.length;
-  const initialState = {
-    prevAmount: 0,
-    amount: deltaAmount,
-  };
-  const [{ prevAmount, amount }, setState] = useState(initialState);
+  const [slice, setSlice] = useState(0);
   const handleIncrementClick = () => {
-    setState((state) => ({
-      prevAmount: state.amount,
-      amount:
-        amount + deltaAmount > maxAmount ? maxAmount : amount + deltaAmount,
-    }));
+    setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
   };
   const handleDecrementClick = () => {
-    setState((state) => ({
-      prevAmount: amount - deltaAmount * 2 < 0 ? 0 : amount - deltaAmount * 2,
-      amount: state.amount - deltaAmount,
-    }));
+    setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
   };
 
   useEffect(() => {
-    setState(initialState);
-  }, [deltaAmount]);
+    setSlice(0);
+  }, [deltaSlice]);
 
   return (
     <Grid container item xs={12} spacing={2} className={classes.root}>
       <Grid container item xs={3} md={1} alignContent="center" justify="center">
-        <IconButton disabled={prevAmount === 0} onClick={handleDecrementClick}>
+        <IconButton disabled={slice === 0} onClick={handleDecrementClick}>
           <Icon>chevron_left</Icon>
         </IconButton>
       </Grid>
-      {photos.slice(prevAmount, amount).map(({ img, figcaption }) => (
-        <Grid item xs={6} md={2} key={figcaption}>
-          <GalleryItem image={img} alt={figcaption} />
-        </Grid>
-      ))}
+      <Grid container item xs={6} md={10} spacing={2}>
+        {photos.slice(slice, slice + deltaSlice).map(({ img, figcaption }) => (
+          <Grid item xs md={3} key={figcaption}>
+            <GalleryItem image={img} alt={figcaption} />
+          </Grid>
+        ))}
+      </Grid>
       <Grid container item xs={3} md={1} alignContent="center" justify="center">
         <IconButton
-          disabled={amount === maxAmount}
+          disabled={slice + deltaSlice >= maxAmount}
           onClick={handleIncrementClick}
         >
           <Icon>chevron_right</Icon>
