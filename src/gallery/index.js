@@ -23,6 +23,18 @@ function Gallery({ photos }) {
   const handleDecrementClick = () => {
     setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
   };
+  const controllers = (children) => (
+    <Grid
+      container
+      item
+      xs={3}
+      md={1}
+      alignContent="center"
+      justify="center"
+      {...{ children }}
+    />
+  );
+  const sliceAmount = slice + deltaSlice;
 
   useEffect(() => {
     setSlice(0);
@@ -30,26 +42,27 @@ function Gallery({ photos }) {
 
   return (
     <Grid container item xs={12} spacing={2} className={classes.root}>
-      <Grid container item xs={3} md={1} alignContent="center" justify="center">
-        <IconButton disabled={slice === 0} onClick={handleDecrementClick}>
-          <Icon>chevron_left</Icon>
-        </IconButton>
-      </Grid>
+      {controllers(
+        !(slice === 0) && (
+          <IconButton onClick={handleDecrementClick}>
+            <Icon>chevron_left</Icon>
+          </IconButton>
+        ),
+      )}
       <Grid container item xs={6} md={10} spacing={2}>
-        {photos.slice(slice, slice + deltaSlice).map(({ img, figcaption }) => (
+        {photos.slice(slice, sliceAmount).map(({ img, figcaption }) => (
           <Grid item xs md={3} key={figcaption}>
             <GalleryItem image={img} alt={figcaption} />
           </Grid>
         ))}
       </Grid>
-      <Grid container item xs={3} md={1} alignContent="center" justify="center">
-        <IconButton
-          disabled={slice + deltaSlice >= maxAmount}
-          onClick={handleIncrementClick}
-        >
-          <Icon>chevron_right</Icon>
-        </IconButton>
-      </Grid>
+      {controllers(
+        !(sliceAmount >= maxAmount) && (
+          <IconButton onClick={handleIncrementClick}>
+            <Icon>chevron_right</Icon>
+          </IconButton>
+        ),
+      )}
     </Grid>
   );
 }
