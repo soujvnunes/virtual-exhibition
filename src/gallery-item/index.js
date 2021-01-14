@@ -25,13 +25,25 @@ const useStyles = makeStyles(({ spacing, palette, transitions }) => ({
   paper: {
     backgroundColor: "transparent",
     boxShadow: "none",
+    maxHeight: `calc(100vh - ${spacing(16)}px)`,
+    backgroundImage: ({ image }) => `url(${image})`,
+    backgroundPosition: "center center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    overflow: "hidden",
+  },
+  dialogContent: {
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    position: "absolute",
+    width: "100%",
+    bottom: 0,
   },
 }));
 
 function GalleryItem({ image, alt }) {
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const { root, paper } = useStyles({ hover });
+  const { root, paper, dialogContent } = useStyles({ hover, image });
   const handleClick = () => setOpen((prevState) => !prevState);
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);
@@ -52,8 +64,8 @@ function GalleryItem({ image, alt }) {
         open={open}
         classes={{ paper }}
       >
-        <CardMedia component="img" {...{ image, alt }} />
-        <DialogContent>
+        <div style={{ width: "100vw", height: "100vh" }} />
+        <DialogContent classes={{ root: dialogContent }}>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
       </Dialog>
