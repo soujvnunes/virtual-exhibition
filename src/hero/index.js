@@ -1,17 +1,20 @@
 import { Grid } from "@material-ui/core";
-import PropTypes from "prop-types";
+import { useContext } from "react";
 import Gallery from "../gallery";
 import Section from "../section";
 import SectionTitle from "../section-title";
 import SectionParagraph from "../section-paragraph";
 import SectionBackground from "../section-background";
+import { HERO_CONTEXT } from "../constants";
 
-function Hero({ title, description, gallery }) {
+function Hero() {
+  const { hero } = useContext(HERO_CONTEXT);
+  const { title, description } = hero;
   const gridOffset = <Grid item xs={3} />;
   const alignCenter = { align: "center" };
 
   return (
-    <SectionBackground backgroundImage={gallery[0].img}>
+    <SectionBackground>
       <Section id={title}>
         <Grid
           container
@@ -25,21 +28,11 @@ function Hero({ title, description, gallery }) {
             <SectionParagraph {...alignCenter}>{description}</SectionParagraph>
           </Grid>
           {gridOffset}
-          <Gallery photos={gallery} />
+          <Gallery />
         </Grid>
       </Section>
     </SectionBackground>
   );
 }
-
-Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  gallery: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])),
-};
-
-Hero.defaultProps = {
-  gallery: null,
-};
 
 export default Hero;

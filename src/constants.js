@@ -197,3 +197,4 @@ export const HERO_CAPTION = [
   ],
 ];
 export const SECTION_BACKGROUND_CONTEXT = createContext();
+export const HERO_CONTEXT = createContext();

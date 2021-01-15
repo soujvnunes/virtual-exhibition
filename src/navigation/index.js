@@ -5,15 +5,17 @@ import {
   Typography,
   Zoom,
   Slide,
-  Container,
   Divider,
+  Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useContext, useEffect, useState } from "react";
+import clsx from "clsx";
+import { findIndex } from "lodash";
 import Line from "../line";
 import IconButton from "../icon-button";
-import { useWindowDimension } from "../modules";
+import { getHeroes, useWindowDimension } from "../modules";
+import { HERO_CONTEXT } from "../constants";
 
 const useStyles = makeStyles(({ palette, spacing, zIndex }) => ({
   root: {
@@ -34,22 +36,55 @@ const useStyles = makeStyles(({ palette, spacing, zIndex }) => ({
     height: 32,
     width: 4,
   },
+  lineSmallExplore: {
+    position: "absolute",
+    right: -2,
+    height: 16,
+    top: "calc(50% - 8px)",
+  },
+  gridItem: {
+    minWidth: "auto",
+  },
 }));
 
-function Navigation({ heroes }) {
+function Navigation() {
+  const { hero: heroContext, setHero } = useContext(HERO_CONTEXT);
   const [explore, setExplore] = useState(false);
   const {
     root,
     iconButtonExplore,
     typographyExplore,
     lineExplore,
+    gridItem,
+    lineSmallExplore,
   } = useStyles({ explore });
   const { height, scroll } = useWindowDimension();
   const handleExploreClick = () => window.scrollTo(0, height);
+  const handleDecadeClick = (value) => {
+    setHero(value);
+  };
   const minHeight = { style: { minHeight: "inherit" } };
+  const exploreScroll = scroll > height / 2;
+  const processPreCompleted = 100 / getHeroes().length;
+  const process = exploreScroll
+    ? Math.abs(
+        ((100 - processPreCompleted) / getHeroes().length + 1) *
+          findIndex(getHeroes(), heroContext + 1),
+      )
+    : 0;
+
+  console.log(
+    process,
+    getHeroes().length,
+    findIndex(getHeroes(), heroContext) + 1,
+  );
 
   useEffect(() => {
-    setExplore(scroll > height / 2);
+    setExplore(exploreScroll);
+
+    if (scroll > height / 2) {
+      setHero(getHeroes()[0]);
+    }
   }, [scroll]);
 
   const renderExplore = () => {
@@ -79,43 +114,44 @@ function Navigation({ heroes }) {
       );
     }
 
-    return heroes.map(({ shortTitle }) => (
-      <Grid
-        container
-        item
-        xs
-        alignItems="center"
-        direction="column"
-        alignContent="center"
-        justify="center"
-        key={shortTitle}
-      >
-        <Typography variant="button" classes={{ root: typographyExplore }}>
-          {shortTitle}
-        </Typography>
-        <Divider
-          orientation="vertical"
-          flexItem
-          classes={{ root: lineExplore }}
-        />
-      </Grid>
-    ));
+    return (
+      <>
+        <Grid xs />
+        {getHeroes().map(({ shortTitle, ...hero }, index) => {
+          const renderSmallDivider = getHeroes().length !== index + 1 && (
+            <Divider className={clsx(lineExplore, lineSmallExplore)} />
+          );
+
+          return (
+            <Grid
+              xs
+              key={shortTitle}
+              component={Button}
+              classes={{ root: gridItem }}
+              id={shortTitle}
+              onClick={() => handleDecadeClick(hero)}
+            >
+              <label htmlFor={shortTitle} className={typographyExplore}>
+                {shortTitle}
+              </label>
+              <Divider classes={{ root: lineExplore }} />
+              {renderSmallDivider}
+            </Grid>
+          );
+        })}
+        <Grid xs />
+      </>
+    );
   };
 
   return (
     <Toolbar component="nav" classes={{ root }}>
-      <Line value={0} />
-      <Container {...(explore && { ...minHeight })}>
-        <Grid container justify="center" {...minHeight}>
-          {renderExplore()}
-        </Grid>
-      </Container>
+      <Line value={process} />
+      <Grid container justify="center" {...(explore && { ...minHeight })}>
+        {renderExplore()}
+      </Grid>
     </Toolbar>
   );
 }
-
-Navigation.propTypes = {
-  heroes: PropTypes.string.isRequired,
-};
 
 export default Navigation;
