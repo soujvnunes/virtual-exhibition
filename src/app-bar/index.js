@@ -13,7 +13,6 @@ import { useWindowDimension } from "../modules";
 const useStyles = makeStyles(({ spacing }) => ({
   iconButtonAccessibility: {
     marginLeft: "auto",
-    marginRight: spacing(1),
   },
   iconButtonLogos: {
     padding: 0,
