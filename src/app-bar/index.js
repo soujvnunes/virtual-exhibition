@@ -26,13 +26,14 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 function AppBar() {
   const { iconButtonAccessibility, iconButtonLogos, logos } = useStyles();
-  const showLogos = useWindowDimension("scroll") >= 900;
+  const { height, scroll } = useWindowDimension();
+  const showLogos = scroll >= height;
 
   return (
     <MuiAppBar color="transparent" elevation={0}>
       <Toolbar component={Container}>
         {showLogos && (
-          <IconButton classes={{ root: iconButtonLogos }} edge="start">
+          <IconButton classes={{ root: iconButtonLogos }}>
             <Logos classes={{ root: logos }} variant="outlined" />
           </IconButton>
         )}
