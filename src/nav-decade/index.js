@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
 function NavDecade({ shortTitle, onClick, index, ...props }) {
   const { hero } = useContext(HERO_CONTEXT);
   const { root } = useStyles();
-  const variantLarge = {
-    ...(findIndex(getHeroes(), hero) === index && { variant: "large" }),
+  const sizeLarge = {
+    ...(findIndex(getHeroes(), hero) === index && { size: "large" }),
   };
   const colorPrimary = {
     ...(findIndex(getHeroes(), hero) >= index && { color: "primary" }),
@@ -35,13 +35,13 @@ function NavDecade({ shortTitle, onClick, index, ...props }) {
       id={shortTitle}
       {...{ onClick, ...props }}
     >
-      <NavLabel {...variantLarge} htmlFor={shortTitle}>
+      <NavLabel {...sizeLarge} htmlFor={shortTitle}>
         {shortTitle}
       </NavLabel>
-      <NavRule {...colorPrimary} {...variantLarge} />
+      <NavRule {...colorPrimary} {...sizeLarge} />
       <NavRule
         {...colorPrimary}
-        variant="small"
+        size="small"
         unrendered={getHeroes().length === 0}
       />
     </Grid>
