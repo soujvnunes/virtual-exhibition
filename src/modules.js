@@ -6,6 +6,11 @@ import {
   HEADING_TYPE,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
+  HERO_DESCRIPTION,
+  HERO_GALLERY,
+  HERO_SLOTS,
+  HERO_TITLE,
+  HERO_CAPTION,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -96,4 +101,36 @@ export function useWindowDimension(params = "") {
   }
 
   return state;
+}
+
+export function getHeroes() {
+  const heroes = [];
+  const generateGallery = (index) => {
+    const heroGallery = [];
+
+    for (
+      let galleryIndex = 0;
+      galleryIndex < HERO_GALLERY[index].length;
+      galleryIndex += 1
+    ) {
+      heroGallery.push({
+        img: HERO_GALLERY[index][galleryIndex],
+        figcaption: HERO_CAPTION[index][galleryIndex],
+      });
+    }
+
+    return heroGallery;
+  };
+
+  for (let index = 0; index < HERO_SLOTS.length; index += 1) {
+    heroes.push({
+      shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
+      title: HERO_TITLE[index],
+      id: toKebabCase({ value: HERO_TITLE[index] }),
+      description: HERO_DESCRIPTION[index],
+      gallery: generateGallery(index),
+    });
+  }
+
+  return heroes;
 }
