@@ -1,6 +1,6 @@
 import { Toolbar, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { findIndex } from "lodash";
 import NavProgress from "../nav-progress";
 import { getHeroes, useWindowDimension } from "../modules";
@@ -16,8 +16,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Nav() {
-  const { hero: heroContext, setHero } = useContext(HERO_CONTEXT);
-  const [explore, setExplore] = useState(true);
+  const { hero: heroContext } = useContext(HERO_CONTEXT);
+  const [explore, setExplore] = useState(false);
   const { root } = useStyles();
   const { height, scroll } = useWindowDimension();
   const exploreScroll = scroll > height / 2;
@@ -31,10 +31,6 @@ function Nav() {
 
   useEffect(() => {
     setExplore(exploreScroll);
-
-    if (exploreScroll) {
-      setHero(getHeroes()[0]);
-    }
   }, [scroll]);
 
   return (
@@ -47,4 +43,7 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default memo(
+  Nav,
+  (prevState, nextState) => prevState.explore === nextState.explore,
+);
