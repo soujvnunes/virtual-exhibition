@@ -5,8 +5,7 @@ import { findIndex } from "lodash";
 import NavProgress from "../nav-progress";
 import { getHeroes, useWindowDimension } from "../modules";
 import { HERO_CONTEXT } from "../constants";
-import NavDecade from "../nav-decade";
-import NavExplore from "../nav-explore";
+import NavChildren from "../nav-children";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,9 +20,6 @@ function Nav() {
   const [explore, setExplore] = useState(true);
   const { root } = useStyles();
   const { height, scroll } = useWindowDimension();
-  const handleDecadeClick = (value) => {
-    setHero(value);
-  };
   const exploreScroll = scroll > height / 2;
   const progressFragment = 100 / getHeroes().length;
   const progressOnFragment =
@@ -41,24 +37,12 @@ function Nav() {
     }
   }, [scroll]);
 
-  const renderExplore = () => {
-    if (explore) {
-      return getHeroes().map(({ shortTitle, ...hero }, index) => (
-        <NavDecade
-          key={shortTitle}
-          onClick={() => handleDecadeClick(hero)}
-          {...{ shortTitle, index }}
-        />
-      ));
-    }
-
-    return <NavExplore />;
-  };
-
   return (
     <AppBar classes={{ root }} component="nav">
       <NavProgress value={progreess} />
-      <Toolbar disableGutters={explore}>{renderExplore()}</Toolbar>
+      <Toolbar disableGutters={explore}>
+        <NavChildren {...{ explore }} />
+      </Toolbar>
     </AppBar>
   );
 }
