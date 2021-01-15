@@ -18,47 +18,47 @@ const useStyles = makeStyles(() => ({
 
 function Nav() {
   const { hero: heroContext, setHero } = useContext(HERO_CONTEXT);
-  const [explore, setExplore] = useState(false);
-  const { root } = useStyles({ explore });
+  const [explore, setExplore] = useState(true);
+  const { root } = useStyles();
   const { height, scroll } = useWindowDimension();
   const handleDecadeClick = (value) => {
     setHero(value);
   };
   const exploreScroll = scroll > height / 2;
-  const processPreCompleted = 100 / getHeroes().length;
-  const process = exploreScroll
-    ? Math.abs(
-        ((100 - processPreCompleted) / getHeroes().length + 1) *
-          findIndex(getHeroes(), heroContext + 1),
-      )
-    : 0;
+  const progressFragment = 100 / getHeroes().length;
+  const progressOnFragment =
+    findIndex(getHeroes(), heroContext) === 0
+      ? progressFragment - progressFragment / 2
+      : progressFragment * findIndex(getHeroes(), heroContext) +
+        progressFragment / 2;
+  const progreess = exploreScroll ? progressOnFragment : 0;
 
   useEffect(() => {
     setExplore(exploreScroll);
 
-    if (scroll > height / 2) {
+    if (exploreScroll) {
       setHero(getHeroes()[0]);
     }
   }, [scroll]);
 
   const renderExplore = () => {
-    if (!explore) {
-      return <NavExplore />;
+    if (explore) {
+      return getHeroes().map(({ shortTitle, ...hero }, index) => (
+        <NavDecade
+          key={shortTitle}
+          onClick={() => handleDecadeClick(hero)}
+          {...{ shortTitle, index }}
+        />
+      ));
     }
 
-    return getHeroes().map(({ shortTitle, ...hero }, index) => (
-      <NavDecade
-        key={shortTitle}
-        onClick={() => handleDecadeClick(hero)}
-        {...{ shortTitle, index }}
-      />
-    ));
+    return <NavExplore />;
   };
 
   return (
     <AppBar classes={{ root }} component="nav">
-      <NavProgress value={process} />
-      <Toolbar>{renderExplore()}</Toolbar>
+      <NavProgress value={progreess} />
+      <Toolbar disableGutters={explore}>{renderExplore()}</Toolbar>
     </AppBar>
   );
 }
