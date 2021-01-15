@@ -1,12 +1,25 @@
 import { Typography } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 
-function NavLabel({ htmlFor, ...props }) {
+const useStyles = makeStyles(({ spacing }) => ({
+  root: {
+    position: "absolute",
+    marginTop: ({ variant }) => spacing(variant === "large" ? -4 : -3),
+    top: 0,
+  },
+}));
+
+function NavLabel({ htmlFor, variant, ...props }) {
+  const { root } = useStyles({ variant });
+
   return (
     <Typography
-      variant="button"
-      color="textSecondary"
+      classes={{ root }}
+      variant={
+        (variant === "large" && "h6") || (variant === "medium" && "button")
+      }
+      color={variant === "large" ? "textPrimary" : "textSecondary"}
       component="label"
       {...{ htmlFor, ...props }}
     />
@@ -15,12 +28,11 @@ function NavLabel({ htmlFor, ...props }) {
 
 NavLabel.propTypes = {
   htmlFor: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(["medium", "large"]),
 };
 
-export default withStyles(({ spacing }) => ({
-  root: {
-    position: "absolute",
-    marginTop: spacing(-3),
-    top: 0,
-  },
-}))(NavLabel);
+NavLabel.defaultProps = {
+  variant: "medium",
+};
+
+export default NavLabel;
