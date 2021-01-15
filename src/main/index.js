@@ -1,4 +1,3 @@
-import React from "react";
 import AppBar from "../app-bar";
 import Intro from "../intro";
 import Hero from "../hero";
