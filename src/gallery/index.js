@@ -18,7 +18,7 @@ function Gallery() {
   const { setBackground } = useContext(SECTION_BACKGROUND_CONTEXT);
   const [slice, setSlice] = useState(0);
   const { root } = useStyles();
-  const deltaSlice = _("sm down") ? 1 : 4;
+  const deltaSlice = _("sm down") ? 1 : 5;
   const maxAmount = gallery.length;
   const handleIncrementClick = () => {
     setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
@@ -56,13 +56,11 @@ function Gallery() {
           </IconButton>
         ),
       )}
-      <Grid container item xs={8} md={10}>
-        {gallery.slice(slice, sliceAmount).map(({ img, figcaption }) => (
-          <Grid item xs md={3} key={figcaption} style={{ padding: "0 8px" }}>
-            <GalleryItem image={img} alt={figcaption} />
-          </Grid>
-        ))}
-      </Grid>
+      {gallery.slice(slice, sliceAmount).map(({ img, figcaption }) => (
+        <Grid item xs md={2} key={figcaption}>
+          <GalleryItem image={img} alt={figcaption} />
+        </Grid>
+      ))}
       {controller(
         !(sliceAmount >= maxAmount) && (
           <IconButton onClick={handleIncrementClick}>
