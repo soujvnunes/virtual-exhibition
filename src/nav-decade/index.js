@@ -27,7 +27,7 @@ function NavDecade({ shortTitle, onClick, index, ...props }) {
     >
       <NavLabel htmlFor={shortTitle}>{shortTitle}</NavLabel>
       <NavRule />
-      <NavRule small unrendered={getHeroes().length === index + 1} />
+      <NavRule variant="small" unrendered={getHeroes().length === index + 1} />
     </Grid>
   );
 }

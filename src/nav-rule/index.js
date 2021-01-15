@@ -5,12 +5,14 @@ import PropTypes from "prop-types";
 const HEIGHT = 2;
 
 const useStyles = makeStyles(({ spacing, transitions, palette }) => ({
-  root: ({ small, large }) => ({
-    height: spacing(large ? 8 : 4),
-    backgroundColor: large ? palette.text.primary : palette.divider,
+  root: ({ variant }) => ({
+    height: spacing((variant === "large" && 8) || (variant === "medium" && 4)),
+    backgroundColor:
+      (variant === "large" && palette.text.primary) ||
+      (variant === "medium" && palette.divider),
     width: spacing(0.5),
     transition: transitions.create(["height", "background-color"]),
-    ...(small && {
+    ...(variant === "small" && {
       height: spacing(HEIGHT),
       position: "absolute",
       right: -2,
@@ -19,8 +21,8 @@ const useStyles = makeStyles(({ spacing, transitions, palette }) => ({
   }),
 }));
 
-function NavRule({ small, large, unrendered, ...props }) {
-  const { root } = useStyles({ small, large });
+function NavRule({ variant, unrendered, ...props }) {
+  const { root } = useStyles({ variant });
 
   if (unrendered) {
     return null;
@@ -30,14 +32,12 @@ function NavRule({ small, large, unrendered, ...props }) {
 }
 
 NavRule.propTypes = {
-  small: PropTypes.bool,
-  large: PropTypes.bool,
+  variant: PropTypes.oneOf(["small", "medium", "large"]),
   unrendered: PropTypes.bool,
 };
 
 NavRule.defaultProps = {
-  small: false,
-  large: false,
+  variant: "medium",
   unrendered: false,
 };
 
