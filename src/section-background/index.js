@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
+import { SECTION_BACKGROUND_CONTEXT } from "../constants";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ transitions }) => ({
   root: {
-    backgroundImage: ({ backgroundImage }) => `url(${backgroundImage})`,
+    backgroundImage: ({ background }) => `url(${background})`,
     position: "relative",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    transition: transitions.create(["background-image"]),
     "&:before": {
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       content: "''",
@@ -17,15 +19,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function SectionBackground({ children, backgroundImage }) {
-  const { root } = useStyles({ backgroundImage });
+function SectionBackground({ children }) {
+  const { background } = useContext(SECTION_BACKGROUND_CONTEXT);
+  const { root } = useStyles({ background });
 
   return <div className={root} {...{ children }} />;
 }
 
 SectionBackground.propTypes = {
   children: PropTypes.node.isRequired,
-  backgroundImage: PropTypes.string.isRequired,
 };
 
 export default SectionBackground;
