@@ -67,8 +67,9 @@ export function theme({ type } = {}) {
         },
       },
       props: {
-        MuiToolbar: {
-          disableGutters: true,
+        MuiAppBar: {
+          elevation: 0,
+          color: "transparent",
         },
       },
     }),
