@@ -1,57 +1,29 @@
+import { useState } from "react";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
-import { toKebabCase } from "../modules";
+import { getHeroes, theme } from "../modules";
 import {
-  HERO_CAPTION,
-  HERO_DESCRIPTION,
-  HERO_GALLERY,
-  HERO_SLOTS,
-  HERO_TITLE,
+  KEY_THEME_DARK,
+  SECTION_BACKGROUND_CONTEXT as SectionBackgroundContext,
+  HERO_CONTEXT as HeroContext,
 } from "../constants";
+import Main from "../main";
 import Navigation from "../navigation";
-import AppBar from "../app-bar";
-import Intro from "../intro";
-import HeroScroll from "../hero-scroll";
-import Provider from "../provider";
 
 function App() {
-  const heroes = [];
-  const generateGallery = (index) => {
-    const heroGallery = [];
-
-    for (
-      let galleryIndex = 0;
-      galleryIndex < HERO_GALLERY[index].length;
-      galleryIndex += 1
-    ) {
-      heroGallery.push({
-        img: HERO_GALLERY[index][galleryIndex],
-        figcaption: HERO_CAPTION[index][galleryIndex],
-      });
-    }
-
-    return heroGallery;
-  };
-
-  for (let index = 0; index < HERO_SLOTS.length; index += 1) {
-    heroes.push({
-      shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
-      title: HERO_TITLE[index],
-      id: toKebabCase({ value: HERO_TITLE[index] }),
-      description: HERO_DESCRIPTION[index],
-      gallery: generateGallery(index),
-    });
-  }
-
-  const commonProps = { heroes };
+  const [background, setBackground] = useState("");
+  const [hero, setHero] = useState(getHeroes()[0]);
 
   return (
-    <Provider>
+    <ThemeProvider theme={theme({ type: KEY_THEME_DARK })}>
       <CssBaseline />
-      <Navigation {...commonProps} />
-      <AppBar />
-      <Intro />
-      <HeroScroll {...commonProps} />
-    </Provider>
+      <SectionBackgroundContext.Provider value={{ background, setBackground }}>
+        <HeroContext.Provider value={{ hero, setHero }}>
+          <Navigation />
+          <Main />
+        </HeroContext.Provider>
+      </SectionBackgroundContext.Provider>
+    </ThemeProvider>
   );
 }
 
