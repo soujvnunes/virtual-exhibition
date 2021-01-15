@@ -1,10 +1,16 @@
-import React from "react";
-import { Grid, Icon } from "@material-ui/core";
+import { Grid, Icon, makeStyles } from "@material-ui/core";
 import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
 import { useWindowDimension } from "../modules";
 
+const useStyles = makeStyles(({ palette }) => ({
+  iconButton: {
+    backgroundColor: palette.background.default,
+  },
+}));
+
 function NavExplore() {
+  const { iconButton } = useStyles();
   const { height } = useWindowDimension();
   const handleExploreClick = () => window.scrollTo(0, height);
 
@@ -12,11 +18,8 @@ function NavExplore() {
     <Grid container justify="center">
       <NavLabel htmlFor="expand_more">Explore por década</NavLabel>
       <IconButton
+        classes={{ root: iconButton }}
         onClick={handleExploreClick}
-        style={{
-          backgroundColor: ({ palette }) =>
-            `${palette.background.default}!important`,
-        }}
         id="expand_more"
       >
         <Icon>expand_more</Icon>
