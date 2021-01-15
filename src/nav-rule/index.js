@@ -5,24 +5,26 @@ import PropTypes from "prop-types";
 const HEIGHT = 2;
 
 const useStyles = makeStyles(({ spacing, transitions, palette }) => ({
-  root: ({ variant }) => ({
-    height: spacing((variant === "large" && 8) || (variant === "medium" && 4)),
+  root: ({ variant, color }) => ({
+    height:
+      (variant === "large" && spacing(8)) ||
+      (variant === "medium" && spacing(4)),
     backgroundColor:
-      (variant === "large" && palette.text.primary) ||
-      (variant === "medium" && palette.divider),
-    width: spacing(0.5),
+      ((variant === "large" || color === "primary") && palette.text.primary) ||
+      ((variant === "medium" || color === "disabled") && palette.divider),
+    width: spacing(0.25),
     transition: transitions.create(["height", "background-color"]),
     ...(variant === "small" && {
       height: spacing(HEIGHT),
       position: "absolute",
-      right: -2,
+      left: -2,
       top: `calc(50% - ${spacing(HEIGHT / 2)}px)`,
     }),
   }),
 }));
 
-function NavRule({ variant, unrendered, ...props }) {
-  const { root } = useStyles({ variant });
+function NavRule({ variant, unrendered, color, ...props }) {
+  const { root } = useStyles({ variant, color });
 
   if (unrendered) {
     return null;
@@ -33,11 +35,13 @@ function NavRule({ variant, unrendered, ...props }) {
 
 NavRule.propTypes = {
   variant: PropTypes.oneOf(["small", "medium", "large"]),
+  color: PropTypes.oneOf(["primary", "disabled"]),
   unrendered: PropTypes.bool,
 };
 
 NavRule.defaultProps = {
   variant: "medium",
+  color: "disabled",
   unrendered: false,
 };
 
