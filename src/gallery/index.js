@@ -1,8 +1,7 @@
 import { Grid, Icon } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
-import { SECTION_BACKGROUND_CONTEXT } from "../constants";
+import { HERO_CONTEXT, SECTION_BACKGROUND_CONTEXT } from "../constants";
 import GalleryItem from "../gallery-item";
 import IconButton from "../icon-button";
 import { _ } from "../modules";
@@ -13,12 +12,14 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
-function Gallery({ photos }) {
+function Gallery() {
+  const { hero } = useContext(HERO_CONTEXT);
+  const { gallery } = hero;
   const { setBackground } = useContext(SECTION_BACKGROUND_CONTEXT);
   const [slice, setSlice] = useState(0);
   const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 4;
-  const maxAmount = photos.length;
+  const maxAmount = gallery.length;
   const handleIncrementClick = () => {
     setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
   };
@@ -29,7 +30,7 @@ function Gallery({ photos }) {
     <Grid
       container
       item
-      xs={3}
+      xs={2}
       md={1}
       alignContent="center"
       justify="center"
@@ -43,11 +44,11 @@ function Gallery({ photos }) {
   }, [deltaSlice]);
 
   useEffect(() => {
-    setBackground(photos[0].img);
+    setBackground(gallery[0].img);
   }, []);
 
   return (
-    <Grid container item xs={12} spacing={2} classes={{ root }}>
+    <Grid container item xs={12} classes={{ root }} spacing={2}>
       {controller(
         !(slice === 0) && (
           <IconButton onClick={handleDecrementClick}>
@@ -55,9 +56,9 @@ function Gallery({ photos }) {
           </IconButton>
         ),
       )}
-      <Grid container item xs={6} md={10} spacing={2}>
-        {photos.slice(slice, sliceAmount).map(({ img, figcaption }) => (
-          <Grid item xs md={3} key={figcaption}>
+      <Grid container item xs={8} md={10}>
+        {gallery.slice(slice, sliceAmount).map(({ img, figcaption }) => (
+          <Grid item xs md={3} key={figcaption} style={{ padding: "0 8px" }}>
             <GalleryItem image={img} alt={figcaption} />
           </Grid>
         ))}
@@ -72,9 +73,5 @@ function Gallery({ photos }) {
     </Grid>
   );
 }
-
-Gallery.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
-};
 
 export default Gallery;
