@@ -1,19 +1,17 @@
 import { CssBaseline } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
-import { theme, toKebabCase } from "./modules";
+import { toKebabCase } from "../modules";
 import {
   HERO_CAPTION,
   HERO_DESCRIPTION,
   HERO_GALLERY,
-  HERO_SHORT_TITLE,
   HERO_SLOTS,
   HERO_TITLE,
-  KEY_THEME_DARK,
-} from "./constants";
-import Navigation from "./navigation";
-import AppBar from "./app-bar";
-import Intro from "./intro";
-import HeroScroll from "./hero-scroll";
+} from "../constants";
+import Navigation from "../navigation";
+import AppBar from "../app-bar";
+import Intro from "../intro";
+import HeroScroll from "../hero-scroll";
+import Provider from "../provider";
 
 function App() {
   const heroes = [];
@@ -36,7 +34,7 @@ function App() {
 
   for (let index = 0; index < HERO_SLOTS.length; index += 1) {
     heroes.push({
-      shortTitle: HERO_SHORT_TITLE[index],
+      shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
       title: HERO_TITLE[index],
       id: toKebabCase({ value: HERO_TITLE[index] }),
       description: HERO_DESCRIPTION[index],
@@ -47,13 +45,13 @@ function App() {
   const commonProps = { heroes };
 
   return (
-    <ThemeProvider theme={theme({ type: KEY_THEME_DARK })}>
+    <Provider>
       <CssBaseline />
       <Navigation {...commonProps} />
       <AppBar />
       <Intro />
       <HeroScroll {...commonProps} />
-    </ThemeProvider>
+    </Provider>
   );
 }
 
