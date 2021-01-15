@@ -8,7 +8,7 @@ import {
   HERO_CONTEXT as HeroContext,
 } from "../constants";
 import Main from "../main";
-import Navigation from "../navigation";
+import Nav from "../nav";
 
 function App() {
   const [background, setBackground] = useState("");
@@ -19,7 +19,7 @@ function App() {
       <CssBaseline />
       <SectionBackgroundContext.Provider value={{ background, setBackground }}>
         <HeroContext.Provider value={{ hero, setHero }}>
-          <Navigation />
+          <Nav />
           <Main />
         </HeroContext.Provider>
       </SectionBackgroundContext.Provider>
