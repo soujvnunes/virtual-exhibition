@@ -2,11 +2,11 @@ import { LinearProgress } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 
-function Line({ value, ...props }) {
+function NavProgress({ value, ...props }) {
   return <LinearProgress variant="determinate" {...{ value, ...props }} />;
 }
 
-Line.propTypes = {
+NavProgress.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
@@ -22,4 +22,4 @@ export default withStyles(({ palette, spacing }) => ({
   bar: {
     backgroundColor: palette.text.primary,
   },
-}))(Line);
+}))(NavProgress);
