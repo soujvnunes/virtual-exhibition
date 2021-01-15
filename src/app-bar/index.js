@@ -29,7 +29,7 @@ function AppBar() {
   const showLogos = scroll >= height;
 
   return (
-    <MuiAppBar color="transparent" elevation={0}>
+    <MuiAppBar>
       <Toolbar component={Container}>
         {showLogos && (
           <IconButton classes={{ root: iconButtonLogos }}>
