@@ -8,7 +8,7 @@ import {
   Icon,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer } from "../modules";
@@ -33,15 +33,12 @@ function GalleryItem({ image, alt }) {
     setOpen((prevState) => !prevState);
   }
   function handleMouseEnter() {
+    dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: image });
     setHover(true);
   }
   function handleMouseLeave() {
     setHover(false);
   }
-
-  useEffect(() => {
-    dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: image });
-  }, [hover]);
 
   return (
     <>
