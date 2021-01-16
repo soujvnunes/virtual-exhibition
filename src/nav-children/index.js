@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { DISPATCH_UPDATE_HERO } from "../constants";
+import { DISPATCH_UPDATE_BACKGROUND, DISPATCH_UPDATE_HERO } from "../constants";
 import { getHeroes, useConsumer } from "../modules";
 import NavDecade from "../nav-decade";
 import NavExplore from "../nav-explore";
@@ -9,6 +9,10 @@ function NavChildren({ explore }) {
 
   function handleDecadeClick(value) {
     dispatch({ type: DISPATCH_UPDATE_HERO, payload: value });
+    dispatch({
+      type: DISPATCH_UPDATE_BACKGROUND,
+      payload: value.gallery[0].img,
+    });
   }
 
   if (explore) {
