@@ -1,15 +1,13 @@
 import { Grid, Icon } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import useStyles from "./style";
-import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import GalleryItem from "../gallery-item";
 import IconButton from "../icon-button";
-import { useConsumer, _ } from "../modules";
+import { _ } from "../modules";
 import GalleryController from "../gallery-controller";
 
-function Gallery() {
-  const [{ hero }, dispatch] = useConsumer();
-  const { gallery } = hero;
+function Gallery({ gallery }) {
   const [slice, setSlice] = useState(0);
   const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 5;
@@ -18,23 +16,19 @@ function Gallery() {
 
   useEffect(() => {
     setSlice(0);
-  }, [deltaSlice]);
+  }, [deltaSlice, gallery]);
 
-  useEffect(() => {
-    dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: gallery[0].img });
-  }, []);
-
-  function handleIncrementClick() {
-    setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
-  }
-  function handleDecrementClick() {
+  function handlePreviousClick() {
     setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
+  }
+  function handleNextClick() {
+    setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
   }
 
   return (
     <Grid container item xs={12} classes={{ root }} spacing={2}>
       <GalleryController unrendered={slice === 0}>
-        <IconButton onClick={handleDecrementClick}>
+        <IconButton onClick={handlePreviousClick}>
           <Icon>chevron_left</Icon>
         </IconButton>
       </GalleryController>
@@ -44,12 +38,16 @@ function Gallery() {
         </Grid>
       ))}
       <GalleryController unrendered={sliceAmount >= maxAmount}>
-        <IconButton onClick={handleIncrementClick}>
+        <IconButton onClick={handleNextClick}>
           <Icon>chevron_right</Icon>
         </IconButton>
       </GalleryController>
     </Grid>
   );
 }
+
+Gallery.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Gallery;
