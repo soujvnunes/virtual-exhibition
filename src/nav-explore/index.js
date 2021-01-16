@@ -1,18 +1,16 @@
-import { Grid, Icon, makeStyles } from "@material-ui/core";
+import { Grid, Icon } from "@material-ui/core";
+import useStyles from "./style";
 import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
 import { useWindowDimension } from "../modules";
 
-const useStyles = makeStyles(({ palette }) => ({
-  iconButton: {
-    backgroundColor: palette.background.default,
-  },
-}));
-
 function NavExplore() {
   const { iconButton } = useStyles();
   const { height } = useWindowDimension();
-  const handleExploreClick = () => window.scrollTo(0, height);
+
+  function handleExploreClick() {
+    window.scrollTo(0, height);
+  }
 
   return (
     <Grid container justify="center">

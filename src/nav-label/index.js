@@ -1,14 +1,6 @@
 import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    position: "absolute",
-    marginTop: ({ size }) => spacing(size === "large" ? -4 : -3),
-    top: 0,
-  },
-}));
+import useStyles from "./style";
 
 function NavLabel({ htmlFor, size, ...props }) {
   const { root } = useStyles({ size });

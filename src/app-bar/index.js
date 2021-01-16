@@ -5,23 +5,10 @@ import {
   AppBar as MuiAppBar,
   Container,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./style";
 import Button from "../button";
 import Logos from "../logos";
 import { useWindowDimension } from "../modules";
-
-const useStyles = makeStyles(({ spacing }) => ({
-  iconButtonAccessibility: {
-    marginLeft: "auto",
-  },
-  iconButtonLogos: {
-    padding: 0,
-  },
-  logos: {
-    width: "auto",
-    height: spacing(6),
-  },
-}));
 
 function AppBar() {
   const { iconButtonAccessibility, iconButtonLogos, logos } = useStyles();

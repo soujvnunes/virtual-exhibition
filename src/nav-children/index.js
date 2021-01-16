@@ -6,9 +6,10 @@ import NavExplore from "../nav-explore";
 
 function NavChildren({ explore }) {
   const [, dispatch] = useConsumer();
-  const handleDecadeClick = (value) => {
+
+  function handleDecadeClick(value) {
     dispatch({ type: DISPATCH_UPDATE_HERO, payload: value });
-  };
+  }
 
   if (explore) {
     return getHeroes().map(({ shortTitle, ...hero }, index) => (
