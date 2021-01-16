@@ -1,14 +1,13 @@
 import { Grid } from "@material-ui/core";
-import { useContext } from "react";
 import Gallery from "../gallery";
 import Section from "../section";
 import SectionTitle from "../section-title";
 import SectionParagraph from "../section-paragraph";
 import SectionBackground from "../section-background";
-import { HERO_CONTEXT } from "../constants";
+import { useConsumer } from "../modules";
 
 function Hero() {
-  const { hero } = useContext(HERO_CONTEXT);
+  const [{ hero }] = useConsumer();
   const { title, description } = hero;
   const gridOffset = <Grid item xs={3} />;
   const alignCenter = { align: "center" };

@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { SECTION_BACKGROUND_CONTEXT } from "../constants";
+import { useConsumer } from "../modules";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -19,7 +18,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function SectionBackground({ children }) {
-  const { background } = useContext(SECTION_BACKGROUND_CONTEXT);
+  const [{ background }] = useConsumer();
   const { root } = useStyles({ background });
 
   return <div className={root} {...{ children }} />;

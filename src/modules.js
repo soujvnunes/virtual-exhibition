@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@material-ui/core";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import { useLayoutEffect, useState } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import {
   BAR_HEIGHT,
   HEADING_TYPE,
@@ -11,6 +11,11 @@ import {
   HERO_SLOTS,
   HERO_TITLE,
   HERO_CAPTION,
+  DISPATCH_UPDATE_HERO,
+  DISPATCH_UPDATE_BACKGROUND,
+  STATE_CONTEXT,
+  DISPATCH_CONTEXT,
+  DISPATCH_UPDATE_THEME,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -134,4 +139,33 @@ export function getHeroes() {
   }
 
   return heroes;
+}
+
+export function getReducer(state, { type, payload }) {
+  switch (type) {
+    case DISPATCH_UPDATE_HERO:
+      return {
+        ...state,
+        hero: payload,
+      };
+    case DISPATCH_UPDATE_BACKGROUND:
+      return {
+        ...state,
+        background: payload,
+      };
+    case DISPATCH_UPDATE_THEME:
+      return {
+        ...state,
+        theme: payload,
+      };
+    default:
+      throw new Error("Unexpected action.");
+  }
+}
+
+export function useConsumer() {
+  const state = useContext(STATE_CONTEXT);
+  const dispatch = useContext(DISPATCH_CONTEXT);
+
+  return [state, dispatch];
 }

@@ -1,14 +1,13 @@
-import { useContext } from "react";
 import PropTypes from "prop-types";
-import { HERO_CONTEXT } from "../constants";
-import { getHeroes } from "../modules";
+import { DISPATCH_UPDATE_HERO } from "../constants";
+import { getHeroes, useConsumer } from "../modules";
 import NavDecade from "../nav-decade";
 import NavExplore from "../nav-explore";
 
 function NavChildren({ explore }) {
-  const { setHero } = useContext(HERO_CONTEXT);
+  const [, dispatch] = useConsumer();
   const handleDecadeClick = (value) => {
-    setHero(value);
+    dispatch({ type: DISPATCH_UPDATE_HERO, payload: value });
   };
 
   if (explore) {

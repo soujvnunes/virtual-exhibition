@@ -1,10 +1,10 @@
 import { Grid, Icon } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useContext, useEffect, useState } from "react";
-import { HERO_CONTEXT, SECTION_BACKGROUND_CONTEXT } from "../constants";
+import { useEffect, useState } from "react";
+import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import GalleryItem from "../gallery-item";
 import IconButton from "../icon-button";
-import { _ } from "../modules";
+import { useConsumer, _ } from "../modules";
 
 const useStyles = makeStyles(({ spacing }) => ({
   root: {
@@ -13,9 +13,8 @@ const useStyles = makeStyles(({ spacing }) => ({
 }));
 
 function Gallery() {
-  const { hero } = useContext(HERO_CONTEXT);
+  const [{ hero }, dispatch] = useConsumer();
   const { gallery } = hero;
-  const { setBackground } = useContext(SECTION_BACKGROUND_CONTEXT);
   const [slice, setSlice] = useState(0);
   const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 5;
@@ -44,7 +43,7 @@ function Gallery() {
   }, [deltaSlice]);
 
   useEffect(() => {
-    setBackground(gallery[0].img);
+    dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: gallery[0].img });
   }, []);
 
   return (

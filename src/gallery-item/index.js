@@ -9,8 +9,9 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { useContext, useEffect, useState } from "react";
-import { SECTION_BACKGROUND_CONTEXT } from "../constants";
+import { useEffect, useState } from "react";
+import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
+import { useConsumer } from "../modules";
 
 const backdropFilter = "saturate(160%) brightness(32%) blur(8px)";
 
@@ -61,7 +62,7 @@ const useStyles = makeStyles(({ spacing, palette, transitions }) => ({
 }));
 
 function GalleryItem({ image, alt }) {
-  const { setBackground } = useContext(SECTION_BACKGROUND_CONTEXT);
+  const [, dispatch] = useConsumer();
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const {
@@ -80,7 +81,7 @@ function GalleryItem({ image, alt }) {
   const handleMouseLeave = () => setHover(false);
 
   useEffect(() => {
-    setBackground(image);
+    dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: image });
   }, [hover]);
 
   return (

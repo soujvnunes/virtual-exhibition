@@ -196,5 +196,8 @@ export const HERO_CAPTION = [
     "Público tomando as ruas do Jaraguá na 9ª edição da Bienal Internacional do Livro de Alagoas",
   ],
 ];
-export const SECTION_BACKGROUND_CONTEXT = createContext();
-export const HERO_CONTEXT = createContext();
+export const DISPATCH_UPDATE_HERO = "hero update";
+export const DISPATCH_UPDATE_BACKGROUND = "background update";
+export const DISPATCH_UPDATE_THEME = "theme update";
+export const STATE_CONTEXT = createContext();
+export const DISPATCH_CONTEXT = createContext();

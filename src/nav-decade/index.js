@@ -2,11 +2,9 @@ import PropTypes from "prop-types";
 import { Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { findIndex } from "lodash";
-import { useContext } from "react";
 import NavLabel from "../nav-label";
 import NavRule from "../nav-rule";
-import { getHeroes } from "../modules";
-import { HERO_CONTEXT } from "../constants";
+import { getHeroes, useConsumer } from "../modules";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -16,7 +14,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function NavDecade({ shortTitle, onClick, index, ...props }) {
-  const { hero } = useContext(HERO_CONTEXT);
+  const [{ hero }] = useConsumer();
   const { root } = useStyles();
   const sizeLarge = {
     ...(findIndex(getHeroes(), hero) === index && { size: "large" }),
