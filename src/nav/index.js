@@ -1,10 +1,9 @@
 import { Toolbar, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { findIndex } from "lodash";
 import NavProgress from "../nav-progress";
-import { getHeroes, useWindowDimension } from "../modules";
-import { HERO_CONTEXT } from "../constants";
+import { getHeroes, useConsumer, useWindowDimension } from "../modules";
 import NavChildren from "../nav-children";
 
 const useStyles = makeStyles(() => ({
@@ -16,17 +15,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Nav() {
-  const { hero: heroContext } = useContext(HERO_CONTEXT);
+  const [{ hero }] = useConsumer();
   const [explore, setExplore] = useState(false);
   const { root } = useStyles();
   const { height, scroll } = useWindowDimension();
   const exploreScroll = scroll > height / 2;
   const progressFragment = 100 / getHeroes().length;
   const progressOnFragment =
-    findIndex(getHeroes(), heroContext) === 0
+    findIndex(getHeroes(), hero) === 0
       ? progressFragment - progressFragment / 2
-      : progressFragment * findIndex(getHeroes(), heroContext) +
-        progressFragment / 2;
+      : progressFragment * findIndex(getHeroes(), hero) + progressFragment / 2;
   const progreess = exploreScroll ? progressOnFragment : 0;
 
   useEffect(() => {
