@@ -5,6 +5,11 @@ import {
   Decade000600003,
   Decade000600004,
   Decade000600005,
+  Decade000600006,
+  Decade000600007,
+  Decade000600008,
+  Decade000600009,
+  Decade000600010,
   Decade000700001,
   Decade000700002,
   Decade000700003,
@@ -22,6 +27,9 @@ import {
   Decade000800005,
   Decade000800006,
   Decade000800007,
+  Decade000800008,
+  Decade000800009,
+  Decade000800010,
   Decade000900001,
   Decade000900002,
   Decade000900003,
@@ -30,6 +38,8 @@ import {
   Decade000900006,
   Decade000900007,
   Decade000900008,
+  Decade000900009,
+  Decade000900010,
   Decade200000001,
   Decade200000002,
   Decade200000003,
@@ -39,6 +49,7 @@ import {
   Decade200000007,
   Decade200000008,
   Decade200000009,
+  Decade200000010,
   Decade201000001,
   Decade201000002,
   Decade201000003,
@@ -46,6 +57,8 @@ import {
   Decade201000005,
   Decade201000006,
   Decade201000007,
+  Decade201000008,
+  Decade201000009,
 } from "./asset";
 
 export const KEY_THEME_DARK = "dark";
@@ -83,6 +96,11 @@ export const HERO_GALLERY = [
     Decade000600003,
     Decade000600004,
     Decade000600005,
+    Decade000600006,
+    Decade000600007,
+    Decade000600008,
+    Decade000600009,
+    Decade000600010,
   ],
   [
     Decade000700001,
@@ -104,6 +122,9 @@ export const HERO_GALLERY = [
     Decade000800005,
     Decade000800006,
     Decade000800007,
+    Decade000800008,
+    Decade000800009,
+    Decade000800010,
   ],
   [
     Decade000900001,
@@ -114,6 +135,8 @@ export const HERO_GALLERY = [
     Decade000900006,
     Decade000900007,
     Decade000900008,
+    Decade000900009,
+    Decade000900010,
   ],
   [
     Decade200000001,
@@ -125,6 +148,7 @@ export const HERO_GALLERY = [
     Decade200000007,
     Decade200000008,
     Decade200000009,
+    Decade200000010,
   ],
   [
     Decade201000001,
@@ -134,6 +158,8 @@ export const HERO_GALLERY = [
     Decade201000005,
     Decade201000006,
     Decade201000007,
+    Decade201000008,
+    Decade201000009,
   ],
 ];
 export const HERO_CAPTION = [
@@ -143,6 +169,11 @@ export const HERO_CAPTION = [
     "Presidente Juscelino Kubitschek sancionando a lei de criação da Ufal - janeiro de 1961",
     "Sala de Aula do Curso de Administração e Economia - junho de 1969",
     "Trabalhadores no canteiro de obras da Ufal",
+    "Tomada do campus da Ufal em construção",
+    "Reunião do Conselho Universitário da Ufal quando da assinatura do contrato para elaboração do Plano Diretor da construção da Cidade Universitária - 1965",
+    "Residência Universitária Masculina - 1966",
+    "Prédio que se tornaria sede da 1° Reitoria da Ufal na Praça Sinimbu",
+    "Início das obras de implantação do Campus, na Cidade Universitária - 1967",
   ],
   [
     "Capa da primeira edição da Revista Scientia Ad Sapientiam lançada em 1978",
@@ -164,6 +195,9 @@ export const HERO_CAPTION = [
     "Embaixador de Israel em visita a Ufal",
     "Ex-reitores na comemoração de 25 anos da Ufal - janeiro de 1986",
     "Manifestação dos Estudantes da Ufal reinvidicando o Restaurante Universitário - março de 1988",
+    "Inauguração da reitoria no campus universitário - novembro de 1987",
+    "Espeço Cultural da Ufal - dezembro de 1989",
+    "Eleição direta para reitor. Flagrante da apuração de votos - novembro de 1986",
   ],
   [
     "Atendimento aos alunos na Proest - 1994",
@@ -174,6 +208,8 @@ export const HERO_CAPTION = [
     "Novos alunos passando pela experiência do trote - janeiro de 1997",
     "Primeira defesa de tese do curso de mestradoem Letras da Ufal - maio de 1991",
     "Assinatura de convência com o MEC sobre o programa nacional de Alfabetização - novembro de 1990",
+    "Exposição de livros no pátio da Reitoria promovida pela Edufal - agosto de 1996",
+    "Reitor Rogério Pinheiro, a diretora do Museu Théo Brandão, Cármen Lúcia Dantas e o senador Teotônio Vilela Filho, que destinou recursos de emenda parlamentar para restauração do MTB -1999",
   ],
   [
     "Reuniao do Consuni sobre cotas raciais - novembro de 2003",
@@ -185,6 +221,7 @@ export const HERO_CAPTION = [
     "Área destinada à construção da sede da Ufal em Delmiro Gouveia - 2010",
     "Inauguração do busto do primeiro reitor, AC Simoes - janeiro de 2001",
     "Publico na II Bienal Internacional do Livro - outubro de 2005",
+    "Reinauguração do Museu Théo Brandão, em julho de 2002. Avenida da Paz fechada para a celebração.",
   ],
   [
     "Solenidade de Abertura do Caiite 2016",
@@ -194,6 +231,8 @@ export const HERO_CAPTION = [
     "Integrantes do Movimento dos Trabalhadores sem Terra fazem plantio em terreno ocioso da Ufal",
     "Montagem das estruturas da SBPC no campus A.C. Simões",
     "Público tomando as ruas do Jaraguá na 9ª edição da Bienal Internacional do Livro de Alagoas",
+    "Sede do Campus do Sertão em Delmiro Gouveia",
+    "Apresentação Musical durante as atividades do Caiite em Penedo",
   ],
 ];
 export const DISPATCH_UPDATE_HERO = "hero update";
