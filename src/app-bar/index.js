@@ -4,14 +4,14 @@ import {
   IconButton,
   AppBar as MuiAppBar,
   Container,
+  Button,
 } from "@material-ui/core";
 import useStyles from "./style";
-import Button from "../button";
 import Logos from "../logos";
 import { useWindowDimension } from "../modules";
 
 function AppBar() {
-  const { iconButtonAccessibility, iconButtonLogos, logos } = useStyles();
+  const { buttonNews, iconButtonLogos, logos } = useStyles();
   const { height, scroll } = useWindowDimension();
   const showLogos = scroll >= height;
 
@@ -24,7 +24,7 @@ function AppBar() {
           </IconButton>
         )}
         <Button
-          classes={{ root: iconButtonAccessibility }}
+          classes={{ root: buttonNews }}
           variant="outlined"
           endIcon={<Icon>chevron_right</Icon>}
         >
