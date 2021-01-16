@@ -10,7 +10,7 @@ function Hero() {
   const [{ hero }] = useConsumer();
   const { title, description } = hero;
   const gridOffset = <Grid item xs={3} />;
-  const alignCenter = { align: "center" };
+  const commonProps = { align: "center" };
 
   return (
     <SectionBackground>
@@ -23,8 +23,8 @@ function Hero() {
         >
           {gridOffset}
           <Grid item sm={6} xs={12}>
-            <SectionTitle {...alignCenter}>{title}</SectionTitle>
-            <SectionParagraph {...alignCenter}>{description}</SectionParagraph>
+            <SectionTitle {...commonProps}>{title}</SectionTitle>
+            <SectionParagraph {...commonProps}>{description}</SectionParagraph>
           </Grid>
           {gridOffset}
           <Gallery />

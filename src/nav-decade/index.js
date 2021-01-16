@@ -1,17 +1,10 @@
 import PropTypes from "prop-types";
 import { Button, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { findIndex } from "lodash";
+import useStyles from "./style";
 import NavLabel from "../nav-label";
 import NavRule from "../nav-rule";
 import { getHeroes, useConsumer } from "../modules";
-
-const useStyles = makeStyles(() => ({
-  root: {
-    minWidth: "auto",
-    padding: 0,
-  },
-}));
 
 function NavDecade({ shortTitle, onClick, index, ...props }) {
   const [{ hero }] = useConsumer();

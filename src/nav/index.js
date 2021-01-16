@@ -1,18 +1,10 @@
 import { Toolbar, AppBar } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { findIndex } from "lodash";
+import useStyles from "./style";
 import NavProgress from "../nav-progress";
 import { getHeroes, useConsumer, useWindowDimension } from "../modules";
 import NavChildren from "../nav-children";
-
-const useStyles = makeStyles(() => ({
-  root: {
-    top: "auto",
-    bottom: 0,
-    justifyContent: "center",
-  },
-}));
 
 function Nav() {
   const [{ hero }] = useConsumer();
@@ -20,12 +12,12 @@ function Nav() {
   const { root } = useStyles();
   const { height, scroll } = useWindowDimension();
   const exploreScroll = scroll > height / 2;
-  const progressFragment = 100 / getHeroes().length;
+  const progress = 100 / getHeroes().length;
+  const progressFragment = findIndex(getHeroes(), hero);
   const progressOnFragment =
-    findIndex(getHeroes(), hero) === 0
-      ? progressFragment - progressFragment / 2
-      : progressFragment * findIndex(getHeroes(), hero) + progressFragment / 2;
-  const progreess = exploreScroll ? progressOnFragment : 0;
+    progressFragment === 0
+      ? progress - progress / 2
+      : progress * progressFragment + progress / 2;
 
   useEffect(() => {
     setExplore(exploreScroll);
@@ -33,7 +25,7 @@ function Nav() {
 
   return (
     <AppBar classes={{ root }} component="nav">
-      <NavProgress value={progreess} />
+      <NavProgress value={exploreScroll ? progressOnFragment : 0} />
       <Toolbar disableGutters={explore}>
         <NavChildren {...{ explore }} />
       </Toolbar>
@@ -41,7 +33,4 @@ function Nav() {
   );
 }
 
-export default memo(
-  Nav,
-  (prevState, nextState) => prevState.explore === nextState.explore,
-);
+export default Nav;

@@ -1,17 +1,10 @@
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./style";
 import Logos from "../logos";
 import { _ } from "../modules";
 import Section from "../section";
 import SectionTitle from "../section-title";
 import SectionParagraph from "../section-paragraph";
-
-const useStyles = makeStyles(() => ({
-  logos: {
-    width: "inherit",
-    height: "inherit",
-  },
-}));
 
 function Intro() {
   const { logos } = useStyles();

@@ -1,16 +1,11 @@
 import { Grid, Icon } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
+import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import GalleryItem from "../gallery-item";
 import IconButton from "../icon-button";
 import { useConsumer, _ } from "../modules";
-
-const useStyles = makeStyles(({ spacing }) => ({
-  root: {
-    marginTop: spacing(4),
-  },
-}));
+import GalleryController from "../gallery-controller";
 
 function Gallery() {
   const [{ hero }, dispatch] = useConsumer();
@@ -19,23 +14,6 @@ function Gallery() {
   const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 5;
   const maxAmount = gallery.length;
-  const handleIncrementClick = () => {
-    setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
-  };
-  const handleDecrementClick = () => {
-    setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
-  };
-  const controller = (children) => (
-    <Grid
-      container
-      item
-      xs={2}
-      md={1}
-      alignContent="center"
-      justify="center"
-      {...{ children }}
-    />
-  );
   const sliceAmount = slice + deltaSlice;
 
   useEffect(() => {
@@ -46,27 +24,30 @@ function Gallery() {
     dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: gallery[0].img });
   }, []);
 
+  function handleIncrementClick() {
+    setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
+  }
+  function handleDecrementClick() {
+    setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
+  }
+
   return (
     <Grid container item xs={12} classes={{ root }} spacing={2}>
-      {controller(
-        !(slice === 0) && (
-          <IconButton onClick={handleDecrementClick}>
-            <Icon>chevron_left</Icon>
-          </IconButton>
-        ),
-      )}
+      <GalleryController unrendered={slice === 0}>
+        <IconButton onClick={handleDecrementClick}>
+          <Icon>chevron_left</Icon>
+        </IconButton>
+      </GalleryController>
       {gallery.slice(slice, sliceAmount).map(({ img, figcaption }) => (
         <Grid item xs md={2} key={figcaption}>
           <GalleryItem image={img} alt={figcaption} />
         </Grid>
       ))}
-      {controller(
-        !(sliceAmount >= maxAmount) && (
-          <IconButton onClick={handleIncrementClick}>
-            <Icon>chevron_right</Icon>
-          </IconButton>
-        ),
-      )}
+      <GalleryController unrendered={sliceAmount >= maxAmount}>
+        <IconButton onClick={handleIncrementClick}>
+          <Icon>chevron_right</Icon>
+        </IconButton>
+      </GalleryController>
     </Grid>
   );
 }
