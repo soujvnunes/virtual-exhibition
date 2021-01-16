@@ -8,7 +8,7 @@ import { useConsumer } from "../modules";
 
 function Hero() {
   const [{ hero }] = useConsumer();
-  const { title, description } = hero;
+  const { title, description, gallery } = hero;
   const gridOffset = <Grid item xs={3} />;
   const commonProps = { align: "center" };
 
@@ -27,7 +27,7 @@ function Hero() {
             <SectionParagraph {...commonProps}>{description}</SectionParagraph>
           </Grid>
           {gridOffset}
-          <Gallery />
+          <Gallery {...{ gallery }} />
         </Grid>
       </Section>
     </SectionBackground>
