@@ -10,9 +10,9 @@ function Nav() {
   const [unmount, setUnmount] = useState(false);
   const [explore, setExplore] = useState(false);
   const { root } = useStyles();
-  const { height, scroll } = useWindowDimension();
+  const { scroll } = useWindowDimension();
   const commonProps = { explore };
-  const onIntro = scroll > height / 2;
+  const onIntro = scroll > 0;
 
   useEffect(() => {
     setTimeout(() => {
