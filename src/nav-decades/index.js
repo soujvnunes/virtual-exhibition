@@ -18,13 +18,13 @@ function NavDecades({ explore }) {
 
   return getHeroes().map(({ shortTitle, ...hero }, index) => (
     <Zoom
+      key={shortTitle}
       in={explore}
       style={{
         transitionDelay: explore ? `${166 * ((index + 1) / 2)}ms` : "0ms",
       }}
     >
       <NavDecadesItem
-        key={shortTitle}
         onClick={() => handleDecadeClick(hero)}
         {...{ shortTitle, index }}
       />
