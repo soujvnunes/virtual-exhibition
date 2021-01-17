@@ -5,7 +5,7 @@ import { getHeroes, useConsumer } from "../modules";
 import NavDecadesItem from "../nav-decades-item";
 import { DISPATCH_UPDATE_BACKGROUND, DISPATCH_UPDATE_HERO } from "../constants";
 
-function NavDecades({ explore }) {
+function NavDecades({ onDecades }) {
   const [, dispatch] = useConsumer();
 
   function handleDecadeClick(value) {
@@ -19,9 +19,9 @@ function NavDecades({ explore }) {
   return getHeroes().map(({ shortTitle, ...hero }, index) => (
     <Zoom
       key={shortTitle}
-      in={explore}
+      in={onDecades}
       style={{
-        transitionDelay: explore ? `${166 * ((index + 1) / 2)}ms` : "0ms",
+        transitionDelay: onDecades ? `${166 * ((index + 1) / 2)}ms` : "0ms",
       }}
     >
       <NavDecadesItem
@@ -33,7 +33,7 @@ function NavDecades({ explore }) {
 }
 
 NavDecades.propTypes = {
-  explore: PropTypes.bool.isRequired,
+  onDecades: PropTypes.bool.isRequired,
 };
 
 export default NavDecades;

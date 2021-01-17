@@ -7,25 +7,25 @@ import NavIntro from "../nav-intro";
 import NavDecades from "../nav-decades";
 
 function Nav() {
-  const [unmount, setUnmount] = useState(false);
-  const [explore, setExplore] = useState(false);
+  const [mountNavDecades, setMountNavDecades] = useState(false);
+  const [onDecades, setOnDecades] = useState(false);
   const { root } = useStyles();
   const { scroll } = useWindowDimension();
-  const commonProps = { explore };
+  const commonProps = { onDecades };
   const onIntro = scroll > 0;
 
   useEffect(() => {
     setTimeout(() => {
-      setUnmount(explore);
+      setMountNavDecades(onDecades);
     }, 500);
-  }, [explore]);
+  }, [onDecades]);
 
   useEffect(() => {
-    setExplore(onIntro);
+    setOnDecades(onIntro);
   }, [scroll]);
 
   function renderChildren() {
-    if (unmount) {
+    if (mountNavDecades) {
       return <NavDecades {...commonProps} />;
     }
 
@@ -35,7 +35,7 @@ function Nav() {
   return (
     <AppBar classes={{ root }} component="nav">
       <NavProgress {...{ onIntro }} />
-      <Toolbar disableGutters={unmount}>{renderChildren()}</Toolbar>
+      <Toolbar disableGutters={mountNavDecades}>{renderChildren()}</Toolbar>
     </AppBar>
   );
 }

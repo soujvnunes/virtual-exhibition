@@ -5,10 +5,10 @@ import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
 import { useWindowDimension } from "../modules";
 
-function NavIntro({ explore }) {
+function NavIntro({ onDecades }) {
   const { iconButton } = useStyles();
   const { height } = useWindowDimension();
-  const commonProps = { in: !explore, timeout: explore ? 250 : 500 };
+  const commonProps = { in: !onDecades, timeout: onDecades ? 250 : 500 };
 
   function handleExploreClick() {
     window.scrollTo(0, height);
@@ -21,7 +21,7 @@ function NavIntro({ explore }) {
       </Grow>
       <Zoom
         {...commonProps}
-        style={{ transitionDelay: explore ? "125ms" : "250ms" }}
+        style={{ transitionDelay: onDecades ? "125ms" : "250ms" }}
       >
         <IconButton
           classes={{ root: iconButton }}
@@ -38,7 +38,7 @@ function NavIntro({ explore }) {
 }
 
 NavIntro.propTypes = {
-  explore: PropTypes.bool.isRequired,
+  onDecades: PropTypes.bool.isRequired,
 };
 
 export default NavIntro;
