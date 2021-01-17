@@ -8,7 +8,6 @@ import {
   KEY_THEME_DARK,
 } from "../constants";
 import Main from "../main";
-import Nav from "../nav";
 
 function App() {
   const [{ theme, ...state }, dispatch] = useReducer(getReducer, {
@@ -24,7 +23,6 @@ function App() {
       <CssBaseline />
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
-          <Nav />
           <Main />
         </DispatchContext.Provider>
       </StateContext.Provider>
