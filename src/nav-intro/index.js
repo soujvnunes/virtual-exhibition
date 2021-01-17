@@ -10,7 +10,7 @@ function NavIntro({ onDecades }) {
   const { height } = useWindowDimension();
   const commonProps = { in: !onDecades, timeout: onDecades ? 250 : 500 };
 
-  function handleExploreClick() {
+  function handleOnDecadesClick() {
     window.scrollTo(0, height);
   }
 
@@ -25,7 +25,7 @@ function NavIntro({ onDecades }) {
       >
         <IconButton
           classes={{ root: iconButton }}
-          onClick={handleExploreClick}
+          onClick={handleOnDecadesClick}
           id="expand_more"
         >
           <Zoom {...commonProps}>
