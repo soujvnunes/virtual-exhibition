@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { DISPATCH_UPDATE_BACKGROUND, DISPATCH_UPDATE_HERO } from "../constants";
 import { getHeroes, useConsumer } from "../modules";
 import NavDecade from "../nav-decade";
-import NavExplore from "../nav-explore";
+import NavIntro from "../nav-intro";
 
 function NavChildren({ explore }) {
   const [, dispatch] = useConsumer();
@@ -25,7 +25,7 @@ function NavChildren({ explore }) {
     ));
   }
 
-  return <NavExplore />;
+  return <NavIntro />;
 }
 
 NavChildren.propTypes = {
