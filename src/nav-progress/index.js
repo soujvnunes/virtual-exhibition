@@ -1,13 +1,29 @@
 import { LinearProgress } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { findIndex } from "lodash";
 import PropTypes from "prop-types";
+import { getHeroes, useConsumer } from "../modules";
 
-function NavProgress({ value, ...props }) {
-  return <LinearProgress variant="determinate" {...{ value, ...props }} />;
+function NavProgress({ onIntro, ...props }) {
+  const [{ hero }] = useConsumer();
+  const progress = 100 / getHeroes().length;
+  const progressFragment = findIndex(getHeroes(), hero);
+  const progressOnFragment =
+    progressFragment === 0
+      ? progress - progress / 2
+      : progress * progressFragment + progress / 2;
+
+  return (
+    <LinearProgress
+      variant="determinate"
+      value={onIntro ? progressOnFragment : 0}
+      {...{ ...props }}
+    />
+  );
 }
 
 NavProgress.propTypes = {
-  value: PropTypes.number.isRequired,
+  onIntro: PropTypes.bool.isRequired,
 };
 
 export default withStyles(({ palette, spacing }) => ({
