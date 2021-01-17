@@ -1,10 +1,10 @@
-import { Grid, Icon } from "@material-ui/core";
+import { Grid, Icon, Zoom } from "@material-ui/core";
 import useStyles from "./style";
 import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
 import { useWindowDimension } from "../modules";
 
-function NavExplore() {
+function NavIntro() {
   const { iconButton } = useStyles();
   const { height } = useWindowDimension();
 
@@ -14,7 +14,9 @@ function NavExplore() {
 
   return (
     <Grid container justify="center">
-      <NavLabel htmlFor="expand_more">Explore por década</NavLabel>
+      <Zoom>
+        <NavLabel htmlFor="expand_more">Explore por década</NavLabel>
+      </Zoom>
       <IconButton
         classes={{ root: iconButton }}
         onClick={handleExploreClick}
@@ -26,4 +28,4 @@ function NavExplore() {
   );
 }
 
-export default NavExplore;
+export default NavIntro;
