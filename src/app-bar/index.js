@@ -17,10 +17,17 @@ function AppBar() {
     showLogos: onHero,
   });
 
+  function handleOnIntroClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <MuiAppBar>
       <Toolbar component={Container}>
-        <IconButton classes={{ root: iconButtonLogos }}>
+        <IconButton
+          classes={{ root: iconButtonLogos }}
+          onClick={handleOnIntroClick}
+        >
           <Logos classes={{ root: logos }} variant="outlined" />
         </IconButton>
         <Button
