@@ -8,7 +8,7 @@ import { useWindowDimension } from "../modules";
 function NavIntro({ explore }) {
   const { iconButton } = useStyles();
   const { height } = useWindowDimension();
-  const commonProps = { in: !explore, timeout: 500 };
+  const commonProps = { in: !explore, timeout: explore ? 250 : 500 };
 
   function handleExploreClick() {
     window.scrollTo(0, height);
@@ -19,7 +19,10 @@ function NavIntro({ explore }) {
       <Grow {...commonProps}>
         <NavLabel htmlFor="expand_more">Explore por década</NavLabel>
       </Grow>
-      <Zoom {...commonProps} style={{ transitionDelay: "250ms" }}>
+      <Zoom
+        {...commonProps}
+        style={{ transitionDelay: explore ? "125ms" : "250ms" }}
+      >
         <IconButton
           classes={{ root: iconButton }}
           onClick={handleExploreClick}
