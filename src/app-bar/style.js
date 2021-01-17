@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(({ spacing, palette }) => ({
+export default makeStyles(({ spacing, palette, transitions }) => ({
   buttonNews: {
     marginLeft: "auto",
     borderRadius: spacing(3),
@@ -14,9 +14,11 @@ export default makeStyles(({ spacing, palette }) => ({
       fontSize: spacing(0, 3),
     },
   },
-  iconButtonLogos: {
+  iconButtonLogos: ({ showLogos }) => ({
     padding: 0,
-  },
+    marginTop: showLogos ? spacing(0) : spacing(-16),
+    transition: transitions.create(["margin-top"]),
+  }),
   logos: {
     width: "auto",
     height: spacing(6),

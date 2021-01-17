@@ -11,18 +11,18 @@ import Logos from "../logos";
 import { useWindowDimension } from "../modules";
 
 function AppBar() {
-  const { buttonNews, iconButtonLogos, logos } = useStyles();
   const { height, scroll } = useWindowDimension();
-  const showLogos = scroll >= height;
+  const onHero = scroll >= height;
+  const { buttonNews, iconButtonLogos, logos } = useStyles({
+    showLogos: onHero,
+  });
 
   return (
     <MuiAppBar>
       <Toolbar component={Container}>
-        {showLogos && (
-          <IconButton classes={{ root: iconButtonLogos }}>
-            <Logos classes={{ root: logos }} variant="outlined" />
-          </IconButton>
-        )}
+        <IconButton classes={{ root: iconButtonLogos }}>
+          <Logos classes={{ root: logos }} variant="outlined" />
+        </IconButton>
         <Button
           classes={{ root: buttonNews }}
           variant="outlined"
