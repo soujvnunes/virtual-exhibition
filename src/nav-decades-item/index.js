@@ -6,7 +6,7 @@ import NavLabel from "../nav-label";
 import NavRule from "../nav-rule";
 import { getHeroes, useConsumer } from "../modules";
 
-function NavDecade({ shortTitle, onClick, index, ...props }) {
+function NavDecadesItem({ shortTitle, onClick, index, ...props }) {
   const [{ hero }] = useConsumer();
   const { root } = useStyles();
   const sizeLarge = {
@@ -39,10 +39,10 @@ function NavDecade({ shortTitle, onClick, index, ...props }) {
   );
 }
 
-NavDecade.propTypes = {
+NavDecadesItem.propTypes = {
   onClick: PropTypes.func.isRequired,
   shortTitle: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
 
-export default NavDecade;
+export default NavDecadesItem;
