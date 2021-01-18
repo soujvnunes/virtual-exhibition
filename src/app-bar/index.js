@@ -23,7 +23,7 @@ function AppBar() {
 
   return (
     <MuiAppBar>
-      <Toolbar component={Container}>
+      <Container component={Toolbar}>
         <IconButton
           classes={{ root: iconButtonLogos }}
           onClick={handleOnIntroClick}
@@ -39,7 +39,7 @@ function AppBar() {
         >
           Notícias
         </Button>
-      </Toolbar>
+      </Container>
     </MuiAppBar>
   );
 }

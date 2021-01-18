@@ -11,10 +11,6 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
 
     "& .MuiButton-endIcon": {
       marginRight: spacing(-1.5),
-
-      "& .MuiIcon-root": {
-        fontSize: spacing(3),
-      },
     },
   },
   iconButtonLogos: ({ showLogos }) => ({
@@ -23,6 +19,7 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     transition: transitions.create(["margin-top"]),
   }),
   logos: {
+    fontSize: spacing(3),
     width: "auto",
     height: spacing(6),
   },
