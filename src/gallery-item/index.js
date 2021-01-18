@@ -12,9 +12,11 @@ import { useState } from "react";
 import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer } from "../modules";
+import { Rapport } from "../asset";
 
 function GalleryItem({ image, alt }) {
   const [, dispatch] = useConsumer();
+  const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const {
@@ -39,6 +41,9 @@ function GalleryItem({ image, alt }) {
   function handleMouseLeave() {
     setHover(false);
   }
+  function handleLoad() {
+    setLoading(false);
+  }
 
   return (
     <>
@@ -56,10 +61,18 @@ function GalleryItem({ image, alt }) {
         >
           <Icon>fullscreen</Icon>
         </Grid>
+        {loading && (
+          <img
+            src={Rapport}
+            alt="carregando"
+            style={{ position: "absolute", inset: 0 }}
+          />
+        )}
         <CardMedia
           classes={{ root: cardMedia }}
           component="img"
           height="112"
+          onLoad={handleLoad}
           {...{ image, alt }}
         />
       </CardActionArea>
