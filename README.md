@@ -127,15 +127,7 @@ MyComponent.defaultProps = defaultProps;
 
 ## Components
 
-### `Typography`
-
-```jsx
-import Typography from "./src/typography";
-
-<Typography href="https://website.com" variant="title|paragraph|label">
-  "" || <code>""</code>
-</Typography>;
-```
+All components reffers to [Material UI's library](https://material-ui.com/).
 
 ## Modules
 
