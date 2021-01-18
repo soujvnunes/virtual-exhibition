@@ -208,8 +208,8 @@ export const HERO_CAPTION = [
     "Novos alunos passando pela experiência do trote - janeiro de 1997",
     "Primeira defesa de tese do curso de mestradoem Letras da Ufal - maio de 1991",
     "Assinatura de convência com o MEC sobre o programa nacional de Alfabetização - novembro de 1990",
-    "Exposição de livros no pátio da Reitoria promovida pela Edufal - agosto de 1996",
     "Reitor Rogério Pinheiro, a diretora do Museu Théo Brandão, Cármen Lúcia Dantas e o senador Teotônio Vilela Filho, que destinou recursos de emenda parlamentar para restauração do MTB -1999",
+    "Exposição de livros no pátio da Reitoria promovida pela Edufal - agosto de 1996",
   ],
   [
     "Reuniao do Consuni sobre cotas raciais - novembro de 2003",

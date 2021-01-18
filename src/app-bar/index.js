@@ -31,6 +31,8 @@ function AppBar() {
           <Logos classes={{ root: logos }} variant="outlined" />
         </IconButton>
         <Button
+          href="https://ufal.br/noticias?tag=Ufal60anos"
+          target="_blank"
           classes={{ root: buttonNews }}
           variant="outlined"
           endIcon={<Icon>chevron_right</Icon>}
