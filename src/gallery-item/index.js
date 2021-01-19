@@ -11,17 +11,26 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
-import { useConsumer } from "../modules";
+import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
 
 function GalleryItem({ image, alt }) {
   const [, dispatch] = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
-  const [hover, setHover] = useState(false);
-  const { root, paper, backdrop, fullScreen, cardMedia, img } = useStyles({
-    hover,
+  const [onHover, setOnHover] = useState(false);
+  const {
+    root,
+    paper,
+    backdrop,
+    fullScreen,
+    cardMedia,
+    img,
+    dialogContent,
+  } = useStyles({
+    onHover,
     image,
+    isMobile: _("sm down"),
   });
 
   function handleClick() {
@@ -29,10 +38,10 @@ function GalleryItem({ image, alt }) {
   }
   function handleMouseEnter() {
     dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: image });
-    setHover(true);
+    setOnHover(true);
   }
   function handleMouseLeave() {
-    setHover(false);
+    setOnHover(false);
   }
   function handleLoad() {
     setLoading(false);
@@ -77,7 +86,7 @@ function GalleryItem({ image, alt }) {
         BackdropProps={{ classes: { root: backdrop } }}
       >
         <img className={img} src={image} {...{ alt }} />
-        <DialogContent>
+        <DialogContent classes={{ root: dialogContent }}>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
       </Dialog>

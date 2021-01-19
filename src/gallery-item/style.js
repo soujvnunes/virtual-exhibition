@@ -9,16 +9,21 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     borderRadius: spacing(3),
     borderStyle: "solid",
     borderWidth: spacing(0.25),
-    borderColor: ({ hover }) =>
-      hover ? palette.action.active : palette.action.disabled,
+    borderColor: ({ onHover }) =>
+      onHover ? palette.action.active : palette.action.disabled,
     transition: transitions.create(["border-color"]),
   },
   cardMedia: {
-    opacity: ({ hover }) => (hover ? 0 : 1),
+    opacity: ({ onHover }) => (onHover ? 0 : 1),
     transition: transitions.create(["opacity"]),
   },
   paper: {
-    maxHeight: `calc(100vh - ${spacing(16)}px)`,
+    overflow: "initial",
+    backgroundColor: "transparent",
+    boxShadow: "none",
+    maxHeight: ({ isMobile }) =>
+      `calc(100vh - ${isMobile ? spacing(2) : spacing(16)}px)`,
+    margin: ({ isMobile }) => isMobile && spacing(2),
     "& p": {
       margin: 0,
     },
@@ -30,11 +35,14 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
   fullScreen: {
     position: "absolute",
     inset: 0,
-    opacity: ({ hover }) => (hover ? 1 : 0),
+    opacity: ({ onHover }) => (onHover ? 1 : 0),
     transition: transitions.create(["opacity"]),
   },
   img: {
-    width: "100%",
+    width: ({ isMobile }) => (isMobile ? "100%" : "auto"),
     maxHeight: "inherit",
+  },
+  dialogContent: {
+    overflow: "initial",
   },
 }));
