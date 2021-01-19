@@ -18,13 +18,7 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     transition: transitions.create(["opacity"]),
   },
   paper: {
-    backgroundColor: "transparent",
-    boxShadow: "none",
     maxHeight: `calc(100vh - ${spacing(16)}px)`,
-    backgroundImage: ({ image }) => `url(${image})`,
-    backgroundPosition: "center center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
     overflow: "hidden",
   },
   dialogContent: {
@@ -45,5 +39,10 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     inset: 0,
     opacity: ({ hover }) => (hover ? 1 : 0),
     transition: transitions.create(["opacity"]),
+  },
+  img: {
+    width: "auto",
+    height: "100%",
+    maxHeight: "inherit",
   },
 }));
