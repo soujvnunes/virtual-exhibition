@@ -1,4 +1,5 @@
 import {
+  AppBar,
   CardActionArea,
   CardMedia,
   Dialog,
@@ -6,6 +7,7 @@ import {
   DialogContentText,
   Grid,
   Icon,
+  Toolbar,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -13,6 +15,7 @@ import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
+import IconButton from "../icon-button";
 
 function GalleryItem({ image, alt }) {
   const [, dispatch] = useConsumer();
@@ -89,6 +92,19 @@ function GalleryItem({ image, alt }) {
         <DialogContent classes={{ root: dialogContent }}>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
+        <AppBar style={{ top: "auto", bottom: 0 }}>
+          <Toolbar style={{ justifyContent: "center" }}>
+            <IconButton>
+              <Icon>chevron_left</Icon>
+            </IconButton>
+            <IconButton style={{ margin: "0 8px" }}>
+              <Icon>close</Icon>
+            </IconButton>
+            <IconButton>
+              <Icon>chevron_right</Icon>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
       </Dialog>
     </>
   );
