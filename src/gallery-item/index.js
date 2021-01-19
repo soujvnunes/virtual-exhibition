@@ -30,6 +30,7 @@ function GalleryItem({ image, alt }) {
     cardMedia,
     img,
     dialogContent,
+    appBar,
   } = useStyles({
     onHover,
     image,
@@ -92,7 +93,7 @@ function GalleryItem({ image, alt }) {
         <DialogContent classes={{ root: dialogContent }}>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
-        <AppBar style={{ top: "auto", bottom: 0 }}>
+        <AppBar classes={{ root: appBar }}>
           <Toolbar style={{ justifyContent: "center" }}>
             <IconButton>
               <Icon>chevron_left</Icon>
