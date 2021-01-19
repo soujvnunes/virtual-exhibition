@@ -19,13 +19,6 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
   },
   paper: {
     maxHeight: `calc(100vh - ${spacing(16)}px)`,
-    overflow: "hidden",
-  },
-  dialogContent: {
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-    position: "absolute",
-    width: "100%",
-    bottom: 0,
     "& p": {
       margin: 0,
     },
@@ -41,8 +34,7 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     transition: transitions.create(["opacity"]),
   },
   img: {
-    width: "auto",
-    height: "100%",
+    width: "100%",
     maxHeight: "inherit",
   },
 }));
