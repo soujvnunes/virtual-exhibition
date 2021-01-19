@@ -26,6 +26,7 @@ function GalleryItem({ image, alt }) {
     backdrop,
     fullScreen,
     cardMedia,
+    img,
   } = useStyles({
     hover,
     image,
@@ -83,7 +84,7 @@ function GalleryItem({ image, alt }) {
         classes={{ paper }}
         BackdropProps={{ classes: { root: backdrop } }}
       >
-        <div style={{ width: "100vw", height: "100vh" }} />
+        <img className={img} src={image} {...{ alt }} />
         <DialogContent classes={{ root: dialogContent }}>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
