@@ -24,9 +24,6 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     maxHeight: ({ isMobile }) =>
       `calc(100vh - ${isMobile ? spacing(2) : spacing(16)}px)`,
     margin: ({ isMobile }) => isMobile && spacing(2),
-    "& p": {
-      margin: 0,
-    },
   },
   backdrop: {
     backdropFilter,
@@ -44,5 +41,12 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
   },
   dialogContent: {
     overflow: "initial",
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    width: "100%",
+    "& p": {
+      margin: 0,
+    },
   },
 }));
