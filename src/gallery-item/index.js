@@ -19,15 +19,7 @@ function GalleryItem({ image, alt }) {
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const {
-    root,
-    paper,
-    dialogContent,
-    backdrop,
-    fullScreen,
-    cardMedia,
-    img,
-  } = useStyles({
+  const { root, paper, backdrop, fullScreen, cardMedia, img } = useStyles({
     hover,
     image,
   });
@@ -85,7 +77,7 @@ function GalleryItem({ image, alt }) {
         BackdropProps={{ classes: { root: backdrop } }}
       >
         <img className={img} src={image} {...{ alt }} />
-        <DialogContent classes={{ root: dialogContent }}>
+        <DialogContent>
           <DialogContentText align="center">{alt}</DialogContentText>
         </DialogContent>
       </Dialog>
