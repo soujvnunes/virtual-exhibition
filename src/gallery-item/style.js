@@ -51,4 +51,7 @@ export default makeStyles(({ spacing, palette, transitions, mixins }) => ({
       top: "auto",
       bottom: 0,
     },
+  iconButtonClose: {
+    margin: spacing(0, 1),
+  },
 }));
