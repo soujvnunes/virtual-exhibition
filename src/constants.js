@@ -72,6 +72,9 @@ export const HEADING_TYPE = {
 export const PRIMARY_COLOR = "#EA2934";
 export const SECONDARY_COLOR = "#3F9CF9";
 export const BAR_HEIGHT = 64;
+export const INTRO_TITLE = "Veja o quanto evoluímos /juntos/";
+export const INTRO_DESCRIPTION =
+  "Já se passaram 60 anos! De lá para cá são muitas conquistas e histórias. Então, embarque nessa viagem e explore os acontecimentos no decorrer das seis décadas, o valor e o prestígio da nossa Universidade Federal de Alagoas.";
 export const HERO_SLOTS = new Array(6);
 export const HERO_TITLE = [
   "Década de 1960.",
