@@ -10,10 +10,12 @@ Section.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-export default withStyles(() => ({
+export default withStyles(({ spacing, mixins }) => ({
   root: {
-    height: "100vh",
+    minHeight: "100vh",
     display: "flex",
     position: "relative",
+    paddingTop: spacing(mixins.toolbar.minHeight / 8),
+    paddingBottom: spacing(mixins.toolbar.minHeight / 8),
   },
 }))(Section);
