@@ -17,7 +17,7 @@ import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
 import IconButton from "../icon-button";
 
-function GalleryItem({ image, gallery, index }) {
+function GalleryItem({ image, gallery, index, onReset }) {
   const [, dispatch] = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
@@ -41,6 +41,10 @@ function GalleryItem({ image, gallery, index }) {
 
   function handleDialogClick() {
     setOpen((prevState) => !prevState);
+
+    if (open) {
+      onReset();
+    }
   }
   function handleMouseEnter() {
     dispatch({ type: DISPATCH_UPDATE_BACKGROUND, payload: image });
@@ -139,6 +143,7 @@ GalleryItem.propTypes = {
   image: PropTypes.string.isRequired,
   gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
   index: PropTypes.number.isRequired,
+  onReset: PropTypes.func.isRequired,
 };
 
 export default GalleryItem;
