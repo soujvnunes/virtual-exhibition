@@ -1,7 +1,6 @@
 import {
   Toolbar,
   Icon,
-  IconButton,
   AppBar as MuiAppBar,
   Container,
   Button,
@@ -9,6 +8,7 @@ import {
 import useStyles from "./style";
 import Logos from "../logos";
 import { useWindowDimension } from "../modules";
+import IconButton from "../icon-button";
 
 function AppBar() {
   const { height, scroll } = useWindowDimension();
