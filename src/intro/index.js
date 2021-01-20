@@ -1,10 +1,12 @@
 import { Grid } from "@material-ui/core";
+import { Fragment } from "react";
 import useStyles from "./style";
 import Logos from "../logos";
 import { _ } from "../modules";
 import Section from "../section";
 import SectionTitle from "../section-title";
 import SectionParagraph from "../section-paragraph";
+import { INTRO_DESCRIPTION, INTRO_TITLE } from "../constants";
 
 function Intro() {
   const { logos, grid } = useStyles();
@@ -26,14 +28,20 @@ function Intro() {
         {gridOffset}
         <Grid item sm={5} xs={12}>
           <SectionTitle>
-            Veja o quanto evoluímos <span>juntos</span>
+            {INTRO_TITLE.split("/").map((sentence, index) => {
+              const commonProps = {
+                key: sentence,
+                children: sentence,
+              };
+
+              if (index === 1) {
+                return <span {...commonProps} />;
+              }
+
+              return <Fragment {...commonProps} />;
+            })}
           </SectionTitle>
-          <SectionParagraph>
-            Já se passaram 60 anos! De lá para cá são muitas conquistas e
-            histórias. Então, embarque nessa viagem e explore os acontecimentos
-            no decorrer das seis décadas, o valor e o prestígio da nossa
-            Universidade Federal de Alagoas.
-          </SectionParagraph>
+          <SectionParagraph>{INTRO_DESCRIPTION}</SectionParagraph>
         </Grid>
       </Grid>
     </Section>
