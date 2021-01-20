@@ -9,6 +9,7 @@ import GalleryController from "../gallery-controller";
 
 function Gallery({ gallery }) {
   const [slice, setSlice] = useState(0);
+  const [deltaSliceAmount, setDeltaSliceAmount] = useState(0);
   const { root } = useStyles();
   const deltaSlice = _("sm down") ? 1 : 5;
   const maxAmount = gallery.length;
@@ -20,9 +21,11 @@ function Gallery({ gallery }) {
 
   function handlePreviousClick() {
     setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
+    setDeltaSliceAmount((prevDeltaSliceAmount) => prevDeltaSliceAmount - 1);
   }
   function handleNextClick() {
     setSlice((prevSlice) => Math.min(maxAmount, prevSlice + deltaSlice));
+    setDeltaSliceAmount((prevDeltaSliceAmount) => prevDeltaSliceAmount + 1);
   }
 
   return (
@@ -32,9 +35,14 @@ function Gallery({ gallery }) {
           <Icon>chevron_left</Icon>
         </IconButton>
       </GalleryController>
-      {gallery.slice(slice, sliceAmount).map(({ img, figcaption }) => (
+      {gallery.slice(slice, sliceAmount).map(({ img, figcaption }, index) => (
         <Grid item xs md={2} key={figcaption}>
-          <GalleryItem image={img} alt={figcaption} />
+          <GalleryItem
+            image={img}
+            alt={figcaption}
+            index={index + deltaSlice * deltaSliceAmount}
+            {...{ gallery }}
+          />
         </Grid>
       ))}
       <GalleryController unrendered={sliceAmount >= maxAmount}>
