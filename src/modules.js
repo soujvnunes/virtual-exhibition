@@ -17,6 +17,7 @@ import {
   DISPATCH_CONTEXT,
   DISPATCH_UPDATE_THEME,
   DISPATCH_UPDATE_HERO_REF,
+  DISPATCH_UPDATE_ANIMATE_SCROLL,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -163,6 +164,11 @@ export function getReducer(state, { type, payload }) {
       return {
         ...state,
         heroRef: payload,
+      };
+    case DISPATCH_UPDATE_ANIMATE_SCROLL:
+      return {
+        ...state,
+        animateScroll: payload,
       };
     default:
       throw new Error("Unexpected action.");
