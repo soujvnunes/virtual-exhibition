@@ -25,11 +25,13 @@ function Intro() {
         {gridOffset}
         <Grid item sm={5} xs={12}>
           <SectionTitle>
-            Veja o quanto evoluímos <span>juntos</span>.
+            Veja o quanto evoluímos <span>juntos</span>
           </SectionTitle>
           <SectionParagraph>
-            Já passaram 60 anos! Explore através do decorrer das décadas o valor
-            e prestígio da nossa Universidade Federal de Alagoas expandindo-se.
+            Já se passaram 60 anos! De lá para cá são muitas conquistas e
+            histórias. Então, embarque nessa viagem e explore os acontecimentos
+            no decorrer das seis décadas, o valor e o prestígio da nossa
+            Universidade Federal de Alagoas.
           </SectionParagraph>
         </Grid>
       </Grid>
