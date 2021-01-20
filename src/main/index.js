@@ -6,6 +6,7 @@ import Intro from "../intro";
 import Hero from "../hero";
 import { useWindowDimension } from "../modules";
 import useStyles from "./style";
+import Dedication from "../dedication";
 
 function Main() {
   const { scroll } = useWindowDimension();
@@ -29,6 +30,7 @@ function Main() {
       <Box position="fixed" width="100%" height="100%" ref={wrapper}>
         <Box component="main" className={main}>
           <Intro />
+          <Dedication />
           <Hero />
         </Box>
       </Box>
