@@ -6,7 +6,6 @@ import {
   HEADING_TYPE,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
-  HERO_DESCRIPTION,
   HERO_GALLERY,
   HERO_SLOTS,
   HERO_TITLE,
@@ -135,7 +134,6 @@ export function getHeroes() {
       shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
       title: HERO_TITLE[index],
       id: toKebabCase({ value: HERO_TITLE[index] }),
-      description: HERO_DESCRIPTION[index],
       gallery: generateGallery(index),
     });
   }
