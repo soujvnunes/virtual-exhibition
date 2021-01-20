@@ -1,4 +1,5 @@
 import {
+  AppBar,
   CardActionArea,
   CardMedia,
   Dialog,
@@ -6,6 +7,7 @@ import {
   DialogContentText,
   Grid,
   Icon,
+  Toolbar,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -13,12 +15,15 @@ import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
+import IconButton from "../icon-button";
 
-function GalleryItem({ image, alt }) {
+function GalleryItem({ image, gallery, index }) {
   const [, dispatch] = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [onHover, setOnHover] = useState(false);
+  const [viewImage, setViewImage] = useState(index);
+  const maxImages = gallery.length - 1;
   const {
     root,
     paper,
@@ -27,13 +32,14 @@ function GalleryItem({ image, alt }) {
     cardMedia,
     img,
     dialogContent,
+    appBar,
+    iconButtonClose,
   } = useStyles({
     onHover,
-    image,
     isMobile: _("sm down"),
   });
 
-  function handleClick() {
+  function handleDialogClick() {
     setOpen((prevState) => !prevState);
   }
   function handleMouseEnter() {
@@ -46,12 +52,18 @@ function GalleryItem({ image, alt }) {
   function handleLoad() {
     setLoading(false);
   }
+  function handleDecrementClick() {
+    setViewImage((prevViewImage) => prevViewImage - 1);
+  }
+  function handleIncrementClick() {
+    setViewImage((prevViewImage) => prevViewImage + 1);
+  }
 
   return (
     <>
       <CardActionArea
         classes={{ root }}
-        onClick={handleClick}
+        onClick={handleDialogClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -75,20 +87,49 @@ function GalleryItem({ image, alt }) {
           component="img"
           height="112"
           onLoad={handleLoad}
-          {...{ image, alt }}
+          alt={gallery[viewImage].figcaption}
+          {...{ image }}
         />
       </CardActionArea>
       <Dialog
         maxWidth="lg"
-        onClose={handleClick}
+        onClose={handleDialogClick}
         open={open}
         classes={{ paper }}
         BackdropProps={{ classes: { root: backdrop } }}
       >
-        <img className={img} src={image} {...{ alt }} />
+        <img
+          className={img}
+          src={gallery[viewImage].img}
+          alt={gallery[viewImage].figcaption}
+        />
         <DialogContent classes={{ root: dialogContent }}>
-          <DialogContentText align="center">{alt}</DialogContentText>
+          <DialogContentText align="center">
+            {gallery[viewImage].figcaption}
+          </DialogContentText>
         </DialogContent>
+        <AppBar classes={{ root: appBar }}>
+          <Toolbar style={{ justifyContent: "center" }}>
+            <IconButton
+              onClick={handleDecrementClick}
+              disabled={viewImage === 0}
+            >
+              <Icon>chevron_left</Icon>
+            </IconButton>
+            <IconButton
+              classes={{ root: iconButtonClose }}
+              onClick={handleDialogClick}
+            >
+              <Icon>close</Icon>
+            </IconButton>
+            <IconButton
+              onClick={handleIncrementClick}
+              disabled={viewImage >= maxImages}
+            >
+              <Icon>chevron_right</Icon>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
       </Dialog>
     </>
   );
@@ -96,7 +137,8 @@ function GalleryItem({ image, alt }) {
 
 GalleryItem.propTypes = {
   image: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default GalleryItem;

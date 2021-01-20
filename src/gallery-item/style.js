@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const backdropFilter = "saturate(160%) brightness(32%) blur(8px)";
 
-export default makeStyles(({ spacing, palette, transitions }) => ({
+export default makeStyles(({ spacing, palette, transitions, mixins }) => ({
   root: {
     backdropFilter,
     overflow: "hidden",
@@ -23,10 +23,8 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     boxShadow: "none",
     maxHeight: ({ isMobile }) =>
       `calc(100vh - ${isMobile ? spacing(2) : spacing(16)}px)`,
-    margin: ({ isMobile }) => isMobile && spacing(2),
-    "& p": {
-      margin: 0,
-    },
+    margin: ({ isMobile }) =>
+      isMobile && spacing(2, 2, mixins.toolbar.minHeight / 8, 2),
   },
   backdrop: {
     backdropFilter,
@@ -44,5 +42,16 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
   },
   dialogContent: {
     overflow: "initial",
+    "& p": {
+      margin: 0,
+    },
+  },
+  appBar: ({ isMobile }) =>
+    isMobile && {
+      top: "auto",
+      bottom: 0,
+    },
+  iconButtonClose: {
+    margin: spacing(0, 1),
   },
 }));
