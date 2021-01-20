@@ -17,7 +17,7 @@ function Main() {
 
   useEffect(() => {
     setHeight(wrapper.current.scrollHeight);
-  }, [wrapper]);
+  }, [wrapper, height]);
 
   useEffect(() => {
     setScrollMain(scroll);
