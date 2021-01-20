@@ -3,15 +3,15 @@ import { Grid, Grow, Icon, Zoom } from "@material-ui/core";
 import useStyles from "./style";
 import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
-import { useWindowDimension } from "../modules";
+import { scrollToRef, useConsumer } from "../modules";
 
 function NavIntro({ onDecades }) {
+  const [{ heroRef }] = useConsumer();
   const { iconButton } = useStyles();
-  const { height } = useWindowDimension();
   const commonProps = { in: !onDecades, timeout: onDecades ? 250 : 500 };
 
   function handleOnDecadesClick() {
-    window.scrollTo(0, height);
+    scrollToRef(heroRef);
   }
 
   return (
