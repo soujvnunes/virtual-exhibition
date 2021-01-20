@@ -1,8 +1,25 @@
 import { IconButton as MuiIconButton } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import { DISPATCH_UPDATE_ANIMATE_SCROLL } from "../constants";
+import { useConsumer } from "../modules";
 
 function IconButton(props) {
-  return <MuiIconButton {...props} />;
+  const [, dispatch] = useConsumer();
+
+  function handleMouseEnter() {
+    dispatch({ type: DISPATCH_UPDATE_ANIMATE_SCROLL, payload: true });
+  }
+  function handleMouseLeave() {
+    dispatch({ type: DISPATCH_UPDATE_ANIMATE_SCROLL, payload: false });
+  }
+
+  return (
+    <MuiIconButton
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...props}
+    />
+  );
 }
 
 const borderColor = (type) => {
