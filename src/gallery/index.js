@@ -16,9 +16,13 @@ function Gallery({ gallery }) {
   const sliceAmount = slice + deltaSlice;
 
   useEffect(() => {
-    setSlice(0);
+    onReset();
   }, [deltaSlice, gallery]);
 
+  function onReset() {
+    setSlice(0);
+    setDeltaSliceAmount(0);
+  }
   function handlePreviousClick() {
     setSlice((prevSlice) => Math.max(0, prevSlice - deltaSlice));
     setDeltaSliceAmount((prevDeltaSliceAmount) => prevDeltaSliceAmount - 1);
@@ -41,7 +45,7 @@ function Gallery({ gallery }) {
             image={img}
             alt={figcaption}
             index={index + deltaSlice * deltaSliceAmount}
-            {...{ gallery }}
+            {...{ gallery, onReset }}
           />
         </Grid>
       ))}
