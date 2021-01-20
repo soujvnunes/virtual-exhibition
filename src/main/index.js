@@ -4,16 +4,18 @@ import AppBar from "../app-bar";
 import Nav from "../nav";
 import Intro from "../intro";
 import Hero from "../hero";
-import { useWindowDimension } from "../modules";
+import { useConsumer, useWindowDimension, _ } from "../modules";
 import useStyles from "./style";
 import Dedication from "../dedication";
 
 function Main() {
+  const [{ animateScroll }] = useConsumer();
   const { scroll } = useWindowDimension();
   const [height, setHeight] = useState(0);
   const [scrollMain, setScrollMain] = useState(0);
   const wrapper = useRef(null);
-  const { main } = useStyles({ scroll: scrollMain });
+  const { main } = useStyles({ scroll: scrollMain, animateScroll });
+  const allowScroll = _("md up");
 
   useEffect(() => {
     setHeight(wrapper.current.scrollHeight);
@@ -27,14 +29,19 @@ function Main() {
     <>
       <Nav />
       <AppBar />
-      <Box position="fixed" width="100%" height="100%" ref={wrapper}>
-        <Box component="main" className={main}>
+      <Box
+        position={allowScroll ? "fixed" : "relative"}
+        width="100%"
+        height="100%"
+        ref={wrapper}
+      >
+        <Box component="main" {...(allowScroll && { className: main })}>
           <Intro />
           <Dedication />
           <Hero />
         </Box>
       </Box>
-      <div style={{ height }} />
+      {allowScroll && <div style={{ height }} />}
     </>
   );
 }
