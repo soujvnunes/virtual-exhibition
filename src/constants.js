@@ -248,5 +248,6 @@ export const HERO_CAPTION = [
 export const DISPATCH_UPDATE_HERO = "hero update";
 export const DISPATCH_UPDATE_BACKGROUND = "background update";
 export const DISPATCH_UPDATE_THEME = "theme update";
+export const DISPATCH_UPDATE_HERO_REF = "hero ref update";
 export const STATE_CONTEXT = createContext();
 export const DISPATCH_CONTEXT = createContext();

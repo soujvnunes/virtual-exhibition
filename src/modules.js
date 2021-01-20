@@ -16,6 +16,7 @@ import {
   STATE_CONTEXT,
   DISPATCH_CONTEXT,
   DISPATCH_UPDATE_THEME,
+  DISPATCH_UPDATE_HERO_REF,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -158,6 +159,11 @@ export function getReducer(state, { type, payload }) {
         ...state,
         theme: payload,
       };
+    case DISPATCH_UPDATE_HERO_REF:
+      return {
+        ...state,
+        heroRef: payload,
+      };
     default:
       throw new Error("Unexpected action.");
   }
@@ -168,4 +174,8 @@ export function useConsumer() {
   const dispatch = useContext(DISPATCH_CONTEXT);
 
   return [state, dispatch];
+}
+
+export function scrollToRef(ref) {
+  window.scrollTo(0, ref.current.offsetTop);
 }
