@@ -17,7 +17,6 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
     padding: 0,
     marginTop: ({ showLogos }) => (showLogos ? spacing(0) : spacing(-16)),
     transition: transitions.create(["margin-top"]),
-    border: "none",
   },
   logos: {
     fontSize: spacing(3),

@@ -24,6 +24,7 @@ function NavIntro({ onDecades }) {
         style={{ transitionDelay: onDecades ? "125ms" : "250ms" }}
       >
         <IconButton
+          variant="outlined"
           classes={{ root: iconButton }}
           onClick={handleOnDecadesClick}
           id="expand_more"
