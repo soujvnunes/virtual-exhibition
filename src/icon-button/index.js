@@ -1,12 +1,10 @@
 import { IconButton as MuiIconButton } from "@material-ui/core";
-import PropTypes from "prop-types";
-import useStyles from "./style";
+import { withStyles } from "@material-ui/core/styles";
 import { DISPATCH_UPDATE_ANIMATE_SCROLL } from "../constants";
 import { useConsumer } from "../modules";
 
-function IconButton({ variant, ...props }) {
+function IconButton(props) {
   const [, dispatch] = useConsumer();
-  const { root } = useStyles({ variant });
 
   function handleMouseEnter() {
     dispatch({ type: DISPATCH_UPDATE_ANIMATE_SCROLL, payload: true });
@@ -17,7 +15,6 @@ function IconButton({ variant, ...props }) {
 
   return (
     <MuiIconButton
-      className={root}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
@@ -25,12 +22,18 @@ function IconButton({ variant, ...props }) {
   );
 }
 
-IconButton.propTypes = {
-  variant: PropTypes.oneOf(["outlined"]),
+const borderColor = (type) => {
+  switch (type) {
+    case "dark":
+      return "255, 255, 255, 0.23";
+    default:
+      return "0, 0, 0, 0.23";
+  }
 };
 
-IconButton.defaultProps = {
-  variant: null,
-};
-
-export default IconButton;
+export default withStyles(({ palette }) => ({
+  root: {
+    border: `2px solid rgba(${borderColor(palette.type)})}`,
+    padding: 10,
+  },
+}))(IconButton);
