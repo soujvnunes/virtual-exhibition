@@ -17,6 +17,9 @@ import {
   DISPATCH_UPDATE_THEME,
   DISPATCH_UPDATE_HERO_REF,
   DISPATCH_UPDATE_ANIMATE_SCROLL,
+  VIDEO_SLOTS,
+  VIDEO_SRC,
+  VIDEO_TITLE,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -182,4 +185,17 @@ export function useConsumer() {
 
 export function scrollToRef(ref) {
   window.scrollTo(0, ref.current.offsetTop);
+}
+
+export function getVideos() {
+  const videos = [];
+
+  for (let index = 0; index < VIDEO_SLOTS.length; index += 1) {
+    videos.push({
+      src: VIDEO_SRC[index],
+      title: VIDEO_TITLE[index],
+    });
+  }
+
+  return videos;
 }

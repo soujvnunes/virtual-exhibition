@@ -82,6 +82,15 @@ export const DEDICATION_DESCRIPTION = [
   "Somos as vidas que ajudamos a mudar, a transformar pela educação. Somos as pessoas assistidas pela Universidade Federal de Alagoas.",
   "Somos histórias, somos memórias, somos raízes, somos Alagoas.",
 ];
+export const VIDEO_SLOTS = new Array(2);
+export const VIDEO_SRC = [
+  "https://www.youtube.com/embed/UjiF7bgsZyk",
+  "https://www.youtube.com/embed/RYb0tvEygNo",
+];
+export const VIDEO_TITLE = [
+  "Ufal 60 Anos: raízes conectad@s com o futuro",
+  "Ufal 60 Anos-Raízes",
+];
 export const EXPOSE_DESCRIPTION = [
   "Quando recebi a incumbência de fazer a curadoria das imagens que comporiam a Exposição Virtual Ufal 60 anos, eu tinha bastante claro em minha mente que não faria uma seleção que privilegiasse uma visão puramente institucional num sentido mais estrito.",
   "A história da Ufal foi escrita a muitas mãos. Desde aquelas que assinaram documentos importantes, àquelas calejadas na madeira e no concreto dos edifícios que foram erguidos. Essa história também foi feita por muitas vozes. Nas salas de aula essas vozes ecoaram, nas reivindicações estudantis também. Elas acompanharam acordes e melodias nas apresentações do Corufal e nos festivais de música.",
