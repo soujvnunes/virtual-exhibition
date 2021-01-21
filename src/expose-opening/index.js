@@ -6,11 +6,11 @@ import {
   Icon,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { EXPOSE_DESCRIPTION } from "../constants";
 import Dialog from "../dialog";
 import useStyles from "./style";
-import { _ } from "../modules";
+import { useConsumer, useWindowDimension, _ } from "../modules";
 import Logos from "../logos";
 
 function ExposeOpening() {
@@ -23,9 +23,29 @@ function ExposeOpening() {
   } = useStyles({
     isMobile: _("sm down"),
   });
+  const [{ heroRef }] = useConsumer();
+  const [offsetTop, setOffsetTop] = useState(0);
+  const [open, setOpen] = useState(false);
+  const { scroll } = useWindowDimension();
+
+  useEffect(() => {
+    if (heroRef) {
+      setOffsetTop(heroRef.current.offsetTop);
+    }
+  }, [heroRef]);
+
+  useEffect(() => {
+    if (offsetTop) {
+      setOpen(scroll === offsetTop);
+    }
+  }, [scroll]);
+
+  function handleExploreClick() {
+    setOpen(false);
+  }
 
   return (
-    <Dialog open maxWidth="sm" scroll="body">
+    <Dialog {...{ open }} maxWidth="sm" scroll="body">
       <DialogContent>
         {EXPOSE_DESCRIPTION.map((paragraph, index) => (
           <Fragment key={paragraph}>
@@ -53,6 +73,7 @@ function ExposeOpening() {
                     classes={{ root: buttonExplore }}
                     variant="outlined"
                     endIcon={<Icon>chevron_right</Icon>}
+                    onClick={handleExploreClick}
                   >
                     Explorar
                   </Button>
