@@ -11,7 +11,7 @@ function Dedication() {
   return (
     <Section id="dedication">
       <Grid container alignContent="center" justify="center">
-        <Grid md={6}>
+        <Grid item md={6}>
           {DEDICATION_DESCRIPTION.map((paragraph, index) => (
             <SectionParagraph
               key={paragraph}
