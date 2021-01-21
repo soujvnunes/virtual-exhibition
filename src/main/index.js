@@ -7,6 +7,7 @@ import Hero from "../hero";
 import { useConsumer, useWindowDimension, _ } from "../modules";
 import useStyles from "./style";
 import Dedication from "../dedication";
+import ExposeOpening from "../expose-opening";
 
 function Main() {
   const [{ animateScroll }] = useConsumer();
@@ -27,6 +28,7 @@ function Main() {
 
   return (
     <>
+      <ExposeOpening />
       <Nav />
       <AppBar />
       <Box
