@@ -9,4 +9,7 @@ export default makeStyles(({ typography }) => ({
       ...typography.h2,
     },
   },
+  marginTop: {
+    marginTop: 24,
+  },
 }));

@@ -6,7 +6,7 @@ import SectionParagraph from "../section-paragraph";
 import useStyles from "./style";
 
 function Dedication() {
-  const { paragraphStyle, paragraphFirstLine } = useStyles();
+  const { paragraphStyle, paragraphFirstLine, marginTop } = useStyles();
 
   return (
     <Section id="dedication">
@@ -19,6 +19,7 @@ function Dedication() {
               align="left"
               className={clsx(paragraphStyle, {
                 [paragraphFirstLine]: index === 0,
+                [marginTop]: index !== 0,
               })}
             >
               {paragraph}
