@@ -10,6 +10,9 @@ export default makeStyles(({ typography }) => ({
     },
   },
   marginTop: {
-    marginTop: 24,
+    marginTop: 16,
+  },
+  videosItem: {
+    height: 340,
   },
 }));
