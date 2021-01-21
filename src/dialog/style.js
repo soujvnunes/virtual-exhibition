@@ -1,7 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 
-const backdropFilter = "saturate(160%) brightness(32%) blur(8px)";
-
 export default makeStyles(({ spacing, mixins }) => ({
   paper: {
     overflow: "initial",
@@ -13,7 +11,7 @@ export default makeStyles(({ spacing, mixins }) => ({
       isMobile && spacing(2, 2, mixins.toolbar.minHeight / 8, 2),
   },
   backdrop: {
-    backdropFilter,
+    backdropFilter: "saturate(160%) brightness(32%) blur(64px)",
     backgroundColor: "transparent",
   },
 }));
