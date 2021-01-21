@@ -2,7 +2,6 @@ import {
   AppBar,
   CardActionArea,
   CardMedia,
-  Dialog,
   DialogContent,
   DialogContentText,
   Grid,
@@ -16,6 +15,7 @@ import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
 import IconButton from "../icon-button";
+import Dialog from "../dialog";
 
 function GalleryItem({ image, gallery, index, onReset }) {
   const [, dispatch] = useConsumer();
@@ -26,8 +26,6 @@ function GalleryItem({ image, gallery, index, onReset }) {
   const maxImages = gallery.length - 1;
   const {
     root,
-    paper,
-    backdrop,
     fullScreen,
     cardMedia,
     img,
@@ -95,13 +93,7 @@ function GalleryItem({ image, gallery, index, onReset }) {
           {...{ image }}
         />
       </CardActionArea>
-      <Dialog
-        maxWidth="lg"
-        onClose={handleDialogClick}
-        open={open}
-        classes={{ paper }}
-        BackdropProps={{ classes: { root: backdrop } }}
-      >
+      <Dialog maxWidth="lg" onClose={handleDialogClick} open={open}>
         <img
           className={img}
           src={gallery[viewImage].img}
