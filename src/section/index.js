@@ -1,19 +1,17 @@
 import { Container } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import useStyles from "./style";
 
 function Section({ id, ...props }) {
-  return <Container component="section" {...{ ...props, id }} />;
+  const { root } = useStyles();
+
+  return (
+    <Container classes={{ root }} component="section" {...{ ...props, id }} />
+  );
 }
 
 Section.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-export default withStyles(() => ({
-  root: {
-    height: "100vh",
-    display: "flex",
-    position: "relative",
-  },
-}))(Section);
+export default Section;

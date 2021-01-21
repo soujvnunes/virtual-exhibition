@@ -1,19 +1,25 @@
 import { Grid } from "@material-ui/core";
+import { useEffect, useRef } from "react";
 import Gallery from "../gallery";
 import Section from "../section";
 import SectionTitle from "../section-title";
-import SectionParagraph from "../section-paragraph";
 import SectionBackground from "../section-background";
 import { useConsumer } from "../modules";
+import { DISPATCH_UPDATE_HERO_REF } from "../constants";
 
 function Hero() {
-  const [{ hero }] = useConsumer();
-  const { title, description, gallery } = hero;
+  const heroRef = useRef();
+  const [{ hero }, dispatch] = useConsumer();
+  const { title, gallery } = hero;
   const gridOffset = <Grid item xs={3} />;
   const commonProps = { align: "center" };
 
+  useEffect(() => {
+    dispatch({ type: DISPATCH_UPDATE_HERO_REF, payload: heroRef });
+  }, [heroRef]);
+
   return (
-    <SectionBackground>
+    <SectionBackground ref={heroRef}>
       <Section id={title}>
         <Grid
           container
@@ -24,7 +30,6 @@ function Hero() {
           {gridOffset}
           <Grid item sm={6} xs={12}>
             <SectionTitle {...commonProps}>{title}</SectionTitle>
-            <SectionParagraph {...commonProps}>{description}</SectionParagraph>
           </Grid>
           {gridOffset}
           <Gallery {...{ gallery }} />

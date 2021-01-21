@@ -6,7 +6,6 @@ import {
   HEADING_TYPE,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
-  HERO_DESCRIPTION,
   HERO_GALLERY,
   HERO_SLOTS,
   HERO_TITLE,
@@ -16,6 +15,11 @@ import {
   STATE_CONTEXT,
   DISPATCH_CONTEXT,
   DISPATCH_UPDATE_THEME,
+  DISPATCH_UPDATE_HERO_REF,
+  DISPATCH_UPDATE_ANIMATE_SCROLL,
+  VIDEO_SLOTS,
+  VIDEO_SRC,
+  VIDEO_TITLE,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -133,7 +137,6 @@ export function getHeroes() {
       shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
       title: HERO_TITLE[index],
       id: toKebabCase({ value: HERO_TITLE[index] }),
-      description: HERO_DESCRIPTION[index],
       gallery: generateGallery(index),
     });
   }
@@ -158,6 +161,16 @@ export function getReducer(state, { type, payload }) {
         ...state,
         theme: payload,
       };
+    case DISPATCH_UPDATE_HERO_REF:
+      return {
+        ...state,
+        heroRef: payload,
+      };
+    case DISPATCH_UPDATE_ANIMATE_SCROLL:
+      return {
+        ...state,
+        animateScroll: payload,
+      };
     default:
       throw new Error("Unexpected action.");
   }
@@ -168,4 +181,21 @@ export function useConsumer() {
   const dispatch = useContext(DISPATCH_CONTEXT);
 
   return [state, dispatch];
+}
+
+export function scrollToRef(ref) {
+  window.scrollTo(0, ref.current.offsetTop);
+}
+
+export function getVideos() {
+  const videos = [];
+
+  for (let index = 0; index < VIDEO_SLOTS.length; index += 1) {
+    videos.push({
+      src: VIDEO_SRC[index],
+      title: VIDEO_TITLE[index],
+    });
+  }
+
+  return videos;
 }

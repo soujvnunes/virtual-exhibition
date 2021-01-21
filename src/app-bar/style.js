@@ -13,11 +13,12 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
       marginRight: spacing(-1.5),
     },
   },
-  iconButtonLogos: ({ showLogos }) => ({
+  iconButtonLogos: {
     padding: 0,
-    marginTop: showLogos ? spacing(0) : spacing(-16),
+    marginTop: ({ showLogos }) => (showLogos ? spacing(0) : spacing(-16)),
     transition: transitions.create(["margin-top"]),
-  }),
+    border: "transparent!important",
+  },
   logos: {
     fontSize: spacing(3),
     width: "auto",

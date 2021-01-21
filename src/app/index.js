@@ -11,6 +11,8 @@ import Main from "../main";
 
 function App() {
   const [{ theme, ...state }, dispatch] = useReducer(getReducer, {
+    animatedScroll: false,
+    heroRef: null,
     hero: getHeroes()[0],
     background: getHeroes()[0].gallery[0].img,
     theme: initialTheme({

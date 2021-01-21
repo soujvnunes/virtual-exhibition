@@ -16,8 +16,8 @@ This project will follows this planned prototype:
 
 1. Naming:
 
-- JS, JSX and CSS **files** names and directory **folders** are named with _kebab-case_ as `src/my-component/index.js`
-- **Components** are named with _PascalCase_ as:
+- **Folders** directory and JS, JSX and CSS **files**, if necessary, names are named with _kebab-case_ as `component/my-component/index.js`;
+- **Component** exportation names are named with _PascalCase_ as:
 
 ```javascript
 // example for index.js at /component/ folder
@@ -36,10 +36,10 @@ export function someModule({ prop = "" } = {}) {}
 // example for instancing a component
 import MyComponent from "./my-component";
 
-const myComponent = <MyComponent>;
+const myComponent = MyComponent;
 ```
 
-- **Classes** on cascade stylesheet **modules** are named with just a word, because [Create React App](https://github.com/facebook/create-react-app) will generate a unique name on render. In case importing them as css modules, should always be imported as _cssModules_, following:
+- **Classes** on cascade stylesheet **modules** are named with _camelCase_. In case importing them as css modules, should always be imported as _cssModules_, following:
 
 ```css
 /* example for a index.module.css from MyComponent */
@@ -64,10 +64,11 @@ import cssModules, { root } from "./index.module.css";
 
 2. Project Tree:
 
-- Components: are set right directly on `/src/` directory, following the naming convention;
-- Modules: on `modules.js` file at `/src/` directory;
-- Constants: on `constants.js` file at `/src/` directory;
-- Used APIs: are found in each source component that uses it;
+- **Assets**: locate on `/src/assets` directory, following the naming convention, exported by `index.js` file on it;
+- **Components**: locate on `/src/components` directory, following the naming convention, exported by `index.js` file on it;
+- **Modules**: locate on `modules.js` file at `/src/components` directory;
+- **Constants**: locate on `constants.js` file at `/src/components` directory;
+- Used **APIs**: locate on `api.js` file at `/src/components` directory;
 
 3. Documentation:
 
