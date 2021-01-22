@@ -78,7 +78,7 @@ function ExposeOpening() {
                     endIcon={<Icon>chevron_right</Icon>}
                     onClick={handleExploreClick}
                   >
-                    Explorar
+                    Continuar
                   </Button>
                 </Grid>
               </Grid>

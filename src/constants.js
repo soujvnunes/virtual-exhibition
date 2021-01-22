@@ -102,12 +102,12 @@ export const EXPOSE_DESCRIPTION = [
 ];
 export const HERO_SLOTS = new Array(6);
 export const HERO_TITLE = [
-  "Década de 1960.",
-  "Década de 1970.",
-  "Década de 1980.",
-  "Década de 1990.",
-  "Década de 2000.",
-  "Década de 2010.",
+  "Década de 1960",
+  "Década de 1970",
+  "Década de 1980",
+  "Década de 1990",
+  "Década de 2000",
+  "Década de 2010",
 ];
 export const HERO_DESCRIPTION = [
   [
