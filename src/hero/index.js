@@ -12,7 +12,7 @@ import Quote from "../quote";
 import useStyles from "./style";
 
 function Hero() {
-  const { section, h6, progress } = useStyles();
+  const { section, h6, progress, overline } = useStyles();
   const [descSelector, setDescSelector] = useState(0);
   const [selectorProgress, setSelectorProgress] = useState(0);
   const heroRef = useRef();
@@ -89,8 +89,8 @@ function Hero() {
               if (index === 1) {
                 return (
                   <Typography
+                    className={overline}
                     variant="overline"
-                    style={{ display: "block" }}
                     {...props}
                     {...commonProps}
                   />

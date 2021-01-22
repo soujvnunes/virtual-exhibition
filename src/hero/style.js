@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(({ spacing }) => ({
+export default makeStyles(({ spacing, palette }) => ({
   section: {
     paddingBottom: spacing(16),
   },
@@ -9,5 +9,9 @@ export default makeStyles(({ spacing }) => ({
   },
   progress: {
     marginTop: spacing(1.5),
+  },
+  overline: {
+    display: "block",
+    color: palette.text.disabled,
   },
 }));
