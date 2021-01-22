@@ -8,10 +8,15 @@ export default makeStyles(({ spacing, palette }) => ({
     marginTop: spacing(1.5),
   },
   progress: {
-    marginTop: spacing(1.5),
+    flex: 1,
   },
   overline: {
     display: "block",
     color: palette.text.disabled,
+  },
+  control: {
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    marginTop: spacing(2),
+    borderRadius: spacing(3),
   },
 }));
