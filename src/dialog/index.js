@@ -7,6 +7,7 @@ function Dialog(props) {
 
   return (
     <MuiDialog
+      maxWidth="lg"
       classes={{ paper }}
       BackdropProps={{ classes: { root: backdrop } }}
       {...props}

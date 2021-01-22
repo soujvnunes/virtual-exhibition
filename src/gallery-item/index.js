@@ -93,7 +93,7 @@ function GalleryItem({ image, gallery, index, onReset }) {
           {...{ image }}
         />
       </CardActionArea>
-      <Dialog maxWidth="lg" onClose={handleDialogClick} open={open}>
+      <Dialog onClose={handleDialogClick} open={open}>
         <img
           className={img}
           src={gallery[viewImage].img}
