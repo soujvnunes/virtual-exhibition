@@ -84,7 +84,7 @@ export const DEDICATION_DESCRIPTION = [
 ];
 export const VIDEO_SLOTS = new Array(2);
 export const VIDEO_SRC = [
-  "https://www.youtube.com/embed/UjiF7bgsZyk",
+  "https://www.youtube.com/embed/jr-EcARAio4",
   "https://www.youtube.com/embed/RYb0tvEygNo",
 ];
 export const VIDEO_TITLE = [
