@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography } from "@material-ui/core";
+import { Divider, Grid, Icon, IconButton, Typography } from "@material-ui/core";
 import { useEffect, useRef, useState } from "react";
 import Gallery from "../gallery";
 import Section from "../section";
@@ -12,9 +12,10 @@ import Quote from "../quote";
 import useStyles from "./style";
 
 function Hero() {
-  const { section, h6, progress, overline } = useStyles();
+  const { section, h6, progress, overline, control } = useStyles();
   const [descSelector, setDescSelector] = useState(0);
   const [selectorProgress, setSelectorProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const heroRef = useRef();
   const [{ hero }, dispatch] = useConsumer();
   const { title, gallery, description } = hero;
@@ -28,30 +29,59 @@ function Hero() {
   }, [heroRef]);
 
   useEffect(() => {
-    let timer;
-
     setSelectorProgress(0);
+  }, [description, descSelector]);
+
+  useEffect(() => {
+    let timer;
 
     if (isDescArray) {
       timer = setInterval(() => {
-        setSelectorProgress((prevSelectorProgress) =>
-          prevSelectorProgress >= 100 ? 0 : prevSelectorProgress + 10,
-        );
-      }, 2000);
+        if (!isPaused) {
+          setSelectorProgress((prevSelectorProgress) =>
+            prevSelectorProgress >= 100 ? 0 : prevSelectorProgress + 10,
+          );
+        }
+      }, 500);
     }
 
     return () => {
       clearInterval(timer);
     };
-  }, [description]);
+  }, [description, isPaused]);
 
   useEffect(() => {
-    if (selectorProgress === 0) {
-      setDescSelector((prevDescSelector) =>
-        prevDescSelector >= maxDesc ? 0 : prevDescSelector + 1,
-      );
+    if (selectorProgress >= 100) {
+      handleSkipClick();
     }
   }, [selectorProgress]);
+
+  function handleSkipClick() {
+    setDescSelector((prevDescSelector) =>
+      prevDescSelector >= maxDesc ? 0 : prevDescSelector + 1,
+    );
+  }
+  function handlePauseClick() {
+    setIsPaused(true);
+  }
+  function handleResumeClick() {
+    setIsPaused(false);
+  }
+  function renderPlayButton() {
+    if (isPaused) {
+      return (
+        <IconButton onClick={handleResumeClick}>
+          <Icon>play_arrow</Icon>
+        </IconButton>
+      );
+    }
+
+    return (
+      <IconButton onClick={handlePauseClick}>
+        <Icon>pause</Icon>
+      </IconButton>
+    );
+  }
 
   return (
     <SectionBackground ref={heroRef}>
@@ -106,12 +136,18 @@ function Hero() {
               return <SectionParagraph {...props} />;
             })}
             {isDescArray && (
-              <LinearProgress
-                className={progress}
-                disableAnimation
-                variant="determinate"
-                value={selectorProgress}
-              />
+              <Grid container alignItems="center" classes={{ root: control }}>
+                {renderPlayButton()}
+                <LinearProgress
+                  className={progress}
+                  disableAnimation
+                  variant="determinate"
+                  value={selectorProgress}
+                />
+                <IconButton onClick={handleSkipClick}>
+                  <Icon>skip_next</Icon>
+                </IconButton>
+              </Grid>
             )}
           </Grid>
           <Gallery {...{ gallery }} />
