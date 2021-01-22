@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(({ typography }) => ({
+  root: {
+    paddingTop: 0,
+  },
   paragraphStyle: {
     lineHeight: 2.618,
   },

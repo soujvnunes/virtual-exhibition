@@ -12,26 +12,25 @@ function Dedication() {
     paragraphFirstLine,
     marginTop,
     videosItem,
+    root,
   } = useStyles();
 
   return (
-    <Section id="dedication">
+    <Section id="dedication" className={root}>
       <Grid container direction="column">
-        <Grid container alignContent="center" justify="center">
-          <Grid item md={6}>
-            {DEDICATION_DESCRIPTION.map((paragraph, index) => (
-              <SectionParagraph
-                key={paragraph}
-                align="left"
-                className={clsx(paragraphStyle, {
-                  [paragraphFirstLine]: index === 0,
-                  [marginTop]: index !== 0,
-                })}
-              >
-                {paragraph}
-              </SectionParagraph>
-            ))}
-          </Grid>
+        <Grid item xs>
+          {DEDICATION_DESCRIPTION.map((paragraph, index) => (
+            <SectionParagraph
+              key={paragraph}
+              align="left"
+              className={clsx(paragraphStyle, {
+                [paragraphFirstLine]: index === 0,
+                [marginTop]: index !== 0,
+              })}
+            >
+              {paragraph}
+            </SectionParagraph>
+          ))}
         </Grid>
         <Grid container spacing={2} className={marginTop}>
           {getVideos().map(({ src, title }) => (
