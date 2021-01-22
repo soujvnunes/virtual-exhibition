@@ -50,7 +50,7 @@ export { default as Decade200000008 } from "./decada-2000-0008-min.jpg";
 export { default as Decade200000009 } from "./decada-2000-0009-min.jpg";
 export { default as Decade200000010 } from "./decada-2000-0010-min.jpeg";
 export { default as Decade201000001 } from "./decada-2010-0001-min.JPG";
-export { default as Decade201000002 } from "./decada-2010-0002-min.jpg";
+export { default as Decade201000002 } from "./decada-2010-0002-min.JPG";
 export { default as Decade201000003 } from "./decada-2010-0003-min.jpg";
 export { default as Decade201000004 } from "./decada-2010-0004-min.jpg";
 export { default as Decade201000005 } from "./decada-2010-0005-min.jpg";
