@@ -20,6 +20,7 @@ function ExposeOpening() {
     note,
     buttonExplore,
     logos,
+    dialogContent,
   } = useStyles({
     isMobile: _("sm down"),
   });
@@ -47,8 +48,8 @@ function ExposeOpening() {
   }
 
   return (
-    <Dialog {...{ open }} maxWidth="sm" scroll="body">
-      <DialogContent>
+    <Dialog {...{ open }} scroll="body">
+      <DialogContent classes={{ root: dialogContent }}>
         {EXPOSE_DESCRIPTION.map((paragraph, index) => (
           <Fragment key={paragraph}>
             {index === 4 && (

@@ -20,6 +20,7 @@ import {
   VIDEO_SLOTS,
   VIDEO_SRC,
   VIDEO_TITLE,
+  HERO_DESCRIPTION,
 } from "./constants";
 
 export function toKebabCase({ value = null } = {}) {
@@ -136,6 +137,7 @@ export function getHeroes() {
     heroes.push({
       shortTitle: HERO_TITLE[index].replace(/\D/g, ""),
       title: HERO_TITLE[index],
+      description: HERO_DESCRIPTION[index],
       id: toKebabCase({ value: HERO_TITLE[index] }),
       gallery: generateGallery(index),
     });

@@ -49,5 +49,8 @@ export default makeStyles(({ typography, spacing, palette }) => {
       width: "auto",
       height: spacing(16),
     },
+    dialogContent: {
+      padding: spacing(1, 0),
+    },
   };
 });
