@@ -38,7 +38,7 @@ function ExposeOpening() {
   useEffect(() => {
     if (offsetTop) {
       setTimeout(() => {
-        setOpen(scroll === offsetTop);
+        setOpen(scroll >= offsetTop);
       }, 1500);
     }
   }, [scroll]);
