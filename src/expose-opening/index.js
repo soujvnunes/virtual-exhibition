@@ -38,7 +38,7 @@ function ExposeOpening() {
   useEffect(() => {
     if (offsetTop) {
       setTimeout(() => {
-        setOpen(scroll === offsetTop);
+        setOpen(scroll >= offsetTop);
       }, 1500);
     }
   }, [scroll]);
@@ -78,7 +78,7 @@ function ExposeOpening() {
                     endIcon={<Icon>chevron_right</Icon>}
                     onClick={handleExploreClick}
                   >
-                    Explorar
+                    Continuar
                   </Button>
                 </Grid>
               </Grid>
