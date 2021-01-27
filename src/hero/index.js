@@ -99,7 +99,7 @@ function Hero() {
           </Grid>
           {gridOffset}
           <Grid item xs={12}>
-            {description[descSelector].split("/").map((sentence, index) => {
+            {description[descSelector]?.split("/").map((sentence, index) => {
               const props = {
                 key: sentence,
                 children: sentence,
