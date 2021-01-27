@@ -288,3 +288,4 @@ export const DISPATCH_UPDATE_HERO_REF = "hero ref update";
 export const DISPATCH_UPDATE_ANIMATE_SCROLL = "animate scroll update";
 export const STATE_CONTEXT = createContext();
 export const DISPATCH_CONTEXT = createContext();
+export const EXPOSE_OPENING_KEY = "expose-opening";

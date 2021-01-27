@@ -7,10 +7,10 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import { Fragment, useEffect, useState } from "react";
-import { EXPOSE_DESCRIPTION } from "../constants";
+import { EXPOSE_DESCRIPTION, EXPOSE_OPENING_KEY } from "../constants";
 import Dialog from "../dialog";
 import useStyles from "./style";
-import { useConsumer, useWindowDimension, _ } from "../modules";
+import { useCache, useConsumer, useWindowDimension, _ } from "../modules";
 import Logos from "../logos";
 
 function ExposeOpening() {
@@ -28,6 +28,7 @@ function ExposeOpening() {
   const [offsetTop, setOffsetTop] = useState(0);
   const [open, setOpen] = useState(false);
   const { scroll } = useWindowDimension();
+  const [cache, setCache] = useCache({ key: EXPOSE_OPENING_KEY });
 
   useEffect(() => {
     if (heroRef) {
@@ -36,15 +37,18 @@ function ExposeOpening() {
   }, [heroRef]);
 
   useEffect(() => {
-    if (offsetTop) {
-      setTimeout(() => {
-        setOpen(scroll >= offsetTop);
-      }, 1500);
+    if (!cache) {
+      if (offsetTop) {
+        setTimeout(() => {
+          setOpen(scroll >= offsetTop);
+        }, 1500);
+      }
     }
   }, [scroll]);
 
   function handleExploreClick() {
     setOpen(false);
+    setCache({ setKey: EXPOSE_OPENING_KEY, cache: "opened" });
   }
 
   return (
