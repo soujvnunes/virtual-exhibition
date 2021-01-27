@@ -13,7 +13,7 @@ export default makeStyles(() => ({
       bottom: 0,
       left: 0,
       backgroundImage:
-        "linear-gradient(rgba(48, 48, 48, 0.2), rgba(48, 48, 48, 1), rgba(48, 48, 48, 1))",
+        "linear-gradient(rgba(48, 48, 48, 0), rgba(48, 48, 48, 1), rgba(48, 48, 48, 1))",
     },
   },
 }));
