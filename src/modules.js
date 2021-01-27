@@ -201,3 +201,22 @@ export function getVideos() {
 
   return videos;
 }
+
+export function useCache({ key = "" } = {}) {
+  const cachedValue = localStorage.getItem(key);
+
+  function setCache({ setKey = "", cache = null, expires = 1 } = null) {
+    try {
+      if (!cache) {
+        localStorage.removeItem(key);
+      } else {
+        localStorage.setItem(setKey, JSON.stringify(cache), { expires });
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }
+
+  return [JSON.parse(cachedValue) || null, setCache];
+}

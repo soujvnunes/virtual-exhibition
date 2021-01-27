@@ -12,7 +12,7 @@ import Quote from "../quote";
 import useStyles from "./style";
 
 function Hero() {
-  const { section, h6, progress, overline, control } = useStyles();
+  const { h6, progress, overline, control } = useStyles();
   const [descSelector, setDescSelector] = useState(0);
   const [selectorProgress, setSelectorProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -85,7 +85,7 @@ function Hero() {
 
   return (
     <SectionBackground ref={heroRef}>
-      <Section id={title} className={section}>
+      <Section id={title}>
         <Grid
           container
           alignContent="center"
