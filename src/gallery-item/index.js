@@ -17,7 +17,7 @@ import { Rapport } from "../asset";
 import IconButton from "../icon-button";
 import Dialog from "../dialog";
 
-function GalleryItem({ image, gallery, index, onReset }) {
+export default function GalleryItem({ image, gallery, index, onReset }) {
   const [, dispatch] = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
@@ -67,14 +67,12 @@ function GalleryItem({ image, gallery, index, onReset }) {
         classes={{ root }}
         onClick={handleDialogClick}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+        onMouseLeave={handleMouseLeave}>
         <Grid
           container
           alignItems="center"
           justify="center"
-          classes={{ root: fullScreen }}
-        >
+          classes={{ root: fullScreen }}>
           <Icon>fullscreen</Icon>
         </Grid>
         {loading && (
@@ -108,20 +106,17 @@ function GalleryItem({ image, gallery, index, onReset }) {
           <Toolbar style={{ justifyContent: "center" }}>
             <IconButton
               onClick={handleDecrementClick}
-              disabled={viewImage === 0}
-            >
+              disabled={viewImage === 0}>
               <Icon>chevron_left</Icon>
             </IconButton>
             <IconButton
               classes={{ root: iconButtonClose }}
-              onClick={handleDialogClick}
-            >
+              onClick={handleDialogClick}>
               <Icon>close</Icon>
             </IconButton>
             <IconButton
               onClick={handleIncrementClick}
-              disabled={viewImage >= maxImages}
-            >
+              disabled={viewImage >= maxImages}>
               <Icon>chevron_right</Icon>
             </IconButton>
           </Toolbar>
@@ -130,12 +125,9 @@ function GalleryItem({ image, gallery, index, onReset }) {
     </>
   );
 }
-
 GalleryItem.propTypes = {
   image: PropTypes.string.isRequired,
   gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
   index: PropTypes.number.isRequired,
   onReset: PropTypes.func.isRequired,
 };
-
-export default GalleryItem;

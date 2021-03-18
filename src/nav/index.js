@@ -6,7 +6,7 @@ import { useConsumer, useWindowDimension } from "../modules";
 import NavIntro from "../nav-intro";
 import NavDecades from "../nav-decades";
 
-function Nav() {
+export default function Nav() {
   const [{ heroRef }] = useConsumer();
   const [mountNavDecades, setMountNavDecades] = useState(false);
   const [onDecades, setOnDecades] = useState(false);
@@ -15,37 +15,28 @@ function Nav() {
   const { scroll, height } = useWindowDimension();
   const commonProps = { onDecades };
   const onIntro = scroll > offsetTop - height;
+  const CompChild = mountNavDecades ? NavDecades : NavIntro;
 
   useEffect(() => {
     if (heroRef) {
       setOffsetTop(heroRef.current.offsetTop);
     }
   }, [heroRef]);
-
   useEffect(() => {
     setTimeout(() => {
       setMountNavDecades(onDecades);
     }, 500);
   }, [onDecades]);
-
   useEffect(() => {
     setOnDecades(onIntro);
-  }, [scroll]);
-
-  function renderChildren() {
-    if (mountNavDecades) {
-      return <NavDecades {...commonProps} />;
-    }
-
-    return <NavIntro {...commonProps} />;
-  }
+  }, [onIntro, scroll]);
 
   return (
     <AppBar classes={{ root }} component="nav">
       <NavProgress {...{ onIntro }} />
-      <Toolbar disableGutters={mountNavDecades}>{renderChildren()}</Toolbar>
+      <Toolbar disableGutters={mountNavDecades}>
+        <CompChild {...commonProps} />
+      </Toolbar>
     </AppBar>
   );
 }
-
-export default Nav;

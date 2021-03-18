@@ -7,7 +7,7 @@ import IconButton from "../icon-button";
 import { _ } from "../modules";
 import GalleryController from "../gallery-controller";
 
-function Gallery({ gallery }) {
+export default function Gallery({ gallery }) {
   const [slice, setSlice] = useState(0);
   const [deltaSliceAmount, setDeltaSliceAmount] = useState(0);
   const { root } = useStyles();
@@ -18,7 +18,6 @@ function Gallery({ gallery }) {
   useEffect(() => {
     onReset();
   }, [deltaSlice, gallery]);
-
   function onReset() {
     setSlice(0);
     setDeltaSliceAmount(0);
@@ -57,9 +56,6 @@ function Gallery({ gallery }) {
     </Grid>
   );
 }
-
 Gallery.propTypes = {
   gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default Gallery;

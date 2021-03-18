@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { _ } from "../modules";
 
-function SectionParagraph(props) {
+export default function SectionParagraph(props) {
   const alignCenter = _("sm down") && { align: "center" };
 
   return (
@@ -12,5 +12,3 @@ function SectionParagraph(props) {
     />
   );
 }
-
-export default SectionParagraph;

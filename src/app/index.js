@@ -9,7 +9,7 @@ import {
 } from "../constants";
 import Main from "../main";
 
-function App() {
+export default function App() {
   const [{ theme, ...state }, dispatch] = useReducer(getReducer, {
     animatedScroll: false,
     heroRef: null,
@@ -31,5 +31,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;

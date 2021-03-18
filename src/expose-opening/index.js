@@ -13,7 +13,7 @@ import useStyles from "./style";
 import { useCache, useConsumer, useWindowDimension, _ } from "../modules";
 import Logos from "../logos";
 
-function ExposeOpening() {
+export default function ExposeOpening() {
   const {
     signatureTitle,
     signatureOverline,
@@ -35,7 +35,6 @@ function ExposeOpening() {
       setOffsetTop(heroRef.current.offsetTop);
     }
   }, [heroRef]);
-
   useEffect(() => {
     if (!cache) {
       if (offsetTop) {
@@ -44,8 +43,7 @@ function ExposeOpening() {
         }, 1500);
       }
     }
-  }, [scroll]);
-
+  }, [cache, offsetTop, scroll]);
   function handleExploreClick() {
     setOpen(false);
     setCache({ setKey: EXPOSE_OPENING_KEY, cache: "opened" });
@@ -69,8 +67,7 @@ function ExposeOpening() {
                 [signatureTitle]: index === 4,
                 [signatureOverline]: index === 5,
                 [note]: index === 6,
-              })}
-            >
+              })}>
               {paragraph}
             </DialogContentText>
             {index === 5 && (
@@ -80,8 +77,7 @@ function ExposeOpening() {
                     classes={{ root: buttonExplore }}
                     variant="outlined"
                     endIcon={<Icon>chevron_right</Icon>}
-                    onClick={handleExploreClick}
-                  >
+                    onClick={handleExploreClick}>
                     Continuar
                   </Button>
                 </Grid>
@@ -93,5 +89,3 @@ function ExposeOpening() {
     </Dialog>
   );
 }
-
-export default ExposeOpening;

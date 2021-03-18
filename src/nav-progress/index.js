@@ -4,7 +4,7 @@ import LinearProgress from "../linear-progress";
 import { getHeroes, useConsumer } from "../modules";
 import useStyles from "./style";
 
-function NavProgress({ onIntro, ...props }) {
+export default function NavProgress({ onIntro, ...props }) {
   const { root } = useStyles();
   const [{ hero }] = useConsumer();
   const progress = 100 / getHeroes().length;
@@ -23,9 +23,6 @@ function NavProgress({ onIntro, ...props }) {
     />
   );
 }
-
 NavProgress.propTypes = {
   onIntro: PropTypes.bool.isRequired,
 };
-
-export default NavProgress;
