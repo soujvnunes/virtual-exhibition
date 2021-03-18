@@ -13,5 +13,4 @@ const SectionBackground = forwardRef(({ children }, ref) => {
 SectionBackground.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
 export default SectionBackground;

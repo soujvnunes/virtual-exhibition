@@ -33,13 +33,10 @@ export function toKebabCase({ value = null } = {}) {
 
 export function _(breakpoint = "sm down") {
   const mediaQuery = breakpoint.split(" ").map((media) => media);
-  const { media, query } = { media: mediaQuery[0], query: mediaQuery[1] };
 
-  if (query === "up") {
-    return useMediaQuery(({ breakpoints }) => breakpoints.up(media));
-  }
-
-  return useMediaQuery(({ breakpoints }) => breakpoints.down(media));
+  return useMediaQuery(({ breakpoints }) =>
+    breakpoints[mediaQuery[1]](mediaQuery[0]),
+  );
 }
 
 export function theme({ type } = {}) {

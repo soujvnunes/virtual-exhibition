@@ -8,7 +8,7 @@ import SectionTitle from "../section-title";
 import SectionParagraph from "../section-paragraph";
 import { INTRO_DESCRIPTION, INTRO_TITLE } from "../constants";
 
-function Intro() {
+export default function Intro() {
   const { logos, grid } = useStyles();
   const gridOffset = _("xs down") && <Grid item xs={2} />;
 
@@ -19,8 +19,7 @@ function Intro() {
         alignContent="center"
         alignItems="center"
         justify="center"
-        classes={{ root: grid }}
-      >
+        classes={{ root: grid }}>
         {gridOffset}
         <Grid item sm={7} xs={8}>
           <Logos classes={{ root: logos }} />
@@ -47,5 +46,3 @@ function Intro() {
     </Section>
   );
 }
-
-export default Intro;

@@ -6,7 +6,12 @@ import NavLabel from "../nav-label";
 import NavRule from "../nav-rule";
 import { getHeroes, useConsumer } from "../modules";
 
-function NavDecadesItem({ shortTitle, onClick, index, ...props }) {
+export default function NavDecadesItem({
+  shortTitle,
+  onClick,
+  index,
+  ...props
+}) {
   const [{ hero }] = useConsumer();
   const { root } = useStyles();
   const sizeLarge = {
@@ -24,8 +29,7 @@ function NavDecadesItem({ shortTitle, onClick, index, ...props }) {
       component={Button}
       classes={{ root }}
       id={shortTitle}
-      {...{ onClick, ...props }}
-    >
+      {...{ onClick, ...props }}>
       <NavLabel {...sizeLarge} htmlFor={shortTitle}>
         {shortTitle}
       </NavLabel>
@@ -38,11 +42,8 @@ function NavDecadesItem({ shortTitle, onClick, index, ...props }) {
     </Grid>
   );
 }
-
 NavDecadesItem.propTypes = {
   onClick: PropTypes.func.isRequired,
   shortTitle: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
-
-export default NavDecadesItem;

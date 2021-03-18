@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Box } from "@material-ui/core";
+import clsx from "clsx";
 import AppBar from "../app-bar";
 import Nav from "../nav";
 import Intro from "../intro";
@@ -9,7 +10,7 @@ import useStyles from "./style";
 import Dedication from "../dedication";
 import ExposeOpening from "../expose-opening";
 
-function Main() {
+export default function Main() {
   const [{ animateScroll }] = useConsumer();
   const { scroll } = useWindowDimension();
   const [height, setHeight] = useState(0);
@@ -21,7 +22,6 @@ function Main() {
   useEffect(() => {
     setHeight(wrapper.current.scrollHeight);
   }, [wrapper, height]);
-
   useEffect(() => {
     setScrollMain(scroll);
   }, [scroll]);
@@ -35,9 +35,8 @@ function Main() {
         position={allowScroll ? "fixed" : "relative"}
         width="100%"
         height="100%"
-        ref={wrapper}
-      >
-        <Box component="main" {...(allowScroll && { className: main })}>
+        ref={wrapper}>
+        <Box component="main" className={clsx({ [main]: allowScroll })}>
           <Intro />
           <Dedication />
           <Hero />
@@ -47,5 +46,3 @@ function Main() {
     </>
   );
 }
-
-export default Main;

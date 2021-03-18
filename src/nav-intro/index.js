@@ -5,7 +5,7 @@ import IconButton from "../icon-button";
 import NavLabel from "../nav-label";
 import { scrollToRef, useConsumer } from "../modules";
 
-function NavIntro({ onDecades }) {
+export default function NavIntro({ onDecades }) {
   const [{ heroRef }] = useConsumer();
   const { iconButton } = useStyles();
   const commonProps = { in: !onDecades, timeout: onDecades ? 250 : 500 };
@@ -21,13 +21,11 @@ function NavIntro({ onDecades }) {
       </Grow>
       <Zoom
         {...commonProps}
-        style={{ transitionDelay: onDecades ? "125ms" : "250ms" }}
-      >
+        style={{ transitionDelay: onDecades ? "125ms" : "250ms" }}>
         <IconButton
           classes={{ root: iconButton }}
           onClick={handleOnDecadesClick}
-          id="expand_more"
-        >
+          id="expand_more">
           <Zoom {...commonProps}>
             <Icon>expand_more</Icon>
           </Zoom>
@@ -36,9 +34,6 @@ function NavIntro({ onDecades }) {
     </Grid>
   );
 }
-
 NavIntro.propTypes = {
   onDecades: PropTypes.bool.isRequired,
 };
-
-export default NavIntro;

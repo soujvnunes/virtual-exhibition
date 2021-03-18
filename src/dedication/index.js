@@ -6,7 +6,7 @@ import SectionParagraph from "../section-paragraph";
 import useStyles from "./style";
 import { getVideos } from "../modules";
 
-function Dedication() {
+export default function Dedication() {
   const {
     paragraphStyle,
     paragraphFirstLine,
@@ -26,21 +26,19 @@ function Dedication() {
               className={clsx(paragraphStyle, {
                 [paragraphFirstLine]: index === 0,
                 [marginTop]: index !== 0,
-              })}
-            >
+              })}>
               {paragraph}
             </SectionParagraph>
           ))}
         </Grid>
-        <Grid container spacing={2} className={marginTop}>
+        <Grid container item spacing={2} classes={{ root: marginTop }}>
           {getVideos().map(({ src, title }) => (
             <Grid
               item
               xs={12}
               md={6}
               key={title}
-              classes={{ root: videosItem }}
-            >
+              classes={{ root: videosItem }}>
               <iframe
                 width="100%"
                 height="100%"
@@ -56,5 +54,3 @@ function Dedication() {
     </Section>
   );
 }
-
-export default Dedication;

@@ -7,6 +7,8 @@ import {
   Grid,
   Icon,
   Toolbar,
+  Typography,
+  IconButton,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -14,10 +16,9 @@ import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../constants";
 import { useConsumer, _ } from "../modules";
 import { Rapport } from "../asset";
-import IconButton from "../icon-button";
 import Dialog from "../dialog";
 
-function GalleryItem({ image, gallery, index, onReset }) {
+export default function GalleryItem({ image, gallery, index, onReset }) {
   const [, dispatch] = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
@@ -67,14 +68,12 @@ function GalleryItem({ image, gallery, index, onReset }) {
         classes={{ root }}
         onClick={handleDialogClick}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+        onMouseLeave={handleMouseLeave}>
         <Grid
           container
           alignItems="center"
           justify="center"
-          classes={{ root: fullScreen }}
-        >
+          classes={{ root: fullScreen }}>
           <Icon>fullscreen</Icon>
         </Grid>
         {loading && (
@@ -99,29 +98,35 @@ function GalleryItem({ image, gallery, index, onReset }) {
           src={gallery[viewImage].img}
           alt={gallery[viewImage].figcaption}
         />
-        <DialogContent classes={{ root: dialogContent }}>
-          <DialogContentText align="center">
-            {gallery[viewImage].figcaption}
-          </DialogContentText>
-        </DialogContent>
+        {_("sm down") && (
+          <DialogContent classes={{ root: dialogContent }}>
+            <DialogContentText align="center">
+              {gallery[viewImage].figcaption}
+            </DialogContentText>
+          </DialogContent>
+        )}
         <AppBar classes={{ root: appBar }}>
-          <Toolbar style={{ justifyContent: "center" }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              classes={{ root: iconButtonClose }}
+              onClick={handleDialogClick}>
+              <Icon>close</Icon>
+            </IconButton>
+            {!_("sm down") && (
+              <Typography variant="body1" style={{ flexGrow: 1 }}>
+                {gallery[viewImage].figcaption}
+              </Typography>
+            )}
             <IconButton
               onClick={handleDecrementClick}
-              disabled={viewImage === 0}
-            >
+              disabled={viewImage === 0}>
               <Icon>chevron_left</Icon>
             </IconButton>
             <IconButton
-              classes={{ root: iconButtonClose }}
-              onClick={handleDialogClick}
-            >
-              <Icon>close</Icon>
-            </IconButton>
-            <IconButton
+              edge="end"
               onClick={handleIncrementClick}
-              disabled={viewImage >= maxImages}
-            >
+              disabled={viewImage >= maxImages}>
               <Icon>chevron_right</Icon>
             </IconButton>
           </Toolbar>
@@ -130,12 +135,9 @@ function GalleryItem({ image, gallery, index, onReset }) {
     </>
   );
 }
-
 GalleryItem.propTypes = {
   image: PropTypes.string.isRequired,
   gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
   index: PropTypes.number.isRequired,
   onReset: PropTypes.func.isRequired,
 };
-
-export default GalleryItem;
