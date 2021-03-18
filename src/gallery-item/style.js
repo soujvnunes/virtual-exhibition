@@ -39,6 +39,6 @@ export default makeStyles(({ spacing, palette, transitions }) => ({
       bottom: 0,
     },
   iconButtonClose: {
-    margin: spacing(0, 1),
+    marginRight: ({ isMobile }) => (isMobile ? "auto" : spacing(2)),
   },
 }));
