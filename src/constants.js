@@ -82,14 +82,18 @@ export const DEDICATION_DESCRIPTION = [
   "Somos as vidas que ajudamos a mudar, a transformar pela educação. Somos as pessoas assistidas pela Universidade Federal de Alagoas.",
   "Somos histórias, somos memórias, somos raízes, somos Alagoas.",
 ];
-export const VIDEO_SLOTS = new Array(2);
+export const VIDEO_SLOTS = new Array(4);
 export const VIDEO_SRC = [
   "https://www.youtube.com/embed/jr-EcARAio4",
   "https://www.youtube.com/embed/RYb0tvEygNo",
+  "https://www.youtube.com/embed/u22TU6KEgHc",
+  "https://www.youtube.com/embed/V7N8akgwPJA",
 ];
 export const VIDEO_TITLE = [
   "Ufal 60 Anos: raízes conectad@s com o futuro",
   "Ufal 60 Anos-Raízes",
+  "Servidoras parabenizam Ufal pelos 60 anos",
+  "Professores parabenizam Ufal pelos seus 60 anos",
 ];
 export const EXPOSE_DESCRIPTION = [
   "Quando recebi a incumbência de fazer a curadoria das imagens que comporiam a Exposição Virtual Ufal 60 anos, eu tinha bastante claro em minha mente que não faria uma seleção que privilegiasse uma visão puramente institucional num sentido mais estrito.",

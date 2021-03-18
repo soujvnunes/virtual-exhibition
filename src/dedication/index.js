@@ -31,7 +31,7 @@ export default function Dedication() {
             </SectionParagraph>
           ))}
         </Grid>
-        <Grid container spacing={2} className={marginTop}>
+        <Grid container item spacing={2} classes={{ root: marginTop }}>
           {getVideos().map(({ src, title }) => (
             <Grid
               item
