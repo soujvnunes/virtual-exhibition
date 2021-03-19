@@ -19,7 +19,7 @@ import { Rapport } from "../asset";
 import Dialog from "../dialog";
 
 export default function GalleryItem({ image, gallery, index, onReset }) {
-  const [, dispatch] = useConsumer();
+  const { dispatch } = useConsumer();
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [onHover, setOnHover] = useState(false);
@@ -37,6 +37,25 @@ export default function GalleryItem({ image, gallery, index, onReset }) {
     onHover,
     isMobile: _("sm down"),
   });
+  const renderLoader = loading && (
+    <img
+      src={Rapport}
+      alt="carregando"
+      style={{ position: "absolute", inset: 0 }}
+    />
+  );
+  const renderDescription = _("sm down") && (
+    <DialogContent classes={{ root: dialogContent }}>
+      <DialogContentText align="center">
+        {gallery[viewImage].figcaption}
+      </DialogContentText>
+    </DialogContent>
+  );
+  const renderTitle = !_("sm down") && (
+    <Typography variant="body1" style={{ flexGrow: 1 }}>
+      {gallery[viewImage].figcaption}
+    </Typography>
+  );
 
   function handleDialogClick() {
     setOpen((prevState) => !prevState);
@@ -76,13 +95,7 @@ export default function GalleryItem({ image, gallery, index, onReset }) {
           classes={{ root: fullScreen }}>
           <Icon>fullscreen</Icon>
         </Grid>
-        {loading && (
-          <img
-            src={Rapport}
-            alt="carregando"
-            style={{ position: "absolute", inset: 0 }}
-          />
-        )}
+        {renderLoader}
         <CardMedia
           classes={{ root: cardMedia }}
           component="img"
@@ -98,13 +111,7 @@ export default function GalleryItem({ image, gallery, index, onReset }) {
           src={gallery[viewImage].img}
           alt={gallery[viewImage].figcaption}
         />
-        {_("sm down") && (
-          <DialogContent classes={{ root: dialogContent }}>
-            <DialogContentText align="center">
-              {gallery[viewImage].figcaption}
-            </DialogContentText>
-          </DialogContent>
-        )}
+        {renderDescription}
         <AppBar classes={{ root: appBar }}>
           <Toolbar>
             <IconButton
@@ -113,11 +120,7 @@ export default function GalleryItem({ image, gallery, index, onReset }) {
               onClick={handleDialogClick}>
               <Icon>close</Icon>
             </IconButton>
-            {!_("sm down") && (
-              <Typography variant="body1" style={{ flexGrow: 1 }}>
-                {gallery[viewImage].figcaption}
-              </Typography>
-            )}
+            {renderTitle}
             <IconButton
               onClick={handleDecrementClick}
               disabled={viewImage === 0}>

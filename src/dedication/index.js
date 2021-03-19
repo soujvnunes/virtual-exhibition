@@ -14,41 +14,38 @@ export default function Dedication() {
     videosItem,
     root,
   } = useStyles();
+  const renderText = DEDICATION_DESCRIPTION.map((paragraph, index) => (
+    <SectionParagraph
+      key={paragraph}
+      align="left"
+      className={clsx(paragraphStyle, {
+        [paragraphFirstLine]: index === 0,
+        [marginTop]: index !== 0,
+      })}>
+      {paragraph}
+    </SectionParagraph>
+  ));
+  const renderVideo = getVideos().map(({ src, title }) => (
+    <Grid item xs={12} md={6} key={title} classes={{ root: videosItem }}>
+      <iframe
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        {...{ src, title }}
+      />
+    </Grid>
+  ));
 
   return (
-    <Section id="dedication" className={root}>
+    <Section id="dedication" classes={{ root }}>
       <Grid container direction="column">
         <Grid item xs>
-          {DEDICATION_DESCRIPTION.map((paragraph, index) => (
-            <SectionParagraph
-              key={paragraph}
-              align="left"
-              className={clsx(paragraphStyle, {
-                [paragraphFirstLine]: index === 0,
-                [marginTop]: index !== 0,
-              })}>
-              {paragraph}
-            </SectionParagraph>
-          ))}
+          {renderText}
         </Grid>
         <Grid container item spacing={2} classes={{ root: marginTop }}>
-          {getVideos().map(({ src, title }) => (
-            <Grid
-              item
-              xs={12}
-              md={6}
-              key={title}
-              classes={{ root: videosItem }}>
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                {...{ src, title }}
-              />
-            </Grid>
-          ))}
+          {renderVideo}
         </Grid>
       </Grid>
     </Section>

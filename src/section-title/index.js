@@ -6,7 +6,6 @@ import { Rapport } from "../asset";
 function SectionTitle(props) {
   const heading6 = _("sm down") && "h6";
   const heading4 = _("md down") && "h4";
-  const alignCenter = _("sm down") && { align: "center" };
 
   return (
     <Typography
@@ -14,7 +13,7 @@ function SectionTitle(props) {
       variant={heading6 || heading4 || "h2"}
       color="textSecondary"
       gutterBottom
-      {...alignCenter}
+      align={_("sm down") ? "center" : "left"}
       {...props}
     />
   );

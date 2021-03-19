@@ -6,13 +6,8 @@ import NavLabel from "../nav-label";
 import NavRule from "../nav-rule";
 import { getHeroes, useConsumer } from "../modules";
 
-export default function NavDecadesItem({
-  shortTitle,
-  onClick,
-  index,
-  ...props
-}) {
-  const [{ hero }] = useConsumer();
+export default function NavDecadesItem({ shortTitle, index, ...props }) {
+  const { hero } = useConsumer();
   const { root } = useStyles();
   const sizeLarge = {
     ...(findIndex(getHeroes(), hero) === index && { size: "large" }),
@@ -20,6 +15,9 @@ export default function NavDecadesItem({
   const colorPrimary = {
     ...(findIndex(getHeroes(), hero) >= index && { color: "primary" }),
   };
+  const renderRule = !getHeroes().length === 0 && (
+    <NavRule {...colorPrimary} size="small" />
+  );
 
   return (
     <Grid
@@ -29,16 +27,12 @@ export default function NavDecadesItem({
       component={Button}
       classes={{ root }}
       id={shortTitle}
-      {...{ onClick, ...props }}>
+      {...props}>
       <NavLabel {...sizeLarge} htmlFor={shortTitle}>
         {shortTitle}
       </NavLabel>
       <NavRule {...colorPrimary} {...sizeLarge} />
-      <NavRule
-        {...colorPrimary}
-        size="small"
-        unrendered={getHeroes().length === 0}
-      />
+      {renderRule}
     </Grid>
   );
 }

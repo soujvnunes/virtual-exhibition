@@ -6,7 +6,7 @@ import useStyles from "./style";
 
 export default function NavProgress({ onIntro, ...props }) {
   const { root } = useStyles();
-  const [{ hero }] = useConsumer();
+  const { hero } = useConsumer();
   const progress = 100 / getHeroes().length;
   const progressFragment = findIndex(getHeroes(), hero);
   const progressOnFragment =
@@ -19,7 +19,7 @@ export default function NavProgress({ onIntro, ...props }) {
       classes={{ root }}
       variant="determinate"
       value={onIntro ? progressOnFragment : 0}
-      {...{ ...props }}
+      {...props}
     />
   );
 }

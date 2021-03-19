@@ -6,7 +6,7 @@ import NavLabel from "../nav-label";
 import { scrollToRef, useConsumer } from "../modules";
 
 export default function NavIntro({ onDecades }) {
-  const [{ heroRef }] = useConsumer();
+  const { heroRef } = useConsumer();
   const { iconButton } = useStyles();
   const commonProps = { in: !onDecades, timeout: onDecades ? 250 : 500 };
 

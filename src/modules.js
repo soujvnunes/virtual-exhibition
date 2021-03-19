@@ -179,7 +179,7 @@ export function useConsumer() {
   const state = useContext(STATE_CONTEXT);
   const dispatch = useContext(DISPATCH_CONTEXT);
 
-  return [state, dispatch];
+  return { ...state, dispatch };
 }
 
 export function scrollToRef(ref) {

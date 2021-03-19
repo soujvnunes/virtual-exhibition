@@ -17,17 +17,53 @@ export default function Hero() {
   const [selectorProgress, setSelectorProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const heroRef = useRef();
-  const [{ hero }, dispatch] = useConsumer();
+  const { hero, dispatch } = useConsumer();
   const { title, gallery, description } = hero;
   const gridOffset = <Grid item sm={3} />;
   const commonProps = { align: "center" };
   const maxDesc = description.length - 1;
   const isDescArray = maxDesc > 0;
-  const skipClickCallback = useCallback(() => {
+  const handleSkipClick = useCallback(() => {
     setDescSelector((prevDescSelector) =>
       prevDescSelector >= maxDesc ? 0 : prevDescSelector + 1,
     );
   }, [maxDesc]);
+  const renderControl = isDescArray && (
+    <Grid container alignItems="center" classes={{ root: control }}>
+      <IconButton onClick={handleControlClick}>
+        <Icon>{isPaused ? "play_arrow" : "pause"}</Icon>
+      </IconButton>
+      <LinearProgress
+        className={progress}
+        disableAnimation
+        variant="determinate"
+        value={selectorProgress}
+      />
+      <IconButton onClick={handleSkipClick}>
+        <Icon>skip_next</Icon>
+      </IconButton>
+    </Grid>
+  );
+  const renderText = description[descSelector]
+    ?.split("/")
+    .map((sentence, index) => {
+      const Component =
+        ((index === 0 || index === 1) && Typography) ||
+        (sentence.startsWith("quote") && Quote) ||
+        SectionParagraph;
+
+      return (
+        <Component
+          key={sentence}
+          {...((index === 0 || index === 1) && {
+            classes: index === 1 ? { overline } : { h6 },
+            variant: index === 1 ? "overline" : "h6",
+            align: "center",
+          })}>
+          {sentence.replace(/quote/gi, "")}
+        </Component>
+      );
+    });
 
   useEffect(() => {
     dispatch({ type: DISPATCH_UPDATE_HERO_REF, payload: heroRef });
@@ -54,9 +90,12 @@ export default function Hero() {
   }, [description, isDescArray, isPaused]);
   useEffect(() => {
     if (selectorProgress >= 100) {
-      skipClickCallback();
+      handleSkipClick();
     }
-  }, [maxDesc, selectorProgress, skipClickCallback]);
+  }, [maxDesc, selectorProgress, handleSkipClick]);
+  function handleControlClick() {
+    setIsPaused((preState) => !preState);
+  }
 
   return (
     <SectionBackground ref={heroRef}>
@@ -73,61 +112,10 @@ export default function Hero() {
           </Grid>
           {gridOffset}
           <Grid item xs={12}>
-            {description[descSelector]?.split("/").map((sentence, index) => {
-              const props = {
-                key: sentence,
-                children: sentence,
-              };
-
-              if (index === 0) {
-                return (
-                  <Typography
-                    variant="h6"
-                    className={h6}
-                    {...props}
-                    {...commonProps}
-                  />
-                );
-              }
-
-              if (index === 1) {
-                return (
-                  <Typography
-                    className={overline}
-                    variant="overline"
-                    {...props}
-                    {...commonProps}
-                  />
-                );
-              }
-
-              if (sentence.startsWith("quote")) {
-                return (
-                  <Quote {...props}>{sentence.replace(/quote/gi, "")}</Quote>
-                );
-              }
-
-              return <SectionParagraph {...props} />;
-            })}
-            {isDescArray && (
-              <Grid container alignItems="center" classes={{ root: control }}>
-                <IconButton
-                  onClick={() => setIsPaused((preState) => !preState)}>
-                  <Icon>{isPaused ? "play_arrow" : "pause"}</Icon>
-                </IconButton>
-                <LinearProgress
-                  className={progress}
-                  disableAnimation
-                  variant="determinate"
-                  value={selectorProgress}
-                />
-                <IconButton onClick={skipClickCallback}>
-                  <Icon>skip_next</Icon>
-                </IconButton>
-              </Grid>
-            )}
+            {renderText}
+            {renderControl}
           </Grid>
-          <Gallery {...{ gallery }} />
+          <Gallery gallery={gallery} />
         </Grid>
       </Section>
     </SectionBackground>

@@ -3,11 +3,11 @@ import { forwardRef } from "react";
 import useStyles from "./style";
 import { useConsumer } from "../modules";
 
-const SectionBackground = forwardRef(({ children }, ref) => {
-  const [{ background }] = useConsumer();
+const SectionBackground = forwardRef((props, ref) => {
+  const { background } = useConsumer();
   const { root } = useStyles({ background });
 
-  return <div className={root} {...{ children, ref }} />;
+  return <div ref={ref} className={root} {...props} />;
 });
 
 SectionBackground.propTypes = {

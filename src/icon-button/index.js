@@ -4,7 +4,7 @@ import { DISPATCH_UPDATE_ANIMATE_SCROLL } from "../constants";
 import { useConsumer } from "../modules";
 
 function IconButton(props) {
-  const [, dispatch] = useConsumer();
+  const { dispatch } = useConsumer();
 
   function handleMouseEnter() {
     dispatch({ type: DISPATCH_UPDATE_ANIMATE_SCROLL, payload: true });

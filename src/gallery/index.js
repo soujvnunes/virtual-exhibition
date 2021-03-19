@@ -14,11 +14,24 @@ export default function Gallery({ gallery }) {
   const deltaSlice = _("sm down") ? 1 : 5;
   const maxAmount = gallery.length;
   const sliceAmount = slice + deltaSlice;
+  const renderItems = gallery
+    .slice(slice, sliceAmount)
+    .map(({ img, figcaption }, index) => (
+      <Grid item xs md={2} key={figcaption}>
+        <GalleryItem
+          image={img}
+          alt={figcaption}
+          index={index + deltaSlice * deltaSliceAmount}
+          onReset={handleReset}
+          gallery={gallery}
+        />
+      </Grid>
+    ));
 
   useEffect(() => {
-    onReset();
+    handleReset();
   }, [deltaSlice, gallery]);
-  function onReset() {
+  function handleReset() {
     setSlice(0);
     setDeltaSliceAmount(0);
   }
@@ -33,23 +46,16 @@ export default function Gallery({ gallery }) {
 
   return (
     <Grid container item xs={12} classes={{ root }} spacing={2}>
-      <GalleryController unrendered={slice === 0}>
-        <IconButton onClick={handlePreviousClick}>
+      <GalleryController>
+        <IconButton onClick={handlePreviousClick} disabled={slice <= 0}>
           <Icon>chevron_left</Icon>
         </IconButton>
       </GalleryController>
-      {gallery.slice(slice, sliceAmount).map(({ img, figcaption }, index) => (
-        <Grid item xs md={2} key={figcaption}>
-          <GalleryItem
-            image={img}
-            alt={figcaption}
-            index={index + deltaSlice * deltaSliceAmount}
-            {...{ gallery, onReset }}
-          />
-        </Grid>
-      ))}
-      <GalleryController unrendered={sliceAmount >= maxAmount}>
-        <IconButton onClick={handleNextClick}>
+      {renderItems}
+      <GalleryController>
+        <IconButton
+          onClick={handleNextClick}
+          disabled={sliceAmount >= maxAmount}>
           <Icon>chevron_right</Icon>
         </IconButton>
       </GalleryController>

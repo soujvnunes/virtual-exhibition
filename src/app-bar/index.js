@@ -17,7 +17,7 @@ export default function AppBar() {
     showLogos: onHero,
   });
 
-  function handleOnIntroClick() {
+  function handleIntroClick() {
     window.scrollTo(0, 0);
   }
 
@@ -26,7 +26,7 @@ export default function AppBar() {
       <Container component={Toolbar}>
         <IconButton
           classes={{ root: iconButtonLogos }}
-          onClick={handleOnIntroClick}>
+          onClick={handleIntroClick}>
           <Logos classes={{ root: logos }} variant="outlined" />
         </IconButton>
         <Button

@@ -11,6 +11,11 @@ import { INTRO_DESCRIPTION, INTRO_TITLE } from "../constants";
 export default function Intro() {
   const { logos, grid } = useStyles();
   const gridOffset = _("xs down") && <Grid item xs={2} />;
+  const renderTitle = INTRO_TITLE.split("/").map((sentence, index) => {
+    const Component = index === 1 ? "span" : Fragment;
+
+    return <Component key={sentence}>{sentence}</Component>;
+  });
 
   return (
     <Section id="intro">
@@ -26,20 +31,7 @@ export default function Intro() {
         </Grid>
         {gridOffset}
         <Grid item sm={5} xs={12}>
-          <SectionTitle>
-            {INTRO_TITLE.split("/").map((sentence, index) => {
-              const commonProps = {
-                key: sentence,
-                children: sentence,
-              };
-
-              if (index === 1) {
-                return <span {...commonProps} />;
-              }
-
-              return <Fragment {...commonProps} />;
-            })}
-          </SectionTitle>
+          <SectionTitle>{renderTitle}</SectionTitle>
           <SectionParagraph>{INTRO_DESCRIPTION}</SectionParagraph>
         </Grid>
       </Grid>

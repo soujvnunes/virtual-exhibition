@@ -11,13 +11,14 @@ import Dedication from "../dedication";
 import ExposeOpening from "../expose-opening";
 
 export default function Main() {
-  const [{ animateScroll }] = useConsumer();
+  const { animateScroll } = useConsumer();
   const { scroll } = useWindowDimension();
   const [height, setHeight] = useState(0);
   const [scrollMain, setScrollMain] = useState(0);
   const wrapper = useRef(null);
   const { main } = useStyles({ scroll: scrollMain, animateScroll });
   const allowScroll = _("md up");
+  const renderScroller = allowScroll && <div style={{ height }} />;
 
   useEffect(() => {
     setHeight(wrapper.current.scrollHeight);
@@ -42,7 +43,7 @@ export default function Main() {
           <Hero />
         </Box>
       </Box>
-      {allowScroll && <div style={{ height }} />}
+      {renderScroller}
     </>
   );
 }

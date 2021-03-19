@@ -7,15 +7,14 @@ import NavIntro from "../nav-intro";
 import NavDecades from "../nav-decades";
 
 export default function Nav() {
-  const [{ heroRef }] = useConsumer();
+  const { heroRef } = useConsumer();
   const [mountNavDecades, setMountNavDecades] = useState(false);
-  const [onDecades, setOnDecades] = useState(false);
+  const [decades, setDecades] = useState(false);
   const [offsetTop, setOffsetTop] = useState(0);
   const { root } = useStyles();
   const { scroll, height } = useWindowDimension();
-  const commonProps = { onDecades };
-  const onIntro = scroll > offsetTop - height;
-  const CompChild = mountNavDecades ? NavDecades : NavIntro;
+  const intro = scroll > offsetTop - height;
+  const Component = mountNavDecades ? NavDecades : NavIntro;
 
   useEffect(() => {
     if (heroRef) {
@@ -24,18 +23,18 @@ export default function Nav() {
   }, [heroRef]);
   useEffect(() => {
     setTimeout(() => {
-      setMountNavDecades(onDecades);
+      setMountNavDecades(decades);
     }, 500);
-  }, [onDecades]);
+  }, [decades]);
   useEffect(() => {
-    setOnDecades(onIntro);
-  }, [onIntro, scroll]);
+    setDecades(intro);
+  }, [intro, scroll]);
 
   return (
     <AppBar classes={{ root }} component="nav">
-      <NavProgress {...{ onIntro }} />
+      <NavProgress onIntro={intro} />
       <Toolbar disableGutters={mountNavDecades}>
-        <CompChild {...commonProps} />
+        <Component onDecades={decades} />
       </Toolbar>
     </AppBar>
   );

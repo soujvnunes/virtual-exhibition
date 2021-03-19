@@ -6,17 +6,8 @@ import NavDecadesItem from "../nav-decades-item";
 import { DISPATCH_UPDATE_BACKGROUND, DISPATCH_UPDATE_HERO } from "../constants";
 
 export default function NavDecades({ onDecades }) {
-  const [, dispatch] = useConsumer();
-
-  function handleDecadeClick(value) {
-    dispatch({ type: DISPATCH_UPDATE_HERO, payload: value });
-    dispatch({
-      type: DISPATCH_UPDATE_BACKGROUND,
-      payload: value.gallery[0].img,
-    });
-  }
-
-  return getHeroes().map(({ shortTitle, ...hero }, index) => (
+  const { dispatch } = useConsumer();
+  const renderChildArr = getHeroes().map(({ shortTitle, ...hero }, index) => (
     <Zoom
       key={shortTitle}
       in={onDecades}
@@ -29,6 +20,16 @@ export default function NavDecades({ onDecades }) {
       />
     </Zoom>
   ));
+
+  function handleDecadeClick(value) {
+    dispatch({ type: DISPATCH_UPDATE_HERO, payload: value });
+    dispatch({
+      type: DISPATCH_UPDATE_BACKGROUND,
+      payload: value.gallery[0].img,
+    });
+  }
+
+  return renderChildArr;
 }
 NavDecades.propTypes = {
   onDecades: PropTypes.bool.isRequired,

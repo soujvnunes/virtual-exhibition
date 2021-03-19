@@ -2,21 +2,20 @@ import { Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import useStyles from "./style";
 
-export default function NavLabel({ htmlFor, size, ...props }) {
+export default function NavLabel({ size, ...props }) {
   const { root } = useStyles({ size });
-  const variant = (size === "large" && "h6") || (size === "medium" && "button");
 
   return (
     <Typography
       classes={{ root }}
-      color={size === "large" ? "textPrimary" : "textSecondary"}
+      color={{ large: "textPrimary" }[size] || "textSecondary"}
       component="label"
-      {...{ htmlFor, variant, ...props }}
+      variant={{ medium: "button", large: "h6" }[size]}
+      {...props}
     />
   );
 }
 NavLabel.propTypes = {
-  htmlFor: PropTypes.string.isRequired,
   size: PropTypes.oneOf(["medium", "large"]),
 };
 NavLabel.defaultProps = {
