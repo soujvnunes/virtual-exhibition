@@ -8,7 +8,8 @@
     "airbnb",
     "prettier",
     "prettier/react",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "eslint:recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -49,13 +50,6 @@
         ]
       }
     ],
-    "class-methods-use-this": "off",
-    "id-length": [
-      "error",
-      {
-        "exceptions": ["_", "x", "y"]
-      }
-    ],
     "no-use-before-define": ["error", "nofunc"],
     "no-unused-vars": [
       "error",
@@ -63,14 +57,6 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["to"]
-      }
-    ],
-    "react/prefer-stateless-function": "off",
     "object-curly-newline": "off",
     "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }],
     "react/jsx-props-no-spreading": "off",
