@@ -84,16 +84,17 @@ export function theme({ type } = {}) {
 }
 
 export function useWindowDimension(params = "") {
-  const [state, setState] = useState({ width: 0, height: 0, scroll: 0 });
-  const updateSize = () => {
-    setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-      scroll: window.scrollY,
-    });
-  };
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [scroll, setScroll] = useState(0);
+  const state = { width, height, scroll };
 
   useLayoutEffect(() => {
+    function updateSize() {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+      setScroll(window.scrollY);
+    }
     window.addEventListener("resize", updateSize);
     window.addEventListener("scroll", updateSize);
     updateSize();

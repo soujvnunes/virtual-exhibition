@@ -18,7 +18,7 @@ export default function Hero() {
   const [isPaused, setIsPaused] = useState(false);
   const heroRef = useRef();
   const { hero, dispatch } = useConsumer();
-  const { title, gallery, description } = hero;
+  const { title, description } = hero;
   const gridOffset = <Grid item sm={3} />;
   const commonProps = { align: "center" };
   const maxDesc = description.length - 1;
@@ -115,7 +115,7 @@ export default function Hero() {
             {renderText}
             {renderControl}
           </Grid>
-          <Gallery gallery={gallery} />
+          <Gallery />
         </Grid>
       </Section>
     </SectionBackground>

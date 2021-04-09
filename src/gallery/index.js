@@ -1,16 +1,18 @@
 import { Grid, Icon } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import useStyles from "./style";
 import GalleryItem from "../gallery-item";
 import IconButton from "../icon-button";
-import { _ } from "../modules";
+import { useConsumer, _ } from "../modules";
 import GalleryController from "../gallery-controller";
 
-export default function Gallery({ gallery }) {
+export default function Gallery() {
   const [slice, setSlice] = useState(0);
   const [deltaSliceAmount, setDeltaSliceAmount] = useState(0);
   const { root } = useStyles();
+  const {
+    hero: { gallery },
+  } = useConsumer();
   const deltaSlice = _("sm down") ? 1 : 5;
   const maxAmount = gallery.length;
   const sliceAmount = slice + deltaSlice;
@@ -62,6 +64,3 @@ export default function Gallery({ gallery }) {
     </Grid>
   );
 }
-Gallery.propTypes = {
-  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
