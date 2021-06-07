@@ -1,143 +1,43 @@
 # UFAL 60 anos
 
-Veja o quanto evoluímos juntos. Já passaram 60 anos! Explore através do decorrer das décadas o valor e prestígio da nossa Universidade Federal de Alagoas expandindo-se.
+Web application to present a virtual exbition about UFAL's brazilian university lifetime.
 
-## Documentação
+## User Interface
 
-This project will follows this planned prototype:
+Dark or light version for both mobile and desktop user screen viewports.
 
-![Mobile device layout - home](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/samsung-galaxy-s10--1.png?raw=true)
-![Mobile device layout - decade context](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/samsung-galaxy-s10--2.png?raw=true)
-![Desktop device layout - home](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--1.png?raw=true)
-![Mobile device layout - decade context](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--2.png?raw=true)
-![Mobile device layout - decade context - imagem visibility](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/web-1920--3.png?raw=true)
+> [See mobile dark version live.](https://xd.adobe.com/view/a0b8595c-d557-4f77-8092-b0c31b3873f4-f5eb/?fullscreen)
 
-## Conventions
+![dm01](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dm01.png?raw=true)
+![dm02](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dm02.png?raw=true)
+![dm03](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dm03.png?raw=true)
+![dm04](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dm04.png?raw=true)
+![dm05](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dm05.png?raw=true)
 
-1. Naming:
+> [See mobile light version live.](https://xd.adobe.com/view/9ded0a7a-c266-43dd-b931-3ef6dfec5107-c8be/?fullscreen)
 
-- **Folders** directory and JS, JSX and CSS **files**, if necessary, names are named with _kebab-case_ as `component/my-component/index.js`;
-- **Component** exportation names are named with _PascalCase_ as:
+![lm01](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/lm01.png?raw=true)
+![lm02](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/lm02.png?raw=true)
+![lm03](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/lm03.png?raw=true)
+![lm04](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/lm04.png?raw=true)
+![lm05](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/lm05.png?raw=true)
 
-```javascript
-// example for index.js at /component/ folder
-import MyComponent from "./my-component";
-import AnotherComponent from "./another-component";
+> [See desktop dark version live.](https://xd.adobe.com/view/846e28f6-a4a3-44e6-88d8-72d41f432615-d13d/?fullscreen)
 
-export { MyComponent, AnotherComponent };
-```
+![dd01](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dd01.png?raw=true)
+![dd02](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dd02.png?raw=true)
+![dd03](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dd03.png?raw=true)
+![dd04](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/dd04.png?raw=true)
 
-- **Instances** from components or **modules** are named with _camelCase_, following the [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/react#naming), as:
+> [See desktop light version live.](https://xd.adobe.com/view/ddfd67dc-1adc-401b-83d4-36eb05719541-88ae/?fullscreen)
 
-```javascript
-// example for modules.js
-export function someModule({ prop = "" } = {}) {}
+![ld01](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/ld01.png?raw=true)
+![ld02](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/ld02.png?raw=true)
+![ld03](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/ld03.png?raw=true)
+![ld04](https://github.com/soujvnunes/ufal-60-anos/blob/master/doc/ld04.png?raw=true)
 
-// example for instancing a component
-import MyComponent from "./my-component";
+## Guidelines
 
-const myComponent = MyComponent;
-```
+The guidelines is presented on this Behance project.
 
-- **Classes** on cascade stylesheet **modules** are named with _camelCase_. In case importing them as css modules, should always be imported as _cssModules_, following:
-
-```css
-/* example for a index.module.css from MyComponent */
-.root {
-  prop: "value";
-}
-
-.variant {
-  exclusive-prop: "value";
-}
-```
-
-```javascript
-// example for instancing styles from css modules
-import cssModules, { root } from "./index.module.css";
-```
-
-```jsx
-// using the css module class
-<div className={clsx(root, { cssModules[variant]: variant })} />
-```
-
-2. Project Tree:
-
-- **Assets**: locate on `/src/assets` directory, following the naming convention, exported by `index.js` file on it;
-- **Components**: locate on `/src/components` directory, following the naming convention, exported by `index.js` file on it;
-- **Modules**: locate on `modules.js` file at `/src/components` directory;
-- **Constants**: locate on `constants.js` file at `/src/components` directory;
-- Used **APIs**: locate on `api.js` file at `/src/components` directory;
-
-3. Documentation:
-
-- Params description:
-
-```javascript
-/**
- * Returns x raised to the n-th power.
- *
- * @param {number} x The number to raise.
- * @param {number} n The power, must be a natural number.
- * @return {number} x raised to the n-th power.
- */
-
-function pow({ x = 0, n = 0 } = {}) {
-  return x ** n;
-}
-```
-
-- JSX component usages:
-
-```javascript
-<Component prop={value1|value2|etc...} />
-```
-
-- Component or module props:
-
-- Functional:
-
-```javascript
-function Component({
-  iAmString = "",
-  iAmBool = false,
-  iAmFunc = () => {},
-  iAmNumber = 0,
-  iAmObject = null,
-} = {}) {
-  return <div />;
-}
-```
-
-- Class:
-
-```javascript
-const defaultProps = {
-  iAmString = "",
-  iAmBool = false,
-  iAmFunc = () => {},
-  iAmNumber = 0,
-  iAmObject = null,
-}
-
-export default class MyComponent extends React.Component {}
-
-MyComponent.defaultProps = defaultProps;
-```
-
-## Components
-
-All components reffers to [Material UI's library](https://material-ui.com/).
-
-## Modules
-
-Nothing yet.
-
-## Constants
-
-Nothing yet.
-
-## Used APIs
-
-Nothing yet.
+> [Visit the project.]()
