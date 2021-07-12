@@ -4,7 +4,7 @@ import Section from "../../components/section";
 import { DEDICATION_DESCRIPTION } from "../../constants";
 import SectionParagraph from "../../components/section-paragraph";
 import useStyles from "./style";
-import { getVideos } from "../../library/modules";
+import { getVideos } from "../../libs/Modules";
 
 export default function Dedication() {
   const {

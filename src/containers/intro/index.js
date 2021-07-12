@@ -2,11 +2,11 @@ import { Grid } from "@material-ui/core";
 import { Fragment } from "react";
 import useStyles from "./style";
 import Logos from "../../components/logos";
-import { _ } from "../../library/modules";
+import { _ } from "../../libs/Modules";
 import Section from "../../components/section";
 import SectionTitle from "../../components/section-title";
 import SectionParagraph from "../../components/section-paragraph";
-import { INTRO_DESCRIPTION, INTRO_TITLE } from "../../constants";
+import { Texts } from "libs";
 
 export default function Intro() {
   const { logos, grid } = useStyles();
@@ -27,13 +27,13 @@ export default function Intro() {
         {gridOffset}
         <Grid item sm={5} xs={12}>
           <SectionTitle>
-            {INTRO_TITLE.split("/").map((sentence, index) => {
+            {Texts.intro.title.split("/").map((sentence, index) => {
               const Component = index === 1 ? "span" : Fragment;
 
               return <Component key={sentence}>{sentence}</Component>;
             })}
           </SectionTitle>
-          <SectionParagraph>{INTRO_DESCRIPTION}</SectionParagraph>
+          <SectionParagraph>{Texts.intro.description}</SectionParagraph>
         </Grid>
       </Grid>
     </Section>

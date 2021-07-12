@@ -3,7 +3,7 @@ import { Grid, Grow, Icon, Zoom } from "@material-ui/core";
 import useStyles from "./style";
 import IconButton from "../../components/icon-button";
 import NavLabel from "../../components/nav-label";
-import { scrollToRef, useConsumer } from "../../library/modules";
+import { scrollToRef, useConsumer } from "../../libs/Modules";
 
 export default function NavIntro({ onDecades }) {
   const { heroRef } = useConsumer();

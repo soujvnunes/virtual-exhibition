@@ -15,7 +15,7 @@ import {
   useConsumer,
   useWindowDimension,
   _,
-} from "../../library/modules";
+} from "../../libs/modules";
 import Logos from "../../components/logos";
 
 export default function ExposeOpening() {

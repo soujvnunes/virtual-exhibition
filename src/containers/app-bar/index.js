@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import useStyles from "./style";
 import Logos from "../../components/logos";
-import { useWindowDimension } from "../../library/modules";
+import { useWindowDimension } from "../../libs/Modules";
 import IconButton from "../../components/icon-button";
 
 export default function AppBar() {

@@ -4,7 +4,7 @@ import { findIndex } from "lodash";
 import useStyles from "./style";
 import NavLabel from "../../components/nav-label";
 import NavRule from "../../components/nav-rule";
-import { getHeroes, useConsumer } from "../../library/modules";
+import { getHeroes, useConsumer } from "../../libs/Modules";
 
 export default function NavDecadesItem({ shortTitle, index, ...props }) {
   const { hero } = useConsumer();

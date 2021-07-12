@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useStyles from "./style";
 import GalleryItem from "../gallery-item";
 import IconButton from "../../components/icon-button";
-import { useConsumer, _ } from "../../library/modules";
+import { useConsumer, _ } from "../../libs/Modules";
 import GalleryController from "../../components/gallery-controller";
 
 export default function Gallery() {

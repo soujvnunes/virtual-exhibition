@@ -5,7 +5,7 @@ import AppBar from "../app-bar";
 import Nav from "../nav";
 import Intro from "../intro";
 import Hero from "../hero";
-import { useConsumer, useWindowDimension, _ } from "../../library/modules";
+import { useConsumer, useWindowDimension, _ } from "../../libs/Modules";
 import useStyles from "./style";
 import Dedication from "../dedication";
 import ExposeOpening from "../expose-opening";

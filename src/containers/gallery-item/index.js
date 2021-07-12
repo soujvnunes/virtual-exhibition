@@ -14,8 +14,8 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import useStyles from "./style";
 import { DISPATCH_UPDATE_BACKGROUND } from "../../constants";
-import { useConsumer, _ } from "../../library/modules";
-import { Rapport } from "../../asset";
+import { useConsumer, _ } from "../../libs/Modules";
+import { Rapport } from "../../assets";
 import Dialog from "../../components/dialog";
 
 export default function GalleryItem({ image, gallery, index, onReset }) {

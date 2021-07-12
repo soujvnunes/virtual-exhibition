@@ -2,7 +2,7 @@ import { Toolbar, AppBar } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import useStyles from "./style";
 import NavProgress from "../../components/nav-progress";
-import { useConsumer, useWindowDimension } from "../../library/modules";
+import { useConsumer, useWindowDimension } from "../../libs/Modules";
 import NavIntro from "../nav-intro";
 import NavDecades from "../nav-decades";
 

@@ -4,7 +4,7 @@ import Gallery from "../gallery";
 import Section from "../../components/section";
 import SectionTitle from "../../components/section-title";
 import SectionBackground from "../../components/section-background";
-import { useConsumer } from "../../library/modules";
+import { useConsumer } from "../../libs/Modules";
 import { DISPATCH_UPDATE_HERO_REF } from "../../constants";
 import SectionParagraph from "../../components/section-paragraph";
 import LinearProgress from "../../components/linear-progress";

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Zoom } from "@material-ui/core";
-import { getHeroes, useConsumer } from "../../library/modules";
+import { getHeroes, useConsumer } from "../../libs/Modules";
 import NavDecadesItem from "../nav-decades-item";
 import {
   DISPATCH_UPDATE_BACKGROUND,
