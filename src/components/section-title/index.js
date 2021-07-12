@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { _ } from "../../library/modules";
-import { Rapport } from "../../asset";
+import { _ } from "../../libs/Modules";
+import { Rapport } from "../../assets";
 
 function SectionTitle(props) {
   const heading6 = _("sm down") && "h6";

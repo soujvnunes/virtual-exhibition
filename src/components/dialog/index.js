@@ -1,6 +1,6 @@
 import { Dialog as MuiDialog } from "@material-ui/core";
 import useStyles from "./style";
-import { _ } from "../../library/modules";
+import { _ } from "../../libs/Modules";
 
 export default function Dialog(props) {
   const { paper, backdrop } = useStyles({ isMobile: _("sm down") });

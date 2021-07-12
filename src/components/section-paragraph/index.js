@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core";
-import { _ } from "../../library/modules";
+import { _ } from "../../libs/Modules";
 
 export default function SectionParagraph(props) {
   return (

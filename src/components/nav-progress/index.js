@@ -1,7 +1,7 @@
 import { findIndex } from "lodash";
 import PropTypes from "prop-types";
 import LinearProgress from "../linear-progress";
-import { getHeroes, useConsumer } from "../../library/modules";
+import { getHeroes, useConsumer } from "../../libs/Modules";
 import useStyles from "./style";
 
 export default function NavProgress({ onIntro, ...props }) {

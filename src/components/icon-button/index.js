@@ -1,7 +1,7 @@
 import { IconButton as MuiIconButton } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { DISPATCH_UPDATE_ANIMATE_SCROLL } from "../../constants";
-import { useConsumer } from "../../library/modules";
+import { useConsumer } from "../../libs/Modules";
 
 function IconButton(props) {
   const { dispatch } = useConsumer();

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 import useStyles from "./style";
-import { useConsumer } from "../../library/modules";
+import { useConsumer } from "../../libs/Modules";
 
 const SectionBackground = forwardRef((props, ref) => {
   const { background } = useConsumer();
