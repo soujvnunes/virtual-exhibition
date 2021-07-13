@@ -35,7 +35,6 @@ export default {
           localStorage.setItem(key, JSON.stringify(cache));
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
