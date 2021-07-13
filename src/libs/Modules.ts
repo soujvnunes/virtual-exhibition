@@ -2,48 +2,37 @@ import { Collections } from "libs";
 
 export default {
   getExhibition() {
-    return Collections.exhibition.title.map((title, exhibitionIndex) => ({
+    return Collections.exhibition.title.map((title, index) => ({
       title,
-      dean: Collections.exhibition.dean.alt[exhibitionIndex].map(
-        (alt, deanIndex) => ({
-          alt,
-          src: Collections.exhibition.dean.src[exhibitionIndex][deanIndex],
-          year: Collections.exhibition.dean.year[exhibitionIndex][deanIndex],
-          description:
-            Collections.exhibition.dean.description[exhibitionIndex][deanIndex],
-        }),
-      ),
-      gallery: Collections.exhibition.gallery.alt[exhibitionIndex].map(
+      dean: Collections.exhibition.dean.alt[index].map((alt, deanIndex) => ({
+        alt,
+        src: Collections.exhibition.dean.src[index][deanIndex],
+        year: Collections.exhibition.dean.year[index][deanIndex],
+        description: Collections.exhibition.dean.description[index][deanIndex],
+      })),
+      gallery: Collections.exhibition.gallery.alt[index].map(
         (alt, galleryIndex) => ({
           alt,
-          src: Collections.exhibition.gallery.src[exhibitionIndex][
-            galleryIndex
-          ],
+          src: Collections.exhibition.gallery.src[index][galleryIndex],
         }),
       ),
     }));
   },
   getTributes() {
-    return Collections.tributes.title.map((_, index) => ({
-      title: Collections.tributes.title[index],
+    return Collections.tributes.title.map((title, index) => ({
+      title,
       src: Collections.tributes.src[index],
     }));
   },
   useCache({ key = "" }: { key: string }) {
     const cachedValue: string | null = localStorage.getItem(key);
 
-    function setCache({
-      setKey = "",
-      cache = {},
-    }: {
-      setKey: string;
-      cache: Object;
-    }) {
+    function setCache(cache: Object) {
       try {
         if (!cache) {
           localStorage.removeItem(key);
         } else {
-          localStorage.setItem(setKey, JSON.stringify(cache));
+          localStorage.setItem(key, JSON.stringify(cache));
         }
       } catch (error) {
         // eslint-disable-next-line no-console
