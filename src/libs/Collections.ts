@@ -58,6 +58,18 @@ import {
   de2010s07,
   de2010s08,
   de2010s09,
+  pr1960s01,
+  pr1970s01,
+  pr1970s02,
+  pr1980s01,
+  pr1980s02,
+  pr1980s03,
+  pr1990s01,
+  pr1990s02,
+  pr2000s01,
+  pr2010s01,
+  pr2010s02,
+  pr2010s03,
 } from "assets";
 
 export default {
@@ -84,7 +96,7 @@ export default {
       title: "Década de 1960",
       deans: [
         {
-          src: "",
+          src: pr1960s01,
           alt: "Aristóteles Calazans Simões",
           year: [1961, 1971],
           description:
@@ -143,14 +155,14 @@ export default {
       title: "Década de 1970",
       deans: [
         {
-          src: "",
+          src: pr1970s01,
           alt: "Nabuco Lopes",
           year: [1971, 1975],
           description:
             "Na gestão do reitor Nabuco Lopes, a Ufal investiu na expansão e qualificação do quadro de servidores docentes e técnico-administrativos. O reitor buscou financiamento para cursos de aperfeiçoamento, especialização, e, inclusive, as primeiras bolsas de mestrado e doutorado. Em seu discurso, na comemoração dos 25 anos da Ufal, Nabuco Lopes relembrou esse esforço: /quote O programa ensaiou seus primeiros passos favorecendo professores e alunos com estágios de aperfeiçoamento, monitoria e iniciação científica. Na realidade, a maior beneficiária era a própria instituição na medida em que, dessa forma, se contribuía para enriquecer a qualidade das atividades universitárias.",
         },
         {
-          src: "",
+          src: pr1970s02,
           alt: "Manoel Ramalho",
           year: [1975, 1979],
           description:
@@ -210,21 +222,21 @@ export default {
       title: "Década de 1980",
       deans: [
         {
-          src: "",
+          src: pr1980s01,
           alt: "João Azevedo",
           year: [1979, 1983],
           description:
             "O reitor João Azevedo foi empossado no cargo no período em que se intensificaram as lutas sociais pela abertura política no Brasil. A solenidade de posse foi representativa dessa época histórica, segundo narra o historiador Edberto Ticianeli: /quote Como a posse do novo reitor, João Azevedo, aconteceria no dia 29 de novembro de 1979, os alunos da Ufal preparam uma ação para impedir o ato, caso não houvesse proposta da Reitoria para as suas reivindicações. Na quinta-feira (29) à tarde, a Reitoria, que ficava na Praça Sinimbu, foi tomada de assalto por centenas de estudantes. O auditório, onde haveria a transmissão de cargo, foi invadido e ocupado por jovens com faixas que cobravam o direito do representante da UNE falar na solenidade. Houve uma negociação e ficou acertado que Aldo Rebelo, então secretário-geral da entidade nacional dos estudantes, usaria da palavra.",
         },
         {
-          src: "",
+          src: pr1980s02,
           alt: "Fernando Gama",
           year: [1983, 1987],
           description:
             "O primeiro mandato do professor Fernando Gama, ainda por indicação do presidente João Figueiredo, foi marcado pela expansão da Ufal. O reitor buscou recursos para duplicar a estrutura física da Universidade, no Campus A.C. Simões. na Cidade Universitária. No livro dos 50 anos da Ufal, ressalta-se que Gama foi um grande defensor da comunidade universitária, aberto ao diálogo com as entidades estudantis e sindicais. 'Para as entidades que congregavam docentes e servidores, o reitor Gama sempre teve a mão estendida, colaborando, inclusive, nas políticas assistenciais e nas condições de funcionamento dos órgãos corporativos.'",
         },
         {
-          src: "",
+          src: pr1980s03,
           alt: "Delza Gitaí",
           year: [1987, 1991],
           description:
@@ -284,14 +296,14 @@ export default {
       title: "Década de 1990",
       deans: [
         {
-          src: "",
+          src: pr1990s01,
           alt: "Fernando Gama",
           year: [1991, 1995],
           description:
             "Dessa vez, eleito pelo voto direto, o professor Fernando Gama retorna para mais uma gestão como reitor da Ufal. Nessa etapa, enfrentando várias dificuldades, o reitor conseguiu atender a uma demanda por cursos noturnos, para o acesso à Universidade de trabalhadores e trabalhadoras, além de revitalizar a Fazenda São Luiz, em Viçosa, como campo de pesquisa agropecuária. Foi um período também de fortes reivindicações das entidades sindicais representativas dos docentes e técnico-administrativos das universidades brasileiras, que sofreram muitas perdas salariais no período do governo de FHC.",
         },
         {
-          src: "",
+          src: pr1990s02,
           alt: "Rogério Pinheiro",
           year: [1995, 2003],
           description:
@@ -352,7 +364,7 @@ export default {
       title: "Década de 2000",
       deans: [
         {
-          src: "",
+          src: pr2000s01,
           alt: "Ana Dayse Dorea",
           year: [2003, 2011],
           description:
@@ -411,21 +423,21 @@ export default {
       title: "Década de 2010",
       deans: [
         {
-          src: "",
+          src: pr2010s01,
           alt: "Eurico Lôbo",
           year: [2011, 2015],
           description:
             "Em dezembro de 2011, foi empossado o reitor Eurico Lôbo. O desafio dessa gestão foi consolidar a expansão, qualificando os campi do interior, e responder também a uma educação globalizada, com muitas ações de intercâmbio internacional. A Assessoria Internacional da Ufal trabalhou a todo vapor. A Universidade chegou a ter 200 estudantes no exterior no mesmo período. Só pelo programa Ciências sem Fronteiras, em 2012, enquanto cerca de 70 alunos estavam retornando dos intercâmbios realizados no primeiro semestre, aproximadamente 60 estavam arrumando as malas e organizando a documentação para embarcar. Além da internacionalização, a modernização dos sistemas de comunicação, com a implantação da rede lógica, possibilitou uma Universidade em diálogo com o mundo. Nessa gestão e embaixo de muita polêmica, o Hospital Universitário (HU) aderiu à Rede Ebserh -Empresa Brasileira de Serviços Hospitalares, empresa pública de direito privado do Governo Federal.",
         },
         {
-          src: "",
+          src: pr2010s02,
           alt: "Valéria Correia",
           year: [2016, 2020],
           description:
             "A gestão da professora Valéria Correia é marcada pela proposta de Universidade socialmente referenciada. A Ufal implantou o Fórum Social Universitário e fortaleceu as parcerias com as entidades da sociedade civil organizada. No seu mandato, Valéria Correia inaugurou o primeiro curso de bacharelado em Agroecologia, promovido pelo Programa Nacional de Educação na Reforma Agrária (Pronera) em parceria com o Centro de Ciências Agrárias (Ceca), para a formação superior de assentados. Sobre a universidade, Valéria Correia afirmou: /quote Somos uma organização histórica, com a responsabilidade de responder às demandas da sociedade do presente. Isso nos leva a pensar o contexto político, social, cultural e econômico do nosso tempo. Contexto em que a defesa da universidade pública deve ser reafirmada.",
         },
         {
-          src: "",
+          src: pr2010s03,
           alt: "Josealdo Tonholo",
           year: [2020, "atualmente"],
           description:
