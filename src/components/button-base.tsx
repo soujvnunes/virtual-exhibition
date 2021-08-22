@@ -1,36 +1,43 @@
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { forwardRef } from "react";
 import styled from "styled-components";
+import Typography from "components/typography";
+import { Props, Ref } from "defs/button-base.d";
 
-export interface ButtonBaseProps extends ComponentPropsWithRef<"button"> {
-  variant: "contained" | "outlined" | "text";
-}
-export type ButtonBaseRef = HTMLButtonElement;
-
-export const ButtonBaseRoot = styled.button<{
-  $props: { variant: ButtonBaseProps["variant"] };
-}>(({ $props }) => ({
-  paddingInline: "1rem",
-  height: "2rem",
-  backgroundColor: "transparent",
-  borderRadius: "1rem",
+const Root = styled(Typography).attrs({
+  forwardedAs: "button",
+  variant: "p",
+  weight: "bold",
+  noGutters: true,
+})({
+  position: "relative",
+  width: "fit-content",
   display: "inline-flex",
   alignItems: "center",
-  font: "inherit",
-  ...{
-    contained: {
-      borderWidth: "0rem",
-      borderStyle: "none",
-      borderColor: "transparent",
-    },
-    outlined: {},
-    text: {},
-  }[$props.variant],
-}));
-const ButtonBase = forwardRef<ButtonBaseRef, ButtonBaseProps>(
-  function ButtonBase({ variant = "text", ...params }, ref) {
-    return <ButtonBaseRoot ref={ref} $props={{ variant }} {...params} />;
+  height: "3rem",
+  padding: "0 1rem",
+  backgroundColor: "transparent",
+  color: "inherit",
+  borderWidth: 0,
+  fontFamily: "inherit",
+  userSelect: "none",
+  appearance: "none",
+  "&:active": {
+    borderStyle: "none",
   },
-);
+  "&:after": {
+    content: "''",
+    position: "absolute",
+    width: "100%",
+    height: 4,
+    bottom: 0,
+    backgroundColor: "currentColor",
+    left: 0,
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
+  },
+});
+const ButtonBase = forwardRef<Ref, Props>((props, ref) => (
+  <Root ref={ref} {...props} />
+));
 
-ButtonBase.displayName = "ButtonBase";
-export default ButtonBase;
+export default Object.assign(ButtonBase, { Root });
