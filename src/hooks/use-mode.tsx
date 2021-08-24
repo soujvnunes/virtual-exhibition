@@ -2,9 +2,11 @@ import {
   createContext,
   ProviderProps,
   useContext,
+  useEffect,
   useMemo,
   useReducer,
 } from "react";
+import useMedia from "./use-media";
 
 const types = {
   toggle: "toggle",
@@ -46,7 +48,8 @@ function reducer(state: Is, action: Action): Is {
   }
 }
 function Provider(props: Omit<ProviderProps<State>, "value">) {
-  const [state, dispatch] = useReducer(reducer, is.light);
+  const storedMode = (localStorage.getItem("mode") as Is) || is.light;
+  const [state, dispatch] = useReducer(reducer, storedMode);
   const value: State = useMemo(
     () => ({
       is: state,
@@ -58,7 +61,17 @@ function Provider(props: Omit<ProviderProps<State>, "value">) {
   return <Context.Provider value={value} {...props} />;
 }
 function useMode(): State {
-  return useContext(Context);
+  const prefersDark = useMedia("(prefers-color-scheme: dark)");
+  const mode = useContext(Context);
+  const storedMode = localStorage.getItem("mode");
+
+  useEffect(() => {
+    if (!storedMode) {
+      mode.dispatch({ type: "set", props: prefersDark ? "dark" : "light" });
+    }
+  }, [storedMode, mode, prefersDark]);
+
+  return mode;
 }
 
 Context.displayName = "Modes";

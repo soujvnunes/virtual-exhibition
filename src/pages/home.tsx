@@ -10,10 +10,14 @@ function Home() {
         {mode.is}
       </Button>
       <Button
-        onClick={() =>
-          mode.dispatch({ type: useMode.types.set, props: "dark" })
-        }>
-        {mode.is}
+        onClick={() => {
+          const props = "light";
+
+          localStorage.setItem("mode", props);
+
+          mode.dispatch({ type: useMode.types.set, props });
+        }}>
+        Set theme light
       </Button>
       <Typography as="h1" gutterBottom>
         Heading 3
