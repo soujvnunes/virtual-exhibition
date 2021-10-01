@@ -1,4 +1,4 @@
-import { Button, Typography } from "components";
+import { Base, Button, Typography } from "components";
 import { useMode } from "hooks";
 
 function Home() {
@@ -20,13 +20,13 @@ function Home() {
         Set theme light
       </Button>
       <Typography as="h1" gutterBottom>
-        Heading 3
+        Heading 1
       </Typography>
       <Typography as="h2" gutterBottom>
         Heading 2
       </Typography>
       <Typography as="h3" gutterBottom>
-        Heading 1
+        Heading 3
       </Typography>
       <Typography variant="p" gutterBottom>
         Paragraph
@@ -34,9 +34,11 @@ function Home() {
       <Typography weight="bold" size="large" gutterBottom>
         Span
       </Typography>
-      <Typography variant="h2" weight="bold">
-        Span
+      <Typography as="h2">Span</Typography>
+      <Typography variant="h1" weight="normal">
+        Light heading 1
       </Typography>
+      <Base>test</Base>
     </>
   );
 }

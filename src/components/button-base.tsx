@@ -20,7 +20,6 @@ const Root = styled(Typography).attrs({
   borderWidth: 0,
   fontFamily: "inherit",
   userSelect: "none",
-  appearance: "none",
   "&:active": {
     borderStyle: "none",
   },
@@ -40,4 +39,5 @@ const ButtonBase = forwardRef<Ref, Props>((props, ref) => (
   <Root ref={ref} {...props} />
 ));
 
+ButtonBase.displayName = "ButtonBase";
 export default Object.assign(ButtonBase, { Root });
