@@ -26,9 +26,9 @@ export default {
   size: {
     breakpoints: {
       xs: 0,
-      sm: "20rem",
-      md: "30rem",
-      lg: "60rem",
+      sm: "30rem",
+      md: "60rem",
+      lg: "90rem",
       xl: "120rem",
     },
     factor: <{ [key: string]: number }>{

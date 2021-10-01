@@ -4,17 +4,6 @@ import { isProp, sizes } from "libs";
 import { forwardRef } from "react";
 import styled from "styled-components";
 
-/**
- * todo: extend CSSObject with { key:... | boolean } so can be used this way:
- * marginBlockEnd: $props.gutterBottom ? isSpan && "1em" : !isSpan && 0,
- */
-function setSpanProp(
-  params: boolean,
-  truthy: string | undefined,
-  fallback: number | undefined,
-) {
-  return params ? truthy : fallback;
-}
 const Root = styled.span<Props>(({ as, theme, $props }) => {
   const device = useDevice(theme.size.breakpoints);
   const isSpan = $props.variant === "span" || as === "span";
@@ -29,10 +18,17 @@ const Root = styled.span<Props>(({ as, theme, $props }) => {
     fontSize: `${calcHeadingSize + calcWithSize}rem`,
     fontWeight: $props.weight,
     ...(!$props.noGutters && {
-      marginTop: isSpan ? undefined : 0,
-      marginBottom: $props.gutterBottom
-        ? setSpanProp(isSpan, "1em", undefined)
-        : setSpanProp(isSpan, undefined, 0),
+      ...(!isSpan && {
+        marginTop: 0,
+      }),
+      ...($props.gutterBottom &&
+        isSpan && {
+          marginBottom: "1em",
+        }),
+      ...(!$props.gutterBottom &&
+        !isSpan && {
+          marginBottom: 0,
+        }),
     }),
   };
 });
