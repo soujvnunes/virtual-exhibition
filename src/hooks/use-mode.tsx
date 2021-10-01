@@ -1,4 +1,3 @@
-import { setClassName } from "libs";
 import {
   createContext,
   ProviderProps,
@@ -66,17 +65,6 @@ function useMode(): State {
   const mode = useContext(Context);
   const storedMode = localStorage.getItem("mode");
 
-  useEffect(() => {
-    const { documentElement, body } = document;
-
-    if (mode.is === "light") {
-      setClassName("fs-a")("fs-sa", "fs-g")(documentElement);
-      setClassName("bg-w100%", "c-b100%")("bg-b100%", "c-w100%")(body);
-    } else {
-      setClassName("fs-sa", "fs-g")("fs-a")(documentElement);
-      setClassName("bg-b100%", "c-w100%")("bg-w100%", "c-b100%")(body);
-    }
-  }, [mode.is]);
   useEffect(() => {
     if (!storedMode) {
       mode.dispatch({ type: "set", props: prefersDark ? "dark" : "light" });
