@@ -1,4 +1,4 @@
-,import { ComponentPropsWithRef, ElementType, forwardRef } from "react";
+import { ComponentPropsWithRef, ElementType, forwardRef } from "react";
 
 const Base = forwardRef<
   HTMLDivElement,
