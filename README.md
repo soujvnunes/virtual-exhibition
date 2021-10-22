@@ -1,47 +1,30 @@
-# TypeScript Next.js example
+# UFAL 60 anos
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+Web application to present a virtual exbition about UFAL's brazilian university lifetime.
 
-## Preview
+## User Interface
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+Dark or light version for both mobile and desktop user screen viewports. For example:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+![flow01](https://github.com/soujvnunes/ufal-60-anos/blob/main/doc/flow01.png?raw=true)
+![flow02](https://github.com/soujvnunes/ufal-60-anos/blob/main/doc/flow02.png?raw=true)
 
-## Deploy your own
+> [See mobile dark version live.](https://xd.adobe.com/view/4f184c01-63f3-43ab-aab8-6553abbcd773-1a4b/?fullscreen)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+> [See mobile light version live.](https://xd.adobe.com/view/9ded0a7a-c266-43dd-b931-3ef6dfec5107-c8be/?fullscreen)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+> [See desktop dark version live.](https://xd.adobe.com/view/4a247176-541d-4596-bba9-bb436c546ec9-1f77/?fullscreen)
 
-## How to use it?
+> [See desktop light version live.](https://xd.adobe.com/view/ddfd67dc-1adc-401b-83d4-36eb05719541-88ae/?fullscreen)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Guidelines
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+The guidelines is presented on this Behance project.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+> [Visit the project.](https://www.behance.net/gallery/116828869/UFAL-60-Anos)
 
-## Notes
+## Documentation
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+### Style
 
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+Nothing yet.
