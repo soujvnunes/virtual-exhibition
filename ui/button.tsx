@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { forwardRef } from "react";
-import { ButtonProps, ButtonRef } from "../types";
+import { ButtonProps, ButtonRef } from "types";
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
   { className, ...props },

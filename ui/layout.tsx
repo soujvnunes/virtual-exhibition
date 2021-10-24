@@ -1,11 +1,8 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 import Head from "next/head";
+import { LayoutProps } from "types";
 
-interface Props extends ComponentProps<"div"> {
-  title?: string;
-}
-
-function Layout({ title, children }: Props) {
+function Layout({ title, children }: LayoutProps) {
   return (
     <>
       <Head>
