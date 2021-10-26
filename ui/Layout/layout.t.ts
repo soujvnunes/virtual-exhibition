@@ -1,6 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 
-export interface LayoutRef extends HTMLDivElement {}
-export interface LayoutProps extends ComponentProps<"div"> {
+export interface LayoutRef extends HTMLElement {}
+export interface LayoutProps extends ComponentPropsWithRef<"main"> {
   title?: string;
 }
