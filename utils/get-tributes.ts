@@ -1,4 +1,4 @@
-function getTributes(
+export default function getTributes(
   tributes = {
     src: [
       "https://www.youtube.com/embed/jr-EcARAio4",
@@ -19,5 +19,3 @@ function getTributes(
     src: tributes.src[index],
   }));
 }
-
-export default getTributes;

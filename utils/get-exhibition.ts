@@ -1,6 +1,6 @@
 import Assets from "assets";
 
-function getExhibition(
+export default function getExhibition(
   exhibition = {
     title: [
       "Década de 1960",
@@ -228,5 +228,3 @@ function getExhibition(
     ),
   }));
 }
-
-export default getExhibition;

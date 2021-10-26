@@ -1,11 +1,9 @@
 import { Button, Layout } from "ui";
 
-function Home() {
+export default function Home() {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="UFAL 60 Anos">
       <Button>test</Button>
     </Layout>
   );
 }
-
-export default Home;
