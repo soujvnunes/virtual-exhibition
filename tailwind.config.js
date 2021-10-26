@@ -1,6 +1,4 @@
-const { red, blue, fuchsia } = require("tailwindcss/colors");
 const { fontFamily } = require("tailwindcss/defaultTheme");
-const sm = "30rem";
 
 module.exports = {
   purge: [],
@@ -8,8 +6,7 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      xs: { max: sm },
-      sm,
+      sm: "30rem",
       md: "60rem",
       lg: "90rem",
       xl: "120rem",
@@ -17,9 +14,11 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      error: red,
-      primary: blue,
-      secondary: fuchsia,
+      main: "#39f",
+      accent: "#fcf",
+      success: "#6f3",
+      warning: "#fc0",
+      error: "#f33",
     },
     fontFamily: {
       sans: ["futura-pt", ...fontFamily.sans],
