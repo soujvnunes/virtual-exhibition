@@ -14,14 +14,44 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      main: "#39f",
-      accent: "#fcf",
-      success: "#6f3",
-      warning: "#fc0",
-      error: "#f33",
+      inherit: "inherit",
+      main: {
+        DEFAULT: "#39f",
+        dark: "#039",
+      },
+      accent: {
+        DEFAULT: "#fcf",
+        dark: "#939",
+      },
+      success: {
+        DEFAULT: "#6f3",
+        dark: "#090",
+      },
+      warning: {
+        DEFAULT: "#fc0",
+        dark: "#960",
+      },
+      error: {
+        DEFAULT: "#f33",
+        dark: "#900",
+      },
+      black: "#333",
+      gray: "#f5f5f5",
+      white: "#fff",
+      a11y: "#ff0",
     },
     fontFamily: {
       sans: ["futura-pt", ...fontFamily.sans],
+    },
+    fontSize: {
+      "075": "0.75rem",
+      100: "1rem",
+      200: "2rem",
+      225: "2.25rem",
+      300: "3rem",
+      325: "3.25rem",
+      400: "4rem",
+      425: "4.25rem",
     },
   },
   variants: {
