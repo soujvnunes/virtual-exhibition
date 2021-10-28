@@ -11,7 +11,10 @@ export default function Main({
   return (
     <main
       title={title}
-      className={cn("flex flex-col min-h-screen", className)}
+      className={cn(
+        "flex flex-col min-h-screen bg-gray dark:bg-black",
+        className,
+      )}
       {...props}
     >
       <Head>
