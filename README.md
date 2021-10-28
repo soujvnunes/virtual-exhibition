@@ -6,8 +6,8 @@ Web application to present a virtual exbition about UFAL's brazilian university 
 
 Dark or light version for both mobile and desktop user screen viewports. For example:
 
-![flow01](https://github.com/soujvnunes/ufal-60-anos/blob/main/doc/flow01.png?raw=true)
-![flow02](https://github.com/soujvnunes/ufal-60-anos/blob/main/doc/flow02.png?raw=true)
+![flow01](https://github.com/soujvnunes/ufal-60-anos/blob/main/docs/flow01.png?raw=true)
+![flow02](https://github.com/soujvnunes/ufal-60-anos/blob/main/docs/flow02.png?raw=true)
 
 > [See mobile dark version live.](https://xd.adobe.com/view/4f184c01-63f3-43ab-aab8-6553abbcd773-1a4b/?fullscreen)
 
