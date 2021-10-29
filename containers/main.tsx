@@ -12,7 +12,7 @@ export default function Main({
     <main
       title={title}
       className={cn(
-        "flex flex-col min-h-screen bg-gray dark:bg-black",
+        "flex flex-col min-h-screen mx-auto px-4 w-full sm:px-5 md:max-w-screen-sm md:px-6 lg:max-w-screen-md lg:px-7 xl:max-w-screen-lg xl:px-8",
         className,
       )}
       {...props}
