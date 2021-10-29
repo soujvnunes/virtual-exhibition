@@ -9,4 +9,5 @@ export interface TypographyProps extends ComponentPropsWithRef<"span"> {
   element?: ElementType;
   color?: "main" | "accent" | "success" | "warning" | "error" | "text";
   state?: "focused" | "disabled";
+  href?: string;
 }
