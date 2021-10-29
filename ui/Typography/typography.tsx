@@ -18,14 +18,14 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
     },
     ref,
   ) {
-    const ElementRoot = href ? Link : Fragment;
-    const ElementType = href ? "a" : element || variant;
+    const ComponentRoot = href ? Link : Fragment;
+    const ComponentElementType = href ? "a" : element || variant;
     const isButton = element === "button";
     const isHeading = isProp(variant, ["h2", "h3"]);
 
     return (
-      <ElementRoot {...(href && { href, passHref: true })}>
-        <ElementType
+      <ComponentRoot {...(href && { href, passHref: true })}>
+        <ComponentElementType
           ref={ref}
           className={cn(
             "transition-colors outline-none",
@@ -66,7 +66,7 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
           )}
           {...props}
         />
-      </ElementRoot>
+      </ComponentRoot>
     );
   },
 );
