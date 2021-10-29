@@ -67,7 +67,7 @@ import pr1990s01 from "./professor-fernando-cardoso-gama.jpg";
 import pr1990s02 from "./professor-rogerio-moura-pinheiro.jpg";
 import pr2000s01 from "./professora-ana-dayse-rezende-dorea.jpg";
 import pr2010s01 from "./professor-eurico-de-barros-lobo-filho.jpg";
-import pr2010s02 from "./professora-maria-valéria-costa-correia.jpg";
+import pr2010s02 from "./professora-maria-valeria-costa-correia.jpg";
 import pr2010s03 from "./professor-josealdo-tonholo.jpg";
 
 export default Object.assign(
