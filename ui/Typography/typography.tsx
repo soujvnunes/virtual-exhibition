@@ -24,7 +24,7 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
     const isHeading = isProp(variant, ["h2", "h3"]);
 
     return (
-      <ElementRoot href={href} passHref={!!href}>
+      <ElementRoot {...(href && { href, passHref: true })}>
         <ElementType
           ref={ref}
           className={cn(
