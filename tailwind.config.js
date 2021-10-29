@@ -58,6 +58,7 @@ module.exports = {
     extend: {
       backgroundColor: ["active"],
       backgroundOpacity: ["active"],
+      textOpacity: ["focus"],
     },
   },
   plugins: [],

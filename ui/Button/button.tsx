@@ -24,7 +24,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
       element="button"
       variant="p"
       className={cn(
-        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 rounded-t",
+        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 rounded-t",
         {
           "bg-main": color === "main",
           "bg-accent": color === "accent",

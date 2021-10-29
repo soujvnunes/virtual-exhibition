@@ -28,7 +28,7 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
         <ElementType
           ref={ref}
           className={cn(
-            "transition-colors",
+            "transition-colors outline-none",
             {
               "text-075": variant === "span",
               "text-100": variant === "p",
@@ -59,7 +59,7 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
               underline: href,
             },
             {
-              "hover:text-opacity-100": href || isButton,
+              "hover:text-opacity-100 focus:text-opacity-100": href || isButton,
               "uppercase tracking-widest": isButton || isHeading,
             },
             className,
