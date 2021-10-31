@@ -1,8 +1,10 @@
 import { ComponentPropsWithoutRef } from "react";
-import { TypographyProps } from "ui/Typography/typography.t";
+import { getTypographyProps } from "utils/get-typography";
 
-type Props = TypographyProps & ComponentPropsWithoutRef<"svg">;
+type Props = Pick<getTypographyProps, "color"> &
+  ComponentPropsWithoutRef<"svg">;
 export interface IconProps extends Props {
   children?: "menu" | string;
   size?: "smaller" | "small" | "medium" | "large" | "larger";
 }
+export interface IconRef extends SVGSVGElement {}

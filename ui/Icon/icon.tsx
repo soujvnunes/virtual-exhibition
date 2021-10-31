@@ -1,18 +1,23 @@
 import cn from "classnames";
-import { memo } from "react";
-import { Typography } from "ui";
+import { forwardRef, memo } from "react";
+import { getTypography } from "utils";
 import paths from "./icon-paths";
-import { IconProps } from "./icon.t";
+import { IconProps, IconRef } from "./icon.t";
 
-function Icon({ children, size = "small", className, ...props }: IconProps) {
+const Icon = forwardRef<IconRef, IconProps>(function Icon(
+  { children, size = "small", className, color, ...props },
+  ref,
+) {
+  const typographyClasses = getTypography({ color, element: "svg" });
+
   return (
-    <Typography
-      element="svg"
-      role="figure"
+    <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 24 24"
       className={cn(
+        typographyClasses,
         {
           "w-4 h-4": size === "smaller",
           "w-6 h-6": size === "small",
@@ -26,9 +31,9 @@ function Icon({ children, size = "small", className, ...props }: IconProps) {
     >
       <title>{children}</title>
       <path d={paths[children]} />
-    </Typography>
+    </svg>
   );
-}
+});
 
 Icon.displayName = "Icon";
 export default memo(Icon, (prev, next) => prev.children === next.children);

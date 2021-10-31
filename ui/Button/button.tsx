@@ -1,17 +1,12 @@
 import cn from "classnames";
-import { cloneElement } from "react";
-import { Typography } from "ui";
-import { isProp } from "utils";
-import { ButtonProps } from "./button.t";
+import { cloneElement, forwardRef } from "react";
+import { getTypography, isProp } from "utils";
+import { ButtonProps, ButtonRef } from "./button.t";
 
-function Button({
-  className,
-  children,
-  base = "bottom",
-  adornmentEnd,
-  ...props
-}: ButtonProps) {
-  const { color } = props;
+const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
+  { color, className, children, base = "bottom", adornmentEnd, ...props },
+  ref,
+) {
   const isBaseX = isProp(base, ["bottom", "top"]);
   const isBaseY = isProp(base, ["bottom", "left"]);
   const rounded = {
@@ -25,14 +20,19 @@ function Button({
     cloneElement(adornmentEnd, {
       className: "ml-3",
     });
+  const typographyClasses = getTypography({
+    variant: "p",
+    color,
+    weight: "bold",
+    element: "button",
+  });
 
   return (
-    <Typography
-      element="button"
-      variant="p"
-      weight="bold"
+    <button
+      ref={ref}
       className={cn(
-        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 rounded-t flex items-center",
+        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 flex items-center",
+        typographyClasses,
         {
           "bg-main": color === "main",
           "bg-accent": color === "accent",
@@ -63,9 +63,9 @@ function Button({
           rounded,
         )}
       />
-    </Typography>
+    </button>
   );
-}
+});
 
 Button.displayName = "Button";
 export default Button;
