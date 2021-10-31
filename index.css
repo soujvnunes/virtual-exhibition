@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray dark:bg-black;
+  @apply bg-gray dark:bg-black subpixel-antialiased dark:antialiased;
 }

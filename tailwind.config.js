@@ -59,6 +59,7 @@ module.exports = {
       backgroundColor: ["active"],
       backgroundOpacity: ["active"],
       textOpacity: ["focus"],
+      fontSmoothing: ["dark"],
     },
   },
   plugins: [],
