@@ -1,7 +1,8 @@
-import { ComponentPropsWithRef } from "react";
-import { Typography } from "ui";
+import { ComponentPropsWithoutRef, ReactElement } from "react";
+import { TypographyProps } from "ui/Typography/typography.t";
 
-export interface ButtonRef extends HTMLButtonElement {}
-export interface ButtonProps extends ComponentPropsWithRef<typeof Typography> {
+type Props = TypographyProps & ComponentPropsWithoutRef<"button">;
+export interface ButtonProps extends Props {
   base?: "top" | "right" | "bottom" | "left";
+  adornmentEnd?: ReactElement;
 }

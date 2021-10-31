@@ -1,13 +1,16 @@
 import cn from "classnames";
-import { forwardRef } from "react";
+import { cloneElement } from "react";
 import { Typography } from "ui";
 import { isProp } from "utils";
-import { ButtonProps, ButtonRef } from "./button.t";
+import { ButtonProps } from "./button.t";
 
-const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
-  { className, children, base = "bottom", ...props },
-  ref,
-) {
+function Button({
+  className,
+  children,
+  base = "bottom",
+  adornmentEnd,
+  ...props
+}: ButtonProps) {
   const { color } = props;
   const isBaseX = isProp(base, ["bottom", "top"]);
   const isBaseY = isProp(base, ["bottom", "left"]);
@@ -17,14 +20,19 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
     "rounded-t": base === "bottom",
     "rounded-r": base === "left",
   };
+  const renderAdornmentEnd =
+    adornmentEnd &&
+    cloneElement(adornmentEnd, {
+      className: "ml-3",
+    });
 
   return (
     <Typography
-      ref={ref}
       element="button"
       variant="p"
+      weight="bold"
       className={cn(
-        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 rounded-t",
+        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 rounded-t flex items-center",
         {
           "bg-main": color === "main",
           "bg-accent": color === "accent",
@@ -40,6 +48,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
       {...props}
     >
       {children}
+      {renderAdornmentEnd}
       <div
         className={cn(
           "absolute bg-current",
@@ -56,7 +65,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
       />
     </Typography>
   );
-});
+}
 
 Button.displayName = "Button";
 export default Button;
