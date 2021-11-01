@@ -1,7 +1,7 @@
 import cn from "classnames";
+import { ButtonProps, ButtonRef } from "interface";
 import { cloneElement, forwardRef } from "react";
 import { getTypography, isProp } from "utils";
-import { ButtonProps, ButtonRef } from "./button.t";
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
   { color, className, children, base = "bottom", adornmentEnd, ...props },

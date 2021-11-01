@@ -1,8 +1,7 @@
 import cn from "classnames";
+import { IconProps, IconRef } from "interface";
 import { forwardRef, memo } from "react";
-import { getTypography } from "utils";
-import paths from "./icon-paths";
-import { IconProps, IconRef } from "./icon.t";
+import { getIcon, getTypography } from "utils";
 
 const Icon = forwardRef<IconRef, IconProps>(function Icon(
   { children, size = "small", className, color, ...props },
@@ -30,7 +29,7 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(
       {...props}
     >
       <title>{children}</title>
-      <path d={paths[children]} />
+      <path d={getIcon(children)} />
     </svg>
   );
 });

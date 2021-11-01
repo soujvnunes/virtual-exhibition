@@ -1,8 +1,8 @@
 import cn from "classnames";
 import { forwardRef, Fragment } from "react";
 import { getTypography } from "utils";
-import { TypographyProps, TypographyRef } from "./typography.t";
 import Link from "next/link";
+import { TypographyProps, TypographyRef } from "interface";
 
 const Typography = forwardRef<TypographyRef, TypographyProps>(
   function Typography(

@@ -1,13 +1,14 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 import Head from "next/head";
 import cn from "classnames";
+import { MainProps } from "interface";
 
 export default function Main({
   title,
   children,
   className,
   ...props
-}: ComponentProps<"main">) {
+}: MainProps) {
   return (
     <main
       title={title}
