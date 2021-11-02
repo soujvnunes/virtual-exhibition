@@ -1,4 +1,4 @@
-import Assets from "assets";
+import Assets from "public";
 
 export default function getExhibition(
   exhibition = {

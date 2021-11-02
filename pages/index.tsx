@@ -1,4 +1,4 @@
-import Assets from "assets";
+import Assets from "public";
 import Image from "next/image";
 import { AspectRatio, Container, Typography, YoutubeVideo } from "ui";
 import { getTributes } from "utils";
