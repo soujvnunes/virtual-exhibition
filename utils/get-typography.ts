@@ -23,7 +23,7 @@ export default function getTypography({
       "text-225 md:text-325 xl:text-425": variant === "h2",
     },
     {
-      "font-bold": weight === "bold",
+      "font-bold": weight === "bold" || isHeading,
     },
     {
       "text-opacity-100": state === "focused",
