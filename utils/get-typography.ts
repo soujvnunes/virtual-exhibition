@@ -8,6 +8,7 @@ export default function getTypography({
   weight,
   state,
   color,
+  responsive = true,
 }: getTypographyProps): string {
   const isHeading = isProp(variant, ["h2", "h3"]);
   const isSvg = element === "svg";
@@ -19,8 +20,14 @@ export default function getTypography({
     {
       "text-075": variant === "span",
       "text-100": variant === "p",
-      "text-200 md:text-300 xl:text-400": variant === "h3",
-      "text-225 md:text-325 xl:text-425": variant === "h2",
+      "text-200": variant === "h3",
+      "text-225": variant === "h2",
+    },
+    {
+      "md:text-100 xl:text-125": responsive && variant === "span",
+      "md:text-125 xl:text-150": responsive && variant === "p",
+      "md:text-250 xl:text-300": responsive && variant === "h3",
+      "md:text-275 xl:text-325": responsive && variant === "h2",
     },
     {
       "font-bold": weight === "bold" || isHeading,

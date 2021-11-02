@@ -12,6 +12,7 @@ export interface getTypographyProps {
   weight?: "bold";
   state?: "focused" | "disabled";
   color?: "main" | "accent" | "success" | "warning" | "error" | "text";
+  responsive?: boolean;
 }
 
 /** UI */

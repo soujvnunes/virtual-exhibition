@@ -25,6 +25,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
     color,
     weight: "bold",
     element: "button",
+    responsive: false,
   });
 
   return (
