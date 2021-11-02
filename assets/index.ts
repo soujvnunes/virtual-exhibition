@@ -57,6 +57,7 @@ import de2010s06 from "./decada-2010-0006-min.jpg";
 import de2010s07 from "./decada-2010-0007-min.jpg";
 import de2010s08 from "./decada-2010-0008-min.jpg";
 import de2010s09 from "./decada-2010-0009-min.jpg";
+import homageBg from "./homage-bg.png";
 import pr1960s01 from "./professor-aristoteles-calazans-simoes.jpg";
 import pr1970s01 from "./professor-nabuco-lopes-t-da-costa-santos.jpg";
 import pr1970s02 from "./professor-manuel-machado-r-de-azevedo.jpg";
@@ -132,6 +133,7 @@ export default Object.assign(
     de2010s07,
     de2010s08,
     de2010s09,
+    homageBg,
     pr1960s01,
     pr1970s01,
     pr1970s02,
