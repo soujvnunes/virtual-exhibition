@@ -39,6 +39,7 @@ export default function getTypography({
       "text-opacity-20": state === "disabled",
       "text-opacity-60": !state,
     },
+    /** Do not concate it like `[`text-${color}]: color` since it can damage client-side runtime. */
     {
       "text-main": color === "main",
       "text-accent": color === "accent",
