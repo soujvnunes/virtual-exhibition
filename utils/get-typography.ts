@@ -9,6 +9,7 @@ export default function getTypography({
   state,
   color,
   responsive = true,
+  gutterBottom,
 }: getTypographyProps): string {
   const isHeading = isProp(variant, ["h2", "h3"]);
   const isSvg = element === "svg";
@@ -46,6 +47,9 @@ export default function getTypography({
       "text-black dark:text-white": color === "text",
       "text-inherit": !color && !isSvg,
       "fill-current": !color && isSvg,
+    },
+    {
+      "mb-gutter": gutterBottom,
     },
     {
       underline: isLink,

@@ -8,11 +8,12 @@ import {
 /** Utils */
 export interface getTypographyProps {
   element?: ElementType;
-  variant?: "h2" | "h3" | "p" | "span";
+  variant?: "h1" | "h2" | "h3" | "p" | "span";
   weight?: "bold";
   state?: "focused" | "disabled";
   color?: "main" | "accent" | "success" | "warning" | "error" | "text";
   responsive?: boolean;
+  gutterBottom?: boolean;
 }
 
 /** UI */

@@ -14,6 +14,7 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
       weight,
       className,
       href,
+      gutterBottom,
       ...props
     },
     ref,
@@ -26,13 +27,20 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
       state,
       weight,
       element: href ? "a" : null,
+      gutterBottom,
     });
 
     return (
       <ComponentRoot {...(href && { href, passHref: true })}>
         <ComponentElementType
           ref={ref}
-          className={cn(typographyClasses, className)}
+          className={cn(
+            {
+              [typographyClasses]: variant !== "h1",
+              "sr-only": variant === "h1",
+            },
+            className,
+          )}
           {...props}
         />
       </ComponentRoot>

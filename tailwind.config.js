@@ -4,7 +4,11 @@ module.exports = {
   purge: [],
   darkMode: "media",
   theme: {
-    extend: {},
+    extend: {
+      margin: {
+        gutter: "1em",
+      },
+    },
     screens: {
       sm: "30rem",
       md: "60rem",
