@@ -1,6 +1,7 @@
 import Assets from "assets";
 import Image from "next/image";
-import { Container, Typography } from "ui";
+import { AspectRatio, Container, Typography, YoutubeVideo } from "ui";
+import { getTributes } from "utils";
 
 const texts = [
   "A Universidade Federal de Alagoas completa 60 anos. Uma história que está enraizada na vida do povo alagoano. Comemoramos esta data com a certeza de que seguimos cumprindo o nosso dever institucional de fazer a diferença para o nosso povo. A medida da grandeza de uma instituição está em seu potencial de transformar realidades e este potencial desenvolvemos, ao longo das últimas seis décadas, com maestria.",
@@ -9,25 +10,38 @@ const texts = [
 ];
 
 export default function Home() {
+  const homageVideo = getTributes()[1];
+
   return (
     <>
-      <div className="mb-2 md:mb-4 xl:mb-6">
-        <Image
-          className="relative -mx-5"
-          src={Assets.homageBg}
-          alt="Plano de fundo da introdução"
-        />
-      </div>
       <Container>
         <Typography variant="h2" color="text" state="focused" gutterBottom>
           Uma história enraizada na vida do povo alagoano
         </Typography>
-        {texts.map((text) => (
-          <Typography key={text} variant="p" color="text" gutterBottom>
+        {texts.map((text, index) => (
+          <Typography
+            key={text}
+            variant="p"
+            color="text"
+            gutterBottom={index < 2}
+          >
             {text}
           </Typography>
         ))}
       </Container>
+      <div className="relative my-4 md:my-6 xl:my-8">
+        <Image
+          layout="fill"
+          className="absolute"
+          src={Assets.homageBg}
+          alt="Plano de fundo da introdução"
+        />
+        <Container>
+          <AspectRatio ratio="16x9">
+            <YoutubeVideo {...homageVideo} />
+          </AspectRatio>
+        </Container>
+      </div>
     </>
   );
 }
