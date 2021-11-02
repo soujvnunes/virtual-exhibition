@@ -9,7 +9,6 @@ export default function getTypography({
   state,
   color,
   responsive = true,
-  gutterBottom,
 }: getTypographyProps): string {
   const isHeading = isProp(variant, ["h2", "h3"]);
   const isSvg = element === "svg";
@@ -17,7 +16,9 @@ export default function getTypography({
   const isLink = element === "a";
 
   return cn(
-    "transition-colors",
+    {
+      "transition-colors": element !== "svg",
+    },
     {
       "text-075": variant === "span",
       "text-100": variant === "p",
@@ -49,13 +50,7 @@ export default function getTypography({
       "fill-current": !color && isSvg,
     },
     {
-      "mb-gutter": gutterBottom,
-    },
-    {
       underline: isLink,
-    },
-    {
-      "uppercase tracking-widest": isHeading,
     },
     {
       "hover:text-opacity-100 outline-none": isLink || isButton,

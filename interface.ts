@@ -8,7 +8,6 @@ export interface getTypographyProps {
   state?: "focused" | "disabled";
   color?: "main" | "accent" | "success" | "warning" | "error" | "text";
   responsive?: boolean;
-  gutterBottom?: boolean;
 }
 
 /** UI */
@@ -46,9 +45,8 @@ export interface IconRef extends SVGSVGElement {}
 /** Typography interface */
 type BaseTypographyProps = getTypographyProps & ComponentPropsWithRef<"span">;
 export interface TypographyProps extends BaseTypographyProps {
-  noGutters?: boolean;
-  gutterBottom?: boolean;
   href?: string;
+  gutterBottom?: boolean;
 }
 export interface TypographyRef extends HTMLElement {}
 

@@ -27,7 +27,6 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
       state,
       weight,
       element: href ? "a" : null,
-      gutterBottom,
     });
 
     return (
@@ -38,6 +37,9 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
             {
               [typographyClasses]: variant !== "h1",
               "sr-only": variant === "h1",
+            },
+            {
+              "mb-gutter": gutterBottom,
             },
             className,
           )}
