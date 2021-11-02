@@ -67,5 +67,5 @@ module.exports = {
       fontSmoothing: ["dark"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

@@ -12,6 +12,13 @@ export interface getTypographyProps {
 }
 
 /** UI */
+
+/** AspectRatio interface */
+export interface AspectRatioProps extends ComponentPropsWithRef<"div"> {
+  ratio?: string;
+}
+export interface AspectRatioRef extends HTMLDivElement {}
+
 /** Button interface */
 type BaseButtonProps = Pick<getTypographyProps, "color"> &
   ComponentPropsWithRef<"button">;
@@ -44,3 +51,7 @@ export interface TypographyProps extends BaseTypographyProps {
   href?: string;
 }
 export interface TypographyRef extends HTMLElement {}
+
+/** YoutubeVideo interface */
+export interface YoutubeVideoProps extends ComponentPropsWithRef<"iframe"> {}
+export interface YoutubeVideoRef extends HTMLIFrameElement {}
