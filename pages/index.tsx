@@ -1,6 +1,6 @@
 import Assets from "assets";
 import Image from "next/image";
-import { Typography } from "ui";
+import { Container, Typography } from "ui";
 
 const texts = [
   "A Universidade Federal de Alagoas completa 60 anos. Uma história que está enraizada na vida do povo alagoano. Comemoramos esta data com a certeza de que seguimos cumprindo o nosso dever institucional de fazer a diferença para o nosso povo. A medida da grandeza de uma instituição está em seu potencial de transformar realidades e este potencial desenvolvemos, ao longo das últimas seis décadas, com maestria.",
@@ -11,9 +11,6 @@ const texts = [
 export default function Home() {
   return (
     <>
-      <Typography variant="h2" color="text" state="focused" gutterBottom>
-        Uma história enraizada na vida do povo alagoano
-      </Typography>
       <div className="mb-2 md:mb-4 xl:mb-6">
         <Image
           className="relative -mx-5"
@@ -21,11 +18,16 @@ export default function Home() {
           alt="Plano de fundo da introdução"
         />
       </div>
-      {texts.map((text) => (
-        <Typography key={text} variant="p" color="text" gutterBottom>
-          {text}
+      <Container>
+        <Typography variant="h2" color="text" state="focused" gutterBottom>
+          Uma história enraizada na vida do povo alagoano
         </Typography>
-      ))}
+        {texts.map((text) => (
+          <Typography key={text} variant="p" color="text" gutterBottom>
+            {text}
+          </Typography>
+        ))}
+      </Container>
     </>
   );
 }

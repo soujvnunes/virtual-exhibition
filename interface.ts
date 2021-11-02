@@ -1,9 +1,4 @@
-import {
-  ComponentProps,
-  ComponentPropsWithRef,
-  ElementType,
-  ReactElement,
-} from "react";
+import { ComponentPropsWithRef, ElementType, ReactElement } from "react";
 
 /** Utils */
 export interface getTypographyProps {
@@ -26,6 +21,12 @@ export interface ButtonProps extends BaseButtonProps {
 }
 export interface ButtonRef extends HTMLButtonElement {}
 
+/** Container */
+export interface ContainerProps extends ComponentPropsWithRef<"div"> {
+  element?: ElementType;
+}
+export interface ContainerRef extends HTMLDivElement {}
+
 /** Icon interface */
 type BaseIconProps = Pick<getTypographyProps, "color"> &
   ComponentPropsWithRef<"svg">;
@@ -43,6 +44,3 @@ export interface TypographyProps extends BaseTypographyProps {
   href?: string;
 }
 export interface TypographyRef extends HTMLElement {}
-
-/** Containers */
-export interface MainProps extends ComponentProps<"main"> {}
