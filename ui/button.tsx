@@ -31,7 +31,7 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
     <button
       ref={ref}
       className={cn(
-        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 focus:bg-opacity-20 flex items-center",
+        "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 flex items-center",
         typographyClasses,
         {
           "bg-main": color === "main",

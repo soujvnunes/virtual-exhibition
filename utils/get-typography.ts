@@ -47,8 +47,7 @@ export default function getTypography({
       "uppercase tracking-widest": isHeading,
     },
     {
-      "hover:text-opacity-100 focus:text-opacity-100 outline-none":
-        isLink || isButton,
+      "hover:text-opacity-100 outline-none": isLink || isButton,
       "uppercase tracking-widest": isButton || isHeading,
     },
   );
