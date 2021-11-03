@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef, ElementType, ReactElement } from "react";
 
 /** Utils */
-export interface getTypographyProps {
+export interface getTypographyClassesProps {
   element?: ElementType;
   variant?: "h1" | "h2" | "h3" | "p" | "span";
   weight?: "bold";
@@ -14,12 +14,12 @@ export interface getTypographyProps {
 
 /** AspectRatio interface */
 export interface AspectRatioProps extends ComponentPropsWithRef<"div"> {
-  ratio?: string;
+  ratio?: "16x9" | "1x1" | "3x5";
 }
 export interface AspectRatioRef extends HTMLDivElement {}
 
 /** Button interface */
-type BaseButtonProps = Pick<getTypographyProps, "color"> &
+type BaseButtonProps = Pick<getTypographyClassesProps, "color"> &
   ComponentPropsWithRef<"button">;
 export interface ButtonProps extends BaseButtonProps {
   base?: "top" | "right" | "bottom" | "left";
@@ -34,7 +34,7 @@ export interface ContainerProps extends ComponentPropsWithRef<"div"> {
 export interface ContainerRef extends HTMLDivElement {}
 
 /** Icon interface */
-type BaseIconProps = Pick<getTypographyProps, "color"> &
+type BaseIconProps = Pick<getTypographyClassesProps, "color"> &
   ComponentPropsWithRef<"svg">;
 export interface IconProps extends BaseIconProps {
   children?: "menu" | string;
@@ -43,7 +43,8 @@ export interface IconProps extends BaseIconProps {
 export interface IconRef extends SVGSVGElement {}
 
 /** Typography interface */
-type BaseTypographyProps = getTypographyProps & ComponentPropsWithRef<"span">;
+type BaseTypographyProps = getTypographyClassesProps &
+  ComponentPropsWithRef<"span">;
 export interface TypographyProps extends BaseTypographyProps {
   href?: string;
   gutterBottom?: boolean;

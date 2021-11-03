@@ -1,7 +1,7 @@
 import Assets from "public";
 import Image from "next/image";
 import { AspectRatio, Container, Typography, YoutubeVideo } from "ui";
-import { getTributes } from "utils";
+import { getHomages } from "utils";
 
 const texts = [
   "A Universidade Federal de Alagoas completa 60 anos. Uma história que está enraizada na vida do povo alagoano. Comemoramos esta data com a certeza de que seguimos cumprindo o nosso dever institucional de fazer a diferença para o nosso povo. A medida da grandeza de uma instituição está em seu potencial de transformar realidades e este potencial desenvolvemos, ao longo das últimas seis décadas, com maestria.",
@@ -10,8 +10,6 @@ const texts = [
 ];
 
 export default function Home() {
-  const homageVideo = getTributes()[1];
-
   return (
     <>
       <Container>
@@ -38,7 +36,7 @@ export default function Home() {
         />
         <Container>
           <AspectRatio ratio="16x9">
-            <YoutubeVideo {...homageVideo} />
+            <YoutubeVideo {...getHomages()[1]} />
           </AspectRatio>
         </Container>
       </div>

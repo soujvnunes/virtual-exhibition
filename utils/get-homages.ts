@@ -1,4 +1,4 @@
-export default function getTributes(
+export default function getHomages(
   tributes = {
     src: [
       "https://www.youtube.com/embed/jr-EcARAio4",

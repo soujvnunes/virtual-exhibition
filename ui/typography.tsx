@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { forwardRef, Fragment } from "react";
-import { getTypography } from "utils";
+import { getTypographyClasses } from "utils";
 import Link from "next/link";
 import { TypographyProps, TypographyRef } from "interface";
 
@@ -21,13 +21,6 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
   ) {
     const ComponentRoot = href ? Link : Fragment;
     const ComponentElementType = href ? "a" : element || variant;
-    const typographyClasses = getTypography({
-      variant,
-      color,
-      state,
-      weight,
-      element: href ? "a" : null,
-    });
 
     return (
       <ComponentRoot {...(href && { href, passHref: true })}>
@@ -35,7 +28,13 @@ const Typography = forwardRef<TypographyRef, TypographyProps>(
           ref={ref}
           className={cn(
             {
-              [typographyClasses]: variant !== "h1",
+              [getTypographyClasses({
+                variant,
+                color,
+                state,
+                weight,
+                element: href ? "a" : null,
+              })]: variant !== "h1",
               "sr-only": variant === "h1",
             },
             {

@@ -1,7 +1,7 @@
 import cn from "classnames";
 import { ButtonProps, ButtonRef } from "interface";
 import { cloneElement, forwardRef } from "react";
-import { getTypography, isProp } from "utils";
+import { getTypographyClasses, isProp } from "utils";
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
   { color, className, children, base = "bottom", adornmentEnd, ...props },
@@ -15,25 +15,19 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
     "rounded-t": base === "bottom",
     "rounded-r": base === "left",
   };
-  const renderAdornmentEnd =
-    adornmentEnd &&
-    cloneElement(adornmentEnd, {
-      className: "ml-3",
-    });
-  const typographyClasses = getTypography({
-    variant: "p",
-    color,
-    weight: "bold",
-    element: "button",
-    responsive: false,
-  });
 
   return (
     <button
       ref={ref}
       className={cn(
         "relative max-w-min h-12 px-4 bg-opacity-0 active:bg-opacity-20 flex items-center",
-        typographyClasses,
+        getTypographyClasses({
+          variant: "p",
+          color,
+          weight: "bold",
+          element: "button",
+          responsive: false,
+        }),
         {
           "bg-main": color === "main",
           "bg-accent": color === "accent",
@@ -49,7 +43,10 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
       {...props}
     >
       {children}
-      {renderAdornmentEnd}
+      {adornmentEnd &&
+        cloneElement(adornmentEnd, {
+          className: "ml-3",
+        })}
       <div
         className={cn(
           "absolute bg-current",

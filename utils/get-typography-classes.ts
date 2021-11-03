@@ -1,15 +1,15 @@
 import cn from "classnames";
-import { getTypographyProps } from "interface";
+import { getTypographyClassesProps } from "interface";
 import isProp from "./is-prop";
 
-export default function getTypography({
+export default function getTypographyClasses({
   element,
   variant,
   weight,
   state,
   color,
   responsive = true,
-}: getTypographyProps): string {
+}: getTypographyClassesProps): string {
   const isHeading = isProp(variant, ["h2", "h3"]);
   const isSvg = element === "svg";
   const isButton = element === "button";

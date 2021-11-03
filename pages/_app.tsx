@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
-        <title>UFAL 60 Anos</title>
+        <title>Exposição Virtual UFAL</title>
       </Head>
       <main className="flex flex-col min-h-screen">
         <Header />

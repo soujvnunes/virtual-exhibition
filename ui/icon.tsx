@@ -1,14 +1,12 @@
 import cn from "classnames";
 import { IconProps, IconRef } from "interface";
 import { forwardRef, memo } from "react";
-import { getIcon, getTypography } from "utils";
+import { getIconPath, getTypographyClasses } from "utils";
 
 const Icon = forwardRef<IconRef, IconProps>(function Icon(
   { children, size = "small", className, color, ...props },
   ref,
 ) {
-  const typographyClasses = getTypography({ color, element: "svg" });
-
   return (
     <svg
       ref={ref}
@@ -16,7 +14,7 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 24 24"
       className={cn(
-        typographyClasses,
+        getTypographyClasses({ color, element: "svg" }),
         {
           "w-4 h-4": size === "smaller",
           "w-6 h-6": size === "small",
@@ -29,7 +27,7 @@ const Icon = forwardRef<IconRef, IconProps>(function Icon(
       {...props}
     >
       <title>{children}</title>
-      <path d={getIcon(children)} />
+      <path d={getIconPath(children)} />
     </svg>
   );
 });
