@@ -35,7 +35,7 @@ export default function Home() {
           alt="Plano de fundo da introdução"
         />
         <Container>
-          <AspectRatio ratio="16x9">
+          <AspectRatio format="16x9">
             <YoutubeVideo {...getHomages()[1]} />
           </AspectRatio>
         </Container>
