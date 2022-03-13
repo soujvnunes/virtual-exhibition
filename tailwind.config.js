@@ -1,72 +1,70 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { withAlpha } = require("./tailwind.utils");
 
 module.exports = {
-  purge: [],
+  content: ["./src/**/*.{js,jsx,ts,tsx,svg}", "./public/**/*.html"],
   darkMode: "media",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {
-      screens: {
-        motion: {
-          raw: "@media (prefers-reduced-motion: no-preference)",
-        },
+    extend: {},
+    colors: ({ colors }) => ({
+      inherit: colors.inherit,
+      current: colors.current,
+      transparent: colors.transparent,
+      main: {
+        x2t: withAlpha("var(--pink-200)"),
+        xt: withAlpha("var(--pink-300)"),
+        tn: withAlpha("var(--pink-400)"),
+        DEFAULT: withAlpha("var(--pink-500)"),
+        sh: withAlpha("var(--pink-600)"),
+        xs: withAlpha("var(--pink-700)"),
+        x2s: withAlpha("var(--pink-800)"),
       },
+      neutral: {
+        tn: withAlpha("var(--gray-100)"),
+        sh: withAlpha("var(--gray-900)"),
+      },
+      error: {
+        DEFAULT: withAlpha("var(--red-500)"),
+        sh: withAlpha("var(--red-600)"),
+      },
+      warning: {
+        DEFAULT: withAlpha("var(--yellow-500)"),
+        sh: withAlpha("var(--yellow-600)"),
+      },
+      success: {
+        DEFAULT: withAlpha("var(--blue-500)"),
+        sh: withAlpha("var(--blue-600)"),
+      },
+    }),
+    fontFamily: {
+      sans: "var(--font-sans)",
+      serif: "var(--font-serif)",
+    },
+    fontSize: {
+      sm: ["var(--size-sm)", { lineHeight: "var(--kerning-paragraph)" }],
+      md: ["var(--size-md)", { lineHeight: "var(--kerning-paragraph)" }],
+      lg: ["var(--size-lg)", { lineHeight: "var(--kerning-paragraph)" }],
+      xl: ["var(--size-x3l)", { lineHeight: "var(--kerning-heading)" }],
+      x2l: ["var(--size-x4l)", { lineHeight: "var(--kerning-heading)" }],
+      x3l: ["var(--size-x5l)", { lineHeight: "var(--kerning-heading)" }],
+      x4l: ["var(--size-x6l)", { lineHeight: "var(--kerning-heading)" }],
+      x5l: ["var(--size-x7l)", { lineHeight: "var(--kerning-heading)" }],
     },
     screens: {
       md: "40rem",
       lg: "80rem",
     },
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      inherit: "inherit",
-      main: {
-        light: "#FFCCFF",
-        DEFAULT: "#FF99FF",
-        dark: "#CC66CC",
-      },
-      accent: {
-        DEFAULT: "#FFFFFF",
-      },
-      black: "#0A0A0A",
-      gray: "#f5f5f5",
-      white: "#FFFFFF",
-    },
-    fontFamily: {
-      sans: ["futura-pt", ...fontFamily.sans],
-    },
     spacing: {
-      x3s: "0.125rem",
-      x2s: "0.25rem",
-      xs: "0.5rem",
-      sm: "0.75rem",
-      md: "1rem",
-      lg: "1.5rem",
-      xl: "2rem",
-      x2l: "3rem",
-      x3l: "8rem",
-      x4l: "20rem",
-      x5l: "40rem",
-      x6l: "80rem",
-    },
-    fontSize: {
-      75: "0.75rem",
-      100: "1rem",
-      125: "1.25rem",
-      150: "1.5rem",
-      200: "2rem",
-      225: "2.25rem",
-      250: "2.5rem",
-      275: "2.75rem",
-      325: "3.25rem",
-    },
-  },
-  variants: {
-    extend: {
-      backgroundColor: ["active"],
-      backgroundOpacity: ["active"],
-      textOpacity: ["focus"],
-      fontSmoothing: ["dark"],
+      0: "var(--size-0)",
+      1: "var(--size-1)",
+      x3s: "var(--size-x3s)",
+      x2s: "var(--size-x2s)",
+      xs: "var(--size-xs)",
+      sm: "var(--size-sm)",
+      md: "var(--size-md)",
+      lg: "var(--size-xl)",
+      xl: "var(--size-x2l)",
+      x2l: "var(--size-x5l)",
+      x3l: "var(--size-x8l)",
     },
   },
   plugins: [require("@tailwindcss/aspect-ratio")],
