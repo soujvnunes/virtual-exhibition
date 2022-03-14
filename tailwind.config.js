@@ -5,36 +5,34 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {},
-    colors: ({ colors }) => ({
-      inherit: colors.inherit,
-      current: colors.current,
-      transparent: colors.transparent,
+    colors: {
+      inherit: "var(--color-inherit)",
+      current: "var(--color-current)",
+      transparent: "var(--color-transparent)",
+      light: withAlpha("var(--gray-100)"),
+      dark: withAlpha("var(--gray-900)"),
       main: {
-        x2t: withAlpha("var(--pink-200)"),
-        xt: withAlpha("var(--pink-300)"),
-        tn: withAlpha("var(--pink-400)"),
+        xlight: withAlpha("var(--pink-200)"),
+        lighter: withAlpha("var(--pink-300)"),
+        light: withAlpha("var(--pink-400)"),
         DEFAULT: withAlpha("var(--pink-500)"),
-        sh: withAlpha("var(--pink-600)"),
-        xs: withAlpha("var(--pink-700)"),
-        x2s: withAlpha("var(--pink-800)"),
-      },
-      neutral: {
-        tn: withAlpha("var(--gray-100)"),
-        sh: withAlpha("var(--gray-900)"),
+        dark: withAlpha("var(--pink-600)"),
+        darker: withAlpha("var(--pink-700)"),
+        xdark: withAlpha("var(--pink-800)"),
       },
       error: {
         DEFAULT: withAlpha("var(--red-500)"),
-        sh: withAlpha("var(--red-600)"),
+        dark: withAlpha("var(--red-600)"),
       },
       warning: {
         DEFAULT: withAlpha("var(--yellow-500)"),
-        sh: withAlpha("var(--yellow-600)"),
+        dark: withAlpha("var(--yellow-600)"),
       },
       success: {
         DEFAULT: withAlpha("var(--blue-500)"),
-        sh: withAlpha("var(--blue-600)"),
+        dark: withAlpha("var(--blue-600)"),
       },
-    }),
+    },
     fontFamily: {
       sans: "var(--font-sans)",
       serif: "var(--font-serif)",

@@ -23,13 +23,16 @@
   --kerning-paragraph: 1.5em;
   --font-sans: futura-pt, sans-serif;
   --font-serif: freight-display-pro, serif;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-inherit: "inherit";
   --pink-200: 255 246 255;
   --pink-300: 255 235 255;
   --pink-400: 255 204 255;
   --pink-500: 255 153 255;
   --pink-600: 204 102 204;
   --pink-700: 93 56 93;
-  --pink-800: 46 28 46;
+  --pink-800: 26 15 26;
   --gray-100: 255 255 255;
   --gray-900: 10 10 10;
   --red-500: 255 51 51;
