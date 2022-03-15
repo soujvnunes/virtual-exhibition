@@ -1,148 +1,148 @@
-import de1960s01 from "./decada-0060-0001-min.jpg";
-import de1960s02 from "./decada-0060-0002-min.jpg";
-import de1960s03 from "./decada-0060-0003-min.jpg";
-import de1960s04 from "./decada-0060-0004-min.jpg";
-import de1960s05 from "./decada-0060-0005-min.jpg";
-import de1960s06 from "./decada-0060-0006-min.jpg";
-import de1960s07 from "./decada-0060-0007-min.jpg";
-import de1960s08 from "./decada-0060-0008-min.jpg";
-import de1960s09 from "./decada-0060-0009-min.jpg";
-import de1960s10 from "./decada-0060-0010-min.jpg";
-import de1970s01 from "./decada-0070-0001-min.jpg";
-import de1970s02 from "./decada-0070-0002-min.jpg";
-import de1970s03 from "./decada-0070-0003-min.jpg";
-import de1970s04 from "./decada-0070-0004-min.jpg";
-import de1970s05 from "./decada-0070-0005-min.jpg";
-import de1970s06 from "./decada-0070-0006-min.jpg";
-import de1970s07 from "./decada-0070-0007-min.jpg";
-import de1970s08 from "./decada-0070-0008-min.jpg";
-import de1970s09 from "./decada-0070-0009-min.jpg";
-import de1970s10 from "./decada-0070-0010-min.jpg";
-import de1980s01 from "./decada-0080-0001-min.jpg";
-import de1980s02 from "./decada-0080-0002-min.jpg";
-import de1980s03 from "./decada-0080-0003-min.jpg";
-import de1980s04 from "./decada-0080-0004-min.jpg";
-import de1980s05 from "./decada-0080-0005-min.jpg";
-import de1980s06 from "./decada-0080-0006-min.jpg";
-import de1980s07 from "./decada-0080-0007-min.jpg";
-import de1980s08 from "./decada-0080-0008-min.jpg";
-import de1980s09 from "./decada-0080-0009-min.jpg";
-import de1980s10 from "./decada-0080-0010-min.jpg";
-import de1990s01 from "./decada-0090-0001-min.jpg";
-import de1990s02 from "./decada-0090-0002-min.jpg";
-import de1990s03 from "./decada-0090-0003-min.jpg";
-import de1990s04 from "./decada-0090-0004-min.jpg";
-import de1990s05 from "./decada-0090-0005-min.jpg";
-import de1990s06 from "./decada-0090-0006-min.jpg";
-import de1990s07 from "./decada-0090-0007-min.jpg";
-import de1990s08 from "./decada-0090-0008-min.jpg";
-import de1990s09 from "./decada-0090-0009-min.jpeg";
-import de1990s10 from "./decada-0090-0010-min.jpg";
-import de2000s01 from "./decada-2000-0001-min.jpg";
-import de2000s02 from "./decada-2000-0002-min.jpg";
-import de2000s03 from "./decada-2000-0003-min.jpg";
-import de2000s04 from "./decada-2000-0004-min.jpg";
-import de2000s05 from "./decada-2000-0005-min.jpg";
-import de2000s06 from "./decada-2000-0006-min.jpg";
-import de2000s07 from "./decada-2000-0007-min.jpg";
-import de2000s08 from "./decada-2000-0008-min.jpg";
-import de2000s09 from "./decada-2000-0009-min.jpg";
-import de2000s10 from "./decada-2000-0010-min.jpeg";
-import de2010s01 from "./decada-2010-0001-min.jpg";
-import de2010s02 from "./decada-2010-0002-min.jpg";
-import de2010s03 from "./decada-2010-0003-min.jpg";
-import de2010s04 from "./decada-2010-0004-min.jpg";
-import de2010s05 from "./decada-2010-0005-min.jpg";
-import de2010s06 from "./decada-2010-0006-min.jpg";
-import de2010s07 from "./decada-2010-0007-min.jpg";
-import de2010s08 from "./decada-2010-0008-min.jpg";
-import de2010s09 from "./decada-2010-0009-min.jpg";
-import pr1960s01 from "./professor-aristoteles-calazans-simoes.jpg";
-import pr1970s01 from "./professor-nabuco-lopes-t-da-costa-santos.jpg";
-import pr1970s02 from "./professor-manuel-machado-r-de-azevedo.jpg";
-import pr1980s01 from "./professor-joao-ferreira-azevedo.jpg";
-import pr1980s02 from "./professor-fernando-cardoso-gama.jpg";
-import pr1980s03 from "./professora-delza-leite-goes-gitai.jpg";
-import pr1990s01 from "./professor-fernando-cardoso-gama.jpg";
-import pr1990s02 from "./professor-rogerio-moura-pinheiro.jpg";
-import pr2000s01 from "./professora-ana-dayse-rezende-dorea.jpg";
-import pr2010s01 from "./professor-eurico-de-barros-lobo-filho.jpg";
-import pr2010s02 from "./professora-maria-valeria-costa-correia.jpg";
-import pr2010s03 from "./professor-josealdo-tonholo.jpg";
+import d1601 from "./d-1-6-1.jpg";
+import d1602 from "./d-1-6-2.jpg";
+import d1603 from "./d-1-6-3.jpg";
+import d1604 from "./d-1-6-4.jpg";
+import d1605 from "./d-1-6-5.jpg";
+import d1606 from "./d-1-6-6.jpg";
+import d1607 from "./d-1-6-7.jpg";
+import d1608 from "./d-1-6-8.jpg";
+import d1609 from "./d-1-6-9.jpg";
+import d1610 from "./d-1-6-10.jpg";
+import d1701 from "./d-1-7-1.jpg";
+import d1702 from "./d-1-7-2.jpg";
+import d1703 from "./d-1-7-3.jpg";
+import d1704 from "./d-1-7-4.jpg";
+import d1705 from "./d-1-7-5.jpg";
+import d1706 from "./d-1-7-6.jpg";
+import d1707 from "./d-1-7-7.jpg";
+import d1708 from "./d-1-7-8.jpg";
+import d1709 from "./d-1-7-9.jpg";
+import d1710 from "./d-1-7-10.jpg";
+import d1801 from "./d-1-8-1.jpg";
+import d1802 from "./d-1-8-2.jpg";
+import d1803 from "./d-1-8-3.jpg";
+import d1804 from "./d-1-8-4.jpg";
+import d1805 from "./d-1-8-5.jpg";
+import d1806 from "./d-1-8-6.jpg";
+import d1807 from "./d-1-8-7.jpg";
+import d1808 from "./d-1-8-8.jpg";
+import d1809 from "./d-1-8-9.jpg";
+import d1810 from "./d-1-8-10.jpg";
+import d1901 from "./d-1-9-1.jpg";
+import d1902 from "./d-1-9-2.jpg";
+import d1903 from "./d-1-9-3.jpg";
+import d1904 from "./d-1-9-4.jpg";
+import d1905 from "./d-1-9-5.jpg";
+import d1906 from "./d-1-9-6.jpg";
+import d1907 from "./d-1-9-7.jpg";
+import d1908 from "./d-1-9-8.jpg";
+import d1909 from "./d-1-9-9.jpeg";
+import d1910 from "./d-1-9-10.jpg";
+import d2001 from "./d-2-0-1.jpg";
+import d2002 from "./d-2-0-2.jpg";
+import d2003 from "./d-2-0-3.jpg";
+import d2004 from "./d-2-0-4.jpg";
+import d2005 from "./d-2-0-5.jpg";
+import d2006 from "./d-2-0-6.jpg";
+import d2007 from "./d-2-0-7.jpg";
+import d2008 from "./d-2-0-8.jpg";
+import d2009 from "./d-2-0-9.jpg";
+import d2010 from "./d-2-0-10.jpeg";
+import d2101 from "./d-2-1-1.jpg";
+import d2102 from "./d-2-1-2.jpg";
+import d2103 from "./d-2-1-3.jpg";
+import d2104 from "./d-2-1-4.jpg";
+import d2105 from "./d-2-1-5.jpg";
+import d2106 from "./d-2-1-6.jpg";
+import d2107 from "./d-2-1-7.jpg";
+import d2108 from "./d-2-1-8.jpg";
+import d2109 from "./d-2-1-9.jpg";
+import p1601 from "./p-aristoteles-simoes.jpg";
+import p1701 from "./p-nabuco-santos.jpg";
+import p1702 from "./p-manuel-azevedo.jpg";
+import p1801 from "./p-joao-azevedo.jpg";
+import p1802 from "./p-fernando-gama.jpg";
+import p1803 from "./p-delza-gitai.jpg";
+import p1901 from "./p-fernando-gama.jpg";
+import p1902 from "./p-rogerio-pinheiro.jpg";
+import p2001 from "./p-ana-dorea.jpg";
+import p2101 from "./p-eurico-filho.jpg";
+import p2102 from "./p-maria-correia.jpg";
+import p2103 from "./p-josealdo-tonholo.jpg";
 
 export default Object.assign(
   {},
   {
-    de1960s01,
-    de1960s02,
-    de1960s03,
-    de1960s04,
-    de1960s05,
-    de1960s06,
-    de1960s07,
-    de1960s08,
-    de1960s09,
-    de1960s10,
-    de1970s01,
-    de1970s02,
-    de1970s03,
-    de1970s04,
-    de1970s05,
-    de1970s06,
-    de1970s07,
-    de1970s08,
-    de1970s09,
-    de1970s10,
-    de1980s01,
-    de1980s02,
-    de1980s03,
-    de1980s04,
-    de1980s05,
-    de1980s06,
-    de1980s07,
-    de1980s08,
-    de1980s09,
-    de1980s10,
-    de1990s01,
-    de1990s02,
-    de1990s03,
-    de1990s04,
-    de1990s05,
-    de1990s06,
-    de1990s07,
-    de1990s08,
-    de1990s09,
-    de1990s10,
-    de2000s01,
-    de2000s02,
-    de2000s03,
-    de2000s04,
-    de2000s05,
-    de2000s06,
-    de2000s07,
-    de2000s08,
-    de2000s09,
-    de2000s10,
-    de2010s01,
-    de2010s02,
-    de2010s03,
-    de2010s04,
-    de2010s05,
-    de2010s06,
-    de2010s07,
-    de2010s08,
-    de2010s09,
-    pr1960s01,
-    pr1970s01,
-    pr1970s02,
-    pr1980s01,
-    pr1980s02,
-    pr1980s03,
-    pr1990s01,
-    pr1990s02,
-    pr2000s01,
-    pr2010s01,
-    pr2010s02,
-    pr2010s03,
+    d1601,
+    d1602,
+    d1603,
+    d1604,
+    d1605,
+    d1606,
+    d1607,
+    d1608,
+    d1609,
+    d1610,
+    d1701,
+    d1702,
+    d1703,
+    d1704,
+    d1705,
+    d1706,
+    d1707,
+    d1708,
+    d1709,
+    d1710,
+    d1801,
+    d1802,
+    d1803,
+    d1804,
+    d1805,
+    d1806,
+    d1807,
+    d1808,
+    d1809,
+    d1810,
+    d1901,
+    d1902,
+    d1903,
+    d1904,
+    d1905,
+    d1906,
+    d1907,
+    d1908,
+    d1909,
+    d1910,
+    d2001,
+    d2002,
+    d2003,
+    d2004,
+    d2005,
+    d2006,
+    d2007,
+    d2008,
+    d2009,
+    d2010,
+    d2101,
+    d2102,
+    d2103,
+    d2104,
+    d2105,
+    d2106,
+    d2107,
+    d2108,
+    d2109,
+    p1601,
+    p1701,
+    p1702,
+    p1801,
+    p1802,
+    p1803,
+    p1901,
+    p1902,
+    p2001,
+    p2101,
+    p2102,
+    p2103,
   },
 );
