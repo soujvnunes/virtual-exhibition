@@ -52,6 +52,7 @@ module.exports = {
       lg: "80rem",
     },
     spacing: {
+      auto: "var(--size-auto)",
       0: "var(--size-0)",
       1: "var(--size-1)",
       x3s: "var(--size-x3s)",

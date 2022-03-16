@@ -4,15 +4,12 @@
     "es2021": true
   },
   "extends": [
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "airbnb",
-    "eslint:recommended"
+    "airbnb-typescript",
+    "eslint:recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,11 +17,20 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint/eslint-plugin",
+    "prettier",
+    "import",
+    "eslint-plugin-import-helpers"
+  ],
   "rules": {
-    "prettier/prettier": "error",
+    "import/no-unresolved": "error",
+    "prettier/prettier": ["error", { "trailingComma": "es5" }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
@@ -41,5 +47,13 @@
         "next": ["const", "let", "var"]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
   }
 }
