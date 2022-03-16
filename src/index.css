@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --size-auto: auto;
   --size-0: 0px;
   --size-1: 1px;
   --size-x3s: 0.125rem;
@@ -25,7 +26,7 @@
   --font-serif: freight-display-pro, serif;
   --color-transparent: transparent;
   --color-current: currentColor;
-  --color-inherit: "inherit";
+  --color-inherit: inherit;
   --pink-200: 255 246 255;
   --pink-300: 255 235 255;
   --pink-400: 255 204 255;
