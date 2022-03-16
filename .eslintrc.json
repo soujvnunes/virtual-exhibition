@@ -30,7 +30,7 @@
   ],
   "rules": {
     "import/no-unresolved": "error",
-    "prettier/prettier": ["error", { "trailingComma": "es5" }],
+    "prettier/prettier": ["error", { "trailingComma": "all" }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
