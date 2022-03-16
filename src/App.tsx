@@ -1,10 +1,10 @@
-import { Icon } from "ui";
+import { Container, IconA11y } from "ui";
 
 function App() {
   return (
-    <>
-      <Icon.A11y />
-      <p className="text-md">
+    <Container>
+      <IconA11y />
+      <p>
         Fazer a diferença para o nosso povo. A medida da grandeza de uma
         instituição está em seu potencial de transformar realidades e este
         potencial desenvolvemos, ao longo das últimas seis décadas, com
@@ -16,7 +16,7 @@ function App() {
         A Universidade Federal de Alagoas completa 60 anos com uma história
         enraizada na vida do povo alagoano.
       </h1>
-    </>
+    </Container>
   );
 }
 export default App;
