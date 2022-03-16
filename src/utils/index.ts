@@ -1,3 +1,4 @@
-export { default as getExhibition } from "./get-exhibition";
-export { default as getHomages } from "./get-homages";
+export { default as createGrx } from "./createGrx";
+export { default as getExhibition } from "./getExhibition";
+export { default as getHomages } from "./getHomages";
 export { default as reportWebVitals } from "./reportWebVitals";
