@@ -1,9 +1,10 @@
-import { Container, IconA11y } from "ui";
+import { Container, IconA11y, IconLogos } from "ui";
 
 function App() {
   return (
     <Container>
       <IconA11y />
+      <IconLogos />
       <p>
         Fazer a diferença para o nosso povo. A medida da grandeza de uma
         instituição está em seu potencial de transformar realidades e este
