@@ -5,6 +5,12 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {},
+    borderRadius: {
+      DEFAULT: "var(--size-md)",
+    },
+    borderWidth: {
+      DEFAULT: "var(--size-1)",
+    },
     colors: {
       inherit: "var(--color-inherit)",
       current: "var(--color-current)",

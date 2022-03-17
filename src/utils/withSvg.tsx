@@ -18,13 +18,11 @@ function withSvg(path: string | ReactNode | string[]) {
         return path.map((pt) => <path key={pt} d={pt} />);
       }
 
-      if (path?.toString() === "[object Object]") {
-        return path;
-      }
-
       if (typeof path === "string") {
         return <path d={path} />;
       }
+
+      return path;
     }, [path]);
 
     return (
