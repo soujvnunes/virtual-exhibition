@@ -1,6 +1,6 @@
-# Ufal's 60 Years Virtual Exhibition
+# Virtual Exhibition
 
-Promotion website for UFAL's anniversary campaigns powered with [create-react-app](https://create-react-app.dev/) in TypeScript and [Tailwind CSS](https://tailwindcss.com/).
+Promotion website for Ufal's 60 Years event powered with [create-react-app](https://create-react-app.dev/) in TypeScript and [Tailwind CSS](https://tailwindcss.com/).
 
 ## User Interface
 
