@@ -8,22 +8,22 @@ import {
 } from "react";
 import { isEqual } from "lodash";
 
-function withSvg(path: string | ReactNode | string[]) {
-  const Icon = forwardRef<
+function withSvg(paths: string | string[] | ReactNode, name: string) {
+  const WithSvg = forwardRef<
     SVGSVGElement,
     ComponentPropsWithRef<"svg"> & { size?: "sm" | "md" | "lg" }
   >(({ className, size = "md", ...props }, ref) => {
     const renderPath = useMemo(() => {
-      if (Array.isArray(path)) {
-        return path.map((pt) => <path key={pt} d={pt} />);
+      if (Array.isArray(paths)) {
+        return paths.map((path) => <path key={path} d={path} />);
       }
 
-      if (typeof path === "string") {
-        return <path d={path} />;
+      if (typeof paths === "string") {
+        return <path d={paths} />;
       }
 
-      return path;
-    }, [path]);
+      return paths;
+    }, []);
 
     return (
       <svg
@@ -47,9 +47,9 @@ function withSvg(path: string | ReactNode | string[]) {
     );
   });
 
-  Icon.displayName = "Icon";
+  WithSvg.displayName = `${name}WithSvg`;
 
-  return memo(Icon, (prev, next) => isEqual(prev, next));
+  return memo(WithSvg, isEqual);
 }
 
 export default withSvg;
