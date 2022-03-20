@@ -1,15 +1,10 @@
-import { Container, IconA11y, IconExit, IconLogos, Text } from "ui";
+import { Container, IconA11y, IconExit, Logos, Text } from "ui";
 
 function App() {
   return (
     <>
       <Container as="header" className="flex items-center h-[64px]">
-        <div className="flex items-center">
-          <IconLogos size="lg" />
-          <h1 className="font-serif leading-none italic">
-            Exposição <span className="block -ml-sm">Virtual</span>
-          </h1>
-        </div>
+        <Logos />
         <button className="p-xs border border-main/40 rounded ml-auto text-main-light">
           <IconA11y />
         </button>
