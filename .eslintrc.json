@@ -7,8 +7,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
     "airbnb-typescript",
-    "eslint:recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -29,6 +29,8 @@
     "eslint-plugin-import-helpers"
   ],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "import/no-unresolved": "error",
     "prettier/prettier": ["error", { "trailingComma": "all" }],
     "react/react-in-jsx-scope": "off",
@@ -46,7 +48,33 @@
         "prev": ["const", "let", "var"],
         "next": ["const", "let", "var"]
       }
-    ]
+    ],
+    "curly": ["error", "multi-line"],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "memo",
+          "element",
+          "key",
+          "req",
+          "acc",
+          "result"
+        ]
+      }
+    ],
+    "no-use-before-define": ["error", "nofunc"],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }],
+    "import/prefer-default-export": "off",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }]
   },
   "settings": {
     "import/resolver": {
