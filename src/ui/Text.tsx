@@ -14,7 +14,7 @@ const VARIANT_MAP = {
 } as const;
 const Text = forwardRef<
   HTMLHeadingElement | HTMLParagraphElement | HTMLSpanElement,
-  ComponentPropsWithRef<"h2" | "h3"> & {
+  ComponentPropsWithRef<"h2" | "h3" | "h4" | "p" | "span"> & {
     as?: ElementType;
     variant?: keyof typeof VARIANT_MAP;
     weight?: "italic" | `light${FontStyles}` | `bold${FontStyles}`;
@@ -29,6 +29,7 @@ const Text = forwardRef<
 >(({ as, variant, className, weight, color, ...props }, ref) => {
   const As = as || (variant && VARIANT_MAP[variant]) || "span";
   const isSpecial = color === "special";
+  const isSubtitle = variant === "subtitle";
   const renderCn = useMemo(
     () =>
       cn(
@@ -37,12 +38,13 @@ const Text = forwardRef<
           "font-bold": isProp(weight, ["bold", "boldItalic"]),
           italic:
             isProp(weight, ["italic", "lightItalic", "boldItalic"]) ||
-            isSpecial,
+            isSpecial ||
+            isSubtitle,
         },
         {
           "text-sm": variant === "overline",
           "text-md": variant === "paragraph",
-          "text-lg": variant === "subtitle",
+          "text-lg": isSubtitle,
           "text-xl md:text-x2l lg:text-x3l": variant === "title",
           "text-x3l md:text-x4l lg:text-x5l": variant === "headline",
           "font-serif": isProp(variant, ["headline", "title", "subtitle"]),
@@ -66,7 +68,7 @@ const Text = forwardRef<
         },
         className,
       ),
-    [className, color, variant, weight],
+    [className, color, isSpecial, isSubtitle, variant, weight],
   );
 
   return <As ref={ref} className={renderCn} {...props} />;
