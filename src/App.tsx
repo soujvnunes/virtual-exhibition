@@ -20,14 +20,30 @@ function App() {
       </Container>
       {(["special", "main", "success", "warning", "error"] as const).map(
         (color) => (
-          <Text key={color} variant="h2">
-            This is the <Text color={color}> {color}</Text> color.
+          <Text key={color} variant="headline">
+            This is the <Text color={color}>{color}</Text> color.
           </Text>
         ),
       )}
-      {(["h2", "h3", "h4", "p", "span"] as const).map((variant) => (
+      {(
+        ["headline", "title", "subtitle", "paragraph", "overline"] as const
+      ).map((variant) => (
         <Text key={variant} variant={variant}>
           This is the {variant} variant.
+        </Text>
+      ))}
+      {(
+        [
+          "main",
+          "mainSecondary",
+          "mainTertiary",
+          "text",
+          "textSecondary",
+          "textTertiary",
+        ] as const
+      ).map((color) => (
+        <Text key={color} variant="title" color={color}>
+          This is the {color} color.
         </Text>
       ))}
     </>
