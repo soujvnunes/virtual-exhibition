@@ -1,37 +1,31 @@
 import cn from "classnames";
-import {
-  ComponentPropsWithRef,
-  forwardRef,
-  memo,
-  ReactNode,
-  useMemo,
-} from "react";
+import { ComponentPropsWithRef, forwardRef, memo, useMemo } from "react";
 import { isEqual } from "lodash";
 
-function withSvg(paths: string | string[] | ReactNode, name: string) {
+type P = {
+  name: string;
+  paths: string | ({ [key: string]: string } | string)[];
+};
+
+function withSvg({ name, paths }: P) {
   const WithSvg = forwardRef<
     SVGSVGElement,
     ComponentPropsWithRef<"svg"> & { size?: "sm" | "md" | "lg" }
   >(({ className, size = "md", ...props }, ref) => {
-    const renderPath = useMemo(() => {
-      if (Array.isArray(paths)) {
-        return paths.map((path) => <path key={path} d={path} />);
-      }
-
-      if (typeof paths === "string") {
-        return <path d={paths} />;
-      }
-
-      return paths;
-    }, []);
-
-    return (
-      <svg
-        ref={ref}
-        focusable="false"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className={cn(
+    const renderPath = useMemo(
+      () =>
+        Array.isArray(paths) ? (
+          paths.map((path) =>
+            typeof path === "string" ? <path d={path} /> : <path {...path} />,
+          )
+        ) : (
+          <path d={paths} />
+        ),
+      [],
+    );
+    const renderCn = useMemo(
+      () =>
+        cn(
           "fill-current",
           {
             "w-md h-md": size === "sm",
@@ -39,7 +33,17 @@ function withSvg(paths: string | string[] | ReactNode, name: string) {
             "w-x2l h-x2l": size === "lg",
           },
           className,
-        )}
+        ),
+      [className, size],
+    );
+
+    return (
+      <svg
+        ref={ref}
+        focusable="false"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className={renderCn}
         {...props}
       >
         {renderPath}
