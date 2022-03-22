@@ -2,9 +2,6 @@ import cn from "classnames";
 import { ComponentPropsWithRef, ElementType, forwardRef, useMemo } from "react";
 import { isProp } from "utils";
 
-type ColorStates = "" | "Secondary" | "Tertiary";
-type FontStyles = "" | "Italic";
-
 const VARIANT_MAP = {
   headline: "h2",
   title: "h3",
@@ -12,19 +9,21 @@ const VARIANT_MAP = {
   paragraph: "p",
   overline: "span",
 } as const;
+const WEIGHT_MAP = ["normal", "medium", "semibold", "bold"] as const;
+
+type Colors = "special" | "error" | "success" | "warning";
+type ColorStates = "" | "Secondary" | "Tertiary";
+type ColorsWithState = "main" | "text";
+type FontStyles = "" | "Italic";
+type FontWeights = typeof WEIGHT_MAP[number];
+
 const Text = forwardRef<
   HTMLHeadingElement | HTMLParagraphElement | HTMLSpanElement,
   ComponentPropsWithRef<"h2" | "h3" | "h4" | "p" | "span"> & {
     as?: ElementType;
     variant?: keyof typeof VARIANT_MAP;
-    weight?: "italic" | `light${FontStyles}` | `bold${FontStyles}`;
-    color?:
-      | "special"
-      | `main${ColorStates}`
-      | "error"
-      | "success"
-      | "warning"
-      | `text${ColorStates}`;
+    weight?: `${FontWeights}${FontStyles}`;
+    color?: `${Colors}` | `${ColorsWithState}${ColorStates}`;
   }
 >(({ as, variant, className, weight, color, ...props }, ref) => {
   const As = as || (variant && VARIANT_MAP[variant]) || "span";
@@ -34,10 +33,17 @@ const Text = forwardRef<
     () =>
       cn(
         {
-          "font-light": isProp(weight, ["light", "lightItalic"]),
+          "font-normal": isProp(weight, ["normal", "normalItalic"]),
+          "font-medium": isProp(weight, ["medium", "mediumItalic"]),
+          "font-semibold": isProp(weight, ["semibold", "semiboldItalic"]),
           "font-bold": isProp(weight, ["bold", "boldItalic"]),
           italic:
-            isProp(weight, ["italic", "lightItalic", "boldItalic"]) ||
+            isProp(weight, [
+              "normalItalic",
+              "mediumItalic",
+              "semiboldItalic",
+              "boldItalic",
+            ]) ||
             isSpecial ||
             isSubtitle,
         },

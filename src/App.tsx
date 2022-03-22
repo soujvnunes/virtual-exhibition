@@ -21,24 +21,19 @@ function App() {
         ),
       )}
       {(
-        ["headline", "title", "subtitle", "paragraph", "overline"] as const
-      ).map((variant) => (
-        <Text key={variant} variant={variant}>
-          This is the {variant} variant.
-        </Text>
-      ))}
-      {(
         [
-          "main",
-          "mainSecondary",
-          "mainTertiary",
-          "text",
-          "textSecondary",
-          "textTertiary",
+          "normal",
+          "normalItalic",
+          "medium",
+          "mediumItalic",
+          "semibold",
+          "semiboldItalic",
+          "bold",
+          "boldItalic",
         ] as const
-      ).map((color) => (
-        <Text key={color} variant="title" color={color}>
-          This is the {color} color.
+      ).map((variant) => (
+        <Text key={variant} as="p" weight={variant}>
+          This is the {variant} variant.
         </Text>
       ))}
     </>
