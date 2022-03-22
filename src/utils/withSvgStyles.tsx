@@ -7,22 +7,23 @@ type P = {
   paths: string | ({ [key: string]: string } | string)[];
 };
 
-function withSvg({ name, paths }: P) {
-  const WithSvg = forwardRef<
+function withSvgStyles({ name, paths }: P) {
+  const WithSvgStyles = forwardRef<
     SVGSVGElement,
     ComponentPropsWithRef<"svg"> & { size?: "sm" | "md" | "lg" }
   >(({ className, size = "md", ...props }, ref) => {
-    const renderPath = useMemo(
-      () =>
-        Array.isArray(paths) ? (
-          paths.map((path) =>
-            typeof path === "string" ? <path d={path} /> : <path {...path} />,
-          )
-        ) : (
-          <path d={paths} />
-        ),
-      [],
-    );
+    const renderPath = useMemo(() => {
+      if (Array.isArray(paths)) {
+        return paths.map((path) => (
+          <path
+            key={JSON.stringify(path)}
+            {...(typeof path === "string" ? { d: path } : path)}
+          />
+        ));
+      }
+
+      return <path d={paths} />;
+    }, []);
     const renderCn = useMemo(
       () =>
         cn(
@@ -51,9 +52,9 @@ function withSvg({ name, paths }: P) {
     );
   });
 
-  WithSvg.displayName = `${name}WithSvg`;
+  WithSvgStyles.displayName = `${name}WithSvgStyles`;
 
-  return memo(WithSvg, isEqual);
+  return memo(WithSvgStyles, isEqual);
 }
 
-export default withSvg;
+export default withSvgStyles;
