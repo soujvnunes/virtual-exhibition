@@ -2,12 +2,13 @@ import cn from "classnames";
 import { ComponentPropsWithRef, forwardRef, memo, useMemo } from "react";
 import { isEqual } from "lodash";
 
-type P = {
+function withSvgStyles({
+  name,
+  paths,
+}: {
   name: string;
   paths: string | ({ [key: string]: string } | string)[];
-};
-
-function withSvgStyles({ name, paths }: P) {
+}) {
   const WithSvgStyles = forwardRef<
     SVGSVGElement,
     ComponentPropsWithRef<"svg"> & { size?: "sm" | "md" | "lg" }
