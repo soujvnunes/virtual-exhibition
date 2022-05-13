@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -47,7 +46,6 @@
     "@types/lodash": "^4.14.180",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.15.0",
-    "autoprefixer": "^10.4.2",
     "eslint": "^8.11.0",
     "eslint-config-airbnb-typescript": "^16.1.2",
     "eslint-config-prettier": "^8.5.0",
@@ -58,7 +56,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "postcss": "^8.4.8",
     "prettier": "^2.6.0",
     "tailwindcss": "^3.0.23"
   }
