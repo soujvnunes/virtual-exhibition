@@ -15,6 +15,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.5",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.180",
+    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.11.0",
@@ -58,5 +60,8 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.6.0",
     "tailwindcss": "^3.0.23"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
