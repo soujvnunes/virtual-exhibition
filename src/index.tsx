@@ -2,7 +2,6 @@ import App from "App";
 import { StrictMode } from "react";
 import { render } from "react-dom";
 import { reportWebVitals } from "utils";
-import "./index.css";
 
 render(
   <StrictMode>
