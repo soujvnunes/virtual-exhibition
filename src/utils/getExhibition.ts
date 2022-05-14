@@ -1,4 +1,4 @@
-import Assets from "assets";
+import * as Assets from "assets";
 
 const exhibition = {
   title: ["1960", "1970", "1980", "1990", "2000", "2010"],
