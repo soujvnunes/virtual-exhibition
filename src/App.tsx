@@ -1,8 +1,22 @@
-import { Button, Container, IconA11y, IconExit, Logos, Text, Theme } from "ui";
+import { INITIAL_THEME } from "consts";
+import { useMemo } from "react";
+import { ThemeProvider } from "styled-components";
+import {
+  Button,
+  Container,
+  GlobalStyle,
+  IconA11y,
+  IconExit,
+  Logos,
+  Text,
+} from "ui";
 
 function App() {
+  const theme = useMemo(() => INITIAL_THEME, []);
+
   return (
-    <Theme>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Container as="header">
         <Logos />
         <button className="p-xs border border-main/40 rounded ml-auto text-main-light">
@@ -35,7 +49,7 @@ function App() {
           </Text>
         ))}
       </Container>
-    </Theme>
+    </ThemeProvider>
   );
 }
 export default App;

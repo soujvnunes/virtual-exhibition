@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const ThemeRoot = createGlobalStyle(({ theme }) => ({
+const GlobalStyle = createGlobalStyle(({ theme }) => ({
   ":root": {
     "--size-auto": "auto",
     "--size-0": 0,
@@ -57,4 +57,4 @@ const ThemeRoot = createGlobalStyle(({ theme }) => ({
   },
 }));
 
-export default ThemeRoot;
+export default GlobalStyle;
