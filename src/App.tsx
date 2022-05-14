@@ -1,9 +1,9 @@
-import { Button, Container, IconA11y, IconExit, Logos, Text } from "ui";
+import { Button, Container, IconA11y, IconExit, Logos, Text, Theme } from "ui";
 
 function App() {
   return (
-    <>
-      <Container as="header" className="flex items-center h-[64px]">
+    <Theme>
+      <Container as="header">
         <Logos />
         <button className="p-xs border border-main/40 rounded ml-auto text-main-light">
           <IconA11y />
@@ -35,7 +35,7 @@ function App() {
           </Text>
         ))}
       </Container>
-    </>
+    </Theme>
   );
 }
 export default App;
