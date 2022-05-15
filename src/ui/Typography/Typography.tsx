@@ -1,11 +1,17 @@
-import { FONT_WEIGHTS, TEXT_ALIGNS, TEXT_VARIANTS } from "consts";
-import { forwardRef, useMemo } from "react";
-import styled, { StyledComponentPropsWithRef } from "styled-components";
+import { FONT_WEIGHTS, TEXT_ALIGNS } from "consts";
+import {
+  ComponentPropsWithRef,
+  ComponentType,
+  forwardRef,
+  useMemo,
+} from "react";
+import styled from "styled-components";
 import { isProp } from "utils";
 
 type TypograhyProps = {
+  as?: keyof JSX.IntrinsicElements & ComponentType;
   align?: typeof TEXT_ALIGNS[number];
-  variant?: keyof typeof TEXT_VARIANTS;
+  variant?: "h2" | "h3" | "h4" | "p" | "span";
   weight?: `${typeof FONT_WEIGHTS[number]}${"" | "Italic"}` | "italic";
   color?:
     | "special"
@@ -15,7 +21,7 @@ type TypograhyProps = {
     | `${"main" | "text"}${"" | "Secondary" | "Tertiary"}`;
 };
 
-const Root = styled.span(({ theme, $props }) => ({
+const Root = styled.span<{ $props: TypograhyProps }>(({ theme, $props }) => ({
   ...($props.align === "start" && {
     textAlign: "left",
   }),
@@ -49,15 +55,15 @@ const Root = styled.span(({ theme, $props }) => ({
   ]) && {
     fontStyle: "italic",
   }),
-  ...($props.variant === "overline" && theme.typography.sm),
-  ...($props.variant === "paragraph" && theme.typography.md),
-  ...($props.variant === "subtitle" && theme.typography.lg),
-  ...($props.variant === "title" && {
+  ...($props.variant === "span" && theme.typography.sm),
+  ...($props.variant === "p" && theme.typography.md),
+  ...($props.variant === "h4" && theme.typography.lg),
+  ...($props.variant === "h3" && {
     ...theme.typography.xl,
     [theme.media.md]: theme.typography.x2l,
     [theme.media.lg]: theme.typography.x3l,
   }),
-  ...($props.variant === "headline" && {
+  ...($props.variant === "h2" && {
     ...theme.typography.x3l,
     [theme.media.md]: theme.typography.x4l,
     [theme.media.lg]: theme.typography.x5l,
@@ -114,11 +120,14 @@ const Root = styled.span(({ theme, $props }) => ({
   }),
 }));
 const Typograhy = forwardRef<
-  HTMLHeadingElement | HTMLParagraphElement | HTMLSpanElement,
-  StyledComponentPropsWithRef<"span"> & TypograhyProps
->(({ as, variant, weight, color, align, ...inProps }, ref) => {
-  const props = { as: as || (variant && TEXT_VARIANTS[variant]), ...inProps };
-  const $props = useMemo(
+  HTMLSpanElement,
+  ComponentPropsWithRef<"span"> & TypograhyProps
+>(({ as, variant, weight, color, align, ...outProps }, ref) => {
+  const restProps = useMemo(
+    () => ({ as: as || variant, ...outProps }),
+    [as, outProps, variant],
+  );
+  const inProps = useMemo(
     () => ({
       variant,
       weight,
@@ -128,7 +137,7 @@ const Typograhy = forwardRef<
     [align, color, variant, weight],
   );
 
-  return <Root ref={ref} $props={$props} {...props} />;
+  return <Root ref={ref} $props={inProps} {...restProps} />;
 });
 
 Typograhy.displayName = "Typograhy";
