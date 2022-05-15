@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle(({ theme }) => ({
-  ":root": {
+  html: {
     "--size-auto": "auto",
     "--size-0": 0,
     "--size-1": 1,
@@ -19,8 +19,6 @@ const GlobalStyle = createGlobalStyle(({ theme }) => ({
     "--size-x6l": "3.5rem",
     "--size-x7l": "4rem",
     "--size-x8l": "6rem",
-    "--kerning-heading": 1,
-    "--kerning-flow": "1.5em",
     "--font-sans": "futura-pt, sans-serif",
     "--font-serif": "freight-display-pro, serif",
     "--color-transparent": "transparent",
@@ -43,11 +41,16 @@ const GlobalStyle = createGlobalStyle(({ theme }) => ({
     "--yellow-600": "204 204 119",
   },
   body: {
+    margin: 0,
+    textRendering: "optimizeLegibility",
+    textSizeAdjust: "100%",
+    lineHeight: "1.5em",
+    fontSize: theme.typography.md,
+    fontFamily: theme.typography.sans,
     backgroundColor: theme.palette.main.xlight,
     color: theme.palette.dark,
     "-webkit-font-smoothing": "auto",
     "-moz-osx-font-smoothing": "auto",
-    ...theme.typography.md,
     [theme.media.dark]: {
       backgroundColor: theme.palette.main.xdark,
       color: theme.palette.light,

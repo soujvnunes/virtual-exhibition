@@ -30,46 +30,16 @@ const INITIAL_THEME = {
     },
   },
   typography: {
-    sm: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--size-sm)",
-      lineHeight: "var(--kerning-flow)",
-    },
-    md: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--size-md)",
-      lineHeight: "var(--kerning-flow)",
-    },
-    lg: {
-      fontFamily: "var(--font-sans)",
-      fontSize: "var(--size-lg)",
-      lineHeight: "var(--kerning-flow)",
-    },
-    xl: {
-      fontFamily: "var(--font-serif)",
-      fontSize: "var(--size-x3l)",
-      lineHeight: "var(--kerning-heading)",
-    },
-    x2l: {
-      fontFamily: "var(--font-serif)",
-      fontSize: "var(--size-x4l)",
-      lineHeight: "var(--kerning-heading)",
-    },
-    x3l: {
-      fontFamily: "var(--font-serif)",
-      fontSize: "var(--size-x5l)",
-      lineHeight: "var(--kerning-heading)",
-    },
-    x4l: {
-      fontFamily: "var(--font-serif)",
-      fontSize: "var(--size-x6l)",
-      lineHeight: "var(--kerning-heading)",
-    },
-    x5l: {
-      fontFamily: "var(--font-serif)",
-      fontSize: "var(--size-x7l)",
-      lineHeight: "var(--kerning-heading)",
-    },
+    sans: "var(--font-sans)",
+    serif: "var(--font-serif)",
+    sm: "var(--size-sm)",
+    md: "var(--size-md)",
+    lg: "var(--size-lg)",
+    xl: "var(--size-x3l)",
+    x2l: "var(--size-x4l)",
+    x3l: "var(--size-x5l)",
+    x4l: "var(--size-x6l)",
+    x5l: "var(--size-x7l)",
   },
   media: {
     md: "@media screen and (min-width: 40rem)",

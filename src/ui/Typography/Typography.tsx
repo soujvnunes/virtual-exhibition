@@ -59,19 +59,35 @@ const Root = styled.span<{ $props: TypograhyProps }>(
     ...((isProp($props.variant, ["h2", "h3", "h4"]) ||
       isProp(as, ["h2", "h3", "h4"])) && {
       fontWeight: "normal",
+      lineHeight: "1",
+      fontFamily: theme.typography.serif,
     }),
-    ...($props.variant === "span" && theme.typography.sm),
-    ...($props.variant === "p" && theme.typography.md),
-    ...($props.variant === "h4" && theme.typography.lg),
+    ...($props.variant === "span" && {
+      fontSize: theme.typography.sm,
+    }),
+    ...($props.variant === "p" && {
+      fontSize: theme.typography.md,
+    }),
+    ...($props.variant === "h4" && {
+      fontSize: theme.typography.lg,
+    }),
     ...($props.variant === "h3" && {
-      ...theme.typography.xl,
-      [theme.media.md]: theme.typography.x2l,
-      [theme.media.lg]: theme.typography.x3l,
+      fontSize: theme.typography.xl,
+      [theme.media.md]: {
+        fontSize: theme.typography.x2l,
+      },
+      [theme.media.lg]: {
+        fontSize: theme.typography.x3l,
+      },
     }),
     ...($props.variant === "h2" && {
-      ...theme.typography.x3l,
-      [theme.media.md]: theme.typography.x4l,
-      [theme.media.lg]: theme.typography.x5l,
+      fontSize: theme.typography.x3l,
+      [theme.media.md]: {
+        fontSize: theme.typography.x4l,
+      },
+      [theme.media.lg]: {
+        fontSize: theme.typography.x5l,
+      },
     }),
     ...($props.color === "special" && {
       "-webkit-text-fill-color": theme.palette.transparent,
