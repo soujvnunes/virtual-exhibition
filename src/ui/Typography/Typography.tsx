@@ -60,7 +60,7 @@ const Root = styled.span<{ $props: TypograhyProps }>(
       isProp(as, ["h2", "h3", "h4"])) && {
       fontWeight: "normal",
       lineHeight: "1",
-      fontFamily: theme.typography.serif,
+      fontFamily: theme.font.serif,
     }),
     ...($props.variant === "span" && {
       fontSize: theme.typography.sm,
@@ -90,8 +90,8 @@ const Root = styled.span<{ $props: TypograhyProps }>(
       },
     }),
     ...($props.color === "special" && {
-      "-webkit-text-fill-color": theme.palette.transparent,
-      textFillColor: theme.palette.transparent,
+      "-webkit-text-fill-color": "transparent",
+      textFillColor: "transparent",
       "-webkit-background-clip": "text",
       backgroundClip: "text",
       backgroundImage: `linear-gradient(to right,${theme.palette.main.DEFAULT},${theme.palette.main.dark})`,
