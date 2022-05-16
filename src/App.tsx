@@ -8,7 +8,7 @@ import {
   IconA11y,
   IconExit,
   Logos,
-  Text,
+  Typography,
 } from "ui";
 
 function App() {
@@ -27,9 +27,9 @@ function App() {
       <Container>
         {(["special", "main", "success", "warning", "error"] as const).map(
           (color) => (
-            <Text key={color} variant="headline">
-              This is the <Text color={color}>{color}</Text> color.
-            </Text>
+            <Typography key={color} variant="h2">
+              This is the <Typography color={color}>{color}</Typography> color.
+            </Typography>
           ),
         )}
         {(
@@ -44,9 +44,9 @@ function App() {
             "boldItalic",
           ] as const
         ).map((variant) => (
-          <Text key={variant} as="p" weight={variant}>
+          <Typography key={variant} as="p" weight={variant}>
             This is the {variant} variant.
-          </Text>
+          </Typography>
         ))}
       </Container>
     </ThemeProvider>
