@@ -1,47 +1,27 @@
-const PALETTE_STATES = ["enabled", "hovered", "disabled"] as const;
-const PALETTE_COLORS = [
-  "primary",
-  "secondary",
-  "surface",
-  "background",
-  "text",
-  "error",
-  "warning",
-  "success",
-];
 const INITIAL_THEME = {
-  palette(state: typeof PALETTE_STATES[number]) {
-    const renderState = {
-      enabled: "var(--base-color-alpha-enabled)",
-      hovered: "var(--base-color-alpha-hovered)",
-      disabled: "var(--base-color-alpha-disabled)",
-    }[state];
-    const renderColor = PALETTE_COLORS.reduce((acc, cur) => {
-      return {
-        ...acc,
-        [cur]:
-          typeof this === "function"
-            ? `rgb(var(--palette-${cur}) / ${renderState})`
-            : "rgb(var(--palette-${cur})",
-      };
-    }, {});
-
-    // TODO: Type-readonly this
-    return renderColor;
+  palette: {
+    main: "var(--palette-main)",
+    accent: "var(--palette-accent)",
+    surface: "var(--palette-surface)",
+    background: "var(--palette-background)",
+    text: "var(--palette-text)",
+    error: "var(--palette-error)",
+    warning: "var(--palette-warning)",
+    success: "var(--palette-success)",
   },
-  font: {
-    sans: "var(--base-font-sans)",
-    serif: "var(--base-font-serif)",
+  action: {
+    primary: "var(--base-alpha-primary)",
+    secondary: "var(--base-alpha-secondary)",
+    tertiary: "var(--base-alpha-tertiary)",
   },
   typography: {
-    sm: "var(--base-spacing-sm)",
-    md: "var(--base-spacing-md)",
-    lg: "var(--base-spacing-lg)",
-    xl: "var(--base-spacing-x3l)",
-    x2l: "var(--base-spacing-x4l)",
-    x3l: "var(--base-spacing-x5l)",
-    x4l: "var(--base-spacing-x6l)",
-    x5l: "var(--base-spacing-x7l)",
+    sans: "var(--base-font-sans)",
+    serif: "var(--base-font-serif)",
+    span: "var(--typography-span)",
+    p: "var(--typography-p)",
+    h4: "var(--typography-h4)",
+    h3: "var(--typography-h3)",
+    h2: "var(--typography-h2)",
   },
   media: {
     md: "@media screen and (min-width: 40rem)",
@@ -62,6 +42,10 @@ const INITIAL_THEME = {
     xl: "var(--base-spacing-x2l)",
     x2l: "var(--base-spacing-x5l)",
     x3l: "var(--base-spacing-x8l)",
+  },
+  grid: {
+    padding: "--grid-padding",
+    margin: "--grid-margin",
   },
 } as const;
 
