@@ -1,45 +1,47 @@
+const PALETTE_STATES = ["enabled", "hovered", "disabled"] as const;
+const PALETTE_COLORS = [
+  "primary",
+  "secondary",
+  "surface",
+  "background",
+  "text",
+  "error",
+  "warning",
+  "success",
+];
 const INITIAL_THEME = {
-  borderRadius: "var(--size-md)",
-  borderWidth: "var(--size-1)",
-  palette: {
-    inherit: "var(--color-inherit)",
-    current: "var(--color-current)",
-    transparent: "var(--color-transparent)",
-    light: "rgb(var(--gray-100) / var(--color-alpha, 1))",
-    dark: "rgb(var(--gray-900) / var(--color-alpha, 1))",
-    main: {
-      xlight: "rgb(var(--pink-200) / var(--color-alpha, 1))",
-      lighter: "rgb(var(--pink-300) / var(--color-alpha, 1))",
-      light: "rgb(var(--pink-400) / var(--color-alpha, 1))",
-      DEFAULT: "rgb(var(--pink-500) / var(--color-alpha, 1))",
-      dark: "rgb(var(--pink-600) / var(--color-alpha, 1))",
-      darker: "rgb(var(--pink-700) / var(--color-alpha, 1))",
-      xdark: "rgb(var(--pink-800) / var(--color-alpha, 1))",
-    },
-    error: {
-      DEFAULT: "rgb(var(--red-500) / var(--color-alpha, 1))",
-      dark: "rgb(var(--red-600) / var(--color-alpha, 1))",
-    },
-    warning: {
-      DEFAULT: "rgb(var(--yellow-500) / var(--color-alpha, 1))",
-      dark: "rgb(var(--yellow-600) / var(--color-alpha, 1))",
-    },
-    success: {
-      DEFAULT: "rgb(var(--blue-500) / var(--color-alpha, 1))",
-      dark: "rgb(var(--blue-600) / var(--color-alpha, 1))",
-    },
+  palette(state: typeof PALETTE_STATES[number]) {
+    const renderState = {
+      enabled: "var(--base-color-alpha-enabled)",
+      hovered: "var(--base-color-alpha-hovered)",
+      disabled: "var(--base-color-alpha-disabled)",
+    }[state];
+    const renderColor = PALETTE_COLORS.reduce((acc, cur) => {
+      return {
+        ...acc,
+        [cur]:
+          typeof this === "function"
+            ? `rgb(var(--palette-${cur}) / ${renderState})`
+            : "rgb(var(--palette-${cur})",
+      };
+    }, {});
+
+    // TODO: Type-readonly this
+    return renderColor;
+  },
+  font: {
+    sans: "var(--base-font-sans)",
+    serif: "var(--base-font-serif)",
   },
   typography: {
-    sans: "var(--font-sans)",
-    serif: "var(--font-serif)",
-    sm: "var(--size-sm)",
-    md: "var(--size-md)",
-    lg: "var(--size-lg)",
-    xl: "var(--size-x3l)",
-    x2l: "var(--size-x4l)",
-    x3l: "var(--size-x5l)",
-    x4l: "var(--size-x6l)",
-    x5l: "var(--size-x7l)",
+    sm: "var(--base-spacing-sm)",
+    md: "var(--base-spacing-md)",
+    lg: "var(--base-spacing-lg)",
+    xl: "var(--base-spacing-x3l)",
+    x2l: "var(--base-spacing-x4l)",
+    x3l: "var(--base-spacing-x5l)",
+    x4l: "var(--base-spacing-x6l)",
+    x5l: "var(--base-spacing-x7l)",
   },
   media: {
     md: "@media screen and (min-width: 40rem)",
@@ -48,18 +50,18 @@ const INITIAL_THEME = {
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
   spacing: {
-    auto: "var(--size-auto)",
-    0: "var(--size-0)",
-    1: "var(--size-1)",
-    x3s: "var(--size-x3s)",
-    x2s: "var(--size-x2s)",
-    xs: "var(--size-xs)",
-    sm: "var(--size-sm)",
-    md: "var(--size-md)",
-    lg: "var(--size-xl)",
-    xl: "var(--size-x2l)",
-    x2l: "var(--size-x5l)",
-    x3l: "var(--size-x8l)",
+    auto: "var(--base-spacing-auto)",
+    0: "var(--base-spacing-0)",
+    1: "var(--base-spacing-1)",
+    x3s: "var(--base-spacing-x3s)",
+    x2s: "var(--base-spacing-x2s)",
+    xs: "var(--base-spacing-xs)",
+    sm: "var(--base-spacing-sm)",
+    md: "var(--base-spacing-md)",
+    lg: "var(--base-spacing-xl)",
+    xl: "var(--base-spacing-x2l)",
+    x2l: "var(--base-spacing-x5l)",
+    x3l: "var(--base-spacing-x8l)",
   },
 } as const;
 
