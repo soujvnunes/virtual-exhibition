@@ -5,16 +5,8 @@ const Root = styled.div(({ theme }) => ({
   marginRight: "auto",
   marginLeft: "auto",
   maxWidth: "80rem",
-  paddingRight: theme.spacing.md,
-  paddingLeft: theme.spacing.md,
-  [theme.media.md]: {
-    paddingRight: theme.spacing.lg,
-    paddingLeft: theme.spacing.lg,
-  },
-  [theme.media.lg]: {
-    paddingRight: theme.spacing.xl,
-    paddingLeft: theme.spacing.xl,
-  },
+  paddingRight: theme.grid.margin,
+  paddingLeft: theme.grid.margin,
 }));
 const Container = forwardRef<
   HTMLDivElement,
