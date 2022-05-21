@@ -1,6 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import { useMemo } from "react";
+import {
+  createGlobalStyle,
+  DefaultTheme,
+  ThemeProvider,
+  ThemeProviderProps,
+} from "styled-components";
 
-const fontStacks = {
+const FONTS = {
   sans: [
     "futura-pt",
     "system-ui",
@@ -18,7 +24,7 @@ const fontStacks = {
     "'Apple Color Emoji'",
     "'Segoe UI Emoji'",
     "'Segoe UI Symbol'",
-  ].join(" "),
+  ].join(", "),
   serif: [
     "freight-display-pro",
     "Cambria",
@@ -29,9 +35,59 @@ const fontStacks = {
     "Times",
     "'Times New Roman'",
     "serif",
-  ].join(" "),
+  ].join(", "),
 };
-const GlobalStyle = createGlobalStyle(({ theme }) => ({
+const THEME = {
+  palette: {
+    main: "var(--palette-main)",
+    accent: "var(--palette-accent)",
+    surface: "var(--palette-surface)",
+    background: "var(--palette-background)",
+    text: "var(--palette-text)",
+    error: "var(--palette-error)",
+    warning: "var(--palette-warning)",
+    success: "var(--palette-success)",
+  },
+  action: {
+    primary: "var(--base-alpha-primary)",
+    secondary: "var(--base-alpha-secondary)",
+    tertiary: "var(--base-alpha-tertiary)",
+  },
+  typography: {
+    sans: "var(--base-font-sans)",
+    serif: "var(--base-font-serif)",
+    span: "var(--typography-span)",
+    p: "var(--typography-p)",
+    h4: "var(--typography-h4)",
+    h3: "var(--typography-h3)",
+    h2: "var(--typography-h2)",
+  },
+  media: {
+    md: "@media screen and (min-width: 40rem)",
+    lg: "@media screen and (min-width: 80rem)",
+    dark: "@media (prefers-color-scheme: dark)",
+    motion: "@media (prefers-reduced-motion: no-preference)",
+  },
+  spacing: {
+    auto: "var(--base-spacing-auto)",
+    0: "var(--base-spacing-0)",
+    1: "var(--base-spacing-1)",
+    x3s: "var(--base-spacing-x3s)",
+    x2s: "var(--base-spacing-x2s)",
+    xs: "var(--base-spacing-xs)",
+    sm: "var(--base-spacing-sm)",
+    md: "var(--base-spacing-md)",
+    lg: "var(--base-spacing-xl)",
+    xl: "var(--base-spacing-x2l)",
+    x2l: "var(--base-spacing-x5l)",
+    x3l: "var(--base-spacing-x8l)",
+  },
+  grid: {
+    padding: "var(--grid-padding)",
+    margin: "var(--grid-margin)",
+  },
+} as const;
+const GlobalStyleFactory = createGlobalStyle(({ theme }) => ({
   ":root": {
     "--base-spacing-auto": "auto",
     "--base-spacing-0": 0,
@@ -50,8 +106,8 @@ const GlobalStyle = createGlobalStyle(({ theme }) => ({
     "--base-spacing-x6l": "3.5rem",
     "--base-spacing-x7l": "4rem",
     "--base-spacing-x8l": "6rem",
-    "--base-font-sans": fontStacks.sans,
-    "--base-font-serif": fontStacks.serif,
+    "--base-font-sans": FONTS.sans,
+    "--base-font-serif": FONTS.serif,
     "--base-color-pink-200": "255 245 255",
     "--base-color-pink-300": "255 224 255",
     "--base-color-pink-400": "255 204 255",
@@ -128,4 +184,17 @@ const GlobalStyle = createGlobalStyle(({ theme }) => ({
   },
 }));
 
-export default GlobalStyle;
+function GlobalStyle({
+  children,
+}: Omit<ThemeProviderProps<DefaultTheme>, "theme">) {
+  const theme = useMemo(() => THEME, []);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyleFactory />
+      {children}
+    </ThemeProvider>
+  );
+}
+
+export default Object.assign(GlobalStyle, { THEME });
