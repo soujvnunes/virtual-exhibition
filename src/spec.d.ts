@@ -1,8 +1,8 @@
-import { INITIAL_THEME } from "consts";
 import "styled-components";
+import { GlobalStyle } from "ui";
 
-type InitialTheme = typeof INITIAL_THEME;
+type Theme = typeof GlobalStyle.THEME;
 
 declare module "styled-components" {
-  export interface DefaultTheme extends InitialTheme {}
+  export interface DefaultTheme extends Theme {}
 }
