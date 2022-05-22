@@ -2,42 +2,12 @@ import { normalize } from "polished";
 import { useMemo } from "react";
 import {
   createGlobalStyle,
+  css,
   DefaultTheme,
   ThemeProvider,
   ThemeProviderProps,
 } from "styled-components";
 
-const FONTS = {
-  sans: [
-    "futura-pt",
-    "system-ui",
-    "-apple-system",
-    "'Segoe UI'",
-    "Roboto",
-    "Ubuntu",
-    "Cantarell",
-    "Noto Sans",
-    "sans-serif",
-    "BlinkMacSystemFont",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-    "'Apple Color Emoji'",
-    "'Segoe UI Emoji'",
-    "'Segoe UI Symbol'",
-  ].join(", "),
-  serif: [
-    "freight-display-pro",
-    "Cambria",
-    "'Hoefler Text'",
-    "Utopia",
-    "'Liberation Serif'",
-    "'Nimbus Roman No9 L Regular'",
-    "Times",
-    "'Times New Roman'",
-    "serif",
-  ].join(", "),
-};
 const THEME = {
   palette: {
     main: "var(--palette-main)",
@@ -85,104 +55,111 @@ const THEME = {
     margin: "var(--grid-margin)",
   },
 } as const;
-const GlobalStyleFactory = createGlobalStyle(({ theme }) => ({
-  ...normalize()[0],
-  ...normalize()[1],
-  ":root": {
-    "--base-spacing-02": "0.125rem",
-    "--base-spacing-04": "0.25rem",
-    "--base-spacing-08": "0.5rem",
-    "--base-spacing-12": "0.75rem",
-    "--base-spacing-16": "1rem",
-    "--base-spacing-20": "1.25rem",
-    "--base-spacing-24": "1.5rem",
-    "--base-spacing-32": "2rem",
-    "--base-spacing-40": "2.5rem",
-    "--base-spacing-44": "2.75rem",
-    "--base-spacing-48": "3rem",
-    "--base-spacing-56": "3.5rem",
-    "--base-spacing-64": "4rem",
-    "--base-spacing-96": "6rem",
-    "--base-font-sans": FONTS.sans,
-    "--base-font-serif": FONTS.serif,
-    "--base-color-pink-200": "255 245 255",
-    "--base-color-pink-300": "255 224 255",
-    "--base-color-pink-400": "255 204 255",
-    "--base-color-pink-500": "255 153 255",
-    "--base-color-pink-600": "204 102 204",
-    "--base-color-pink-700": "68 34 68",
-    "--base-color-pink-800": "26 15 26",
-    "--base-color-gray-100": "255 255 255",
-    "--base-color-gray-900": "51 51 51",
-    "--base-color-red-500": "255 51 51",
-    "--base-color-red-600": "204 0 0",
-    "--base-color-blue-500": "51 153 255",
-    "--base-color-blue-600": "0 102 187",
-    "--base-color-yellow-500": "255 238 170",
-    "--base-color-yellow-600": "204 204 119",
-    "--base-alpha-focus": "1",
-    "--base-alpha-hover": "0.6",
-    "--base-alpha-disable": "0.4",
-  },
-  html: {
-    "--palette-main": "var(--base-color-pink-500)",
-    "--palette-accent": "var(--base-color-pink-400)",
-    "--palette-surface": "var(--base-color-pink-300)",
-    "--palette-background": "var(--base-color-pink-200)",
-    "--palette-text": "var(--base-color-gray-100)",
-    "--palette-error": "var(--base-color-red-600)",
-    "--palette-warning": "var(--base-color-yellow-600)",
-    "--palette-success": "var(--base-color-blue-600)",
-    "--action-focus": "1",
-    "--action-hover": "0.6",
-    "--action-disable": "0.4",
-    [theme.media.dark]: {
-      "--palette-accent": "var(--base-color-pink-600)",
-      "--palette-surface": "var(--base-color-pink-700)",
-      "--palette-background": "var(--base-color-pink-800)",
-      "--palette-text": "var(--base-color-gray-900)",
-      "--palette-error": "var(--base-color-red-500)",
-      "--palette-warning": "var(--base-color-yellow-500)",
-      "--palette-success": "var(--base-color-blue-500)",
-    },
-    "--typography-body2": "var(--base-spacing-12)",
-    "--typography-body1": "var(--base-spacing-16)",
-    "--typography-subtitle": "var(--base-spacing-20)",
-    "--typography-title": "var(--base-spacing-40)",
-    "--typography-headline": "var(--base-spacing-48)",
-    "--grid-padding": "--base-spacing-08",
-    "--grid-margin": "var(--base-spacing-16)",
-    [theme.media.md]: {
-      "--typography-title": "var(--base-spacing-44)",
-      "--typography-headline": "var(--base-spacing-56)",
-      "--grid-padding": "--base-spacing-12",
-      "--grid-margin": "var(--base-spacing-24)",
-    },
-    [theme.media.lg]: {
-      "--typography-title": "var(--base-spacing-48)",
-      "--typography-headline": "var(--base-spacing-64)",
-      "--grid-padding": "--base-spacing-16",
-      "--grid-margin": "var(--base-spacing-32)",
-    },
-  },
-  body: {
-    margin: 0,
-    textRendering: "optimizeLegibility",
-    textSizeAdjust: "100%",
-    lineHeight: "1.5em",
-    fontSize: theme.typography.body1,
-    fontFamily: theme.typography.sans,
-    backgroundColor: theme.palette.background,
-    color: theme.palette.text,
-    "-webkit-font-smoothing": "auto",
-    "-moz-osx-font-smoothing": "auto",
-    [theme.media.dark]: {
-      colorScheme: "dark",
-      "-webkit-font-smoothing": "antialiased",
-      "-moz-osx-font-smoothing": "grayscale",
-    },
-  },
-}));
+const root = css`
+  :root {
+    --base-spacing-02: 0.125rem;
+    --base-spacing-04: 0.25rem;
+    --base-spacing-08: 0.5rem;
+    --base-spacing-12: 0.75rem;
+    --base-spacing-16: 1rem;
+    --base-spacing-20: 1.25rem;
+    --base-spacing-24: 1.5rem;
+    --base-spacing-32: 2rem;
+    --base-spacing-40: 2.5rem;
+    --base-spacing-44: 2.75rem;
+    --base-spacing-48: 3rem;
+    --base-spacing-56: 3.5rem;
+    --base-spacing-64: 4rem;
+    --base-spacing-96: 6rem;
+    --base-font-sans: futura-pt, sans-serif;
+    --base-font-serif: freight-display-pro, serif;
+    --base-color-pink-200: 255 245 255;
+    --base-color-pink-300: 255 224 255;
+    --base-color-pink-400: 255 204 255;
+    --base-color-pink-500: 255 153 255;
+    --base-color-pink-600: 204 102 204;
+    --base-color-pink-700: 68 34 68;
+    --base-color-pink-800: 26 15 26;
+    --base-color-gray-100: 255 255 255;
+    --base-color-gray-900: 51 51 51;
+    --base-color-red-500: 255 51 51;
+    --base-color-red-600: 204 0 0;
+    --base-color-blue-500: 51 153 255;
+    --base-color-blue-600: 0 102 187;
+    --base-color-yellow-500: 255 238 170;
+    --base-color-yellow-600: 204 204 119;
+    --base-alpha-focus: 1;
+    --base-alpha-hover: 0.6;
+    --base-alpha-disable: 0.4;
+  }
+`;
+const html = css`
+  html {
+    --palette-main: var(--base-color-pink-500);
+    --palette-accent: var(--base-color-pink-400);
+    --palette-surface: var(--base-color-pink-300);
+    --palette-background: var(--base-color-pink-200);
+    --palette-text: var(--base-color-gray-900);
+    --palette-error: var(--base-color-red-600);
+    --palette-warning: var(--base-color-yellow-600);
+    --palette-success: var(--base-color-blue-600);
+    --action-focus: var(--base-alpha-focus);
+    --action-hover: var(--base-alpha-hover);
+    --action-disable: var(--base-alpha-disable);
+    ${({ theme }) => theme.media.dark} {
+      --palette-accent: var(--base-color-pink-600);
+      --palette-surface: var(--base-color-pink-700);
+      --palette-background: var(--base-color-pink-800);
+      --palette-text: var(--base-color-gray-100);
+      --palette-error: var(--base-color-red-500);
+      --palette-warning: var(--base-color-yellow-500);
+      --palette-success: var(--base-color-blue-500);
+    }
+    --typography-body2: var(--base-spacing-12);
+    --typography-body1: var(--base-spacing-16);
+    --typography-subtitle: var(--base-spacing-20);
+    --typography-title: var(--base-spacing-40);
+    --typography-headline: var(--base-spacing-48);
+    --grid-padding: var(--base-spacing-08);
+    --grid-margin: var(--base-spacing-16);
+    ${({ theme }) => theme.media.md} {
+      --typography-title: var(--base-spacing-44);
+      --typography-headline: var(--base-spacing-56);
+      --grid-padding: var(--base-spacing-12);
+      --grid-margin: var(--base-spacing-24);
+    }
+    ${({ theme }) => theme.media.lg} {
+      --typography-title: var(--base-spacing-48);
+      --typography-headline: var(--base-spacing-64);
+      --grid-padding: var(--base-spacing-16);
+      --grid-margin: var(--base-spacing-32);
+    }
+  }
+`;
+const body = css`
+  body {
+    text-rendering: optimizeLegibility;
+    line-height: 1.5em;
+    font-size: ${({ theme }) => theme.typography.body1};
+    font-family: ${({ theme }) => theme.typography.sans};
+    background-color: ${({ theme }) => `rgb(${theme.palette.background})`};
+    color: ${({ theme }) => `rgb(${theme.palette.text})`};
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    ${({ theme }) => theme.media.dark} {
+      color-scheme: dark;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+`;
+const globalStyle = css`
+  ${normalize()}
+  ${root}
+  ${html}
+  ${body}
+`;
+const GlobalStyleFactory = createGlobalStyle`${globalStyle}`;
 
 function GlobalStyle({
   children,
