@@ -33,9 +33,8 @@ const Root = styled.span<ComponentPropsWithAs<$Props>>`
     $props.variant && theme.typography[$props.variant]};
   text-align: ${({ $props }) => $props.centered && "center"};
   font-style: ${({ $props }) => $props.italic && "italic"};
-  font-weight: ${({ $props }) => $props.weight};
+  font-weight: ${({ $props }) => $props.weight && WEIGHT[$props.weight]};
   ${({ $props, theme }) =>
-    $props.variant &&
     isProp($props.variant, ["headline", "title", "subtitle"]) &&
     css`
       font-weight: 400;
