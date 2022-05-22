@@ -96,7 +96,7 @@ const root = css`
 const html = css`
   html {
     --palette-main: var(--base-color-pink-500);
-    --palette-accent: var(--base-color-pink-400);
+    --palette-accent: var(--base-color-pink-600);
     --palette-surface: var(--base-color-pink-300);
     --palette-background: var(--base-color-pink-200);
     --palette-text: var(--base-color-gray-900);
@@ -107,7 +107,7 @@ const html = css`
     --action-hover: var(--base-alpha-hover);
     --action-disable: var(--base-alpha-disable);
     ${({ theme }) => theme.media.dark} {
-      --palette-accent: var(--base-color-pink-600);
+      --palette-accent: var(--base-color-pink-400);
       --palette-surface: var(--base-color-pink-700);
       --palette-background: var(--base-color-pink-800);
       --palette-text: var(--base-color-gray-100);
