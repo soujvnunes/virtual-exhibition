@@ -1,168 +1,114 @@
-import { FONT_WEIGHTS, TEXT_ALIGNS } from "consts";
-import { ComponentPropsWithRef, forwardRef, useMemo } from "react";
-import styled from "styled-components";
+import { forwardRef } from "react";
+import styled, { ComponentPropsWithAs, css } from "styled-components";
 import { isProp } from "utils";
 
-type TypograhyProps = {
+const VARIANT = {
+  headline: "h2",
+  title: "h3",
+  subtitle: "h4",
+  body1: "p",
+  body2: "span",
+} as const;
+const WEIGHT = {
+  normal: 400,
+  semibold: 500,
+  bold: 600,
+  bolder: 700,
+} as const;
+const COLORS = [
+  "main",
+  "accent",
+  "text",
+  "error",
+  "warning",
+  "success",
+] as const;
+const ACTIONS = ["", ".hover", ".disable"] as const;
+
+type Colors = typeof COLORS[number];
+type $Props = {
   gutterBottom?: boolean;
-  as?: keyof JSX.IntrinsicElements;
-  align?: typeof TEXT_ALIGNS[number];
-  variant?: "h2" | "h3" | "h4" | "p" | "span";
-  weight?: `${typeof FONT_WEIGHTS[number]}${"" | "Italic"}` | "italic";
-  color?:
-    | "special"
-    | "error"
-    | "success"
-    | "warning"
-    | `${"main" | "text"}${"" | "Secondary" | "Tertiary"}`;
+  centered?: boolean;
+  italic?: boolean;
+  variant?: keyof typeof VARIANT;
+  weight?: keyof typeof WEIGHT;
+  color?: "special" | `${Colors}${typeof ACTIONS[number]}`;
 };
 
-const Root = styled.span<{ $props: TypograhyProps }>(
-  ({ theme, $props, as }) => ({
-    marginTop: 0,
-    ...(!$props.gutterBottom && {
-      marginBottom: 0,
-    }),
-    ...($props.align === "start" && {
-      textAlign: "left",
-    }),
-    ...($props.align === "center" && {
-      textAlign: "center",
-    }),
-    ...($props.align === "end" && {
-      textAlign: "right",
-    }),
-    ...($props.align === "justify" && {
-      textAlign: "justify",
-    }),
-    ...(isProp($props.weight, ["normal", "normalItalic"]) && {
-      fontWeight: 400,
-    }),
-    ...(isProp($props.weight, ["medium", "mediumItalic"]) && {
-      fontWeight: 500,
-    }),
-    ...(isProp($props.weight, ["semibold", "semiboldItalic"]) && {
-      fontWeight: 600,
-    }),
-    ...(isProp($props.weight, ["bold", "boldItalic"]) && {
-      fontWeight: 700,
-    }),
-    ...(isProp($props.weight, [
-      "italic",
-      "normalItalic",
-      "mediumItalic",
-      "semiboldItalic",
-      "boldItalic",
-    ]) && {
-      fontStyle: "italic",
-    }),
-    ...((isProp($props.variant, ["h2", "h3", "h4"]) ||
-      isProp(as, ["h2", "h3", "h4"])) && {
-      fontWeight: "normal",
-      lineHeight: "1",
-      fontFamily: theme.font.serif,
-    }),
-    ...($props.variant === "span" && {
-      fontSize: theme.typography.sm,
-    }),
-    ...($props.variant === "p" && {
-      fontSize: theme.typography.md,
-    }),
-    ...($props.variant === "h4" && {
-      fontSize: theme.typography.lg,
-    }),
-    ...($props.variant === "h3" && {
-      fontSize: theme.typography.xl,
-      [theme.media.md]: {
-        fontSize: theme.typography.x2l,
-      },
-      [theme.media.lg]: {
-        fontSize: theme.typography.x3l,
-      },
-    }),
-    ...($props.variant === "h2" && {
-      fontSize: theme.typography.x3l,
-      [theme.media.md]: {
-        fontSize: theme.typography.x4l,
-      },
-      [theme.media.lg]: {
-        fontSize: theme.typography.x5l,
-      },
-    }),
-    ...($props.color === "special" && {
-      "-webkit-text-fill-color": "transparent",
-      textFillColor: "transparent",
-      "-webkit-background-clip": "text",
-      backgroundClip: "text",
-      backgroundImage: `linear-gradient(to right,${theme.palette.main.DEFAULT},${theme.palette.main.dark})`,
-      [theme.media.dark]: {
-        backgroundImage: `linear-gradient(to right,${theme.palette.main.light},${theme.palette.main.DEFAULT})`,
-      },
-    }),
-    ...(isProp($props.color, [
-      "main",
-      "mainSecondary",
-      "mainTertiary",
-      "special",
-    ]) && {
-      color: theme.palette.main.dark,
-      [theme.media.dark]: {
-        color: theme.palette.main.light,
-      },
-    }),
-    ...(isProp($props.color, ["text", "textSecondary", "textTertiary"]) && {
-      color: theme.palette.dark,
-      [theme.media.dark]: {
-        color: theme.palette.light,
-      },
-    }),
-    ...($props.color === "error" && {
-      color: theme.palette.error.dark,
-      [theme.media.dark]: {
-        color: theme.palette.error.DEFAULT,
-      },
-    }),
-    ...($props.color === "success" && {
-      color: theme.palette.success.dark,
-      [theme.media.dark]: {
-        color: theme.palette.success.DEFAULT,
-      },
-    }),
-    ...($props.color === "warning" && {
-      color: theme.palette.warning.dark,
-      [theme.media.dark]: {
-        color: theme.palette.warning.DEFAULT,
-      },
-    }),
-    ...(isProp($props.color, ["mainSecondary", "textSecondary"]) && {
-      "--color-alpha": 0.6,
-    }),
-    ...(isProp($props.color, ["mainTertiary", "textTertiary"]) && {
-      "--color-alpha": 0.4,
-    }),
-  }),
-);
+const Root = styled.span<ComponentPropsWithAs<$Props>>`
+  margin-bottom: ${({ $props }) =>
+    $props.gutterBottom ? $props.variant === "body2" && "1em" : 0};
+  margin-top: ${({ $props }) =>
+    !isProp($props.variant, ["body2", undefined]) && 0};
+  font-size: ${({ $props, theme }) =>
+    $props.variant && theme.typography[$props.variant]};
+  color: ${({ $props, theme }) => {
+    if ($props.color) {
+      const handleSpecial = $props.color === "special" ? "main" : $props.color;
+
+      if (handleSpecial.includes(".")) {
+        const colorFrag = handleSpecial?.split(".");
+        const colorRgb = colorFrag[0] as Colors;
+        const colorAlpha = colorFrag[1].replace("\\.", "") as
+          | "hover"
+          | "disable";
+
+        return `rgb(${theme.palette[colorRgb]} / ${theme.action[colorAlpha]})`;
+      }
+
+      return `rgb(${theme.palette[handleSpecial as Colors]})`;
+    }
+  }};
+  text-align: ${({ $props }) => $props.centered && "center"};
+  font-style: ${({ $props }) => $props.italic && "italic"};
+  font-weight: ${({ $props }) => $props.weight};
+  ${({ $props, theme }) =>
+    $props.color === "special" &&
+    css`
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(
+        to right,
+        rgb(${theme.palette.main}),
+        rgb(${theme.palette.accent})
+      );
+    `}
+  ${({ $props, theme }) =>
+    $props.variant &&
+    isProp($props.variant, ["headline", "title", "subtitle"]) &&
+    css`
+      font-weight: 400;
+      line-height: 1;
+      font-family: ${theme.typography.serif};
+    `}
+`;
 const Typograhy = forwardRef<
   HTMLSpanElement,
-  ComponentPropsWithRef<"span"> & TypograhyProps
->(({ as, variant, weight, color, align, gutterBottom, ...outProps }, ref) => {
-  const restProps = useMemo(
-    () => ({ as: as || variant, ...outProps }),
-    [as, outProps, variant],
-  );
-  const inProps = useMemo(
-    () => ({
-      variant,
-      weight,
-      color,
-      align,
-      gutterBottom,
-    }),
-    [align, color, gutterBottom, variant, weight],
-  );
-
-  return <Root ref={ref} $props={inProps} {...restProps} />;
-});
+  ComponentPropsWithAs<$Props, "span">
+>(
+  (
+    { as, variant, weight, centered, italic, gutterBottom, color, ...props },
+    ref,
+  ) => {
+    return (
+      <Root
+        ref={ref}
+        as={as || (variant && VARIANT[variant])}
+        $props={{
+          variant,
+          weight,
+          centered,
+          italic,
+          gutterBottom,
+          color,
+        }}
+        {...props}
+      />
+    );
+  },
+);
 
 Typograhy.displayName = "Typograhy";
 export default Object.assign(Typograhy, { Root });
