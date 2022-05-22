@@ -1,13 +1,15 @@
 type P = string | number | boolean | undefined;
 
 function isProp(prop: P | P[], values: P[]): boolean {
-  if (Array.isArray(prop)) {
-    const results = prop.map((key) => new Set(values).has(key));
+  const arrange = new Set(values);
 
-    return results.some(Boolean);
+  if (Array.isArray(prop)) {
+    const arrangeResults = prop.map((key) => arrange.has(key));
+
+    return arrangeResults.some(Boolean);
   }
 
-  return new Set(values).has(prop);
+  return arrange.has(prop);
 }
 
 export default isProp;
