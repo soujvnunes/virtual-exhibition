@@ -1,3 +1,4 @@
+import { normalize } from "polished";
 import { useMemo } from "react";
 import {
   createGlobalStyle,
@@ -56,11 +57,11 @@ const THEME = {
   typography: {
     sans: "var(--base-font-sans)",
     serif: "var(--base-font-serif)",
-    span: "var(--typography-span)",
-    p: "var(--typography-p)",
-    h4: "var(--typography-h4)",
-    h3: "var(--typography-h3)",
-    h2: "var(--typography-h2)",
+    body2: "var(--typography-body2)",
+    body1: "var(--typography-body1)",
+    subtitle: "var(--typography-subtitle)",
+    title: "var(--typography-title)",
+    heading: "var(--typography-heading)",
   },
   media: {
     md: "@media screen and (min-width: 40rem)",
@@ -69,9 +70,6 @@ const THEME = {
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
   spacing: {
-    auto: "var(--base-spacing-auto)",
-    0: "var(--base-spacing-0)",
-    1: "var(--base-spacing-1)",
     x3s: "var(--base-spacing-x3s)",
     x2s: "var(--base-spacing-x2s)",
     xs: "var(--base-spacing-xs)",
@@ -88,6 +86,8 @@ const THEME = {
   },
 } as const;
 const GlobalStyleFactory = createGlobalStyle(({ theme }) => ({
+  ...normalize()[0],
+  ...normalize()[1],
   ":root": {
     "--base-spacing-auto": "auto",
     "--base-spacing-0": 0,
@@ -145,22 +145,22 @@ const GlobalStyleFactory = createGlobalStyle(({ theme }) => ({
       "--palette-warning": "var(--base-color-yellow-500)",
       "--palette-success": "var(--base-color-blue-500)",
     },
-    "--typography-span": "var(--base-spacing-sm)",
-    "--typography-p": "var(--base-spacing-md)",
-    "--typography-h4": "var(--base-spacing-lg)",
-    "--typography-h3": "var(--base-spacing-x3l)",
-    "--typography-h2": "var(--base-spacing-x5l)",
+    "--typography-body2": "var(--base-spacing-sm)",
+    "--typography-body1": "var(--base-spacing-md)",
+    "--typography-subtitle": "var(--base-spacing-lg)",
+    "--typography-title": "var(--base-spacing-x3l)",
+    "--typography-heading": "var(--base-spacing-x5l)",
     "--grid-padding": "--base-spacing-xs",
     "--grid-margin": "var(--base-spacing-md)",
     [theme.media.md]: {
-      "--typography-h3": "var(--base-spacing-x4l)",
-      "--typography-h2": "var(--base-spacing-x6l)",
+      "--typography-title": "var(--base-spacing-x4l)",
+      "--typography-heading": "var(--base-spacing-x6l)",
       "--grid-padding": "--base-spacing-sm",
       "--grid-margin": "var(--base-spacing-xl)",
     },
     [theme.media.lg]: {
-      "--typography-h3": "var(--base-spacing-x5l)",
-      "--typography-h2": "var(--base-spacing-x7l)",
+      "--typography-title": "var(--base-spacing-x5l)",
+      "--typography-heading": "var(--base-spacing-x7l)",
       "--grid-padding": "--base-spacing-md",
       "--grid-margin": "var(--base-spacing-x2l)",
     },
@@ -170,7 +170,7 @@ const GlobalStyleFactory = createGlobalStyle(({ theme }) => ({
     textRendering: "optimizeLegibility",
     textSizeAdjust: "100%",
     lineHeight: "1.5em",
-    fontSize: theme.typography.p,
+    fontSize: theme.typography.body1,
     fontFamily: theme.typography.sans,
     backgroundColor: theme.palette.background,
     color: theme.palette.text,
