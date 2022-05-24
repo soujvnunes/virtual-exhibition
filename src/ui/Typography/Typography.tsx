@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import styled, { ComponentPropsWithAs, css } from "styled-components";
+import styled, { ComponentPropsWithAs, css, token } from "styled-components";
 import { isProp } from "utils";
 
 const VARIANT = {
@@ -29,17 +29,16 @@ const Root = styled.span<ComponentPropsWithAs<$Props>>`
     $props.gutterBottom ? $props.variant === "body2" && "1em" : 0};
   margin-top: ${({ $props }) =>
     !isProp($props.variant, ["body2", undefined]) && 0};
-  font-size: ${({ $props, theme }) =>
-    $props.variant && theme.typography[$props.variant]};
+  font-size: ${({ $props }) => $props.variant && token($props.variant)};
   text-align: ${({ $props }) => $props.centered && "center"};
   font-style: ${({ $props }) => $props.italic && "italic"};
   font-weight: ${({ $props }) => $props.weight && WEIGHT[$props.weight]};
-  ${({ $props, theme }) =>
+  ${({ $props }) =>
     isProp($props.variant, ["headline", "title", "subtitle"]) &&
     css`
       font-weight: 400;
       line-height: 1;
-      font-family: ${theme.typography.serif};
+      font-family: ${token("serif")};
     `}
 `;
 const Typograhy = forwardRef<

@@ -6,6 +6,7 @@ import {
   DefaultTheme,
   ThemeProvider,
   ThemeProviderProps,
+  token,
 } from "styled-components";
 
 const THEME = {
@@ -55,6 +56,7 @@ const THEME = {
     margin: "var(--grid-margin)",
   },
 } as const;
+
 const root = css`
   :root {
     --base-spacing-02: 0.125rem;
@@ -106,7 +108,7 @@ const html = css`
     --action-focus: var(--base-alpha-focus);
     --action-hover: var(--base-alpha-hover);
     --action-disable: var(--base-alpha-disable);
-    ${({ theme }) => theme.media.dark} {
+    ${token("dark")} {
       --palette-accent: var(--base-color-pink-400);
       --palette-surface: var(--base-color-pink-700);
       --palette-background: var(--base-color-pink-800);
@@ -122,13 +124,13 @@ const html = css`
     --typography-headline: var(--base-spacing-48);
     --grid-padding: var(--base-spacing-08);
     --grid-margin: var(--base-spacing-16);
-    ${({ theme }) => theme.media.md} {
+    ${token("md")} {
       --typography-title: var(--base-spacing-44);
       --typography-headline: var(--base-spacing-56);
       --grid-padding: var(--base-spacing-12);
       --grid-margin: var(--base-spacing-24);
     }
-    ${({ theme }) => theme.media.lg} {
+    ${token("lg")} {
       --typography-title: var(--base-spacing-48);
       --typography-headline: var(--base-spacing-64);
       --grid-padding: var(--base-spacing-16);
@@ -140,13 +142,13 @@ const body = css`
   body {
     text-rendering: optimizeLegibility;
     line-height: 1.5em;
-    font-size: ${({ theme }) => theme.typography.body1};
-    font-family: ${({ theme }) => theme.typography.sans};
-    background-color: ${({ theme }) => `rgb(${theme.palette.background})`};
-    color: ${({ theme }) => `rgb(${theme.palette.text})`};
+    font-size: ${token("body1")};
+    font-family: ${token("sans")};
+    background-color: rgb(${token("background")});
+    color: rgb(${token("text")});
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-    ${({ theme }) => theme.media.dark} {
+    ${token("dark")} {
       color-scheme: dark;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
