@@ -1,12 +1,13 @@
 import { ComponentPropsWithRef, forwardRef } from "react";
-import styled, { token } from "styled-components";
+import styled from "styled-components";
+import { getTheme as g } from "utils";
 
 const Root = styled.div`
   margin-right: auto;
   margin-left: auto;
   max-width: 80rem;
-  padding-right: ${token("margin")};
-  padding-left: ${token("margin")};
+  padding-right: ${g("grid.margin")};
+  padding-left: ${g("grid.margin")};
 `;
 const Container = forwardRef<HTMLDivElement, ComponentPropsWithRef<"div">>(
   (props, ref) => <Root ref={ref} {...props} />,

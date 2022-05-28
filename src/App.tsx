@@ -1,16 +1,17 @@
-import styled, { token } from "styled-components";
+import styled from "styled-components";
 import { Container, GlobalStyle, Typography } from "ui";
+import { getTheme as g } from "utils";
 
 const SpecialColor = styled(Typography)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgb(${token("main")});
+  color: rgb(${g("color.primary")});
   background-image: linear-gradient(
     to right,
-    rgb(${token("main")}),
-    rgb(${token("accent")})
+    rgb(${g("color.primary")}),
+    rgb(${g("color.secondary")})
   );
 `;
 
