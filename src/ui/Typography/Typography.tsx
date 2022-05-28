@@ -6,8 +6,8 @@ const VARIANT = {
   headline: "h2",
   title: "h3",
   subtitle: "h4",
-  body1: "p",
-  body2: "span",
+  body: "p",
+  overline: "span",
 } as const;
 const WEIGHT = {
   normal: 400,
@@ -26,9 +26,9 @@ type $Props = {
 
 const Root = styled.span<ComponentPropsWithAs<$Props>>`
   margin-bottom: ${({ $props }) =>
-    $props.gutterBottom ? $props.variant === "body2" && "1em" : 0};
+    $props.gutterBottom ? $props.variant === "overline" && "1em" : 0};
   margin-top: ${({ $props }) =>
-    !isProp($props.variant, ["body2", undefined]) && 0};
+    !isProp($props.variant, ["overline", undefined]) && 0};
   font-size: ${({ $props }) => $props.variant && g(`text.${$props.variant}`)};
   text-align: ${({ $props }) => $props.centered && "center"};
   font-style: ${({ $props }) => $props.italic && "italic"};

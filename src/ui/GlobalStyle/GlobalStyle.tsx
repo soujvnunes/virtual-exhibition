@@ -28,8 +28,8 @@ const THEME = {
   text: {
     sans: "var(--base-type-sans)",
     serif: "var(--base-type-serif)",
-    body2: "var(--text-body2)",
-    body1: "var(--text-body1)",
+    overline: "var(--text-overline)",
+    body: "var(--text-body)",
     subtitle: "var(--text-subtitle)",
     title: "var(--text-title)",
     headline: "var(--text-headline)",
@@ -80,8 +80,8 @@ const GlobalStyleFactory = createGlobalStyle`${css`
       --color-warning: var(--base-channel-yellow-500);
       --color-success: var(--base-channel-blue-500);
     }
-    --text-body2: var(--base-size-12);
-    --text-body1: var(--base-size-16);
+    --text-overline: var(--base-size-12);
+    --text-body: var(--base-size-16);
     --text-subtitle: var(--base-size-20);
     --text-title: var(--base-size-40);
     --text-headline: var(--base-size-48);
@@ -112,7 +112,7 @@ const GlobalStyleFactory = createGlobalStyle`${css`
   }
   body {
     line-height: 1.5em;
-    font-size: ${g("text.body1")};
+    font-size: ${g("text.body")};
     font-family: ${g("text.sans")};
     background-color: rgb(${g("color.default")});
     color: rgb(${g("color.text")});
