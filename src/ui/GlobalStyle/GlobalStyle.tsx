@@ -22,6 +22,7 @@ const THEME = {
   },
   action: {
     focus: "var(--action-focus)",
+    default: "var(--action-default)",
     hover: "var(--action-hover)",
     disable: "var(--action-disable)",
   },
