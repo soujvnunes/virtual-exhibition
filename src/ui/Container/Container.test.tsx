@@ -1,12 +1,12 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import Container from "./Container";
 
-afterEach(cleanup);
+afterAll(cleanup);
 
 const testId = "container";
 
 describe("UI.Container", () => {
-  test("renders without crash", () => {
+  it("shoud be rendered", () => {
     render(<Container data-testid={testId} />);
 
     const container = screen.getByTestId(testId);

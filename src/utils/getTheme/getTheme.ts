@@ -14,7 +14,7 @@ type Merge<U> = Union<U> extends infer O
   ? { -readonly [K in keyof O]: O[K] }
   : never;
 
-export default <T extends DefaultTheme = DefaultTheme>(
+function getTheme<T extends DefaultTheme = DefaultTheme>(
   pair:
     | `color.${keyof T["color"]}`
     | `action.${keyof T["action"]}`
@@ -22,8 +22,10 @@ export default <T extends DefaultTheme = DefaultTheme>(
     | `media.${keyof T["media"]}`
     | `size.${keyof T["size"]}`
     | `grid.${keyof T["grid"]}`,
-) => {
+) {
   const [key, subkey] = pair?.split(".") as [keyof T, keyof Merge<T[keyof T]>];
 
   return ({ theme }: { theme: T }) => theme[key][subkey];
-};
+}
+
+export default getTheme;
