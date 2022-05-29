@@ -25,7 +25,7 @@ function App() {
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste
         </SpecialColor>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="body" gutterBottom>
           teste
         </Typography>
       </Container>
