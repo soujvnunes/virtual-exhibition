@@ -69,6 +69,7 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     --color-warning: var(--base-channel-yellow-600);
     --color-success: var(--base-channel-blue-600);
     --action-focus: var(--base-alpha-focus);
+    --action-default: var(--base-alpha-default);
     --action-hover: var(--base-alpha-hover);
     --action-disable: var(--base-alpha-disable);
     ${g("media.dark")} {
