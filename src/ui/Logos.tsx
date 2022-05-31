@@ -1,10 +1,16 @@
 import { ComponentPropsWithRef, forwardRef } from "react";
-import { IconLogos } from "./Icon";
+import styled from "styled-components";
+import { getTheme as g } from "utils";
+import { IconLogos as UiIconLogos } from "./Icon";
 
+const IconLogos = styled(UiIconLogos)`
+  width: ${g("size.48")};
+  height: ${g("size.48")};
+`;
 const Logos = forwardRef<HTMLDivElement, ComponentPropsWithRef<"div">>(
   (props, ref) => (
     <div ref={ref} className="flex items-center" {...props}>
-      <IconLogos size="lg" />
+      <IconLogos />
       <h1 className="font-serif leading-none italic">
         Exposição <span className="block -ml-sm">Virtual</span>
       </h1>
