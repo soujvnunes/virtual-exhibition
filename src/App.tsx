@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, GlobalStyle, Typography } from "ui";
+import { Button, Container, GlobalStyle, IconA11y, Typography } from "ui";
 import { getTheme as g } from "utils";
 
 const SpecialColor = styled(Typography)`
@@ -25,9 +25,10 @@ function App() {
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste
         </SpecialColor>
-        <Typography variant="body" gutterBottom>
-          teste
-        </Typography>
+        <Button iconStart={IconA11y}>teste</Button>
+        <Button iconEnd={IconA11y}>teste</Button>
+        <Button icon={IconA11y} />
+        <Button>teste</Button>
       </Container>
     </GlobalStyle>
   );
