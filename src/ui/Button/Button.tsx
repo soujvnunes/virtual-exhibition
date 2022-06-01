@@ -40,13 +40,12 @@ const Root = styled(BaseRoot)`
           padding: ${g("size.12")} ${g("size.24")};
         `}
 `;
-const IconWrapper = styled(
-  ({ $props: { iconStart, iconEnd, icon }, ...props }) => {
-    const Component = iconStart || iconEnd || icon;
+const IconWrapper = styled(({ $props, ...props }) => {
+  const Component =
+    $props?.iconStart || $props?.iconEnd || $props?.icon || "svg";
 
-    return <Component {...props} />;
-  },
-)<PropsWithAs<$Props>>`
+  return <Component {...props} />;
+})<PropsWithAs<$Props>>`
   margin-left: ${({ $props }) =>
     $props.edge === "end"
       ? g("size.12")
