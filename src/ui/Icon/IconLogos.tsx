@@ -3,13 +3,13 @@ import { getTheme as g } from "utils";
 import createIcon from "./createIcon";
 
 const PathPink = styled.path`
-  color: ${g("color.primary")};
+  color: ${g("primary")};
 `;
 const PathRed = styled.path`
-  color: ${g("color.error")};
+  color: ${g("error")};
 `;
 const PathBlue = styled.path`
-  color: ${g("color.success")};
+  color: ${g("success")};
 `;
 
 export default createIcon(

@@ -73,7 +73,7 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     --action-default: var(--base-alpha-default);
     --action-hover: var(--base-alpha-hover);
     --action-disable: var(--base-alpha-disable);
-    ${g("media.dark")} {
+    ${g("dark")} {
       --color-secondary: var(--base-channel-pink-400);
       --color-tertiary: var(--base-channel-pink-700);
       --color-default: var(--base-channel-pink-800);
@@ -89,13 +89,13 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     --text-headline: var(--base-size-48);
     --grid-padding: var(--base-size-08);
     --grid-margin: var(--base-size-16);
-    ${g("media.md")} {
+    ${g("md")} {
       --text-title: var(--base-size-44);
       --text-headline: var(--base-size-56);
       --grid-padding: var(--base-size-12);
       --grid-margin: var(--base-size-24);
     }
-    ${g("media.lg")} {
+    ${g("lg")} {
       --text-title: var(--base-size-48);
       --text-headline: var(--base-size-64);
       --grid-padding: var(--base-size-16);
@@ -106,7 +106,7 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-    ${g("media.dark")} {
+    ${g("dark")} {
       color-scheme: dark;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -114,10 +114,10 @@ const GlobalStyleFactory = createGlobalStyle`${css`
   }
   body {
     line-height: 1.5em;
-    font-size: ${g("text.body")};
-    font-family: ${g("text.sans")};
-    background-color: rgb(${g("color.default")});
-    color: rgb(${g("color.text")});
+    font-size: ${g("body")};
+    font-family: ${g("sans")};
+    background-color: rgb(${g("default")});
+    color: rgb(${g("text")});
   }
 `}`;
 

@@ -30,7 +30,7 @@ const Root = styled.span<PropsWithAs<$Props>>`
     $props.gutterBottom ? $props.variant === "overline" && "1em" : 0};
   margin-top: ${({ $props }) =>
     !isProp($props.variant, ["overline", undefined]) && 0};
-  font-size: ${({ $props }) => $props.variant && g(`text.${$props.variant}`)};
+  font-size: ${({ $props }) => $props.variant && g($props.variant)};
   text-align: ${({ $props }) => $props.centered && "center"};
   font-style: ${({ $props }) => $props.italic && "italic"};
   font-weight: ${({ $props }) => $props.weight && WEIGHT[$props.weight]};
@@ -39,7 +39,7 @@ const Root = styled.span<PropsWithAs<$Props>>`
     css`
       font-weight: 400;
       line-height: 1;
-      font-family: ${g("text.serif")};
+      font-family: ${g("serif")};
     `}
 `;
 const Typograhy = forwardRef<HTMLSpanElement, PropsWithAs<$Props, "span">>(

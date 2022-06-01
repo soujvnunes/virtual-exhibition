@@ -6,8 +6,8 @@ const Root = styled.div`
   margin-right: auto;
   margin-left: auto;
   max-width: 80rem;
-  padding-right: ${g("grid.margin")};
-  padding-left: ${g("grid.margin")};
+  padding-right: ${g("margin")};
+  padding-left: ${g("margin")};
 `;
 const Container = forwardRef<HTMLDivElement, ComponentPropsWithRef<"div">>(
   (props, ref) => <Root ref={ref} {...props} />,

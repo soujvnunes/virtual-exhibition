@@ -4,8 +4,8 @@ import { getTheme as g } from "utils";
 
 const Root = styled.svg`
   fill: currentColor;
-  width: ${g("size.24")};
-  height: ${g("size.24")};
+  width: ${g("24")};
+  height: ${g("24")};
 `;
 const withIcon = (name: string, paths: SVGProps<SVGPathElement>) => {
   const Icon = forwardRef<SVGSVGElement, ComponentPropsWithRef<"svg">>(

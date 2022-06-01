@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ComponentType } from "react";
+import { ComponentPropsWithRef } from "react";
 import "styled-components";
 import { GlobalStyle } from "ui";
 

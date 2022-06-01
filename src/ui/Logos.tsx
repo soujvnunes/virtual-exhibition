@@ -4,8 +4,8 @@ import { getTheme as g } from "utils";
 import { IconLogos as UiIconLogos } from "./Icon";
 
 const IconLogos = styled(UiIconLogos)`
-  width: ${g("size.48")};
-  height: ${g("size.48")};
+  width: ${g("48")};
+  height: ${g("48")};
 `;
 const Logos = forwardRef<HTMLDivElement, ComponentPropsWithRef<"div">>(
   (props, ref) => (

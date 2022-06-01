@@ -7,11 +7,11 @@ const SpecialColor = styled(Typography)`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgb(${g("color.primary")});
+  color: rgb(${g("primary")});
   background-image: linear-gradient(
     to right,
-    rgb(${g("color.primary")}),
-    rgb(${g("color.secondary")})
+    rgb(${g("primary")}),
+    rgb(${g("secondary")})
   );
 `;
 
@@ -25,9 +25,8 @@ function App() {
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste
         </SpecialColor>
-        <Button iconStart={IconA11y}>teste</Button>
-        <Button iconEnd={IconA11y}>teste</Button>
-        <Button icon={IconA11y} />
+        <Button iconStart={<IconA11y />}>teste</Button>
+        <Button iconEnd={<IconA11y />}>teste</Button>
         <Button>teste</Button>
       </Container>
     </GlobalStyle>
