@@ -12,6 +12,6 @@ describe("UI.Container", () => {
     const container = screen.getByTestId(testId);
 
     expect(container).toBeInTheDocument();
-    expect(container).toHaveClass(Container.Root.styledComponentId);
+    expect(container).toHaveClass(Container.styledComponentId);
   });
 });

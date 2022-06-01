@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Container, GlobalStyle, IconA11y, Typography } from "ui";
+import { Button, Container, GlobalStyle, Icon, Typography } from "ui";
 import { getTheme as g } from "utils";
 
 const SpecialColor = styled(Typography)`
@@ -19,14 +19,14 @@ function App() {
   return (
     <GlobalStyle>
       <Container>
-        <SpecialColor variant="headline" gutterBottom>
+        <SpecialColor $variant="headline" $gutterBottom>
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste teste teste teste teste teste
           teste teste teste teste teste teste
         </SpecialColor>
-        <Button iconStart={<IconA11y />}>teste</Button>
-        <Button iconEnd={<IconA11y />}>teste</Button>
+        <Button $iconStart={<Icon name="a11y" />}>teste</Button>
+        <Button $iconEnd={<Icon name="a11y" />}>teste</Button>
         <Button>teste</Button>
       </Container>
     </GlobalStyle>
