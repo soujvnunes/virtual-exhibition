@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
-import styled, { ComponentPropsWithAs, css } from "styled-components";
+import { PropsWithAs } from "spec";
+import styled, { css } from "styled-components";
 import { getTheme as g, isProp } from "utils";
 
 const VARIANT = {
@@ -24,7 +25,7 @@ type $Props = {
   weight?: keyof typeof WEIGHT;
 };
 
-const Root = styled.span<ComponentPropsWithAs<$Props>>`
+const Root = styled.span<PropsWithAs<$Props>>`
   margin-bottom: ${({ $props }) =>
     $props.gutterBottom ? $props.variant === "overline" && "1em" : 0};
   margin-top: ${({ $props }) =>
@@ -41,11 +42,8 @@ const Root = styled.span<ComponentPropsWithAs<$Props>>`
       font-family: ${g("text.serif")};
     `}
 `;
-const Typograhy = forwardRef<
-  HTMLSpanElement,
-  ComponentPropsWithAs<$Props, "span">
->(({ as, variant, weight, centered, italic, gutterBottom, ...props }, ref) => {
-  return (
+const Typograhy = forwardRef<HTMLSpanElement, PropsWithAs<$Props, "span">>(
+  ({ as, variant, weight, centered, italic, gutterBottom, ...props }, ref) => (
     <Root
       ref={ref}
       as={as || (variant && VARIANT[variant])}
@@ -58,8 +56,8 @@ const Typograhy = forwardRef<
       }}
       {...props}
     />
-  );
-});
+  ),
+);
 
 Typograhy.displayName = "Typograhy";
 export default Object.assign(Typograhy, { Root });

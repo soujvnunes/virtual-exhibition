@@ -1,8 +1,15 @@
-import { ComponentPropsWithRef, forwardRef, ElementType } from "react";
-import styled, { AsC, css } from "styled-components";
+import { forwardRef, ReactNode } from "react";
+import { PropsWithAs } from "spec";
+import styled, { css } from "styled-components";
 import { getTheme as g } from "utils";
 
-const BaseRoot = styled.button`
+type $Props = {
+  iconStart?: ReactNode;
+  iconEnd?: ReactNode;
+  icon?: ReactNode;
+};
+
+const BaseRoot = styled.button<PropsWithAs<$Props>>`
   border-width: 1px;
   border-style: solid;
   border-color: rgb(${g("color.primary")} / ${g("action.hover")});
@@ -16,18 +23,16 @@ const BaseRoot = styled.button`
   letter-spacing: 0.1em;
   color: rgb(${g("color.secondary")});
 `;
-const Root = styled(BaseRoot)<{
-  $props: { hasIconStart: boolean; hasIconEnd: boolean; hasIcon: boolean };
-}>`
+const Root = styled(BaseRoot)`
   ${({ $props }) =>
-    $props.hasIconStart || $props.hasIconEnd
+    $props.iconStart || $props.iconEnd
       ? css`
           padding-top: ${g("size.8")};
           padding-bottom: ${g("size.8")};
-          padding-right: ${$props.hasIconEnd ? g("size.12") : g("size.24")};
-          padding-left: ${$props.hasIconEnd ? g("size.24") : g("size.12")};
+          padding-right: ${$props.iconEnd ? g("size.12") : g("size.24")};
+          padding-left: ${$props.iconEnd ? g("size.24") : g("size.12")};
         `
-      : $props.hasIcon
+      : $props.icon
       ? css`
           padding: ${g("size.8")};
         `
@@ -35,45 +40,38 @@ const Root = styled(BaseRoot)<{
           padding: ${g("size.12")} ${g("size.24")};
         `}
 `;
+const IconWrapper = styled(
+  ({ $props: { iconStart, iconEnd, icon }, ...props }) => {
+    const Component = iconStart || iconEnd || icon;
 
-const WrapperStart = styled.svg<AsC>`
-  margin-right: ${g("size.12")};
-`;
-const WrapperMid = styled.svg<AsC>`
-  margin-left: var(${g("size.8")} * -1);
-  margin-right: var(${g("size.8")} * -1);
-`;
-const WrapperEnd = styled.svg<AsC>`
-  margin-left: ${g("size.12")};
-`;
-const Button = forwardRef<
-  HTMLButtonElement,
-  ComponentPropsWithRef<"button"> & {
-    iconStart?: ElementType;
-    iconEnd?: ElementType;
-    icon?: ElementType;
-  }
->(
-  (
-    { children, iconStart: IconStart, iconEnd: IconEnd, icon: Icon, ...props },
-    ref,
-  ) => {
-    return (
-      <Root
-        ref={ref}
-        $props={{
-          hasIconStart: !!IconStart,
-          hasIconEnd: !!IconEnd,
-          hasIcon: !!Icon && !children,
-        }}
-        {...props}
-      >
-        {IconStart && <WrapperStart as={IconStart} />}
-        {Icon ? <WrapperMid as={Icon} /> : children}
-        {IconEnd && <WrapperEnd as={IconEnd} />}
-      </Root>
-    );
+    return <Component {...props} />;
   },
+)<PropsWithAs<$Props>>`
+  margin-left: ${({ $props }) =>
+    $props.edge === "end"
+      ? g("size.12")
+      : $props.edge === "mid" && `calc(${g("size.8")} * -1)`};
+  margin-right: ${({ $props }) =>
+    $props.edge === "start"
+      ? g("size.12")
+      : $props.edge === "mid" && `calc(${g("size.8")} * -1)`};
+`;
+const Button = forwardRef<HTMLButtonElement, PropsWithAs<$Props, "button">>(
+  ({ children, iconStart, iconEnd, icon, ...props }, ref) => (
+    <Root
+      ref={ref}
+      $props={{
+        iconStart,
+        iconEnd,
+        icon,
+      }}
+      {...props}
+    >
+      {iconStart && <IconWrapper $props={{ iconStart }} />}
+      {icon ? <IconWrapper $props={{ icon }} /> : children}
+      {iconEnd && <IconWrapper $props={{ iconEnd }} />}
+    </Root>
+  ),
 );
 
-export default Object.assign(Button, { Root });
+export default Object.assign(Button, { BaseRoot, Root });
