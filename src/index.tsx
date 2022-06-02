@@ -1,4 +1,4 @@
-import App from "App";
+import App from "App/App";
 import { StrictMode } from "react";
 import { render } from "react-dom";
 import { ReportHandler } from "web-vitals";
