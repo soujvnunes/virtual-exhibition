@@ -1,10 +1,11 @@
+import { PropsWithAs } from "spec";
 import styled, { css } from "styled-components";
 import { getTheme as g, isProp } from "utils";
 
 const VARIANT = {
-  headline: "h2",
-  title: "h3",
-  subtitle: "h4",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
   body: "p",
   overline: "span",
 } as const;
@@ -14,13 +15,18 @@ const WEIGHT = {
   bold: 600,
   bolder: 700,
 } as const;
-const Typography = styled.span<{
+
+type Props = {
   $gutterBottom?: boolean;
   $centered?: boolean;
   $italic?: boolean;
   $variant?: keyof typeof VARIANT;
   $weight?: keyof typeof WEIGHT;
-}>`
+};
+
+const Typography = styled.span.attrs((props: PropsWithAs<Props>) => ({
+  as: props.as || props.$variant,
+}))<Props>`
   margin-bottom: ${(props) =>
     props.$gutterBottom ? props.$variant === "overline" && "1em" : 0};
   margin-top: ${(props) =>
@@ -30,7 +36,7 @@ const Typography = styled.span<{
   font-style: ${(props) => props.$italic && "italic"};
   font-weight: ${(props) => props.$weight && WEIGHT[props.$weight]};
   ${(props) =>
-    isProp(props.$variant, ["headline", "title", "subtitle"]) &&
+    isProp(props.$variant, ["h2", "h3", "h4"]) &&
     css`
       font-weight: 400;
       line-height: 1;
