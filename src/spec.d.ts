@@ -1,4 +1,3 @@
-import { ComponentPropsWithRef } from "react";
 import "styled-components";
 import { GlobalStyle } from "ui";
 
@@ -17,18 +16,9 @@ type Merge<U> = Union<U> extends infer O ? { [K in keyof O]: O[K] } : never;
 
 type Theme = typeof GlobalStyle.THEME;
 
-export type AsC = {
-  as?: keyof JSX.IntrinsicElements;
+export type PropsWithAs<P extends object = Record<string, unknown>> = P & {
+  as?: string | React.ComponentType<Record<string, unknown>>;
 };
-
-export type PropsWithAs<
-  P extends object,
-  T extends keyof JSX.IntrinsicElements = void,
-> = (T extends keyof JSX.IntrinsicElements
-  ? ComponentPropsWithRef<T> & P
-  : { $props: P }) &
-  AsC;
-
 export type GetTheme<T extends Theme = Theme> = (
   token: keyof Merge<T[keyof T]>,
 ) => (props: { theme: T }) => string;
