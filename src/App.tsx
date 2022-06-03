@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Button, Container, GlobalStyle, Icon, Typography } from "ui";
+import { Button, Container, GlobalStyle, Icon, Logos, Typography } from "ui";
 import { getTheme as g } from "utils";
 
-const SpecialColor = styled(Typography)`
+const SpecialColor = styled(Typography).attrs({ $italic: true })`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -15,16 +15,15 @@ const SpecialColor = styled(Typography)`
   );
 `;
 
-function App() {
+export default function App() {
   return (
     <GlobalStyle>
+      <Logos />
       <Container>
-        <SpecialColor $variant="headline" $gutterBottom>
-          teste teste teste teste teste teste teste teste teste teste teste
-          teste teste teste teste teste teste teste teste teste teste teste
-          teste teste teste teste teste teste teste teste teste teste teste
-          teste teste teste teste teste teste
-        </SpecialColor>
+        <Typography $variant="h2" $gutterBottom $centered>
+          A <SpecialColor>Universidade Federal de Alagoas</SpecialColor>{" "}
+          completa 60 anos com uma história enraizada na vida do povo alagoano.
+        </Typography>
         <Button $iconStart={<Icon name="a11y" />}>teste</Button>
         <Button $iconEnd={<Icon name="a11y" />}>teste</Button>
         <Button>teste</Button>
@@ -32,4 +31,3 @@ function App() {
     </GlobalStyle>
   );
 }
-export default App;
