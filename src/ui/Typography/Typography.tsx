@@ -1,6 +1,5 @@
-import { PropsWithAs } from "spec";
-import styled, { css } from "styled-components";
-import { getTheme as g, isProp } from "utils";
+import styled, { css, PropsWithAs } from "styled-components";
+import { token as g, isProp } from "utils";
 
 const VARIANT = {
   h2: "h2",

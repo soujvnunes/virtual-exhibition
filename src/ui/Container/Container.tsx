@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getTheme as g } from "utils";
+import { token as g } from "utils";
 
 const Container = styled.div`
   margin-right: auto;

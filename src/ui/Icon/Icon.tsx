@@ -1,5 +1,5 @@
 import styled, { StyledComponentPropsWithRef } from "styled-components";
-import { getTheme as g } from "utils";
+import { token as g } from "utils";
 
 const ICONS = {
   a11y: (
@@ -19,7 +19,7 @@ interface Props extends StyledComponentPropsWithRef<"svg"> {
   name?: keyof typeof ICONS;
 }
 
-function Icon({ name, children, ...props }: Props) {
+export default function Icon({ name, children, ...props }: Props) {
   return (
     <IconRoot
       focusable="false"
@@ -32,4 +32,3 @@ function Icon({ name, children, ...props }: Props) {
   );
 }
 Icon.displayName = "Icon";
-export default Icon;

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled, { StyledComponentPropsWithRef } from "styled-components";
 import ButtonBase from "../ButtonBase";
-import { getTheme as g } from "utils";
+import { token as g } from "utils";
 
 interface Props extends StyledComponentPropsWithRef<"button"> {
   $iconStart?: ReactNode;
@@ -23,7 +23,7 @@ const ButtonRoot = styled(ButtonBase)<Props>`
   padding-left: ${(props) => (props.$iconStart ? g("12") : g("24"))};
 `;
 
-function Button({ children, ...props }: Props) {
+export default function Button({ children, ...props }: Props) {
   return (
     <ButtonRoot {...props}>
       {props.$iconStart && <WrapStart>{props.$iconStart}</WrapStart>}
@@ -33,4 +33,3 @@ function Button({ children, ...props }: Props) {
   );
 }
 Button.displayName = "Button";
-export default Button;

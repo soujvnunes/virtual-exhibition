@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button, Container, GlobalStyle, Icon, Logos, Typography } from "ui";
-import { getTheme as g } from "utils";
+import { token as g } from "utils";
 
 const SpecialColor = styled(Typography).attrs({ $italic: true })`
   -webkit-text-fill-color: transparent;

@@ -7,7 +7,7 @@ import {
   ThemeProvider,
   ThemeProviderProps,
 } from "styled-components";
-import { getTheme as g } from "utils";
+import { token as g } from "utils";
 
 const THEME = {
   color: {
