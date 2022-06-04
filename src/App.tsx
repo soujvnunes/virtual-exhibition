@@ -27,8 +27,8 @@ export default function App() {
           </SpecialColor>{" "}
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Typography>
-        <Button $iconStart={<Icon name="a11y" />}>teste</Button>
-        <Button $iconEnd={<Icon name="a11y" />}>teste</Button>
+        <Button $iconStart={<Icon.A11y />}>teste</Button>
+        <Button $iconEnd={<Icon.A11y />}>teste</Button>
         <Button>teste</Button>
       </Container>
     </GlobalStyle>
