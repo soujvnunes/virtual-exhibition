@@ -15,9 +15,11 @@ export type Merge<U> = Union<U> extends infer O
   : never;
 /** */
 
-export default function token<T extends DefaultTheme = DefaultTheme>(
+type Token<T extends object> = (
   key: keyof Merge<T[keyof T]>,
-) {
-  return (props: { theme: T }) =>
-    Object.assign({}, ...Object.values(props.theme))[key];
-}
+) => (props: { theme: T }) => string;
+
+const token: Token<DefaultTheme> = (key) => (props) =>
+  Object.assign({}, ...Object.values(props.theme))[key];
+
+export default token;
