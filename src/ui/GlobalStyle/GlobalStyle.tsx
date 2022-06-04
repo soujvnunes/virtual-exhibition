@@ -31,9 +31,9 @@ const THEME = {
     serif: "var(--base-type-serif)",
     overline: "var(--text-overline)",
     body: "var(--text-body)",
-    h4: "var(--text-h4)",
-    h3: "var(--text-h3)",
-    h2: "var(--text-h2)",
+    subtitle: "var(--text-subtitle)",
+    subhead: "var(--text-subhead)",
+    headline: "var(--text-headline)",
   },
   media: {
     md: "@media screen and (min-width: 40rem)",
@@ -84,20 +84,20 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     }
     --text-overline: var(--base-size-12);
     --text-body: var(--base-size-16);
-    --text-h4: var(--base-size-20);
-    --text-h3: var(--base-size-40);
-    --text-h2: var(--base-size-48);
+    --text-subtitle: var(--base-size-20);
+    --text-subhead: var(--base-size-40);
+    --text-headline: var(--base-size-48);
     --grid-padding: var(--base-size-08);
     --grid-margin: var(--base-size-16);
     ${g("md")} {
-      --text-h3: var(--base-size-44);
-      --text-h2: var(--base-size-56);
+      --text-subhead: var(--base-size-44);
+      --text-headline: var(--base-size-56);
       --grid-padding: var(--base-size-12);
       --grid-margin: var(--base-size-24);
     }
     ${g("lg")} {
-      --text-h3: var(--base-size-48);
-      --text-h2: var(--base-size-64);
+      --text-subhead: var(--base-size-48);
+      --text-headline: var(--base-size-64);
       --grid-padding: var(--base-size-16);
       --grid-margin: var(--base-size-32);
     }
