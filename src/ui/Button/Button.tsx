@@ -8,11 +8,10 @@ interface Props extends StyledComponentPropsWithRef<"button"> {
   $iconEnd?: ReactNode;
 }
 
-const WrapStart = styled.span`
-  margin-right: ${g("12")};
-`;
-const WrapEnd = styled.span`
-  margin-left: ${g("12")};
+const IconWrapper = styled.span<{ $edge: "start" | "end" }>`
+  margin-right: ${(props) => props.$edge === "start" && g("12")};
+  margin-left: ${(props) => props.$edge === "end" && g("12")};
+  display: inherit;
 `;
 const ButtonRoot = styled(ButtonBase)<Props>`
   padding-top: ${(props) =>
@@ -26,9 +25,13 @@ const ButtonRoot = styled(ButtonBase)<Props>`
 export default function Button({ children, ...props }: Props) {
   return (
     <ButtonRoot {...props}>
-      {props.$iconStart && <WrapStart>{props.$iconStart}</WrapStart>}
+      {props.$iconStart && (
+        <IconWrapper $edge="start">{props.$iconStart}</IconWrapper>
+      )}
       {children}
-      {props.$iconEnd && <WrapEnd>{props.$iconEnd}</WrapEnd>}
+      {props.$iconEnd && (
+        <IconWrapper $edge="end">{props.$iconEnd}</IconWrapper>
+      )}
     </ButtonRoot>
   );
 }

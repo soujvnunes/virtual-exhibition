@@ -106,11 +106,17 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+    box-sizing: border-box;
     ${g("dark")} {
       color-scheme: dark;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+  }
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
   }
   body {
     line-height: 1.5em;
