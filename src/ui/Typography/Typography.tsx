@@ -1,14 +1,6 @@
+import { VARIANT_MAP } from "consts";
 import styled, { PropsWithAs } from "styled-components";
 import { token as g, isProp } from "utils";
-
-const VARIANT_MAP = {
-  title: "h1",
-  headline: "h2",
-  subhead: "h3",
-  subtitle: "subtitle",
-  body: "p",
-  overline: "span",
-} as const;
 
 type Props = {
   $gutterBottom?: boolean;

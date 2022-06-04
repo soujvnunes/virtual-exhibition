@@ -1,0 +1,48 @@
+export default {
+  color: {
+    primary: "var(--color-primary)",
+    secondary: "var(--color-secondary)",
+    tertiary: "var(--color-tertiary)",
+    default: "var(--color-default)",
+    text: "var(--color-text)",
+    error: "var(--color-error)",
+    warning: "var(--color-warning)",
+    success: "var(--color-success)",
+  },
+  action: {
+    focus: "var(--action-focus)",
+    default: "var(--action-default)",
+    hover: "var(--action-hover)",
+    disable: "var(--action-disable)",
+  },
+  text: {
+    sans: "var(--base-type-sans)",
+    serif: "var(--base-type-serif)",
+    overline: "var(--text-overline)",
+    body: "var(--text-body)",
+    subtitle: "var(--text-subtitle)",
+    subhead: "var(--text-subhead)",
+    headline: "var(--text-headline)",
+  },
+  media: {
+    md: "@media screen and (min-width: 40rem)",
+    lg: "@media screen and (min-width: 80rem)",
+    dark: "@media (prefers-color-scheme: dark)",
+    motion: "@media (prefers-reduced-motion: no-preference)",
+  },
+  size: {
+    2: "var(--base-size-02)",
+    4: "var(--base-size-04)",
+    8: "var(--base-size-08)",
+    12: "var(--base-size-12)",
+    16: "var(--base-size-16)",
+    24: "var(--base-size-24)",
+    32: "var(--base-size-32)",
+    48: "var(--base-size-48)",
+    96: "var(--base-size-96)",
+  },
+  grid: {
+    padding: "var(--grid-padding)",
+    margin: "var(--grid-margin)",
+  },
+} as const;
