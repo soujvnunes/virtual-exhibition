@@ -1,24 +1,19 @@
 import { VARIANT_MAP } from "consts";
 import styled, { PropsWithAs } from "styled-components";
+import { $TypographyProps } from "types";
 import { token as g, isProp } from "utils";
 
-type Props = {
-  $gutterBottom?: boolean;
-  $centered?: boolean;
-  $italic?: boolean;
-  $variant?: keyof typeof VARIANT_MAP | "inherit";
-  $weight?: 400 | 500 | 600 | 700;
-};
-
-const isHeading = (props: Props) =>
+const isHeading = (props: $TypographyProps) =>
   isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);
-const Typography = styled.span.attrs((props: PropsWithAs<Props>) => ({
-  as:
-    props.as ||
-    (props.$variant !== "inherit" &&
-      props.$variant &&
-      VARIANT_MAP[props.$variant]),
-}))<Props>`
+const Typography = styled.span.attrs(
+  (props: PropsWithAs<$TypographyProps>) => ({
+    as:
+      props.as ||
+      (props.$variant !== "inherit" &&
+        props.$variant &&
+        VARIANT_MAP[props.$variant]),
+  }),
+)<$TypographyProps>`
   margin-bottom: ${(props) =>
     props.$gutterBottom
       ? props.$variant === "overline" && "1em"

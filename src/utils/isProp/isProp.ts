@@ -1,6 +1,4 @@
-type P = string | number | boolean | undefined;
-
-type IsProp = (props: P | P[], values: P[]) => boolean;
+import { IsProp } from "types";
 
 const isProp: IsProp = (prop, values) =>
   Array.isArray(prop)

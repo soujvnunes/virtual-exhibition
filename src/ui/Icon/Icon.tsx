@@ -1,6 +1,7 @@
-import { ICONS } from "consts";
+import { ICON_MAP } from "consts";
 import { memo } from "react";
-import styled, { StyledComponentPropsWithRef } from "styled-components";
+import styled from "styled-components";
+import { CreateIcon, IconProps } from "types";
 import { token as g } from "utils";
 
 const IconRoot = styled.svg`
@@ -9,11 +10,8 @@ const IconRoot = styled.svg`
   height: ${g("24")};
 `;
 
-const createIcon = (
-  name: keyof typeof ICONS,
-  paths: React.SVGProps<SVGPathElement>,
-) => {
-  function Icon({ children, ...props }: StyledComponentPropsWithRef<"svg">) {
+const createIcon: CreateIcon = (name, paths) => {
+  function Icon({ children, ...props }: IconProps) {
     return (
       <IconRoot
         focusable="false"
@@ -30,8 +28,8 @@ const createIcon = (
 
   return memo(Icon);
 };
-const A11y = createIcon("A11y", ICONS.A11y);
-const Exit = createIcon("Exit", ICONS.Exit);
-const Logos = createIcon("Logos", ICONS.Logos);
+const A11y = createIcon("A11y", ICON_MAP.A11y);
+const Exit = createIcon("Exit", ICON_MAP.Exit);
+const Logos = createIcon("Logos", ICON_MAP.Logos);
 
 export default Object.assign(createIcon, { A11y, Exit, Logos });
