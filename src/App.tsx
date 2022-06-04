@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button, Container, GlobalStyle, Icon, Logos, Typography } from "ui";
 import { token as g } from "utils";
 
-const SpecialColor = styled(Typography).attrs({ $italic: true })`
+const SpecialColor = styled(Typography)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -20,8 +20,11 @@ export default function App() {
     <GlobalStyle>
       <Logos />
       <Container>
-        <Typography $variant="h2" $gutterBottom $centered>
-          A <SpecialColor>Universidade Federal de Alagoas</SpecialColor>{" "}
+        <Typography $variant="headline" $gutterBottom $centered>
+          A{" "}
+          <SpecialColor $italic $variant="inherit">
+            Universidade Federal de Alagoas
+          </SpecialColor>{" "}
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Typography>
         <Button $iconStart={<Icon name="a11y" />}>teste</Button>
