@@ -23,6 +23,19 @@ export type $ButtonProps = {
 
 export type ButtonProps = StyledComponentPropsWithRef<"button"> & $ButtonProps;
 
+export type $FlexProps = {
+  $container?: boolean;
+  $direction?: React.CSSProperties["flexDirection"];
+  $flow?: React.CSSProperties["flexFlow"];
+  $justify?: React.CSSProperties["justifyContent"];
+  $align?: React.CSSProperties["alignItems"];
+  $content?: React.CSSProperties["alignContent"];
+  $order?: React.CSSProperties["order"];
+  $grow?: React.CSSProperties["flexGrow"];
+  $shrink?: React.CSSProperties["flexShrink"];
+  $self?: React.CSSProperties["alignSelf"];
+};
+
 export type IconProps = StyledComponentPropsWithRef<"svg">;
 
 export type CreateIcon<P extends object> = (
