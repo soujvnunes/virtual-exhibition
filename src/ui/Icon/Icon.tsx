@@ -9,8 +9,7 @@ const IconRoot = styled.svg`
   width: ${g("24")};
   height: ${g("24")};
 `;
-
-const createIcon: CreateIcon = (name, paths) => {
+const createIcon: CreateIcon<IconProps> = (name, paths) => {
   function Icon({ children, ...props }: IconProps) {
     return (
       <IconRoot

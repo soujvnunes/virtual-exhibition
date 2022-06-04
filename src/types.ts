@@ -1,10 +1,5 @@
-import { ICON_MAP, VARIANT_MAP } from "consts";
-import React from "react";
-import {
-  DefaultTheme,
-  StyledComponentPropsWithRef,
-  ThemeProviderProps,
-} from "styled-components";
+import { ICON_MAP, THEME, VARIANT_MAP } from "consts";
+import { StyledComponentPropsWithRef } from "styled-components";
 
 /**
  * Thanks to [jcalz](https://stackoverflow.com/users/2887218/jcalz)
@@ -28,14 +23,12 @@ export type $ButtonProps = {
 
 export type ButtonProps = StyledComponentPropsWithRef<"button"> & $ButtonProps;
 
-export type GlobalStyleProps = Omit<ThemeProviderProps<DefaultTheme>, "theme">;
-
 export type IconProps = StyledComponentPropsWithRef<"svg">;
 
-export type CreateIcon = (
+export type CreateIcon<P extends object> = (
   name: keyof typeof ICON_MAP,
   paths: React.SVGProps<SVGPathElement>,
-) => unknown;
+) => React.FunctionComponent<P>;
 
 export type $TypographyProps = {
   $gutterBottom?: boolean;
@@ -45,10 +38,13 @@ export type $TypographyProps = {
   $weight?: 400 | 500 | 600 | 700;
 };
 
-type P = string | number | boolean | undefined;
+export type IsProp<P extends string | number | boolean | undefined> = (
+  props: P | P[],
+  values: P[],
+) => boolean;
 
-export type IsProp = (props: P | P[], values: P[]) => boolean;
+export type Theme = typeof THEME;
 
-export type Token<T extends object> = (
+export type Token<T extends object = Theme> = (
   key: keyof Merge<T[keyof T]>,
 ) => (props: { theme: T }) => string;
