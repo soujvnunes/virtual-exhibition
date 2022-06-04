@@ -1,11 +1,8 @@
-import { THEME } from "consts";
 import { normalize } from "polished";
-import { useMemo } from "react";
-import { createGlobalStyle, css, ThemeProvider } from "styled-components";
-import { GlobalStyleProps } from "types";
+import { createGlobalStyle, css } from "styled-components";
 import { token as g } from "utils";
 
-const GlobalStyleFactory = createGlobalStyle`${css`
+export default createGlobalStyle`${css`
   ${normalize()}
   :root {
     --color-primary: var(--base-channel-pink-500);
@@ -73,16 +70,3 @@ const GlobalStyleFactory = createGlobalStyle`${css`
     color: rgb(${g("text")});
   }
 `}`;
-
-function GlobalStyle({ children }: GlobalStyleProps) {
-  const theme = useMemo(() => THEME, []);
-
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyleFactory />
-      {children}
-    </ThemeProvider>
-  );
-}
-
-export default Object.assign(GlobalStyle, { THEME });

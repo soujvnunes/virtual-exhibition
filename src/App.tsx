@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import { THEME } from "consts";
+import { useMemo } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import { Button, Container, GlobalStyle, Icon, Logos, Typography } from "ui";
 import { token as g } from "utils";
 
@@ -16,8 +18,11 @@ const SpecialColor = styled(Typography)`
 `;
 
 export default function App() {
+  const theme = useMemo(() => THEME, []);
+
   return (
-    <GlobalStyle>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Logos />
       <Container>
         <Typography $variant="headline" $gutterBottom $centered>
@@ -31,6 +36,6 @@ export default function App() {
         <Button $iconEnd={<Icon.A11y />}>teste</Button>
         <Button>teste</Button>
       </Container>
-    </GlobalStyle>
+    </ThemeProvider>
   );
 }
