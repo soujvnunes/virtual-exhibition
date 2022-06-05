@@ -1,7 +1,8 @@
+import { Header } from "app";
 import { THEME } from "consts";
 import { useMemo } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { Button, Container, GlobalStyle, Icon, Logos, Typography } from "ui";
+import { Container, GlobalStyle, Typography } from "ui";
 import { token as g } from "utils";
 
 const SpecialColor = styled(Typography)`
@@ -23,7 +24,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Logos />
+      <Header />
       <Container>
         <Typography $variant="headline" $gutterBottom $centered>
           A{" "}
@@ -32,9 +33,6 @@ export default function App() {
           </SpecialColor>{" "}
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Typography>
-        <Button $iconStart={<Icon.A11y />}>teste</Button>
-        <Button $iconEnd={<Icon.A11y />}>teste</Button>
-        <Button>teste</Button>
       </Container>
     </ThemeProvider>
   );
