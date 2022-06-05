@@ -1,4 +1,6 @@
 export { default as Button } from "./Button";
+export { default as ButtonBase } from "./ButtonBase";
+export { default as ButtonIcon } from "./ButtonIcon";
 export { default as Container } from "./Container";
 export { default as Flex } from "./Flex";
 export { default as GlobalStyle } from "./GlobalStyle";
