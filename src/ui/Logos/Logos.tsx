@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Typography from "ui/Typography";
+import Typography from "../Typography";
 import { token as g } from "utils";
 import Icon from "../Icon";
 
