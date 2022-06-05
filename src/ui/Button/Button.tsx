@@ -8,7 +8,9 @@ const IconWrapper = styled.svg<{ $edge: "start" | "end" }>`
   margin-left: ${(props) => props.$edge === "end" && g("12")};
   display: inherit;
 `;
-const ButtonRoot = styled(ButtonBase)<$ButtonProps>`
+const ButtonRoot = styled(ButtonBase).attrs({
+  $align: "center",
+})<$ButtonProps>`
   padding-right: ${(props) => (props.$iconEnd ? g("12") : g("24"))};
   padding-left: ${(props) => (props.$iconStart ? g("12") : g("24"))};
   text-transform: uppercase;

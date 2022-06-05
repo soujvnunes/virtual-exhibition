@@ -23,6 +23,10 @@ export type $ButtonProps = {
 
 export type ButtonProps = StyledComponentPropsWithRef<"button"> & $ButtonProps;
 
+export type ButtonIconProps = StyledComponentPropsWithRef<"button"> & {
+  children: React.FunctionComponent;
+};
+
 export type $FlexProps = {
   $container?: boolean;
   $direction?: React.CSSProperties["flexDirection"];

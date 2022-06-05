@@ -4,8 +4,6 @@ import { token as g } from "utils";
 
 const ButtonBase = styled(Flex).attrs({
   $container: true,
-  $align: "center",
-  $justify: "center",
 })`
   border: 1px solid rgb(${g("primary")} / ${g("hover")});
   border-radius: ${g("16")};
