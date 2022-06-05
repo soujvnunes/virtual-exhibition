@@ -20,13 +20,9 @@ const ButtonRoot = styled(ButtonBase)<$ButtonProps>`
 export default function Button({ children, ...props }: ButtonProps) {
   return (
     <ButtonRoot {...props}>
-      {props.$iconStart && (
-        <IconWrapper $edge="start">{props.$iconStart}</IconWrapper>
-      )}
+      {props.$iconStart && <IconWrapper as={props.$iconStart} $edge="start" />}
       {children}
-      {props.$iconEnd && (
-        <IconWrapper $edge="end">{props.$iconEnd}</IconWrapper>
-      )}
+      {props.$iconEnd && <IconWrapper as={props.$iconEnd} $edge="end" />}
     </ButtonRoot>
   );
 }

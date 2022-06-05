@@ -17,8 +17,8 @@ export type Merge<U> = Union<U> extends infer O
 /** */
 
 export type $ButtonProps = {
-  $iconStart?: React.ReactNode;
-  $iconEnd?: React.ReactNode;
+  $iconStart?: React.FunctionComponent;
+  $iconEnd?: React.FunctionComponent;
 };
 
 export type ButtonProps = StyledComponentPropsWithRef<"button"> & $ButtonProps;
