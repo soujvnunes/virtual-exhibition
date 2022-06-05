@@ -2,19 +2,30 @@ import styled from "styled-components";
 import { Button, ButtonIcon, Container, Flex, Icon, Logos } from "ui";
 import { token as t } from "utils";
 
-const HeaderRoot = styled(Flex).attrs({
-  as: Container,
-  $container: true,
-  $align: "center",
-  forwardedAs: "header",
-})`
+const HeaderRoot = styled((props) => (
+  <Flex
+    as={Container}
+    $container
+    $align="center"
+    forwardedAs="header"
+    {...props}
+  />
+))`
   height: calc(${t("48")} + ${t("16")});
 `;
-const ButtonIconA11y = styled(ButtonIcon).attrs({ children: Icon.A11y })`
+const ButtonIconA11y = styled((props) => (
+  <ButtonIcon {...props}>{Icon.A11y}</ButtonIcon>
+))`
   margin-left: auto;
 `;
 const ButtonNews = styled((props) => (
-  <Button $iconEnd={Icon.Exit} {...props} />
+  <Button
+    $iconEnd={Icon.Exit}
+    href="https://ufal.br/noticias?tag=Ufal60anos"
+    rel="noreferrer"
+    target="_blank"
+    {...props}
+  />
 ))`
   margin-left: ${t("12")};
 `;

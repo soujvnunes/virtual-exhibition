@@ -16,17 +16,6 @@ export type Merge<U> = Union<U> extends infer O
   : never;
 /** */
 
-export type $ButtonProps = {
-  $iconStart?: React.FunctionComponent;
-  $iconEnd?: React.FunctionComponent;
-};
-
-export type ButtonProps = StyledComponentPropsWithRef<"button"> & $ButtonProps;
-
-export type ButtonIconProps = StyledComponentPropsWithRef<"button"> & {
-  children: React.FunctionComponent;
-};
-
 export type $FlexProps = {
   $container?: boolean;
   $direction?: React.CSSProperties["flexDirection"];
@@ -38,6 +27,21 @@ export type $FlexProps = {
   $grow?: React.CSSProperties["flexGrow"];
   $shrink?: React.CSSProperties["flexShrink"];
   $self?: React.CSSProperties["alignSelf"];
+};
+
+export type ButtonBaseProps =
+  | ({ href?: string } & StyledComponentPropsWithRef<"a">)
+  | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
+
+export type $ButtonProps = {
+  $iconStart?: React.FunctionComponent;
+  $iconEnd?: React.FunctionComponent;
+};
+
+export type ButtonProps = ButtonBaseProps & $ButtonProps;
+
+export type ButtonIconProps = ButtonBaseProps & {
+  children: React.FunctionComponent;
 };
 
 export type IconProps = StyledComponentPropsWithRef<"svg">;

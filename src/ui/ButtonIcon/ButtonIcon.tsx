@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonBase from "../ButtonBase";
+import ButtonBase from "ui/ButtonBase";
 import { token as g } from "utils";
 import { ButtonIconProps } from "types";
 
@@ -12,7 +12,7 @@ const ButtonIconRoot = styled(ButtonBase)`
 
 export default function ButtonIcon({ children, ...props }: ButtonIconProps) {
   return (
-    <ButtonIconRoot as="button" {...props}>
+    <ButtonIconRoot {...props}>
       <IconWrapper as={children} />
     </ButtonIconRoot>
   );
