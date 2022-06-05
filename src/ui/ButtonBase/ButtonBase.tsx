@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { token as g } from "utils";
+import Flex from "../Flex";
 
-const ButtonBase = styled.button`
+const ButtonBase = styled((props) => (
+  <Flex as="button" $container $align="center" {...props} />
+))`
   border: 1px solid rgb(${g("primary")} / ${g("hover")});
   border-radius: ${g("16")};
-
-  display: flex;
-  align-items: center;
 
   text-transform: uppercase;
 
