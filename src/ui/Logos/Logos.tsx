@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import Typography from "../Typography";
+import Typography from "ui/Typography";
 import { token as g } from "utils";
-import Icon from "../Icon";
+import Icon from "ui/Icon";
+import Flex from "ui/Flex";
 
-const LogosRoot = styled.div`
-  display: flex;
-  align-items: center;
-`;
 const IconLogos = styled(Icon.Logos)`
   width: ${g("48")};
   height: ${g("48")};
@@ -18,12 +15,12 @@ const LogosLabelTabbed = styled.span`
 
 export default function Logos() {
   return (
-    <LogosRoot>
+    <Flex as="a" href="/" $container $align="center">
       <IconLogos />
       <Typography $variant="title" $italic>
         Exposição <LogosLabelTabbed>Virtual</LogosLabelTabbed>
       </Typography>
-    </LogosRoot>
+    </Flex>
   );
 }
 Logos.displayName = "Logos";
