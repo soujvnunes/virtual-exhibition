@@ -51,7 +51,7 @@ export type CreateIcon<P extends object> = (
   paths: React.SVGProps<SVGPathElement>,
 ) => React.FunctionComponent<P>;
 
-export type $TypographyProps = {
+export type $TextProps = {
   $gutterBottom?: boolean;
   $centered?: boolean;
   $italic?: boolean;

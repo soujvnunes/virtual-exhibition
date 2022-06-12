@@ -6,4 +6,4 @@ export { default as Flex } from "./Flex";
 export { default as GlobalStyle } from "./GlobalStyle";
 export { default as Icon } from "./Icon";
 export { default as Logos } from "./Logos";
-export { default as Typography } from "./Typography";
+export { default as Text } from "./Text";

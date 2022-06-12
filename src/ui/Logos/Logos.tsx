@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Typography from "ui/Typography";
+import Text from "ui/Text";
 import { token as g } from "utils";
 import Icon from "ui/Icon";
 import Flex from "ui/Flex";
@@ -17,9 +17,9 @@ export default function Logos() {
   return (
     <Flex as="a" href="/" $container $align="center">
       <IconLogos />
-      <Typography $variant="title" $italic>
+      <Text $variant="title" $italic>
         Exposição <LogosLabelTabbed>Virtual</LogosLabelTabbed>
-      </Typography>
+      </Text>
     </Flex>
   );
 }

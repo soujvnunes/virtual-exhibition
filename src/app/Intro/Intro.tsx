@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Container, Typography } from "ui";
+import { Container, Text } from "ui";
 import { token as t } from "utils";
 
-const SpecialColor = styled(Typography)`
+const SpecialColor = styled(Text)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -18,13 +18,14 @@ const SpecialColor = styled(Typography)`
 export default function Intro() {
   return (
     <Container as="section">
-      <Typography $variant="headline" $gutterBottom $centered>
+      <Text $variant="headline" $gutterBottom $centered>
         A{" "}
         <SpecialColor $italic $variant="inherit">
           Universidade Federal de Alagoas
         </SpecialColor>{" "}
         completa 60 anos com uma história enraizada na vida do povo alagoano.
-      </Typography>
+      </Text>
+      <Text>testes</Text>
     </Container>
   );
 }
