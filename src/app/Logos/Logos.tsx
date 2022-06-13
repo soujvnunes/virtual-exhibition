@@ -19,7 +19,7 @@ const LogosLabelTabbed = styled.span`
 
 export default function Logos() {
   return (
-    <LogosRoot as="a" href="/" $container $align="center">
+    <LogosRoot as="a" href="/" $display="flex" $align="center">
       <LogosIcon />
       <Text $variant="title" $italic>
         Exposição <LogosLabelTabbed>Virtual</LogosLabelTabbed>

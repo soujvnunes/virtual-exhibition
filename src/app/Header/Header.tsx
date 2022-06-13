@@ -15,7 +15,7 @@ const ButtonNews = styled(Button)`
 
 export default function Header() {
   return (
-    <HeaderRoot $container $align="center" as="header">
+    <HeaderRoot $display="flex" $align="center" as="header">
       <Logos />
       <ButtonA11y>
         <Adornment>{Icon.A11y}</Adornment>
