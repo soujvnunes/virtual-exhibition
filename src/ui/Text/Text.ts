@@ -15,7 +15,7 @@ const Text = styled.span.attrs((props: PropsWithAs<$TextProps>) => ({
   margin-bottom: ${(props) =>
     props.$gutterBottom
       ? props.$variant === "overline" && "1em"
-      : isProp(props.$variant, [true, "inherit"]) && 0};
+      : props.$variant && props.$variant !== "inherit" && 0};
   margin-top: ${(props) =>
     !isProp(props.$variant, ["overline", "inherit", "body", undefined]) && 0};
   font-size: ${(props) =>
