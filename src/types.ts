@@ -16,8 +16,14 @@ export type Merge<U> = Union<U> extends infer O
   : never;
 /** */
 
+type FlexColKs = "sm" | "md" | "lg";
+
+type FlexCols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
 export type FlexProps = {
-  $container?: boolean;
+  $row?: boolean;
+  $col?: FlexCols | Partial<Record<FlexColKs, FlexCols>>;
+  $display?: React.CSSProperties["display"];
   $direction?: React.CSSProperties["flexDirection"];
   $flow?: React.CSSProperties["flexFlow"];
   $justify?: React.CSSProperties["justifyContent"];

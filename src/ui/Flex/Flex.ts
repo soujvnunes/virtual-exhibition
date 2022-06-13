@@ -1,24 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FlexProps } from "types";
+import { token as t } from "utils";
 
-/**
- * TODO
- *
- * add
- *  $display: flex | inline-flex
- *
- * change
- *  $container
- *    to set 'flex-direction: row; flex-flow: wrap; width: 100%'
- *  $item
- *    to be a object { xs: '1~12', md: '1~12', lg: '1~12' } as
- *    columns and set 'width: x%; flex: 0 1 x%' according of its columns
- *
- */
+const getCol = (col: number, query?: "md" | "lg") => css`
+  ${query && t(query)} {
+    flex-basis: ${(100 * col) / 12}%;
+    flex-grow: 0;
+    max-width: ${(100 * col) / 12}%;
+  }
+`;
 const Flex = styled.div<FlexProps>`
-  display: ${(props) => props.$container && "flex"};
+  display: ${(props) => (props.$row ? "flex" : props.$display)};
   flex-direction: ${(props) => props.$direction};
-  flex-flow: ${(props) => props.$flow};
+  flex-flow: ${(props) => (props.$row ? "row wrap" : props.$flow)};
   justify-content: ${(props) => props.$justify};
   align-items: ${(props) => props.$align};
   align-content: ${(props) => props.$content};
@@ -26,6 +20,15 @@ const Flex = styled.div<FlexProps>`
   flex-grow: ${(props) => props.$grow};
   flex-shrink: ${(props) => props.$shrink};
   align-self: ${(props) => props.$self};
+  width: ${(props) => props.$row && "100%"};
+  ${(props) =>
+    typeof props.$col === "number"
+      ? getCol(props.$col)
+      : css`
+          ${props.$col?.sm && getCol(props.$col.sm)};
+          ${props.$col?.md && getCol(props.$col.md, "md")};
+          ${props.$col?.lg && getCol(props.$col.lg, "lg")};
+        `};
 `;
 
 Flex.displayName = "Flex";
