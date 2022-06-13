@@ -4,7 +4,11 @@ import { token as g } from "utils";
 import Icon from "ui/Icon";
 import Flex from "ui/Flex";
 
-const IconLogos = styled(Icon.Logos)`
+const LogosRoot = styled(Flex)`
+  text-decoration: none;
+  color: ${g("text")};
+`;
+const LogosIcon = styled(Icon.Logos)`
   width: ${g("48")};
   height: ${g("48")};
 `;
@@ -15,12 +19,12 @@ const LogosLabelTabbed = styled.span`
 
 export default function Logos() {
   return (
-    <Flex as="a" href="/" $container $align="center">
-      <IconLogos />
+    <LogosRoot as="a" href="/" $container $align="center">
+      <LogosIcon />
       <Text $variant="title" $italic>
         Exposição <LogosLabelTabbed>Virtual</LogosLabelTabbed>
       </Text>
-    </Flex>
+    </LogosRoot>
   );
 }
 Logos.displayName = "Logos";
