@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import Flex from "ui/Flex";
 import { token as g } from "utils";
 
-const Container = styled.div`
+const Container = styled(Flex)`
   margin-right: auto;
   margin-left: auto;
   max-width: 80rem;
