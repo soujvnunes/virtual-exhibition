@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Col, Container, Row, Text } from "ui";
 import { token as t } from "utils";
 
-const SpecialColor = styled(Text)`
+const TextGradient = styled(Text)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -18,19 +18,17 @@ const SpecialColor = styled(Text)`
 export default function Intro() {
   return (
     <Container as="section">
-      <Row>
-        <Col md={2} lg={3} />
+      <Row $justify="center">
         <Col md={8} lg={6}>
           <Text $variant="headline" $centered>
             A{" "}
-            <SpecialColor $italic $variant="inherit">
+            <TextGradient $italic $variant="inherit">
               Universidade Federal de Alagoas
-            </SpecialColor>{" "}
+            </TextGradient>{" "}
             completa 60 anos com uma história enraizada na vida do povo
             alagoano.
           </Text>
         </Col>
-        <Col md={2} lg={3} />
       </Row>
     </Container>
   );
