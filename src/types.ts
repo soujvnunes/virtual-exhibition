@@ -16,7 +16,7 @@ export type Merge<U> = Union<U> extends infer O
   : never;
 /** */
 
-export type $FlexProps = {
+export type FlexProps = {
   $container?: boolean;
   $direction?: React.CSSProperties["flexDirection"];
   $flow?: React.CSSProperties["flexFlow"];
@@ -29,20 +29,9 @@ export type $FlexProps = {
   $self?: React.CSSProperties["alignSelf"];
 };
 
-export type ButtonBaseProps =
+export type ButtonProps =
   | ({ href?: string } & StyledComponentPropsWithRef<"a">)
   | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
-
-export type $ButtonProps = {
-  $iconStart?: React.FunctionComponent;
-  $iconEnd?: React.FunctionComponent;
-};
-
-export type ButtonProps = ButtonBaseProps & $ButtonProps;
-
-export type ButtonIconProps = ButtonBaseProps & {
-  children: React.FunctionComponent;
-};
 
 export type IconProps = StyledComponentPropsWithRef<"svg">;
 
@@ -51,7 +40,7 @@ export type CreateIcon<P extends object> = (
   paths: React.SVGProps<SVGPathElement>,
 ) => React.FunctionComponent<P>;
 
-export type $TextProps = {
+export type TextProps = {
   $gutterBottom?: boolean;
   $centered?: boolean;
   $italic?: boolean;
