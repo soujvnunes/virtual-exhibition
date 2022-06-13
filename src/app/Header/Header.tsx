@@ -1,41 +1,33 @@
+import Logos from "app/Logos";
 import styled from "styled-components";
-import { Button, ButtonIcon, Container, Flex, Icon, Logos } from "ui";
+import { Adornment, Button, Container, Icon } from "ui";
 import { token as t } from "utils";
 
-const HeaderRoot = styled((props) => (
-  <Flex
-    as={Container}
-    $container
-    $align="center"
-    forwardedAs="header"
-    {...props}
-  />
-))`
+const HeaderRoot = styled(Container)`
   height: calc(${t("48")} + ${t("16")});
 `;
-const ButtonIconA11y = styled((props) => (
-  <ButtonIcon {...props}>{Icon.A11y}</ButtonIcon>
-))`
+const ButtonA11y = styled(Button)`
   margin-left: auto;
 `;
-const ButtonNews = styled((props) => (
-  <Button
-    $iconEnd={Icon.Exit}
-    href="https://ufal.br/noticias?tag=Ufal60anos"
-    rel="noreferrer"
-    target="_blank"
-    {...props}
-  />
-))`
+const ButtonNews = styled(Button)`
   margin-left: ${t("12")};
 `;
 
 export default function Header() {
   return (
-    <HeaderRoot>
+    <HeaderRoot $container $align="center" as="header">
       <Logos />
-      <ButtonIconA11y />
-      <ButtonNews>Notícias</ButtonNews>
+      <ButtonA11y>
+        <Adornment>{Icon.A11y}</Adornment>
+      </ButtonA11y>
+      <ButtonNews
+        href="https://ufal.br/noticias?tag=Ufal60anos"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Notícias
+        <Adornment $edge="end">{Icon.Exit}</Adornment>
+      </ButtonNews>
     </HeaderRoot>
   );
 }
