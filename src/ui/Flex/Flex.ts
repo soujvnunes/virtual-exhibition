@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { $FlexProps } from "types";
+import { FlexProps } from "types";
 
 /**
  * TODO
@@ -15,7 +15,7 @@ import { $FlexProps } from "types";
  *    columns and set 'width: x%; flex: 0 1 x%' according of its columns
  *
  */
-const Flex = styled.div<$FlexProps>`
+const Flex = styled.div<FlexProps>`
   display: ${(props) => props.$container && "flex"};
   flex-direction: ${(props) => props.$direction};
   flex-flow: ${(props) => props.$flow};
