@@ -29,6 +29,10 @@ export type FlexProps = {
   $self?: React.CSSProperties["alignSelf"];
 };
 
+export type AdornmentProps = {
+  $edge?: "start" | "end";
+};
+
 export type ButtonProps =
   | ({ href?: string } & StyledComponentPropsWithRef<"a">)
   | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);

@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+import { AdornmentProps } from "types";
 import { token as t } from "utils";
 
-const Adornment = styled.span.attrs((props) => ({ as: props.children }))<{
-  $edge: "start" | "mid" | "end";
-}>`
+const Adornment = styled.span.attrs((props) => ({
+  as: props.children,
+}))<AdornmentProps>`
   margin-right: ${(props) =>
     props.$edge === "start" ? t("12") : css`calc(${t("12")} * -1)`};
   margin-left: ${(props) =>
