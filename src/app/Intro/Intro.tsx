@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, Flex, Text } from "ui";
+import { Col, Container, Row, Text } from "ui";
 import { token as t } from "utils";
 
 const SpecialColor = styled(Text)`
@@ -18,9 +18,9 @@ const SpecialColor = styled(Text)`
 export default function Intro() {
   return (
     <Container as="section">
-      <Flex $row>
-        <Flex $col={{ md: 2, lg: 3 }} />
-        <Flex $col={{ md: 8, lg: 6 }}>
+      <Row>
+        <Col md={2} lg={3} />
+        <Col md={8} lg={6}>
           <Text $variant="headline" $centered>
             A{" "}
             <SpecialColor $italic $variant="inherit">
@@ -29,9 +29,9 @@ export default function Intro() {
             completa 60 anos com uma história enraizada na vida do povo
             alagoano.
           </Text>
-        </Flex>
-        <Flex $col={{ md: 2, lg: 3 }} />
-      </Flex>
+        </Col>
+        <Col md={2} lg={3} />
+      </Row>
     </Container>
   );
 }
