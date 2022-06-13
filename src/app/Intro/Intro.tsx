@@ -21,7 +21,7 @@ export default function Intro() {
       <Flex $row>
         <Flex $col={{ md: 2, lg: 3 }} />
         <Flex $col={{ md: 8, lg: 6 }}>
-          <Text $variant="headline" $gutterBottom $centered>
+          <Text $variant="headline" $centered>
             A{" "}
             <SpecialColor $italic $variant="inherit">
               Universidade Federal de Alagoas
