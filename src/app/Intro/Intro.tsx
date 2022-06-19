@@ -1,7 +1,19 @@
 import styled from "styled-components";
-import { Col, Container, Row, Text } from "ui";
+import { Container, Text } from "ui";
 import { token as t } from "utils";
 
+const ContainerGradient = styled.div`
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-block-style: solid;
+  border-block-color: rgb(${t("primary")} / ${t("hover")});
+  padding-top: ${t("48")};
+  background-image: linear-gradient(
+    to right,
+    rgb(${t("tertiary")}),
+    transparent
+  );
+`;
 const TextGradient = styled(Text)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
@@ -17,19 +29,16 @@ const TextGradient = styled(Text)`
 
 export default function Intro() {
   return (
-    <Container as="section">
-      <Row $justify="center">
-        <Col md={8} lg={6}>
-          <Text $variant="headline" $centered>
-            A{" "}
-            <TextGradient $italic $variant="inherit">
-              Universidade Federal de Alagoas
-            </TextGradient>{" "}
-            completa 60 anos com uma história enraizada na vida do povo
-            alagoano.
-          </Text>
-        </Col>
-      </Row>
-    </Container>
+    <ContainerGradient>
+      <Container as="section">
+        <Text $variant="headline" $centered $gutterBottom>
+          A{" "}
+          <TextGradient $italic $variant="inherit">
+            Universidade Federal de Alagoas
+          </TextGradient>{" "}
+          completa 60 anos com uma história enraizada na vida do povo alagoano.
+        </Text>
+      </Container>
+    </ContainerGradient>
   );
 }
