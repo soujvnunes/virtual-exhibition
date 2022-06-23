@@ -10,14 +10,13 @@ const getColWidth = (col: number, media?: "md" | "lg") => css`
     max-width: ${(100 * col) / 12}%;
   }
 `;
-const Col = styled(Flex)<ColProps>(
-  (props) =>
-    css`
-      ${props.sm && getColWidth(props.sm)};
-      ${props.md && getColWidth(props.md, "md")};
-      ${props.lg && getColWidth(props.lg, "lg")};
-    `,
-);
+const Col = styled(Flex).attrs({ as: "li" })<ColProps>`
+  padding-left: ${t("padding")};
+  padding-top: ${t("padding")};
+  ${(props) => props.sm && getColWidth(props.sm)};
+  ${(props) => props.md && getColWidth(props.md, "md")};
+  ${(props) => props.lg && getColWidth(props.lg, "lg")};
+`;
 
 Col.displayName = "Col";
 export default Col;
