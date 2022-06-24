@@ -1,3 +1,4 @@
+export { default as COLS_MAP } from "./colsMap";
 export { default as ICON_MAP } from "./iconMap";
 export { default as EXHIBITION_DATA } from "./exhibitionData";
 export { default as HOMAGES_DATA } from "./homagesData";

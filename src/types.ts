@@ -1,4 +1,4 @@
-import { ICON_MAP, THEME, VARIANT_MAP } from "consts";
+import { COLS_MAP, THEME, VARIANT_MAP } from "consts";
 import { StyledComponentPropsWithRef } from "styled-components";
 
 /**
@@ -29,11 +29,15 @@ export type FlexProps = {
   $self?: React.CSSProperties["alignSelf"];
 };
 
-type ColKs = "sm" | "md" | "lg";
+type ColKs = "$sm" | "$md" | "$lg";
 
-type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type ColEdgeKs = "start" | "mid" | "end";
 
-export type ColProps = Partial<Record<ColKs, Cols>>;
+type Cols = typeof COLS_MAP[number];
+
+export type ColEdges = Partial<Record<ColEdgeKs, Cols>>;
+
+export type ColProps = Partial<Record<ColKs, ColEdges>>;
 
 export type AdornmentProps = {
   $edge?: "start" | "end";
@@ -42,13 +46,6 @@ export type AdornmentProps = {
 export type ButtonProps =
   | ({ href?: string } & StyledComponentPropsWithRef<"a">)
   | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
-
-export type IconProps = StyledComponentPropsWithRef<"svg">;
-
-export type CreateIcon<P extends object> = (
-  name: keyof typeof ICON_MAP,
-  paths: React.SVGProps<SVGPathElement>,
-) => React.FunctionComponent<P>;
 
 export type TextProps = {
   $gutterBottom?: boolean;
