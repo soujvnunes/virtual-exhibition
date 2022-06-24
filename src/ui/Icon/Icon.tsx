@@ -1,4 +1,5 @@
 import { ICON_MAP } from "consts";
+import { memo } from "react";
 import styled from "styled-components";
 import { token as g } from "utils";
 
@@ -10,7 +11,7 @@ const Icon = styled.svg.attrs(({ children }) => ({
       children
     ),
   focusable: "false",
-  ariaHidden: "true",
+  "aria-hidden": "true",
   viewBox: "0 0 24 24",
 }))`
   fill: currentColor;
@@ -19,4 +20,4 @@ const Icon = styled.svg.attrs(({ children }) => ({
 `;
 
 Icon.displayName = "Icon";
-export default Icon;
+export default memo(Icon);
