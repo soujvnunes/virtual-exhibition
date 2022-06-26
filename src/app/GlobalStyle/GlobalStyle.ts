@@ -69,4 +69,14 @@ export default createGlobalStyle`${css`
     background-color: rgb(${g("default")});
     color: rgb(${g("text")});
   }
+  img,
+  input[type="image"],
+  video,
+  embed,
+  iframe,
+  marquee,
+  object,
+  table {
+    aspect-ratio: attr(width) / attr(height);
+  }
 `}`;
