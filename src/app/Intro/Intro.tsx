@@ -8,7 +8,7 @@ const ContainerGradient = styled.div`
   border-bottom-width: 1px;
   border-block-style: solid;
   border-block-color: rgb(${t("primary")} / ${t("hover")});
-  padding-top: ${t("48")};
+  padding-top: ${t(48)};
   background-image: linear-gradient(
     to right,
     rgb(${t("tertiary")}),

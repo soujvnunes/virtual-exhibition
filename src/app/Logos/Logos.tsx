@@ -9,8 +9,8 @@ const LogosRoot = styled(Flex)`
   color: ${g("text")};
 `;
 const LogosIcon = styled(Icon)`
-  width: ${g("48")};
-  height: ${g("48")};
+  width: ${g(48)};
+  height: ${g(48)};
 `;
 const LogosPathPink = styled.path`
   color: rgb(${g("primary")});
@@ -23,7 +23,7 @@ const LogosPathBlue = styled.path`
 `;
 const LogosLabelTabbed = styled.span`
   display: block;
-  margin-left: calc(${g("16")} * -1);
+  margin-left: calc(${g(16)} * -1);
 `;
 
 export default function Logos() {

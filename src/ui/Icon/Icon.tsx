@@ -15,8 +15,8 @@ const Icon = styled.svg.attrs(({ children }) => ({
   viewBox: "0 0 24 24",
 }))`
   fill: currentColor;
-  width: ${g("24")};
-  height: ${g("24")};
+  width: ${g(24)};
+  height: ${g(24)};
 `;
 
 Icon.displayName = "Icon";

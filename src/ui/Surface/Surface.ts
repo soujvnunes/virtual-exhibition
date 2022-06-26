@@ -4,7 +4,7 @@ import { token as t } from "utils";
 
 const Surface = styled(Flex).attrs({ $display: "flex" })`
   border: 1px solid rgb(${t("primary")} / ${t("hover")});
-  border-radius: ${t("16")};
+  border-radius: ${t(16)};
   color: rgb(${t("secondary")});
 `;
 

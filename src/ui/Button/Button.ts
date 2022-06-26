@@ -19,8 +19,8 @@ const Button = styled(Surface).attrs((props: ButtonProps) => ({
   forwardedAs: props.href ? "a" : "button",
 }))<ButtonProps>`
   background-color: transparent;
-  height: calc(${g("32")} + ${g("8")});
-  padding: 0 ${g("24")} 0 ${g("24")};
+  height: calc(${g(32)} + ${g(8)});
+  padding: 0 ${g(24)} 0 ${g(24)};
 
   &:focus {
     outline: 0;
