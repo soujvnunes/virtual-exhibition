@@ -6,7 +6,7 @@ import Flex from "ui/Flex";
 
 const LogosRoot = styled(Flex)`
   text-decoration: none;
-  color: ${g("text")};
+  color: rgb(${g("foreground")});
 `;
 const LogosIcon = styled(Icon)`
   width: ${g(48)};
