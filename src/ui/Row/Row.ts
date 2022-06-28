@@ -5,7 +5,8 @@ import { token as t } from "utils";
 const Row = styled(Flex).attrs({
   as: "ul",
   $display: "flex",
-  $flow: "row wrap",
+  $flexDirection: "row",
+  $flexWrap: "wrap",
 })`
   list-style-type: none;
   width: calc(100% + ${t("padding")});

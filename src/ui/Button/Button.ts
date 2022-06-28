@@ -14,7 +14,7 @@ const ButtonTextStyle = styled(Text).attrs({
   text-decoration: ${(props) => props.href && "none"};
 `;
 const Button = styled(Surface).attrs((props: ButtonProps) => ({
-  $align: "center",
+  $alignItems: "center",
   as: ButtonTextStyle,
   forwardedAs: props.href ? "a" : "button",
 }))<ButtonProps>`
