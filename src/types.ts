@@ -38,6 +38,8 @@ export type UseMedia = (query: string) => boolean;
 
 export type HandleMedia = (event: MediaQueryListEvent) => void;
 
+export type Props = Partial<Record<MediaKs, string>>;
+
 export type FlexKs =
   | "display"
   | "flexDirection"
