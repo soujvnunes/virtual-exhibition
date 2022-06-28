@@ -1,5 +1,8 @@
 import { COLS_MAP, THEME, VARIANT_MAP } from "consts";
-import { StyledComponentPropsWithRef } from "styled-components";
+import {
+  StyledComponentPropsWithRef,
+  ThemeProviderProps,
+} from "styled-components";
 
 /**
  * Thanks to [jcalz](https://stackoverflow.com/users/2887218/jcalz)
@@ -16,28 +19,52 @@ export type Merge<U> = Union<U> extends infer O
   : never;
 /** */
 
-export type FlexProps = {
-  $display?: React.CSSProperties["display"];
-  $direction?: React.CSSProperties["flexDirection"];
-  $flow?: React.CSSProperties["flexFlow"];
-  $justify?: React.CSSProperties["justifyContent"];
-  $align?: React.CSSProperties["alignItems"];
-  $content?: React.CSSProperties["alignContent"];
-  $order?: React.CSSProperties["order"];
-  $grow?: React.CSSProperties["flexGrow"];
-  $shrink?: React.CSSProperties["flexShrink"];
-  $self?: React.CSSProperties["alignSelf"];
+export type Theme = typeof THEME;
+
+export type GlobalStyleProps = Omit<ThemeProviderProps<Theme>, "theme">;
+
+export type IsProp<P extends string | number | boolean | undefined> = (
+  props: P | P[],
+  values: P[],
+) => boolean;
+
+export type Token<T extends object = Theme> = (
+  key: keyof Merge<T[keyof T]>,
+) => (props: { theme: T }) => string;
+
+export type MediaKs = "sm" | "md" | "lg";
+
+export type UseMedia = (query: string) => boolean;
+
+export type HandleMedia = (event: MediaQueryListEvent) => void;
+
+export type FlexKs =
+  | "display"
+  | "flexDirection"
+  | "flexWrap"
+  | "justifyContent"
+  | "alignItems"
+  | "alignContent"
+  | "order"
+  | "flexGrow"
+  | "flexShrink"
+  | "flexBasis"
+  | "alignSelf";
+
+export type FlexProps<Ks extends FlexKs = FlexKs> = {
+  [K in Ks as `$${K}`]?:
+    | React.CSSProperties[K]
+    | Partial<Record<MediaKs, React.CSSProperties[K]>>;
 };
 
-type ColKs = "$sm" | "$md" | "$lg";
-
-type ColEdgeKs = "start" | "mid" | "end";
+type ColKs = "start" | "mid" | "end";
 
 type Cols = typeof COLS_MAP[number];
 
-export type ColEdges = Partial<Record<ColEdgeKs, Cols>>;
+export type ColEdges = Partial<Record<ColKs, Cols>>;
 
-export type ColProps = Partial<Record<ColKs, ColEdges>>;
+export type ColProps = Omit<FlexProps, keyof FlexProps> &
+  Partial<Record<MediaKs, ColEdges>>;
 
 export type AdornmentProps = {
   $edge?: "start" | "end";
@@ -54,14 +81,3 @@ export type TextProps = {
   $variant?: keyof typeof VARIANT_MAP | "inherit";
   $weight?: 400 | 500 | 600 | 700;
 };
-
-export type IsProp<P extends string | number | boolean | undefined> = (
-  props: P | P[],
-  values: P[],
-) => boolean;
-
-export type Theme = typeof THEME;
-
-export type Token<T extends object = Theme> = (
-  key: keyof Merge<T[keyof T]>,
-) => (props: { theme: T }) => string;

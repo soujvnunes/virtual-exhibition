@@ -1,17 +1,38 @@
-import styled from "styled-components";
-import { FlexProps } from "types";
+import styled, { css, DefaultTheme } from "styled-components";
+import { FlexKs, FlexProps } from "types";
+import { token as t } from "utils";
+import flexProps from "./flexProps";
 
+const getPropPair = (key: string, value: string) => ({ [key]: value });
+const getFlex =
+  (key: FlexKs) => (props: FlexProps & { theme: DefaultTheme }) => {
+    const val = props[`$${key}`];
+    const newVal = {
+      ...(typeof val === "string" ? { sm: `${val}` } : null),
+      ...(typeof val === "object" ? val : null),
+    };
+    const resVal = Object.keys(newVal);
+
+    return resVal.reduce(
+      (prev, curr) =>
+        css`
+          ${prev};
+          ${t(curr)} {
+            ${getPropPair(key, newVal[curr])}
+          } ;
+        `,
+      {},
+    );
+  };
 const Flex = styled.div<FlexProps>`
-  display: ${(props) => props.$display};
-  flex-direction: ${(props) => props.$direction};
-  flex-flow: ${(props) => props.$flow};
-  justify-content: ${(props) => props.$justify};
-  align-items: ${(props) => props.$align};
-  align-content: ${(props) => props.$content};
-  order: ${(props) => props.$order};
-  flex-grow: ${(props) => props.$grow};
-  flex-shrink: ${(props) => props.$shrink};
-  align-self: ${(props) => props.$self};
+  ${flexProps.reduce(
+    (prev, curr) =>
+      css`
+        ${prev};
+        ${getFlex(curr)};
+      `,
+    {},
+  )};
 `;
 
 Flex.displayName = "Flex";
