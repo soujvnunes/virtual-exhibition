@@ -1,17 +1,22 @@
-import styled, { css } from "styled-components";
-import { FlexKs, FlexProps } from "types";
-import { getProps } from "utils";
-import flexProps from "./flexProps";
+import styled from "styled-components";
+import { generateStyledProps, StyledProps } from "utils";
 
-const Flex = styled.div<FlexProps>`
-  ${flexProps.reduce(
-    (prev, curr) =>
-      css`
-        ${prev};
-        ${getProps<FlexKs, FlexProps>(curr)};
-      `,
-    {},
-  )};
+const flexProps: (keyof React.CSSProperties)[] = [
+  "display",
+  "flexDirection",
+  "flexWrap",
+  "justifyContent",
+  "alignItems",
+  "alignContent",
+  "order",
+  "flexGrow",
+  "flexShrink",
+  "flexBasis",
+  "alignSelf",
+];
+
+const Flex = styled.div<StyledProps<typeof flexProps[number]>>`
+  ${generateStyledProps(flexProps)};
 `;
 
 Flex.displayName = "Flex";

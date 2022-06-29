@@ -32,41 +32,17 @@ export type Token<T extends object = Theme> = (
   key: keyof Merge<T[keyof T]>,
 ) => (props: { theme: T }) => string;
 
-export type MediaKs = "sm" | "md" | "lg";
-
 export type UseMedia = (query: string) => boolean;
 
 export type HandleMedia = (event: MediaQueryListEvent) => void;
-
-export type Props = Partial<Record<MediaKs, string>>;
-
-export type FlexKs =
-  | "display"
-  | "flexDirection"
-  | "flexWrap"
-  | "justifyContent"
-  | "alignItems"
-  | "alignContent"
-  | "order"
-  | "flexGrow"
-  | "flexShrink"
-  | "flexBasis"
-  | "alignSelf";
-
-export type FlexProps<Ks extends FlexKs = FlexKs> = {
-  [K in Ks as `$${K}`]?:
-    | React.CSSProperties[K]
-    | Partial<Record<MediaKs, React.CSSProperties[K]>>;
-};
 
 type ColKs = "start" | "mid" | "end";
 
 type Cols = typeof COLS_MAP[number];
 
-export type ColEdges = Partial<Record<ColKs, Cols>>;
-
-export type ColProps = Omit<FlexProps, keyof FlexProps> &
-  Partial<Record<MediaKs, ColEdges>>;
+export type ColProps<Ks extends ColKs = ColKs> = {
+  [K in Ks as `$${K}`]?: Cols | Partial<Record<"sm" | "md" | "lg", Cols>>;
+};
 
 export type AdornmentProps = {
   $edge?: "start" | "end";
