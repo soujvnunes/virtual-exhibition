@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { generateStyledProps, StyledProps } from "utils";
+import { generateResponsiveProps, ResponsiveProps } from "utils";
 
-const flexProps: (keyof React.CSSProperties)[] = [
+const flexKs: (keyof React.CSSProperties)[] = [
   "display",
   "flexDirection",
   "flexWrap",
@@ -15,8 +15,12 @@ const flexProps: (keyof React.CSSProperties)[] = [
   "alignSelf",
 ];
 
-const Flex = styled.div<StyledProps<typeof flexProps[number]>>`
-  ${generateStyledProps(flexProps)};
+type FlexKs = typeof flexKs[number];
+
+type FlexProps = ResponsiveProps<FlexKs>;
+
+const Flex = styled.div<FlexProps>`
+  ${generateResponsiveProps(flexKs)};
 `;
 
 Flex.displayName = "Flex";
