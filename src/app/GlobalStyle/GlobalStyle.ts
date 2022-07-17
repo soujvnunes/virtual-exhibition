@@ -1,9 +1,59 @@
-import { normalize } from "polished";
 import { createGlobalStyle, css } from "styled-components";
 import { token as g } from "utils";
 
-export default createGlobalStyle`${css`
-  ${normalize()}
+/* CSS Reset adapted from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
+const reset = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  ul[class],
+  ol[class] {
+    padding: 0;
+    list-style: none;
+  }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd,
+  ul[class],
+  ol[class] {
+    margin: 0;
+  }
+  body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  article > * + * {
+    margin-left: 1em;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+`;
+const vars = css`
   :root {
     --color-primary: var(--channel-pink-500);
     --color-secondary: var(--channel-pink-600);
@@ -46,8 +96,9 @@ export default createGlobalStyle`${css`
       --grid-margin: var(--size-32);
     }
   }
+`;
+const globals = css`
   html {
-    box-sizing: border-box;
     text-rendering: optimizeLegibility;
     color-scheme: light;
     -webkit-font-smoothing: auto;
@@ -58,11 +109,6 @@ export default createGlobalStyle`${css`
       -moz-osx-font-smoothing: grayscale;
     }
   }
-  *,
-  *::after,
-  *::before {
-    box-sizing: inherit;
-  }
   body {
     line-height: 1.5em;
     font-size: ${g("body")};
@@ -70,4 +116,6 @@ export default createGlobalStyle`${css`
     background-color: rgb(${g("background")});
     color: rgb(${g("foreground")});
   }
-`}`;
+`;
+
+export default createGlobalStyle`${reset}${vars}${globals}`;
