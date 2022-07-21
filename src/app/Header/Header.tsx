@@ -5,6 +5,8 @@ import { token as t } from "utils";
 
 const HeaderRoot = styled(Container)`
   height: calc(${t(48)} + ${t(16)});
+  display: flex;
+  align-items: center;
 `;
 const ButtonA11y = styled(Button)`
   margin-left: auto;
@@ -15,7 +17,7 @@ const ButtonNews = styled(Button)`
 
 export default function Header() {
   return (
-    <HeaderRoot $display="flex" $alignItems="center" as="header">
+    <HeaderRoot as="header">
       <Logos />
       <ButtonA11y>
         <Adornment>

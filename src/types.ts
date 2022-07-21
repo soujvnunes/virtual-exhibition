@@ -36,12 +36,12 @@ export type UseMedia = (query: string) => boolean;
 
 export type HandleMedia = (event: MediaQueryListEvent) => void;
 
-type ColKs = "start" | "mid" | "end";
+export type ColKs = "start" | "mid" | "end";
 
-type Cols = typeof COLS_MAP[number];
+export type Cols = typeof COLS_MAP[number];
 
-export type ColProps<Ks extends ColKs = ColKs> = {
-  [K in Ks as `$${K}`]?: Cols | Partial<Record<"sm" | "md" | "lg", Cols>>;
+export type ColProps = {
+  [K in ColKs]?: Cols | Partial<Record<"DEFAULT" | "md" | "lg", Cols>>;
 };
 
 export type AdornmentProps = {

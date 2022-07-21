@@ -14,10 +14,10 @@ const ButtonTextStyle = styled(Text).attrs({
   text-decoration: ${(props) => props.href && "none"};
 `;
 const Button = styled(Surface).attrs((props: ButtonProps) => ({
-  $alignItems: "center",
   as: ButtonTextStyle,
   forwardedAs: props.href ? "a" : "button",
 }))<ButtonProps>`
+  align-items: center;
   background-color: transparent;
   height: calc(${g(32)} + ${g(8)});
   padding: 0 ${g(24)} 0 ${g(24)};

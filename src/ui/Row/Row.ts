@@ -1,14 +1,11 @@
 import styled from "styled-components";
-import Flex from "ui/Flex";
 import { token as t } from "utils";
 
-const Row = styled(Flex).attrs({
-  as: "ul",
-  $display: "flex",
-  $flexDirection: "row",
-  $flexWrap: "wrap",
-})`
+const Row = styled.ul`
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: calc(100% + ${t("padding")});
   margin-top: calc(${t("padding")} * -1);
   margin-left: calc(${t("padding")} * -1);

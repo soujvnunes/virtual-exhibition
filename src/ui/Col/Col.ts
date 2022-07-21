@@ -1,24 +1,55 @@
-import styled, { css } from "styled-components";
-import { ColEdges, ColProps } from "types";
-import Flex from "ui/Flex";
+import styled from "styled-components";
+import { ColKs, ColProps, Cols } from "types";
 import { token as t } from "utils";
 
-const getColSize = (col: number) => (100 * col) / 12;
-const getCol = (col: ColEdges, media?: "md" | "lg") => css`
-  ${media && t(media)} {
-    margin-left: ${col.start && `${getColSize(col.start)}%`};
-    margin-right: ${col.end && `${getColSize(col.end)}%`};
-    flex-basis: ${col.mid && `${getColSize(col.mid)}%`};
-    flex-grow: ${col.mid && 0};
-    max-width: ${col.mid && `${getColSize(col.mid)}%`};
-  }
-`;
-const Col = styled(Flex).attrs({ as: "li" })<ColProps>`
+const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
+const convertToObj = (
+  prop: unknown,
+): Partial<Record<ColKs, Partial<Record<"DEFAULT" | "md" | "lg", Cols>>>> =>
+  prop != null ? (typeof prop === "object" ? prop : { DEFAULT: prop }) : {};
+
+const Col = styled.li<ColProps>`
   padding-left: ${t("padding")};
   padding-top: ${t("padding")};
-  ${(props) => props.$sm && getCol(props.$sm)};
-  ${(props) => props.$md && getCol(props.$md, "md")};
-  ${(props) => props.$lg && getCol(props.$lg, "lg")};
+  ${(props) => {
+    const ref = {
+      styles: {},
+    };
+
+    for (const edgeUntype of ["start", "mid", "end"]) {
+      const edge = edgeUntype as "start" | "mid" | "end";
+
+      if (typeof props[edge] !== "undefined") {
+        const edgeKeys = convertToObj(props[edge]) as Partial<
+          Record<"DEFAULT" | "md" | "lg", Cols>
+        >;
+
+        for (const keyUntyped in edgeKeys) {
+          if (Object.prototype.hasOwnProperty.call(edgeKeys, keyUntyped)) {
+            const key = keyUntyped as "md" | "lg";
+            const col = edgeKeys[key];
+
+            if (col) {
+              const colSize = getColSize(col);
+
+              ref.styles = {
+                ...ref.styles,
+                [props.theme.media[key] || ""]: {
+                  marginLeft: edge === "start" && colSize,
+                  marginRight: edge === "end" && colSize,
+                  flexBasis: edge === "mid" && colSize,
+                  flexGrow: edge === "mid" && 0,
+                  maxWidth: edge === "mid" && colSize,
+                },
+              };
+            }
+          }
+        }
+      }
+    }
+
+    return ref.styles;
+  }}
 `;
 
 Col.displayName = "Col";
