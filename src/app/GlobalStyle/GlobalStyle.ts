@@ -3,13 +3,20 @@ import { token as g } from "utils";
 
 /* CSS Reset adapted from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 const reset = css`
+  html {
+    box-sizing: border-box;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
   *,
   *::before,
   *::after {
     box-sizing: inherit;
   }
-  ul[class],
-  ol[class] {
+  ul,
+  ol {
     padding: 0;
     list-style: none;
   }
@@ -25,16 +32,9 @@ const reset = css`
   blockquote,
   dl,
   dd,
-  ul[class],
-  ol[class] {
+  ul,
+  ol {
     margin: 0;
-  }
-  body {
-    box-sizing: border-box;
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
   }
   a:not([class]) {
     text-decoration-skip-ink: auto;
@@ -98,8 +98,12 @@ const vars = css`
   }
 `;
 const globals = css`
-  html {
-    text-rendering: optimizeLegibility;
+  body {
+    line-height: 1.5em;
+    font-size: ${g("body")};
+    font-family: ${g("sans")};
+    background-color: rgb(${g("background")});
+    color: rgb(${g("foreground")});
     color-scheme: light;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -108,13 +112,6 @@ const globals = css`
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-  }
-  body {
-    line-height: 1.5em;
-    font-size: ${g("body")};
-    font-family: ${g("sans")};
-    background-color: rgb(${g("background")});
-    color: rgb(${g("foreground")});
   }
 `;
 
