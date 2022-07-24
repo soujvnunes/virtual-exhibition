@@ -40,32 +40,30 @@ export default function Intro() {
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Text>
         <Row>
-          {HOMAGES_DATA.map((homage, index) => {
-            const isMain = index === 0;
-
-            return (
-              <Col
-                key={homage.title}
-                start={{
-                  DEFAULT: isMain ? 3 : undefined,
-                  md: isMain ? 4 : undefined,
-                }}
-                mid={{
-                  DEFAULT: isMain ? 6 : 3,
-                  md: isMain ? 4 : 2,
-                }}
-              >
-                <iframe
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  {...homage}
-                />
-              </Col>
-            );
-          })}
+          {HOMAGES_DATA.map((homage, index) => (
+            <Col
+              key={homage.title}
+              {...(index === 0 && {
+                $start: {
+                  DEFAULT: 3,
+                  md: 4,
+                },
+              })}
+              $mid={{
+                DEFAULT: index === 0 ? 6 : 3,
+                md: index === 0 ? 4 : 2,
+              }}
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                {...homage}
+              />
+            </Col>
+          ))}
         </Row>
       </Container>
     </ContainerGradient>

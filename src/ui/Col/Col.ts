@@ -1,54 +1,56 @@
 import styled from "styled-components";
-import { ColKs, ColProps, Cols } from "types";
+import { ColProps, Cols } from "types";
 import { token as t } from "utils";
 
 const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
 const convertToObj = (
   prop: unknown,
-): Partial<Record<ColKs, Partial<Record<"DEFAULT" | "md" | "lg", Cols>>>> =>
+): Partial<Record<"DEFAULT" | "md" | "lg", Cols>> =>
   prop != null ? (typeof prop === "object" ? prop : { DEFAULT: prop }) : {};
-
 const Col = styled.li<ColProps>`
   padding-left: ${t("padding")};
   padding-top: ${t("padding")};
   ${(props) => {
-    const ref = {
-      styles: {},
-    };
+    let styles: { [key: string]: { [key: string]: string | number } } = {};
 
-    for (const edgeUntype of ["start", "mid", "end"]) {
-      const edge = edgeUntype as "start" | "mid" | "end";
+    for (const propUntyped of ["$start", "$mid", "$end"]) {
+      const prop = propUntyped as keyof ColProps;
+      const valueResponsive = convertToObj(props[prop]);
 
-      if (typeof props[edge] !== "undefined") {
-        const edgeKeys = convertToObj(props[edge]) as Partial<
-          Record<"DEFAULT" | "md" | "lg", Cols>
-        >;
+      for (const mediaUntyped in valueResponsive) {
+        const media = mediaUntyped as "DEFAULT" | "md" | "lg";
+        const value = getColSize(valueResponsive[media] as Cols);
 
-        for (const keyUntyped in edgeKeys) {
-          if (Object.prototype.hasOwnProperty.call(edgeKeys, keyUntyped)) {
-            const key = keyUntyped as "md" | "lg";
-            const col = edgeKeys[key];
-
-            if (col) {
-              const colSize = getColSize(col);
-
-              ref.styles = {
-                ...ref.styles,
-                [props.theme.media[key] || ""]: {
-                  marginLeft: edge === "start" && colSize,
-                  marginRight: edge === "end" && colSize,
-                  flexBasis: edge === "mid" && colSize,
-                  flexGrow: edge === "mid" && 0,
-                  maxWidth: edge === "mid" && colSize,
-                },
-              };
-            }
-          }
-        }
+        styles = {
+          ...styles,
+          [mediaUntyped]: {
+            ...styles[mediaUntyped],
+            ...(prop === "$start" && {
+              marginLeft: value,
+            }),
+            ...(prop === "$end" && {
+              marginRight: value,
+            }),
+            ...(prop === "$mid" && {
+              flexBasis: value,
+              flexGrow: 0,
+              maxWidth: value,
+            }),
+          },
+        };
       }
     }
+    for (const mediaUntyped in styles) {
+      const media = mediaUntyped as "md" | "lg";
 
-    return ref.styles;
+      styles = {
+        ...styles,
+        [props.theme.media[media] || ""]: styles[media],
+      };
+      delete styles[media];
+    }
+
+    return styles;
   }}
 `;
 

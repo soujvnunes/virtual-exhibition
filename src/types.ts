@@ -41,7 +41,9 @@ export type ColKs = "start" | "mid" | "end";
 export type Cols = typeof COLS_MAP[number];
 
 export type ColProps = {
-  [K in ColKs]?: Cols | Partial<Record<"DEFAULT" | "md" | "lg", Cols>>;
+  [K in ColKs as `$${K}`]?:
+    | Cols
+    | Partial<Record<"DEFAULT" | "md" | "lg", Cols>>;
 };
 
 export type AdornmentProps = {
