@@ -10,18 +10,18 @@ const convertToObj = (
 const Col = styled.li<ColProps>`
   padding-left: ${t("padding")};
   padding-top: ${t("padding")};
+  flex-grow: ${(props) => props.$mid && 0};
   ${(props) => {
     let styles: { [key: string]: { [key: string]: string | number } } = {};
 
-    for (const propUntyped of ["$start", "$mid", "$end"]) {
-      const prop = propUntyped as keyof ColProps;
+    for (const Nprop of ["$start", "$mid", "$end"]) {
+      const prop = Nprop as keyof ColProps;
       const valueResponsive = convertToObj(props[prop]);
 
-      for (const mediaUntyped in valueResponsive) {
-        const media: string =
-          props.theme.media[mediaUntyped as "md" | "lg"] || "";
+      for (const Nmedia in valueResponsive) {
+        const media = props.theme.media[Nmedia as "md" | "lg"] || "";
         const value = getColSize(
-          valueResponsive[mediaUntyped as "DEFAULT" | "md" | "lg"] as Cols,
+          valueResponsive[Nmedia as "DEFAULT" | "md" | "lg"] as Cols,
         );
 
         styles = {
@@ -37,9 +37,6 @@ const Col = styled.li<ColProps>`
             ...(prop === "$mid" && {
               flexBasis: value,
               maxWidth: value,
-              ...(!media && {
-                flexGrow: 0,
-              }),
             }),
           },
         };
