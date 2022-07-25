@@ -18,7 +18,8 @@ const Col = styled.li<ColProps>`
       const valueResponsive = convertToObj(props[prop]);
 
       for (const mediaUntyped in valueResponsive) {
-        const media = props.theme.media[mediaUntyped as "md" | "lg"] || "";
+        const media: string =
+          props.theme.media[mediaUntyped as "md" | "lg"] || "";
         const value = getColSize(
           valueResponsive[mediaUntyped as "DEFAULT" | "md" | "lg"] as Cols,
         );
@@ -36,7 +37,9 @@ const Col = styled.li<ColProps>`
             ...(prop === "$mid" && {
               flexBasis: value,
               maxWidth: value,
-              flexGrow: !media ? 0 : "",
+              ...(!media && {
+                flexGrow: 0,
+              }),
             }),
           },
         };
