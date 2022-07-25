@@ -18,13 +18,15 @@ const Col = styled.li<ColProps>`
       const valueResponsive = convertToObj(props[prop]);
 
       for (const mediaUntyped in valueResponsive) {
-        const media = mediaUntyped as "DEFAULT" | "md" | "lg";
-        const value = getColSize(valueResponsive[media] as Cols);
+        const media = props.theme.media[mediaUntyped as "md" | "lg"] || "";
+        const value = getColSize(
+          valueResponsive[mediaUntyped as "DEFAULT" | "md" | "lg"] as Cols,
+        );
 
         styles = {
           ...styles,
-          [mediaUntyped]: {
-            ...styles[mediaUntyped],
+          [media]: {
+            ...styles[media],
             ...(prop === "$start" && {
               marginLeft: value,
             }),
@@ -33,21 +35,12 @@ const Col = styled.li<ColProps>`
             }),
             ...(prop === "$mid" && {
               flexBasis: value,
-              flexGrow: 0,
               maxWidth: value,
+              flexGrow: !media ? 0 : "",
             }),
           },
         };
       }
-    }
-    for (const mediaUntyped in styles) {
-      const media = mediaUntyped as "md" | "lg";
-
-      styles = {
-        ...styles,
-        [props.theme.media[media] || ""]: styles[media],
-      };
-      delete styles[media];
     }
 
     return styles;
