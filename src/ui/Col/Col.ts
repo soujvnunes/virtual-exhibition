@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ColProps, Cols } from "types";
 import { token as t } from "utils";
 
-const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
+export const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
 const convertToObj = (
   prop: unknown,
 ): Partial<Record<"DEFAULT" | "md" | "lg", Cols>> =>
