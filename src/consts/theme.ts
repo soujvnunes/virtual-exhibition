@@ -25,8 +25,8 @@ export default {
     headline: "var(--text-headline)",
   },
   media: {
-    md: "@media screen and (min-width: 40rem)",
-    lg: "@media screen and (min-width: 80rem)",
+    md: "@media (min-width: 40rem)",
+    lg: "@media (min-width: 80rem)",
     dark: "@media (prefers-color-scheme: dark)",
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
