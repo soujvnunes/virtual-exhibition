@@ -1,11 +1,11 @@
-type IsProp<P = string | number | boolean | undefined> = (
-  props: P | P[],
-  values: P[],
-) => boolean;
+type V = string | number | boolean | undefined;
 
-const isProp: IsProp = (prop, values) =>
-  Array.isArray(prop)
-    ? prop.map((key) => new Set(values).has(key)).some(Boolean)
-    : new Set(values).has(prop);
+export default function isProp(prop: V | V[], values: V[]): boolean {
+  const newValues = new Set(values);
 
-export default isProp;
+  if (Array.isArray(prop)) {
+    return prop.map((key) => newValues.has(key)).some(Boolean);
+  }
+
+  return newValues.has(prop);
+}

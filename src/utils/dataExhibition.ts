@@ -1,81 +1,10 @@
-import d1601 from "assets/d-1-6-1.jpg";
-import d1602 from "assets/d-1-6-2.jpg";
-import d1603 from "assets/d-1-6-3.jpg";
-import d1604 from "assets/d-1-6-4.jpg";
-import d1605 from "assets/d-1-6-5.jpg";
-import d1606 from "assets/d-1-6-6.jpg";
-import d1607 from "assets/d-1-6-7.jpg";
-import d1608 from "assets/d-1-6-8.jpg";
-import d1609 from "assets/d-1-6-9.jpg";
-import d1610 from "assets/d-1-6-10.jpg";
-import d1701 from "assets/d-1-7-1.jpg";
-import d1702 from "assets/d-1-7-2.jpg";
-import d1703 from "assets/d-1-7-3.jpg";
-import d1704 from "assets/d-1-7-4.jpg";
-import d1705 from "assets/d-1-7-5.jpg";
-import d1706 from "assets/d-1-7-6.jpg";
-import d1707 from "assets/d-1-7-7.jpg";
-import d1708 from "assets/d-1-7-8.jpg";
-import d1709 from "assets/d-1-7-9.jpg";
-import d1710 from "assets/d-1-7-10.jpg";
-import d1801 from "assets/d-1-8-1.jpg";
-import d1802 from "assets/d-1-8-2.jpg";
-import d1803 from "assets/d-1-8-3.jpg";
-import d1804 from "assets/d-1-8-4.jpg";
-import d1805 from "assets/d-1-8-5.jpg";
-import d1806 from "assets/d-1-8-6.jpg";
-import d1807 from "assets/d-1-8-7.jpg";
-import d1808 from "assets/d-1-8-8.jpg";
-import d1809 from "assets/d-1-8-9.jpg";
-import d1810 from "assets/d-1-8-10.jpg";
-import d1901 from "assets/d-1-9-1.jpg";
-import d1902 from "assets/d-1-9-2.jpg";
-import d1903 from "assets/d-1-9-3.jpg";
-import d1904 from "assets/d-1-9-4.jpg";
-import d1905 from "assets/d-1-9-5.jpg";
-import d1906 from "assets/d-1-9-6.jpg";
-import d1907 from "assets/d-1-9-7.jpg";
-import d1908 from "assets/d-1-9-8.jpg";
-import d1909 from "assets/d-1-9-9.jpeg";
-import d1910 from "assets/d-1-9-10.jpg";
-import d2001 from "assets/d-2-0-1.jpg";
-import d2002 from "assets/d-2-0-2.jpg";
-import d2003 from "assets/d-2-0-3.jpg";
-import d2004 from "assets/d-2-0-4.jpg";
-import d2005 from "assets/d-2-0-5.jpg";
-import d2006 from "assets/d-2-0-6.jpg";
-import d2007 from "assets/d-2-0-7.jpg";
-import d2008 from "assets/d-2-0-8.jpg";
-import d2009 from "assets/d-2-0-9.jpg";
-import d2010 from "assets/d-2-0-10.jpeg";
-import d2101 from "assets/d-2-1-1.jpg";
-import d2102 from "assets/d-2-1-2.jpg";
-import d2103 from "assets/d-2-1-3.jpg";
-import d2104 from "assets/d-2-1-4.jpg";
-import d2105 from "assets/d-2-1-5.jpg";
-import d2106 from "assets/d-2-1-6.jpg";
-import d2107 from "assets/d-2-1-7.jpg";
-import d2108 from "assets/d-2-1-8.jpg";
-import d2109 from "assets/d-2-1-9.jpg";
-import p1601 from "assets/p-aristoteles-simoes.jpg";
-import p1701 from "assets/p-nabuco-santos.jpg";
-import p1702 from "assets/p-manuel-azevedo.jpg";
-import p1801 from "assets/p-joao-azevedo.jpg";
-import p1802 from "assets/p-fernando-gama.jpg";
-import p1803 from "assets/p-delza-gitai.jpg";
-import p1902 from "assets/p-rogerio-pinheiro.jpg";
-import p2001 from "assets/p-ana-dorea.jpg";
-import p2101 from "assets/p-eurico-filho.jpg";
-import p2102 from "assets/p-maria-correia.jpg";
-import p2103 from "assets/p-josealdo-tonholo.jpg";
-
-export default [
+const dataExhibition = [
   {
     title: 1960,
     dean: [
       {
         alt: "Aristóteles Calazans Simões",
-        src: p1601,
+        src: require("assets/p-aristoteles-simoes.jpg"),
         period: {
           from: 1961,
           to: 1971,
@@ -87,49 +16,49 @@ export default [
     gallery: [
       {
         alt: "Canteiro de obras",
-        src: d1601,
+        src: require("assets/d-1-6-1.jpg"),
       },
       {
         alt: "Trabalhadores no canteiro de obras da Ufal",
-        src: d1605,
+        src: require("assets/d-1-6-5.jpg"),
       },
       {
         alt: "Tomada do campus da Ufal em construção",
-        src: d1606,
+        src: require("assets/d-1-6-6.jpg"),
       },
       {
         alt: "Prédio que se tornaria sede da 1° Reitoria da Ufal na Praça Sinimbu",
-        src: d1609,
+        src: require("assets/d-1-6-9.jpg"),
       },
       {
         alt: "Presidente Juscelino Kubitschek sancionando a lei de criação da Ufal",
         period: "Janeiro de 1961",
-        src: d1603,
+        src: require("assets/d-1-6-3.jpg"),
       },
       {
         alt: "Reunião do Conselho Universitário da Ufal quando da assinatura do contrato para elaboração do Plano Diretor da construção da Cidade Universitária",
         period: 1965,
-        src: d1607,
+        src: require("assets/d-1-6-7.jpg"),
       },
       {
         alt: "Residência Universitária Masculina",
         period: 1966,
-        src: d1608,
+        src: require("assets/d-1-6-8.jpg"),
       },
       {
         alt: "Início das obras de implantação do Campus, na Cidade Universitária",
         period: 1967,
-        src: d1610,
+        src: require("assets/d-1-6-10.jpg"),
       },
       {
         alt: "Construção do Instituto de Química",
         period: "Outubro de 1968",
-        src: d1602,
+        src: require("assets/d-1-6-2.jpg"),
       },
       {
         alt: "Sala de Aula do Curso de Administração e Economia",
         period: "Junho de 1969",
-        src: d1604,
+        src: require("assets/d-1-6-4.jpg"),
       },
     ],
   },
@@ -138,7 +67,7 @@ export default [
     dean: [
       {
         alt: "Nabuco Lopes",
-        src: p1701,
+        src: require("assets/p-nabuco-santos.jpg"),
         period: {
           from: 1971,
           to: 1975,
@@ -148,7 +77,7 @@ export default [
       },
       {
         alt: "Manoel Ramalho",
-        src: p1702,
+        src: require("assets/p-manuel-azevedo.jpg"),
         period: {
           from: 1975,
           to: 1979,
@@ -160,52 +89,52 @@ export default [
     gallery: [
       {
         alt: "Ministro Ney Braga, Governador Divaldo Suruagy e Reitor Nabuco Lopes",
-        src: d1708,
+        src: require("assets/d-1-7-8.jpg"),
       },
       {
         alt: "Diploma recebido pelo Corufal pela participação do 3º Festival Nacional de Coros",
         period: "Outubro de 1971",
-        src: d1702,
+        src: require("assets/d-1-7-2.jpg"),
       },
       {
         alt: "Vista parcial do Vestibular Unificado, realizado no Estádio Rei Pelé",
         period: 1973,
-        src: d1710,
+        src: require("assets/d-1-7-10.jpg"),
       },
       {
         alt: "Formatura Unificada no Estádio Rei Pelé",
         period: 1974,
-        src: d1703,
+        src: require("assets/d-1-7-3.jpg"),
       },
       {
         alt: "Inauguração do Núcleo de Educação Física e Desportos",
         period: "Abril de 1974",
-        src: d1705,
+        src: require("assets/d-1-7-5.jpg"),
       },
       {
         alt: "Inauguração do Salão Nobre Professor Guedes de Miranda",
         period: 1975,
-        src: d1706,
+        src: require("assets/d-1-7-6.jpg"),
       },
       {
         alt: "Instalação do Museu de Artes plásticas",
         period: 1975,
-        src: d1707,
+        src: require("assets/d-1-7-7.jpg"),
       },
       {
         alt: "Impresso contendo a programação da 1ª Semana de Cultura Popular",
         period: 1976,
-        src: d1704,
+        src: require("assets/d-1-7-4.jpg"),
       },
       {
         alt: "Navio Hope em Maceió",
         period: "Março de 1977",
-        src: d1709,
+        src: require("assets/d-1-7-9.jpg"),
       },
       {
         alt: "Capa da primeira edição da Revista Scientia Ad Sapientiam",
         period: 1978,
-        src: d1701,
+        src: require("assets/d-1-7-1.jpg"),
       },
     ],
   },
@@ -214,7 +143,7 @@ export default [
     dean: [
       {
         alt: "João Azevedo",
-        src: p1801,
+        src: require("assets/p-joao-azevedo.jpg"),
         period: {
           from: 1979,
           to: 1983,
@@ -224,7 +153,7 @@ export default [
       },
       {
         alt: "Fernando Gama",
-        src: p1802,
+        src: require("assets/p-fernando-gama.jpg"),
         period: {
           from: 1983,
           to: 1987,
@@ -234,7 +163,7 @@ export default [
       },
       {
         alt: "Delza Gitaí",
-        src: p1803,
+        src: require("assets/p-delza-gitai.jpg"),
         period: {
           from: 1987,
           to: 1991,
@@ -246,52 +175,52 @@ export default [
     gallery: [
       {
         alt: "Embaixador de Israel em visita a Ufal",
-        src: d1805,
+        src: require("assets/d-1-8-5.jpg"),
       },
       {
         alt: "Campanha para Reitor da Ufal",
         period: 1986,
-        src: d1803,
+        src: require("assets/d-1-8-3.jpg"),
       },
       {
         alt: "Ex-reitores na comemoração de 25 anos da Ufal",
         period: "Janeiro de 1986",
-        src: d1806,
+        src: require("assets/d-1-8-6.jpg"),
       },
       {
         alt: "Visita do Ministro da Educação Jorge BornHausen às dependências da Ufal",
         period: "Março de 1986",
-        src: d1801,
+        src: require("assets/d-1-8-1.jpg"),
       },
       {
         alt: "Eleição direta para reitor. Flagrante da apuração de votos",
         period: "Novembro de 1986",
-        src: d1810,
+        src: require("assets/d-1-8-10.jpg"),
       },
       {
         alt: "Inauguração da reitoria no campus universitário",
         period: "Novembro de 1987",
-        src: d1808,
+        src: require("assets/d-1-8-8.jpg"),
       },
       {
         alt: "Manifestação dos Estudantes da Ufal reinvidicando o Restaurante Universitário",
         period: "Março de 1988",
-        src: d1807,
+        src: require("assets/d-1-8-7.jpg"),
       },
       {
         alt: "Abertura dos Jogos Internos do Curso de Educação Física",
         period: "Setembro de 1988",
-        src: d1802,
+        src: require("assets/d-1-8-2.jpg"),
       },
       {
         alt: "Cônsul da Alemanha em visita à Ufal",
         period: "Outubro de 1989",
-        src: d1804,
+        src: require("assets/d-1-8-4.jpg"),
       },
       {
         alt: "Espaço Cultural da Ufal",
         period: "Dezembro de 1989",
-        src: d1809,
+        src: require("assets/d-1-8-9.jpg"),
       },
     ],
   },
@@ -300,7 +229,7 @@ export default [
     dean: [
       {
         alt: "Fernando Gama",
-        src: p1802,
+        src: require("assets/p-fernando-gama.jpg"),
         period: {
           from: 1991,
           to: 1995,
@@ -310,7 +239,7 @@ export default [
       },
       {
         alt: "Rogério Pinheiro",
-        src: p1902,
+        src: require("assets/p-rogerio-pinheiro.jpg"),
         period: {
           from: 1995,
           to: 2003,
@@ -323,52 +252,52 @@ export default [
       {
         alt: "Assinatura de convência com o MEC sobre o programa nacional de Alfabetização",
         period: "Novembro de 1990",
-        src: d1908,
+        src: require("assets/d-1-9-8.jpg"),
       },
       {
         alt: "Aula Inaugural do Curso de Formação do Ator no Circo Cultural",
         period: "Dezembro de 1990",
-        src: d1902,
+        src: require("assets/d-1-9-2.jpg"),
       },
       {
         alt: "Inauguração das salas de música do Departamento de Arte",
         period: "Março de 1991",
-        src: d1905,
+        src: require("assets/d-1-9-5.jpg"),
       },
       {
         alt: "Primeira defesa de tese do curso de mestrado em Letras da Ufal",
         period: "Maio de 1991",
-        src: d1907,
+        src: require("assets/d-1-9-7.jpg"),
       },
       {
         alt: "Atendimento aos alunos na Proest",
         period: 1994,
-        src: d1901,
+        src: require("assets/d-1-9-1.jpg"),
       },
       {
         alt: "Aula Inaugural Noturna",
         period: "Março de 1996",
-        src: d1903,
+        src: require("assets/d-1-9-3.jpg"),
       },
       {
         alt: "Exposição de livros no pátio da Reitoria promovida pela Edufal",
         period: "Agosto de 1996",
-        src: d1910,
+        src: require("assets/d-1-9-10.jpg"),
       },
       {
         alt: "Novos alunos passando pela experiência do trote",
         period: "Janeiro de 1997",
-        src: d1906,
+        src: require("assets/d-1-9-6.jpg"),
       },
       {
         alt: "Frei Beto em sessão de autógrafos na Bienal do Livro",
         period: "Setembro de 1998",
-        src: d1904,
+        src: require("assets/d-1-9-4.jpg"),
       },
       {
         alt: "Reitor Rogério Pinheiro, a diretora do Museu Théo Brandão, Cármen Lúcia Dantas, e o senador Teotônio Vilela Filho, que destinou recursos de emenda parlamentar para restauração do MTB",
         period: 1999,
-        src: d1909,
+        src: require("assets/d-1-9-9.jpeg"),
       },
     ],
   },
@@ -377,7 +306,7 @@ export default [
     dean: [
       {
         alt: "Ana Dayse Dorea",
-        src: p2001,
+        src: require("assets/p-ana-dorea.jpg"),
         period: {
           from: 2003,
           to: 2011,
@@ -390,52 +319,52 @@ export default [
       {
         alt: "Inauguração Fórum Ufal-CJUR",
         period: "Fevereiro de 2001",
-        src: d2002,
+        src: require("assets/d-2-0-2.jpg"),
       },
       {
         alt: "Inauguração do busto do primeiro reitor, AC Simoes",
         period: "Janeiro de 2001",
-        src: d2008,
+        src: require("assets/d-2-0-8.jpg"),
       },
       {
         alt: "Reinauguração do Museu Théo Brandão na Avenida da Paz fechada para a celebração.",
         period: "Julho de 2002",
-        src: d2010,
+        src: require("assets/d-2-0-10.jpeg"),
       },
       {
         alt: "Reunião do Consuni sobre cotas raciais",
         period: "Novembro de 2003",
-        src: d2001,
+        src: require("assets/d-2-0-1.jpg"),
       },
       {
         alt: "XI Encontro Nacional de Corais Amadores",
         period: "Setembro de 2004",
-        src: d2003,
+        src: require("assets/d-2-0-3.jpg"),
       },
       {
         alt: "Público na II Bienal Internacional do Livro",
         period: "Outubro de 2005",
-        src: d2009,
+        src: require("assets/d-2-0-9.jpg"),
       },
       {
         alt: "Abertura da exposição de paineis em comemoração aos 45 anos da Ufal no Shopping Iguatemi",
         period: "Janeiro de 2006",
-        src: d2004,
+        src: require("assets/d-2-0-4.jpg"),
       },
       {
         alt: "Alunos da rede púplica de ensino participando da Expofísica",
         period: "Maio de 2006",
-        src: d2006,
+        src: require("assets/d-2-0-6.jpg"),
       },
       {
         alt: "Abertura dos Jogos Internos",
         period: "Novembro de 2008",
-        src: d2005,
+        src: require("assets/d-2-0-5.jpg"),
       },
       {
         alt: "Área destinada à construção da sede da Ufal em Delmiro Gouveia",
         period: 2010,
-        src: d2007,
+        src: require("assets/d-2-0-7.jpg"),
       },
     ],
   },
@@ -444,7 +373,7 @@ export default [
     dean: [
       {
         alt: "Eurico Lôbo",
-        src: p2101,
+        src: require("assets/p-eurico-filho.jpg"),
         period: {
           from: 2011,
           to: 2015,
@@ -454,7 +383,7 @@ export default [
       },
       {
         alt: "Valéria Correia",
-        src: p2102,
+        src: require("assets/p-maria-correia.jpg"),
         period: {
           from: 2016,
           to: 2020,
@@ -464,7 +393,7 @@ export default [
       },
       {
         alt: "Josealdo Tonholo",
-        src: p2103,
+        src: require("assets/p-josealdo-tonholo.jpg"),
         period: {
           from: 2020,
           to: "atualmente",
@@ -477,40 +406,42 @@ export default [
       {
         alt: "Solenidade de Abertura do Caiite",
         period: 2016,
-        src: d2101,
+        src: require("assets/d-2-1-1.jpg"),
       },
       {
         alt: "Tenda Cultural da Ufal",
-        src: d2102,
+        src: require("assets/d-2-1-2.jpg"),
       },
       {
         alt: "Apresentação teatral parte do Natal da Avenida, realizado no Museu Theo Branão",
-        src: d2103,
+        src: require("assets/d-2-1-3.jpg"),
       },
       {
         alt: "Criança recebendo atendimento na Faculdade de Odontologia",
-        src: d2104,
+        src: require("assets/d-2-1-4.jpg"),
       },
       {
         alt: "Integrantes do Movimento dos Trabalhadores sem Terra fazem plantio em terreno ocioso da Ufal",
-        src: d2105,
+        src: require("assets/d-2-1-5.jpg"),
       },
       {
         alt: "Montagem das estruturas da SBPC no campus A.C. Simões",
-        src: d2106,
+        src: require("assets/d-2-1-6.jpg"),
       },
       {
         alt: "Público tomando as ruas do Jaraguá na 9ª edição da Bienal Internacional do Livro de Alagoas",
-        src: d2107,
+        src: require("assets/d-2-1-7.jpg"),
       },
       {
         alt: "Sede do Campus do Sertão em Delmiro Gouveia",
-        src: d2108,
+        src: require("assets/d-2-1-8.jpg"),
       },
       {
         alt: "Apresentação Musical durante as atividades do Caiite em Penedo",
-        src: d2109,
+        src: require("assets/d-2-1-9.jpg"),
       },
     ],
   },
 ];
+
+export default dataExhibition;

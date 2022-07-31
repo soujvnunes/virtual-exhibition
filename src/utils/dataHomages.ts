@@ -1,4 +1,4 @@
-export default [
+const dataHomages = [
   {
     title: "Ufal 60 Anos-Raízes",
     src: "https://www.youtube.com/embed/RYb0tvEygNo",
@@ -16,3 +16,5 @@ export default [
     src: "https://www.youtube.com/embed/V7N8akgwPJA",
   },
 ];
+
+export default dataHomages;

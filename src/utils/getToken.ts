@@ -11,11 +11,9 @@ type Union<U> = (U extends unknown ? (k: U) => void : never) extends (
 type Merge<U> = Union<U> extends infer O ? { [K in keyof O]: O[K] } : never;
 /** */
 
-type GetToken<T extends DefaultTheme = DefaultTheme> = (
+export default function getToken<T extends DefaultTheme = DefaultTheme>(
   key: keyof Merge<T[keyof T]>,
-) => (props: ThemeProps<T>) => string;
-
-const getToken: GetToken = (key) => (props) =>
-  Object.assign({}, ...Object.values(props.theme))[key];
-
-export default getToken;
+) {
+  return (props: ThemeProps<T>): string =>
+    Object.assign({}, ...Object.values(props.theme))[key];
+}

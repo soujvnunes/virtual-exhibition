@@ -1,4 +1,4 @@
-export default {
+const dataTheme = {
   color: {
     primary: "var(--color-primary)",
     secondary: "var(--color-secondary)",
@@ -50,4 +50,6 @@ export default {
     padding: "var(--grid-padding)",
     margin: "var(--grid-margin)",
   },
-} as const;
+};
+
+export default dataTheme;
