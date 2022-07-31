@@ -21,7 +21,7 @@ export default function Header() {
       <Logos />
       <ButtonA11y>
         <Adornment>
-          <Icon>A11y</Icon>
+          <Icon.A11y />
         </Adornment>
       </ButtonA11y>
       <ButtonNews
@@ -31,7 +31,7 @@ export default function Header() {
       >
         Notícias
         <Adornment $edge="end">
-          <Icon>Exit</Icon>
+          <Icon.Exit />
         </Adornment>
       </ButtonNews>
     </HeaderRoot>
