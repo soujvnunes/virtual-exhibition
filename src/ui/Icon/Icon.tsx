@@ -1,12 +1,11 @@
-import { ICON_MAP } from "consts";
 import { memo } from "react";
 import styled from "styled-components";
-import { token as g } from "utils";
+import { getToken as g, mapIcons } from "utils";
 
 const Icon = styled.svg.attrs(({ children }) => ({
   children:
     typeof children === "string" ? (
-      <path d={ICON_MAP[children as keyof typeof ICON_MAP]} />
+      <path d={mapIcons[children as keyof typeof mapIcons]} />
     ) : (
       children
     ),

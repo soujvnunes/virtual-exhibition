@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import { token as g } from "utils";
+import { getToken as g } from "utils";
 
 /* CSS Reset adapted from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 const reset = css`

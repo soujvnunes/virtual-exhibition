@@ -1,7 +1,13 @@
-import { VARIANT_MAP } from "consts";
-import styled, { PropsWithAs } from "styled-components";
-import { TextProps } from "types";
-import { token as g, isProp } from "utils";
+import styled from "styled-components";
+import { getToken as g, isProp, mapTextVariant, PropsWithAs } from "utils";
+
+type TextProps = {
+  $gutterBottom?: boolean;
+  $centered?: boolean;
+  $italic?: boolean;
+  $variant?: keyof typeof mapTextVariant | "inherit";
+  $weight?: 400 | 500 | 600 | 700;
+};
 
 const isHeading = (props: TextProps) =>
   isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);
@@ -10,7 +16,7 @@ const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
     props.as ||
     (props.$variant !== "inherit" &&
       props.$variant &&
-      VARIANT_MAP[props.$variant]),
+      mapTextVariant[props.$variant]),
 }))<TextProps>`
   margin-bottom: ${(props) =>
     props.$gutterBottom

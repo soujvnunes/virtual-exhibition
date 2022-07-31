@@ -1,7 +1,7 @@
 import Logos from "app/Logos";
 import styled from "styled-components";
 import { Adornment, Button, Container, Icon } from "ui";
-import { token as t } from "utils";
+import { getToken as t } from "utils";
 
 const HeaderRoot = styled(Container)`
   height: calc(${t(48)} + ${t(16)});

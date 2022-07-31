@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Text from "ui/Text";
-import { token as g } from "utils";
+import { getToken as g } from "utils";
 import Icon from "ui/Icon";
 
 const LogosRoot = styled.a`

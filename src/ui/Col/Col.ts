@@ -1,6 +1,15 @@
 import styled from "styled-components";
-import { ColProps, Cols } from "types";
-import { token as t } from "utils";
+import { getToken as t, mapCols } from "utils";
+
+export type ColKs = "start" | "mid" | "end";
+
+export type Cols = typeof mapCols[number];
+
+export type ColProps = {
+  [K in ColKs as `$${K}`]?:
+    | Cols
+    | Partial<Record<"DEFAULT" | "md" | "lg", Cols>>;
+};
 
 export const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
 const convertToObj = (

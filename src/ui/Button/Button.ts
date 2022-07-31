@@ -1,8 +1,11 @@
-import styled from "styled-components";
-import { token as g } from "utils";
-import { ButtonProps } from "types";
+import styled, { StyledComponentPropsWithRef } from "styled-components";
+import { getToken as g } from "utils";
 import Surface from "ui/Surface";
 import Text from "ui/Text";
+
+type ButtonProps =
+  | ({ href?: string } & StyledComponentPropsWithRef<"a">)
+  | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
 
 const ButtonTextStyle = styled(Text).attrs({
   $variant: "overline",

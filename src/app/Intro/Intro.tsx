@@ -1,7 +1,6 @@
-import { HOMAGES_DATA } from "consts";
 import styled from "styled-components";
 import { Col, Container, Row, Text } from "ui";
-import { token as t } from "utils";
+import { dataHomages, getToken as t } from "utils";
 
 const ContainerGradient = styled.div`
   border-top-width: 1px;
@@ -40,7 +39,7 @@ export default function Intro() {
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Text>
         <Row>
-          {HOMAGES_DATA.map((homage, index) => (
+          {dataHomages.map((homage, index) => (
             <Col
               key={homage.title}
               {...(index === 0 && {

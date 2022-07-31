@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { token as t } from "utils";
+import { getToken as t } from "utils";
 
 const Row = styled.ul`
   display: flex;
