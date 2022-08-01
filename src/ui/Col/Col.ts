@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { getToken as t, mapCols } from "utils";
+import { getToken as t } from "utils";
+
+const mapCols = Array.from(new Array(12)).map((_, index) => index + 1);
 
 export type ColKs = "start" | "mid" | "end";
 

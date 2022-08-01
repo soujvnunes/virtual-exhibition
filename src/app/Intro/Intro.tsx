@@ -1,7 +1,25 @@
 import styled from "styled-components";
 import { Col, Container, Row, Text } from "ui";
-import { dataHomages, getToken as t } from "utils";
+import { getToken as t } from "utils";
 
+const homages = [
+  {
+    title: "Ufal 60 Anos-Raízes",
+    src: "https://www.youtube.com/embed/RYb0tvEygNo",
+  },
+  {
+    title: "Ufal 60 Anos: raízes conectad@s com o futuro",
+    src: "https://www.youtube.com/embed/jr-EcARAio4",
+  },
+  {
+    title: "Servidoras parabenizam Ufal pelos 60 anos",
+    src: "https://www.youtube.com/embed/u22TU6KEgHc",
+  },
+  {
+    title: "Professores parabenizam Ufal pelos seus 60 anos",
+    src: "https://www.youtube.com/embed/V7N8akgwPJA",
+  },
+];
 const ContainerGradient = styled.div`
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -39,7 +57,7 @@ export default function Intro() {
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Text>
         <Row>
-          {dataHomages.map((homage, index) => (
+          {homages.map((homage, index) => (
             <Col
               key={homage.title}
               {...(index === 0 && {

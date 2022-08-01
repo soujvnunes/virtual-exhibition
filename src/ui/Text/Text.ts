@@ -1,5 +1,14 @@
 import styled from "styled-components";
-import { getToken as g, isProp, mapTextVariant, PropsWithAs } from "utils";
+import { getToken as g, isProp, PropsWithAs } from "utils";
+
+const mapTextVariant = {
+  title: "h1",
+  headline: "h2",
+  subhead: "h3",
+  subtitle: "subtitle",
+  body: "p",
+  overline: "span",
+};
 
 type TextProps = {
   $gutterBottom?: boolean;
