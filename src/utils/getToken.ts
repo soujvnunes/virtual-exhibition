@@ -1,7 +1,10 @@
 import type { DefaultTheme, ThemeProps } from "styled-components";
 
 type V = string | number;
-type Paths<O extends object, Ks extends V | symbol = keyof O> = {
+type Paths<
+  O extends Record<V, Record<V, unknown>>,
+  Ks extends V | symbol = keyof O,
+> = {
   [K in Ks]: K extends V
     ? keyof O[K] extends V
       ? `${K}.${keyof O[K]}`

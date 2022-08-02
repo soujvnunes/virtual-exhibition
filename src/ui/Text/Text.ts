@@ -21,6 +21,10 @@ type TextProps = {
 const isHeading = (props: TextProps) =>
   isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);
 const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
+  className:
+    isHeading(props) &&
+    props.$variant !== "inherit" &&
+    "tk-freight-display-pro",
   as:
     props.as ||
     (props.$variant !== "inherit" &&
@@ -44,8 +48,6 @@ const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
   font-weight: ${(props) => (isHeading(props) ? 400 : props.$weight)};
   line-height: ${(props) =>
     isHeading(props) && props.$variant !== "inherit" && 1};
-  font-family: ${(props) =>
-    isHeading(props) && props.$variant !== "inherit" && getToken("text.serif")};
 `;
 
 Text.displayName = "Text";
