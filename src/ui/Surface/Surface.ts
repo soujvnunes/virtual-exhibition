@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
 const Surface = styled.div`
   display: flex;
-  border: 1px solid rgb(${t("primary")} / ${t("hover")});
-  border-radius: ${t(16)};
-  color: rgb(${t("secondary")});
+  border: 1px solid
+    rgb(${getToken("color.primary")} / ${getToken("action.hover")});
+  border-radius: ${getToken("size.16")};
+  color: rgb(${getToken("color.secondary")});
 `;
 
 Surface.displayName = "Surface";

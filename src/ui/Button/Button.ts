@@ -1,5 +1,5 @@
 import styled, { StyledComponentPropsWithRef } from "styled-components";
-import { getToken as g } from "utils";
+import { getToken } from "utils";
 import Surface from "ui/Surface";
 import Text from "ui/Text";
 
@@ -22,8 +22,8 @@ const Button = styled(Surface).attrs((props: ButtonProps) => ({
 }))<ButtonProps>`
   align-items: center;
   background-color: transparent;
-  height: calc(${g(32)} + ${g(8)});
-  padding: 0 ${g(24)} 0 ${g(24)};
+  height: calc(${getToken("size.32")} + ${getToken("size.8")});
+  padding: 0 ${getToken("size.24")} 0 ${getToken("size.24")};
 
   &:focus {
     outline: 0;

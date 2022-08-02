@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
-const mapCols = Array.from(new Array(12)).map((_, index) => index + 1);
+export const mapCols = Array.from(new Array(12)).map((_, index) => index + 1);
 
 export type ColKs = "start" | "mid" | "end";
 
@@ -19,8 +19,8 @@ const convertToObj = (
 ): Partial<Record<"DEFAULT" | "md" | "lg", Cols>> =>
   prop != null ? (typeof prop === "object" ? prop : { DEFAULT: prop }) : {};
 const Col = styled.li<ColProps>`
-  padding-left: ${t("padding")};
-  padding-top: ${t("padding")};
+  padding-left: ${getToken("grid.padding")};
+  padding-top: ${getToken("grid.padding")};
   flex-grow: ${(props) => props.$mid && 0};
   ${(props) => {
     let styles: { [key: string]: { [key: string]: string | number } } = {};

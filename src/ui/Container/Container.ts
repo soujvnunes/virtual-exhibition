@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { getToken as g } from "utils";
+import { getToken } from "utils";
 
 const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   max-width: 80rem;
-  padding-right: ${g("margin")};
-  padding-left: ${g("margin")};
+  padding-right: ${getToken("grid.margin")};
+  padding-left: ${getToken("grid.margin")};
 `;
 
 Container.displayName = "Container";

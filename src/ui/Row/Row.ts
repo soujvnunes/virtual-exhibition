@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
 const Row = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: calc(100% + ${t("padding")});
-  margin-top: calc(${t("padding")} * -1);
-  margin-left: calc(${t("padding")} * -1);
-  margin-bottom: 0;
-  padding-left: 0;
+  width: calc(100% + ${getToken("grid.padding")});
+  margin-top: calc(${getToken("grid.padding")} * -1);
+  margin-left: calc(${getToken("grid.padding")} * -1);
 `;
 
 Row.displayName = "Row";

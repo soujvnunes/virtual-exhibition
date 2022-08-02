@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
 type AdornmentProps = {
   $edge?: "start" | "end";
@@ -7,9 +7,13 @@ type AdornmentProps = {
 
 const Adornment = styled.span<AdornmentProps>`
   margin-right: ${(props) =>
-    props.$edge === "start" ? t(12) : css`calc(${t(12)} * -1)`};
+    props.$edge === "start"
+      ? getToken("size.12")
+      : css`calc(${getToken("size.12")} * -1)`};
   margin-left: ${(props) =>
-    props.$edge === "end" ? t(12) : css`calc(${t(12)} * -1)`};
+    props.$edge === "end"
+      ? getToken("size.12")
+      : css`calc(${getToken("size.12")} * -1)`};
   display: inherit;
 `;
 

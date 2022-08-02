@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Col, Container, Row, Text } from "ui";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
 const homages = [
   {
@@ -24,11 +24,13 @@ const ContainerGradient = styled.div`
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-block-style: solid;
-  border-block-color: rgb(${t("primary")} / ${t("hover")});
-  padding-top: ${t(48)};
+  border-block-color: rgb(
+    ${getToken("color.primary")} / ${getToken("action.hover")}
+  );
+  padding-top: ${getToken("size.48")};
   background-image: linear-gradient(
     to right,
-    rgb(${t("tertiary")}),
+    rgb(${getToken("color.tertiary")}),
     transparent
   );
 `;
@@ -37,11 +39,11 @@ const TextGradient = styled(Text)`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgb(${t("primary")});
+  color: rgb(${getToken("color.primary")});
   background-image: linear-gradient(
     to right,
-    rgb(${t("secondary")}),
-    rgb(${t("primary")})
+    rgb(${getToken("color.secondary")}),
+    rgb(${getToken("color.primary")})
   );
 `;
 

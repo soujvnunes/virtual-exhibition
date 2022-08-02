@@ -6,7 +6,7 @@ import {
   ThemeProvider,
   ThemeProviderProps,
 } from "styled-components";
-import { getToken as g } from "utils";
+import { getToken } from "utils";
 
 /* CSS Reset adapted from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 const reset = css`
@@ -74,7 +74,7 @@ const vars = css`
     --action-default: var(--alpha-default);
     --action-hover: var(--alpha-hover);
     --action-disable: var(--alpha-disable);
-    ${g("dark")} {
+    ${getToken("media.dark")} {
       --color-secondary: var(--channel-pink-400);
       --color-tertiary: var(--channel-pink-700);
       --color-background: var(--channel-pink-800);
@@ -90,13 +90,13 @@ const vars = css`
     --text-headline: var(--size-48);
     --grid-padding: var(--size-08);
     --grid-margin: var(--size-16);
-    ${g("md")} {
+    ${getToken("media.md")} {
       --text-subhead: var(--size-44);
       --text-headline: var(--size-56);
       --grid-padding: var(--size-12);
       --grid-margin: var(--size-24);
     }
-    ${g("lg")} {
+    ${getToken("media.lg")} {
       --text-subhead: var(--size-48);
       --text-headline: var(--size-64);
       --grid-padding: var(--size-16);
@@ -106,14 +106,14 @@ const vars = css`
 `;
 const globals = css`
   body {
-    font-size: ${g("body")};
-    font-family: ${g("sans")};
-    background-color: rgb(${g("background")});
-    color: rgb(${g("foreground")});
+    font-size: ${getToken("text.body")};
+    font-family: ${getToken("text.sans")};
+    background-color: rgb(${getToken("color.background")});
+    color: rgb(${getToken("color.foreground")});
     color-scheme: light;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-    ${g("dark")} {
+    ${getToken("media.dark")} {
       color-scheme: dark;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -121,7 +121,8 @@ const globals = css`
   }
 `;
 const GlobalStyledFactory = createGlobalStyle`${reset}${vars}${globals}`;
-const theme = {
+
+export const theme = {
   color: {
     primary: "var(--color-primary)",
     secondary: "var(--color-secondary)",

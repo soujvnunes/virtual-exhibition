@@ -1,30 +1,30 @@
 import styled from "styled-components";
 import Text from "ui/Text";
-import { getToken as g } from "utils";
+import { getToken } from "utils";
 import Icon from "ui/Icon";
 
 const LogosRoot = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: rgb(${g("foreground")});
+  color: rgb(${getToken("color.foreground")});
 `;
 const LogosIcon = styled(Icon)`
-  width: ${g(48)};
-  height: ${g(48)};
+  width: ${getToken("size.48")};
+  height: ${getToken("size.48")};
 `;
 const LogosPathPink = styled.path`
-  color: rgb(${g("primary")});
+  color: rgb(${getToken("color.primary")});
 `;
 const LogosPathRed = styled.path`
-  color: rgb(${g("error")});
+  color: rgb(${getToken("color.error")});
 `;
 const LogosPathBlue = styled.path`
-  color: rgb(${g("success")});
+  color: rgb(${getToken("color.success")});
 `;
 const LogosLabelTabbed = styled.span`
   display: block;
-  margin-left: calc(${g(16)} * -1);
+  margin-left: calc(${getToken("size.16")} * -1);
 `;
 
 export default function Logos() {

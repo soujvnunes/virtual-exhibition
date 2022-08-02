@@ -1,10 +1,10 @@
 import Logos from "app/Logos";
 import styled from "styled-components";
 import { Adornment, Button, Container, Icon } from "ui";
-import { getToken as t } from "utils";
+import { getToken } from "utils";
 
 const HeaderRoot = styled(Container)`
-  height: calc(${t(48)} + ${t(16)});
+  height: ${getToken("size.64")};
   display: flex;
   align-items: center;
 `;
@@ -12,7 +12,7 @@ const ButtonA11y = styled(Button)`
   margin-left: auto;
 `;
 const ButtonNews = styled(Button)`
-  margin-left: ${t(12)};
+  margin-left: ${getToken("size.12")};
 `;
 
 export default function Header() {

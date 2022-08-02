@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getToken as g, isProp, PropsWithAs } from "utils";
+import { getToken, isProp, PropsWithAs } from "utils";
 
 const mapTextVariant = {
   title: "h1",
@@ -35,15 +35,17 @@ const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
     !isProp(props.$variant, ["overline", "inherit", "body", undefined]) && 0};
   font-size: ${(props) =>
     props.$variant === "title"
-      ? g("body")
-      : props.$variant !== "inherit" && props.$variant && g(props.$variant)};
+      ? getToken("text.body")
+      : props.$variant !== "inherit" &&
+        props.$variant &&
+        getToken(`text.${props.$variant}`)};
   text-align: ${(props) => props.$centered && "center"};
   font-style: ${(props) => props.$italic && "italic"};
   font-weight: ${(props) => (isHeading(props) ? 400 : props.$weight)};
   line-height: ${(props) =>
     isHeading(props) && props.$variant !== "inherit" && 1};
   font-family: ${(props) =>
-    isHeading(props) && props.$variant !== "inherit" && g("serif")};
+    isHeading(props) && props.$variant !== "inherit" && getToken("text.serif")};
 `;
 
 Text.displayName = "Text";
