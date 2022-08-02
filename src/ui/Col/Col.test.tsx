@@ -1,9 +1,8 @@
 import renderer from "react-test-renderer";
-import Col, { getColSize } from "./Col";
-import { ThemeProvider } from "styled-components";
+import Col, { getColSize, mapCols } from "./Col";
 import { find } from "styled-components/test-utils";
 import { render } from "@testing-library/react";
-import { dataTheme, mapCols } from "utils";
+import { GlobalStyle, theme } from "app";
 
 const MEDIAS_MAP = ["DEFAULT", "md", "lg"];
 
@@ -16,23 +15,23 @@ describe("Col", () => {
   it("should render default styles correctly", () => {
     const tree = renderer
       .create(
-        <ThemeProvider theme={dataTheme}>
+        <GlobalStyle>
           <Col />
-        </ThemeProvider>,
+        </GlobalStyle>,
       )
       .toJSON();
 
     expect(tree).toMatchSnapshot();
-    expect(tree).toHaveStyleRule("padding-left", dataTheme.grid.padding);
-    expect(tree).toHaveStyleRule("padding-top", dataTheme.grid.padding);
+    expect(tree).toHaveStyleRule("padding-left", theme.grid.padding);
+    expect(tree).toHaveStyleRule("padding-top", theme.grid.padding);
   });
   mapCols.forEach((col) => {
     it(`should render ${col} column(s) with ${col} start/end span(s)`, () => {
       const tree = renderer
         .create(
-          <ThemeProvider theme={dataTheme}>
+          <GlobalStyle>
             <Col $start={col} $mid={col} $end={col} />
-          </ThemeProvider>,
+          </GlobalStyle>,
         )
         .toJSON();
 
@@ -58,13 +57,13 @@ describe("Col", () => {
       it(`should render ${col} column(s) with ${col} start/end span(s) on ${media} media`, () => {
         const tree = renderer
           .create(
-            <ThemeProvider theme={dataTheme}>
+            <GlobalStyle>
               <Col
                 $start={{ [media]: col }}
                 $mid={{ [media]: col }}
                 $end={{ [media]: col }}
               />
-            </ThemeProvider>,
+            </GlobalStyle>,
           )
           .toJSON();
 
