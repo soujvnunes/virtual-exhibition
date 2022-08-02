@@ -1,4 +1,10 @@
 const theme = {
+  action: {
+    focus: "var(--action-focus)",
+    default: "var(--action-default)",
+    hover: "var(--action-hover)",
+    disable: "var(--action-disable)",
+  },
   color: {
     primary: "var(--color-primary)",
     secondary: "var(--color-secondary)",
@@ -9,20 +15,9 @@ const theme = {
     warning: "var(--color-warning)",
     success: "var(--color-success)",
   },
-  action: {
-    focus: "var(--action-focus)",
-    default: "var(--action-default)",
-    hover: "var(--action-hover)",
-    disable: "var(--action-disable)",
-  },
-  text: {
-    sans: "var(--type-sans)",
-    serif: "var(--type-serif)",
-    overline: "var(--text-overline)",
-    body: "var(--text-body)",
-    subtitle: "var(--text-subtitle)",
-    subhead: "var(--text-subhead)",
-    headline: "var(--text-headline)",
+  grid: {
+    padding: "var(--grid-padding)",
+    margin: "var(--grid-margin)",
   },
   media: {
     md: "@media (min-width: 40rem)",
@@ -46,9 +41,12 @@ const theme = {
     64: "var(--size-64)",
     96: "var(--size-96)",
   },
-  grid: {
-    padding: "var(--grid-padding)",
-    margin: "var(--grid-margin)",
+  text: {
+    overline: "var(--text-overline)",
+    body: "var(--text-body)",
+    subtitle: "var(--text-subtitle)",
+    subhead: "var(--text-subhead)",
+    headline: "var(--text-headline)",
   },
 } as const;
 

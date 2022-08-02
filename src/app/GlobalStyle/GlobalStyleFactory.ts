@@ -40,9 +40,12 @@ const reset = css`
   a:not([class]) {
     text-decoration-skip-ink: auto;
   }
+  iframe,
   img {
     max-width: 100%;
+    height: auto;
     display: block;
+    aspect-ratio: 16/9;
   }
   article > * + * {
     margin-left: 1em;
@@ -56,27 +59,12 @@ const reset = css`
 `;
 const vars = css`
   :root {
-    --size-02: 0.125rem;
-    --size-04: 0.25rem;
-    --size-08: 0.5rem;
-    --size-12: 0.75rem;
-    --size-16: 1rem;
-    --size-20: 1.25rem;
-    --size-24: 1.5rem;
-    --size-32: 2rem;
-    --size-40: 2.5rem;
-    --size-44: 2.75rem;
-    --size-48: 3rem;
-    --size-56: 3.5rem;
-    --size-64: 4rem;
-    --size-96: 6rem;
-    --text-overline: var(--size-12);
-    --text-body: var(--size-16);
-    --text-subtitle: var(--size-20);
+    /** ACTION */
     --action-focus: 1;
     --action-default: 0.6;
     --action-hover: 0.4;
     --action-disable: 0.2;
+    /** COLOR */
     --color-primary: 255 153 255;
     --color-secondary: 204 102 204;
     --color-tertiary: 255 224 255;
@@ -94,21 +82,45 @@ const vars = css`
       --color-warning: 255 238 170;
       --color-success: 51 153 255;
     }
-    --text-subhead: var(--size-40);
-    --text-headline: var(--size-48);
+    /** SIZE */
+    --size-02: 0.125rem;
+    --size-04: 0.25rem;
+    --size-08: 0.5rem;
+    --size-12: 0.75rem;
+    --size-16: 1rem;
+    --size-20: 1.25rem;
+    --size-24: 1.5rem;
+    --size-32: 2rem;
+    --size-40: 2.5rem;
+    --size-44: 2.75rem;
+    --size-48: 3rem;
+    --size-56: 3.5rem;
+    --size-64: 4rem;
+    --size-96: 6rem;
+    /** GRID */
     --grid-padding: var(--size-08);
     --grid-margin: var(--size-16);
     ${getToken("media.md")} {
-      --text-subhead: var(--size-44);
-      --text-headline: var(--size-56);
       --grid-padding: var(--size-12);
       --grid-margin: var(--size-24);
     }
     ${getToken("media.lg")} {
-      --text-subhead: var(--size-48);
-      --text-headline: var(--size-64);
       --grid-padding: var(--size-16);
       --grid-margin: var(--size-32);
+    }
+    /** TEXT */
+    --text-overline: var(--size-12);
+    --text-body: var(--size-16);
+    --text-subtitle: var(--size-20);
+    --text-subhead: var(--size-40);
+    --text-headline: var(--size-48);
+    ${getToken("media.md")} {
+      --text-subhead: var(--size-44);
+      --text-headline: var(--size-56);
+    }
+    ${getToken("media.lg")} {
+      --text-subhead: var(--size-48);
+      --text-headline: var(--size-64);
     }
   }
 `;
