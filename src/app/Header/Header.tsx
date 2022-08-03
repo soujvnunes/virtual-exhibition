@@ -21,7 +21,7 @@ export default function Header() {
       <Logos />
       <ButtonA11y>
         <Adornment>
-          <Icon.A11y />
+          <Icon.Sun />
         </Adornment>
       </ButtonA11y>
       <ButtonNews
