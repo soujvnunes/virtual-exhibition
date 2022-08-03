@@ -46,6 +46,16 @@ const TextGradient = styled(Text)`
     rgb(${getToken("color.primary")})
   );
 `;
+const Slider = styled(Row)`
+  align-items: center;
+`;
+const SliderItem = styled.div`
+  border-radius: ${getToken("size.16")};
+  box-shadow: 0 24px 32px rgb(${getToken("color.background")});
+  border: 1px solid
+    rgb(${getToken("color.primary")} / ${getToken("action.hover")});
+  overflow: hidden;
+`;
 
 export default function Intro() {
   return (
@@ -58,7 +68,7 @@ export default function Intro() {
           </TextGradient>{" "}
           completa 60 anos com uma história enraizada na vida do povo alagoano.
         </Text>
-        <Row>
+        <Slider>
           {homages.map((homage, index) => (
             <Col
               key={homage.title}
@@ -73,17 +83,19 @@ export default function Intro() {
                 md: index === 0 ? 4 : 2,
               }}
             >
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                {...homage}
-              />
+              <SliderItem>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  {...homage}
+                />
+              </SliderItem>
             </Col>
           ))}
-        </Row>
+        </Slider>
       </Container>
     </ContainerGradient>
   );
