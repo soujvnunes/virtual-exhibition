@@ -1,10 +1,9 @@
 import renderer from "react-test-renderer";
-import Col, { getColSize, mapCols } from "./Col";
+import Col, { getColSize, mapCols, mapMediaQueries } from "ui/Col";
 import { find } from "styled-components/test-utils";
 import { render } from "@testing-library/react";
 import { GlobalStyle, theme } from "app";
-
-const MEDIAS_MAP = ["DEFAULT", "md", "lg"];
+import { ThemeMediaQuery } from "utils";
 
 describe("Col", () => {
   it("should render without crash", () => {
@@ -42,9 +41,9 @@ describe("Col", () => {
       expect(tree).toHaveStyleRule("flex-basis", getColSize(col));
       expect(tree).toHaveStyleRule("max-width", getColSize(col));
     });
-    MEDIAS_MAP.forEach((_media) => {
-      const media = _media as "DEFAULT" | "md" | "lg";
-      const isDefault = media === "DEFAULT";
+    mapMediaQueries.forEach((_media) => {
+      const media = _media as ThemeMediaQuery;
+      const isDefault = media === "sm";
       const options = isDefault
         ? undefined
         : {

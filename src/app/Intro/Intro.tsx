@@ -74,12 +74,12 @@ export default function Intro() {
               key={homage.title}
               {...(index === 0 && {
                 $start: {
-                  DEFAULT: 3,
+                  sm: 3,
                   md: 4,
                 },
               })}
               $mid={{
-                DEFAULT: index === 0 ? 6 : 3,
+                sm: index === 0 ? 6 : 3,
                 md: index === 0 ? 4 : 2,
               }}
             >

@@ -20,9 +20,13 @@ const theme = {
     margin: "var(--grid-margin)",
   },
   media: {
+    sm: "@media (min-width: 0rem) or (max-width: 40rem)",
     md: "@media (min-width: 40rem)",
     lg: "@media (min-width: 80rem)",
+    light:
+      "@media (prefers-color-scheme: no-preference) or (prefers-color-scheme: light)",
     dark: "@media (prefers-color-scheme: dark)",
+    idle: "@media (prefers-reduced-motion: reduce)",
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
   size: {

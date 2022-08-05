@@ -21,7 +21,7 @@ exports[`Col should render 1 column(s) with 1 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 1 column(s) with 1 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 1 column(s) with 1 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -115,7 +115,7 @@ exports[`Col should render 2 column(s) with 2 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 2 column(s) with 2 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 2 column(s) with 2 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -209,7 +209,7 @@ exports[`Col should render 3 column(s) with 3 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 3 column(s) with 3 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 3 column(s) with 3 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -303,7 +303,7 @@ exports[`Col should render 4 column(s) with 4 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 4 column(s) with 4 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 4 column(s) with 4 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -397,7 +397,7 @@ exports[`Col should render 5 column(s) with 5 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 5 column(s) with 5 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 5 column(s) with 5 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -491,7 +491,7 @@ exports[`Col should render 6 column(s) with 6 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 6 column(s) with 6 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 6 column(s) with 6 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -585,7 +585,7 @@ exports[`Col should render 7 column(s) with 7 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 7 column(s) with 7 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 7 column(s) with 7 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -679,7 +679,7 @@ exports[`Col should render 8 column(s) with 8 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 8 column(s) with 8 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 8 column(s) with 8 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -773,7 +773,7 @@ exports[`Col should render 9 column(s) with 9 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 9 column(s) with 9 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 9 column(s) with 9 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -867,7 +867,7 @@ exports[`Col should render 10 column(s) with 10 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 10 column(s) with 10 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 10 column(s) with 10 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -961,7 +961,7 @@ exports[`Col should render 11 column(s) with 11 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 11 column(s) with 11 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 11 column(s) with 11 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
@@ -1055,7 +1055,7 @@ exports[`Col should render 12 column(s) with 12 start/end span(s) 1`] = `
 />
 `;
 
-exports[`Col should render 12 column(s) with 12 start/end span(s) on DEFAULT media 1`] = `
+exports[`Col should render 12 column(s) with 12 start/end span(s) on sm media 1`] = `
 .c0 {
   padding-left: var(--grid-padding);
   padding-top: var(--grid-padding);
