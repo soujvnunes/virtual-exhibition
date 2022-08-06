@@ -20,9 +20,7 @@ export default function Header() {
     <HeaderRoot as="header">
       <Logos />
       <ButtonA11y>
-        <Adornment>
-          <Icon.Sun />
-        </Adornment>
+        <Adornment as={Icon.Sun} />
       </ButtonA11y>
       <ButtonNews
         href="https://ufal.br/noticias?tag=Ufal60anos"
@@ -30,9 +28,7 @@ export default function Header() {
         target="_blank"
       >
         Notícias
-        <Adornment $edge="end">
-          <Icon.Exit />
-        </Adornment>
+        <Adornment as={Icon.Exit} $edge="end" />
       </ButtonNews>
     </HeaderRoot>
   );
