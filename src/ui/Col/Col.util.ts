@@ -1,4 +1,4 @@
-import { Cols } from "./Col.type";
+import { Cols } from "ui/Col";
 
 export const mapMediaQueries = ["sm", "md", "lg"];
 export const mapCols = Array.from(new Array(12)).map((_, index) => index + 1);

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { getToken, ThemeMediaQuery } from "utils";
-import { ColProps, Cols } from "./Col.type";
-import { convertToObj, getColSize } from "./Col.util";
+import { ColProps, Cols, convertToObj, getColSize } from "ui/Col";
 
 const Col = styled.li<ColProps>`
   padding-left: ${getToken("grid.padding")};

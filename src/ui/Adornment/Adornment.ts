@@ -1,9 +1,6 @@
 import styled, { css } from "styled-components";
 import { getToken } from "utils";
-
-type AdornmentProps = {
-  $edge?: "start" | "end";
-};
+import { AdornmentProps } from "ui/Adornment";
 
 const Adornment = styled.span<AdornmentProps>`
   margin-right: ${(props) =>

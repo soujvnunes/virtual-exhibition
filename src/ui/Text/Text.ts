@@ -1,25 +1,7 @@
 import styled from "styled-components";
-import { getToken, isProp, PropsWithAs } from "utils";
+import { getToken, PropsWithAs } from "utils";
+import { mapTextVariant, TextProps, isHeading } from "ui/Text";
 
-const mapTextVariant = {
-  title: "h1",
-  headline: "h2",
-  subhead: "h3",
-  subtitle: "subtitle",
-  body: "p",
-  overline: "span",
-};
-
-type TextProps = {
-  $gutterBottom?: boolean;
-  $centered?: boolean;
-  $italic?: boolean;
-  $variant?: keyof typeof mapTextVariant | "inherit";
-  $weight?: 400 | 500 | 600 | 700;
-};
-
-const isHeading = (props: TextProps) =>
-  isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);
 const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
   className:
     isHeading(props) &&
