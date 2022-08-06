@@ -71,10 +71,6 @@
           "type": "color"
         }
       },
-      "sm": {
-        "value": "12",
-        "type": "sizing"
-      },
       "font": {
         "serif": {
           "value": "FreightDisp Pro, serif",
@@ -88,6 +84,10 @@
           "value": "Light",
           "type": "fontWeights"
         },
+        "lightItalic": {
+          "value": "Light Italic",
+          "type": "fontWeights"
+        },
         "book": {
           "value": "Book",
           "type": "fontWeights"
@@ -95,6 +95,86 @@
         "heavy": {
           "value": "Heavy",
           "type": "fontWeights"
+        }
+      },
+      "base": {
+        "01": {
+          "value": "1px",
+          "type": "sizing"
+        },
+        "02": {
+          "value": "0.125rem",
+          "type": "sizing"
+        },
+        "04": {
+          "value": "0.25rem",
+          "type": "sizing"
+        },
+        "08": {
+          "value": "0.5rem",
+          "type": "sizing"
+        },
+        "12": {
+          "value": "0.75rem",
+          "type": "sizing"
+        },
+        "16": {
+          "value": "1rem",
+          "type": "sizing"
+        },
+        "20": {
+          "value": "1.25rem",
+          "type": "sizing"
+        },
+        "24": {
+          "value": "1.5rem",
+          "type": "sizing"
+        },
+        "32": {
+          "value": "2rem",
+          "type": "sizing"
+        },
+        "40": {
+          "value": "2.5rem",
+          "type": "sizing"
+        },
+        "44": {
+          "value": "2.75rem",
+          "type": "sizing"
+        },
+        "48": {
+          "value": "3rem",
+          "type": "sizing"
+        },
+        "56": {
+          "value": "3.5rem",
+          "type": "sizing"
+        },
+        "64": {
+          "value": "4rem",
+          "type": "sizing"
+        },
+        "96": {
+          "value": "6rem",
+          "type": "sizing"
+        }
+      },
+      "action": {
+        "focus": {
+          "value": "1",
+          "type": "opacity"
+        },
+        "default": {
+          "value": "0.6",
+          "type": "opacity"
+        },
+        "hover": {
+          "value": "0.4",
+          "type": "opacity"
+        },
+        "disable": {
+          "value": "0.2",
+          "type": "opacity"
         }
       }
     },
