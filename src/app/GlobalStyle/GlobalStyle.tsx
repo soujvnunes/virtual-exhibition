@@ -4,7 +4,7 @@ import {
   ThemeProvider,
   ThemeProviderProps,
 } from "styled-components";
-import GlobalStyledFactory from "./GlobalStyleFactory";
+import GlobalStyleFactory from "./GlobalStyleFactory";
 import theme from "./theme";
 
 export default function GlobalStyle({
@@ -14,7 +14,7 @@ export default function GlobalStyle({
 
   return (
     <ThemeProvider theme={themeMemo}>
-      <GlobalStyledFactory />
+      <GlobalStyleFactory />
       {children}
     </ThemeProvider>
   );

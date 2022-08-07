@@ -72,7 +72,7 @@ const vars = css`
     --color-foreground: 51 51 51;
     --color-error: 204 0 0;
     --color-warning: 204 204 119;
-    --color-success: 0 102 187;
+    --color-info: 0 102 187;
     ${getToken("media.dark")} {
       --color-secondary: 255 204 255;
       --color-tertiary: 68 34 68;
@@ -80,7 +80,7 @@ const vars = css`
       --color-foreground: 255 255 255;
       --color-error: 255 51 51;
       --color-warning: 255 238 170;
-      --color-success: 51 153 255;
+      --color-info: 51 153 255;
     }
     /** SIZE */
     --size-02: 0.125rem;
@@ -139,6 +139,6 @@ const globals = css`
     }
   }
 `;
-const GlobalStyledFactory = createGlobalStyle`${reset}${vars}${globals}`;
+const GlobalStyleFactory = createGlobalStyle`${reset}${vars}${globals}`;
 
-export default GlobalStyledFactory;
+export default GlobalStyleFactory;
