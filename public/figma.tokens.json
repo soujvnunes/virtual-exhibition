@@ -3,71 +3,71 @@
     "value": {
       "pink": {
         "200": {
-          "value": "rgb(255 245 255)",
+          "value": "#FFF5FF",
           "type": "color"
         },
         "300": {
-          "value": "rgb(255 224 255)",
+          "value": "#FFE0FF",
           "type": "color"
         },
         "400": {
-          "value": "rgb(255 204 255)",
+          "value": "#FFCCFF",
           "type": "color"
         },
         "500": {
-          "value": "rgb(255 153 255)",
+          "value": "#FF99FF",
           "type": "color"
         },
         "600": {
-          "value": "rgb(204 102 204)",
+          "value": "#CC66CC",
           "type": "color"
         },
         "700": {
-          "value": "rgb(68 34 68)",
+          "value": "#442244",
           "type": "color"
         },
         "800": {
-          "value": "rgb(26 15 26)",
+          "value": "#1A0F1A",
           "type": "color"
         }
       },
       "gray": {
         "100": {
-          "value": "rgb(255 255 255)",
+          "value": "#FFFFFF",
           "type": "color"
         },
         "900": {
-          "value": "rgb(51 51 51)",
+          "value": "#333333",
           "type": "color"
         }
       },
       "red": {
         "500": {
-          "value": "rgb(255 51 51)",
+          "value": "#FF3333",
           "type": "color"
         },
         "600": {
-          "value": "rgb(204 0 0)",
+          "value": "#CC0000",
           "type": "color"
         }
       },
       "yellow": {
         "500": {
-          "value": "rgb(255 238 170)",
+          "value": "#FFEEAA",
           "type": "color"
         },
         "600": {
-          "value": "rgb(204 204 119)",
+          "value": "#CCCC77",
           "type": "color"
         }
       },
       "blue": {
         "500": {
-          "value": "rgb(51 153 255)",
+          "value": "#3399FF",
           "type": "color"
         },
         "600": {
-          "value": "rgb(0 102 187)",
+          "value": "#0066BB",
           "type": "color"
         }
       },
@@ -160,20 +160,16 @@
         }
       },
       "action": {
-        "focus": {
+        "primary": {
           "value": "1",
           "type": "opacity"
         },
-        "default": {
+        "secondary": {
           "value": "0.6",
           "type": "opacity"
         },
-        "hover": {
-          "value": "0.4",
-          "type": "opacity"
-        },
-        "disable": {
-          "value": "0.2",
+        "tertiary": {
+          "value": "0.3",
           "type": "opacity"
         }
       }
@@ -366,7 +362,68 @@
     }
   },
   "light": {
-    "value": {},
+    "value": {
+      "ground": {
+        "back": {
+          "value": "{pink.200}",
+          "type": "color"
+        },
+        "backSecondary": {
+          "value": "rgba({pink.200}, {action.secondary})",
+          "type": "color"
+        },
+        "backTertiary": {
+          "value": "rgba({pink.200}, {action.tertiary})",
+          "type": "color"
+        },
+        "fore": {
+          "value": "{gray.900}",
+          "type": "color"
+        },
+        "foreSecondary": {
+          "value": "rgba({gray.900}, {action.secondary})",
+          "type": "color"
+        },
+        "foreTertiary": {
+          "value": "rgba({gray.900}, {action.tertiary})",
+          "type": "color"
+        }
+      },
+      "main": {
+        "tint": {
+          "value": "{pink.300}",
+          "type": "color"
+        },
+        "pure": {
+          "value": "{pink.500}",
+          "type": "color"
+        },
+        "pureSecondary": {
+          "value": "rgba({pink.500}, {action.secondary})",
+          "type": "color"
+        },
+        "pureTertiary": {
+          "value": "rgba({pink.500}, {action.tertiary})",
+          "type": "color"
+        },
+        "shade": {
+          "value": "{pink.600}",
+          "type": "color"
+        }
+      },
+      "error": {
+        "value": "{red.500}",
+        "type": "color"
+      },
+      "warning": {
+        "value": "{yellow.500}",
+        "type": "color"
+      },
+      "info": {
+        "value": "{blue.500}",
+        "type": "color"
+      }
+    },
     "type": {
       "value": "media",
       "type": "@media (prefers-color-scheme: no-preference) or (prefers-color-scheme: light)"
