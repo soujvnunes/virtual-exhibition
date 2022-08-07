@@ -3,10 +3,9 @@ import { getToken } from "utils";
 
 const Surface = styled.div`
   display: flex;
-  border: 1px solid
-    rgb(${getToken("color.primary")} / ${getToken("action.hover")});
+  border: 1px solid ${getToken("main.pureSecondary")};
   border-radius: ${getToken("size.16")};
-  color: rgb(${getToken("color.secondary")});
+  color: ${getToken("main.shade")};
 `;
 
 Surface.displayName = "Surface";

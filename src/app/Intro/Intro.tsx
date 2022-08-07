@@ -21,16 +21,12 @@ const homages = [
   },
 ];
 const ContainerGradient = styled.div`
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-block-style: solid;
-  border-block-color: rgb(
-    ${getToken("color.primary")} / ${getToken("action.hover")}
-  );
+  border: solid ${getToken("main.pureSecondary")};
+  border-width: 1px 0;
   padding-top: ${getToken("size.48")};
   background-image: linear-gradient(
     to right,
-    rgb(${getToken("color.tertiary")}),
+    ${getToken("main.tint")},
     transparent
   );
 `;
@@ -39,11 +35,11 @@ const TextGradient = styled(Text)`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgb(${getToken("color.primary")});
+  color: ${getToken("main.pure")};
   background-image: linear-gradient(
     to right,
-    rgb(${getToken("color.secondary")}),
-    rgb(${getToken("color.primary")})
+    ${getToken("main.shade")},
+    ${getToken("main.pure")}
   );
 `;
 const Slider = styled(Row)`
@@ -51,9 +47,8 @@ const Slider = styled(Row)`
 `;
 const SliderItem = styled.div`
   border-radius: ${getToken("size.16")};
-  box-shadow: 0 24px 32px rgb(${getToken("color.background")});
-  border: 1px solid
-    rgb(${getToken("color.primary")} / ${getToken("action.hover")});
+  box-shadow: 0 24px 32px ${getToken("ground.back")};
+  border: 1px solid ${getToken("main.pureSecondary")};
   overflow: hidden;
 `;
 

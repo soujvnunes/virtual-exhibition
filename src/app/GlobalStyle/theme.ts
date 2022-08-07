@@ -1,19 +1,23 @@
 const theme = {
-  action: {
-    focus: "var(--action-focus)",
-    default: "var(--action-default)",
-    hover: "var(--action-hover)",
-    disable: "var(--action-disable)",
+  main: {
+    tint: "rgba(var(--color-main-tint) / var(--action-primary))",
+    pure: "rgba(var(--color-main-pure) / var(--action-primary))",
+    pureSecondary: "rgba(var(--color-main-pure) / var(--action-secondary))",
+    pureTertiary: "rgba(var(--color-main-pure) / var(--action-tertiary))",
+    shade: "rgba(var(--color-main-shade) / var(--action-primary))",
+  },
+  ground: {
+    back: "rgba(var(--color-ground-back) / var(--action-primary))",
+    backSecondary: "rgba(var(--color-ground-back) / var(--action-secondary))",
+    backTertiary: "rgba(var(--color-ground-back) / var(--action-tertiary))",
+    fore: "rgba(var(--color-ground-fore) / var(--action-primary))",
+    foreSecondary: "rgba(var(--color-ground-fore) / var(--action-secondary))",
+    foreTertiary: "rgba(var(--color-ground-fore) / var(--action-tertiary))",
   },
   color: {
-    primary: "var(--color-primary)",
-    secondary: "var(--color-secondary)",
-    tertiary: "var(--color-tertiary)",
-    background: "var(--color-background)",
-    foreground: "var(--color-foreground)",
-    error: "var(--color-error)",
-    warning: "var(--color-warning)",
-    success: "var(--color-success)",
+    error: "rgba(var(--color-error) / var(--action-primary))",
+    warning: "rgba(var(--color-warning) / var(--action-primary))",
+    info: "rgba(var(--color-info) / var(--action-primary))",
   },
   grid: {
     padding: "var(--grid-padding)",

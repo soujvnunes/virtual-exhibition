@@ -7,20 +7,20 @@ const LogosRoot = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: rgb(${getToken("color.foreground")});
+  color: ${getToken("ground.fore")};
 `;
 const LogosIcon = styled(Icon)`
   width: ${getToken("size.48")};
   height: ${getToken("size.48")};
 `;
 const LogosPathPink = styled.path`
-  color: rgb(${getToken("color.primary")});
+  color: ${getToken("main.pure")};
 `;
 const LogosPathRed = styled.path`
-  color: rgb(${getToken("color.error")});
+  color: ${getToken("color.error")};
 `;
 const LogosPathBlue = styled.path`
-  color: rgb(${getToken("color.success")});
+  color: ${getToken("color.info")};
 `;
 const LogosLabelTabbed = styled.span`
   display: block;

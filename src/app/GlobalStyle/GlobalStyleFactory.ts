@@ -60,24 +60,23 @@ const reset = css`
 const vars = css`
   :root {
     /** ACTION */
-    --action-focus: 1;
-    --action-default: 0.6;
-    --action-hover: 0.4;
-    --action-disable: 0.2;
+    --action-primary: 1;
+    --action-secondary: 0.6;
+    --action-tertiary: 0.3;
     /** COLOR */
-    --color-primary: 255 153 255;
-    --color-secondary: 204 102 204;
-    --color-tertiary: 255 224 255;
-    --color-background: 255 245 255;
-    --color-foreground: 51 51 51;
+    --color-main-pure: 255 153 255;
+    --color-main-shade: 204 102 204;
+    --color-main-tint: 255 224 255;
+    --color-ground-back: 255 245 255;
+    --color-ground-fore: 51 51 51;
     --color-error: 204 0 0;
     --color-warning: 204 204 119;
     --color-info: 0 102 187;
     ${getToken("media.dark")} {
-      --color-secondary: 255 204 255;
-      --color-tertiary: 68 34 68;
-      --color-background: 26 15 26;
-      --color-foreground: 255 255 255;
+      --color-main-shade: 255 204 255;
+      --color-main-tint: 68 34 68;
+      --color-ground-back: 26 15 26;
+      --color-ground-fore: 255 255 255;
       --color-error: 255 51 51;
       --color-warning: 255 238 170;
       --color-info: 51 153 255;
@@ -127,8 +126,8 @@ const vars = css`
 const globals = css`
   body {
     font-size: ${getToken("text.body")};
-    background-color: rgb(${getToken("color.background")});
-    color: rgb(${getToken("color.foreground")});
+    background-color: ${getToken("ground.back")};
+    color: ${getToken("ground.fore")};
     color-scheme: light;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
