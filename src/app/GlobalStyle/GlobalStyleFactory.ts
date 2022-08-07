@@ -64,19 +64,21 @@ const vars = css`
     --action-secondary: 0.6;
     --action-tertiary: 0.3;
     /** COLOR */
-    --color-main-pure: 255 153 255;
-    --color-main-shade: 204 102 204;
-    --color-main-tint: 255 224 255;
-    --color-ground-back: 255 245 255;
-    --color-ground-fore: 51 51 51;
+    --color-main: 255 153 255;
+    --color-accent: 204 102 204;
+
+    --color-background: 255 245 255;
+    --color-text: 51 51 51;
+
     --color-error: 204 0 0;
     --color-warning: 204 204 119;
     --color-info: 0 102 187;
     ${getToken("media.dark")} {
-      --color-main-shade: 255 204 255;
-      --color-main-tint: 68 34 68;
-      --color-ground-back: 26 15 26;
-      --color-ground-fore: 255 255 255;
+      --color-accent: 255 204 255;
+
+      --color-background: 26 15 26;
+      --color-text: 255 255 255;
+
       --color-error: 255 51 51;
       --color-warning: 255 238 170;
       --color-info: 51 153 255;
@@ -108,26 +110,28 @@ const vars = css`
       --grid-margin: var(--size-32);
     }
     /** TEXT */
-    --text-overline: var(--size-12);
-    --text-body: var(--size-16);
-    --text-subtitle: var(--size-20);
-    --text-subhead: var(--size-40);
-    --text-headline: var(--size-48);
+    --font-overline: var(--size-12);
+    --font-body: var(--size-16);
+
+    --font-subtitle: var(--size-20);
+
+    --font-subhead: var(--size-40);
+    --font-headline: var(--size-48);
     ${getToken("media.md")} {
-      --text-subhead: var(--size-44);
-      --text-headline: var(--size-56);
+      --font-subhead: var(--size-44);
+      --font-headline: var(--size-56);
     }
     ${getToken("media.lg")} {
-      --text-subhead: var(--size-48);
-      --text-headline: var(--size-64);
+      --font-subhead: var(--size-48);
+      --font-headline: var(--size-64);
     }
   }
 `;
 const globals = css`
   body {
-    font-size: ${getToken("text.body")};
-    background-color: ${getToken("ground.back")};
-    color: ${getToken("ground.fore")};
+    font-size: ${getToken("font.body")};
+    background-color: ${getToken("background.primary")};
+    color: ${getToken("text.primary")};
     color-scheme: light;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;

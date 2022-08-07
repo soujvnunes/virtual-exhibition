@@ -3,9 +3,9 @@ import { getToken } from "utils";
 
 const Surface = styled.div`
   display: flex;
-  border: 1px solid ${getToken("main.pureSecondary")};
+  border: 1px solid ${getToken("main.secondary")};
   border-radius: ${getToken("size.16")};
-  color: ${getToken("main.shade")};
+  color: ${getToken("color.accent")};
 `;
 
 Surface.displayName = "Surface";

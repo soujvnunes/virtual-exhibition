@@ -7,14 +7,14 @@ const LogosRoot = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${getToken("ground.fore")};
+  color: ${getToken("text.primary")};
 `;
 const LogosIcon = styled(Icon)`
   width: ${getToken("size.48")};
   height: ${getToken("size.48")};
 `;
 const LogosPathPink = styled.path`
-  color: ${getToken("main.pure")};
+  color: ${getToken("main.primary")};
 `;
 const LogosPathRed = styled.path`
   color: ${getToken("color.error")};

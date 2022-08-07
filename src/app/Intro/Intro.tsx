@@ -21,12 +21,12 @@ const homages = [
   },
 ];
 const ContainerGradient = styled.div`
-  border: solid ${getToken("main.pureSecondary")};
+  border: solid ${getToken("main.secondary")};
   border-width: 1px 0;
   padding-top: ${getToken("size.48")};
   background-image: linear-gradient(
     to right,
-    ${getToken("main.tint")},
+    ${getToken("main.tertiary")},
     transparent
   );
 `;
@@ -35,11 +35,11 @@ const TextGradient = styled(Text)`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: ${getToken("main.pure")};
+  color: ${getToken("main.primary")};
   background-image: linear-gradient(
     to right,
-    ${getToken("main.shade")},
-    ${getToken("main.pure")}
+    ${getToken("color.accent")},
+    ${getToken("main.primary")}
   );
 `;
 const Slider = styled(Row)`
@@ -47,8 +47,8 @@ const Slider = styled(Row)`
 `;
 const SliderItem = styled.div`
   border-radius: ${getToken("size.16")};
-  box-shadow: 0 24px 32px ${getToken("ground.back")};
-  border: 1px solid ${getToken("main.pureSecondary")};
+  box-shadow: 0 24px 32px ${getToken("background.primary")};
+  border: 1px solid ${getToken("main.secondary")};
   overflow: hidden;
 `;
 

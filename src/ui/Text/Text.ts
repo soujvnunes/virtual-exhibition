@@ -16,10 +16,10 @@ const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
   margin-bottom: ${(props) => props.$gutterBottom && "1em"};
   font-size: ${(props) =>
     props.$variant === "title"
-      ? getToken("text.body")
+      ? getToken("font.body")
       : props.$variant !== "inherit" &&
         props.$variant &&
-        getToken(`text.${props.$variant}`)};
+        getToken(`font.${props.$variant}`)};
   text-align: ${(props) => props.$centered && "center"};
   font-style: ${(props) => props.$italic && "italic"};
   font-weight: ${(props) => (isHeading(props) ? 400 : props.$weight)};

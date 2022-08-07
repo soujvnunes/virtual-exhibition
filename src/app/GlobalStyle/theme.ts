@@ -1,20 +1,21 @@
 const theme = {
   main: {
-    tint: "rgba(var(--color-main-tint) / var(--action-primary))",
-    pure: "rgba(var(--color-main-pure) / var(--action-primary))",
-    pureSecondary: "rgba(var(--color-main-pure) / var(--action-secondary))",
-    pureTertiary: "rgba(var(--color-main-pure) / var(--action-tertiary))",
-    shade: "rgba(var(--color-main-shade) / var(--action-primary))",
+    primary: "rgba(var(--color-main) / var(--action-primary))",
+    secondary: "rgba(var(--color-main) / var(--action-secondary))",
+    tertiary: "rgba(var(--color-main) / var(--action-tertiary))",
   },
-  ground: {
-    back: "rgba(var(--color-ground-back) / var(--action-primary))",
-    backSecondary: "rgba(var(--color-ground-back) / var(--action-secondary))",
-    backTertiary: "rgba(var(--color-ground-back) / var(--action-tertiary))",
-    fore: "rgba(var(--color-ground-fore) / var(--action-primary))",
-    foreSecondary: "rgba(var(--color-ground-fore) / var(--action-secondary))",
-    foreTertiary: "rgba(var(--color-ground-fore) / var(--action-tertiary))",
+  background: {
+    primary: "rgba(var(--color-background) / var(--action-primary))",
+    secondary: "rgba(var(--color-background) / var(--action-secondary))",
+    tertiary: "rgba(var(--color-background) / var(--action-tertiary))",
+  },
+  text: {
+    primary: "rgba(var(--color-text) / var(--action-primary))",
+    secondary: "rgba(var(--color-text) / var(--action-secondary))",
+    tertiary: "rgba(var(--color-text) / var(--action-tertiary))",
   },
   color: {
+    accent: "rgba(var(--color-accent) / var(--action-primary))",
     error: "rgba(var(--color-error) / var(--action-primary))",
     warning: "rgba(var(--color-warning) / var(--action-primary))",
     info: "rgba(var(--color-info) / var(--action-primary))",
@@ -49,12 +50,12 @@ const theme = {
     64: "var(--size-64)",
     96: "var(--size-96)",
   },
-  text: {
-    overline: "var(--text-overline)",
-    body: "var(--text-body)",
-    subtitle: "var(--text-subtitle)",
-    subhead: "var(--text-subhead)",
-    headline: "var(--text-headline)",
+  font: {
+    overline: "var(--font-overline)",
+    body: "var(--font-body)",
+    subtitle: "var(--font-subtitle)",
+    subhead: "var(--font-subhead)",
+    headline: "var(--font-headline)",
   },
 } as const;
 
