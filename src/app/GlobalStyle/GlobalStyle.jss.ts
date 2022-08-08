@@ -1,8 +1,7 @@
-import { createGlobalStyle, css } from "styled-components";
+import { css } from "styled-components";
 import { getToken } from "utils";
 
-/* CSS Reset adapted from https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
-const reset = css`
+export const cssReset = css`
   html {
     box-sizing: border-box;
     min-height: 100vh;
@@ -47,9 +46,6 @@ const reset = css`
     display: block;
     aspect-ratio: 16/9;
   }
-  article > * + * {
-    margin-left: 1em;
-  }
   input,
   button,
   textarea,
@@ -57,7 +53,7 @@ const reset = css`
     font: inherit;
   }
 `;
-const vars = css`
+export const cssVars = css`
   :root {
     /** ACTION */
     --action-primary: 1;
@@ -127,7 +123,7 @@ const vars = css`
     }
   }
 `;
-const globals = css`
+export const cssGlobals = css`
   body {
     font-size: ${getToken("font.body")};
     background-color: ${getToken("background.primary")};
@@ -142,6 +138,3 @@ const globals = css`
     }
   }
 `;
-const GlobalStyleFactory = createGlobalStyle`${reset}${vars}${globals}`;
-
-export default GlobalStyleFactory;

@@ -1,2 +1,3 @@
 export { default } from "./GlobalStyle";
-export { default as theme } from "./theme";
+export * from "./GlobalStyle.util";
+export * from "./GlobalStyle.jss";

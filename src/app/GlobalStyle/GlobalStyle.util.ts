@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   main: {
     primary: "rgba(var(--color-main) / var(--action-primary))",
     secondary: "rgba(var(--color-main) / var(--action-secondary))",
@@ -58,5 +58,3 @@ const theme = {
     headline: "var(--font-headline)",
   },
 } as const;
-
-export default theme;

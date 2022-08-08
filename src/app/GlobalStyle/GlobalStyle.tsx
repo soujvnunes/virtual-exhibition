@@ -1,21 +1,4 @@
-import { useMemo } from "react";
-import {
-  DefaultTheme,
-  ThemeProvider,
-  ThemeProviderProps,
-} from "styled-components";
-import GlobalStyleFactory from "./GlobalStyleFactory";
-import theme from "./theme";
+import { createGlobalStyle } from "styled-components";
+import { cssGlobals, cssReset, cssVars } from "app/GlobalStyle";
 
-export default function GlobalStyle({
-  children,
-}: Omit<ThemeProviderProps<DefaultTheme>, "theme">) {
-  const themeMemo = useMemo(() => theme, []);
-
-  return (
-    <ThemeProvider theme={themeMemo}>
-      <GlobalStyleFactory />
-      {children}
-    </ThemeProvider>
-  );
-}
+export default createGlobalStyle`${cssReset}${cssVars}${cssGlobals}`;
