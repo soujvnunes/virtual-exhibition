@@ -1,0 +1,19 @@
+# Global Style Utils
+
+## Theme getters
+
+### Size
+
+| Arg              | Type          | Default | Description                                                               | Example                              |
+| ---------------- | ------------- | ------- | ------------------------------------------------------------------------- | ------------------------------------ |
+| size             | `CSSVarsSize` |         | Specify a number that matchs with one of the CSS vars previously defined. | `theme.size(16)`                     |
+| options.pxToRem  | boolean       | false   | If true, size will match with one of the CSS vars with REM unit.          | `theme.size(16, { pxToRem: true })`  |
+| options.negative | boolean       | false   | If true, size will return within CSS `calc` function minus value `1`.     | `theme.size(16, { negative: true })` |
+
+### Color
+
+| Arg           | Type                                    | Default | Description                                                                                                                                                                                                | Example                                      |
+| ------------- | --------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| color         | `CSSVarsColor`                          |         | Specify a color that matchs with one of the CSS vars previously defined.                                                                                                                                   | `theme.color('main')`                        |
+| options.mix   | `tint` `tone` `shade`                   |         | Mixing terminology where `tint` is closer to white, while `shade` is closer to black.                                                                                                                      | `theme.color('main', { mix: 'tint' })`       |
+| options.alpha | number `primary` `secondary` `tertiary` |         | Alpha channel for the specified color. Can be in unit number (0-1), percentage (0-100%) or one of the pre-defined values, where `primary` resolves to `0.6`, `secondary` to `0.4` and `tertiary` to `0.2`. | `theme.color('main', { alpha: 'primary' }) ` |
