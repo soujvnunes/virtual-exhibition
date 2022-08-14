@@ -1,60 +1,85 @@
+import type { Alpha, Color, Colors, Size } from "app/GlobalStyle";
+
+export const mapColor = [
+  "text",
+  "background",
+  "main",
+  "accent",
+  "success",
+  "info",
+  "alert",
+  "error",
+] as const;
+export const mapAlpha = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "quaternary",
+  "quinary",
+] as const;
+export const mapSize = [
+  1280, 640, 320, 160, 80, 74, 72, 68, 64, 60, 56, 52, 48, 44, 40, 36, 32, 28,
+  24, 20, 16, 12, 8, 4, 2, 1, 0,
+] as const;
+export const PX = "px";
+export const REM = "rem";
+
+export function generateSizeObject(
+  prop: string | number,
+  value: string | number,
+) {
+  return `--size-${prop}: ${value}`;
+}
+export function generateSize(sizes: Size[] = [...mapSize]) {
+  return sizes
+    .reduce((newSizes, size) => {
+      const cur = size as Size;
+      const sizeInPxProp = `${cur}${PX}`;
+      const sizeInPx = generateSizeObject(
+        sizeInPxProp,
+        cur ? sizeInPxProp : cur,
+      );
+      const sizeInRem =
+        cur >= 12 && cur <= 64
+          ? generateSizeObject(`${cur}${REM}`, `${cur / 16}${REM}`)
+          : null;
+
+      return [...newSizes, sizeInPx, sizeInRem];
+    }, [] as (ReturnType<typeof generateSizeObject> | null)[])
+    .join(";\n");
+}
+
+export function getColor(color: Color) {
+  return (alpha: Alpha = "primary") =>
+    `rgba(var(--color-${color}) / var(--alpha-${alpha}))`;
+}
+export function getSize(
+  _size: Size,
+  options?: Partial<Record<typeof REM | "negative", boolean>>,
+) {
+  const unit = options?.rem ? REM : PX;
+  const size = `var(--size-${_size}${unit})`;
+
+  return options?.negative ? `calc(${size} * -1)` : size;
+}
+
 export const theme = {
-  main: {
-    primary: "rgba(var(--color-main) / var(--action-primary))",
-    secondary: "rgba(var(--color-main) / var(--action-secondary))",
-    tertiary: "rgba(var(--color-main) / var(--action-tertiary))",
-  },
-  background: {
-    primary: "rgba(var(--color-background) / var(--action-primary))",
-    secondary: "rgba(var(--color-background) / var(--action-secondary))",
-    tertiary: "rgba(var(--color-background) / var(--action-tertiary))",
-  },
-  text: {
-    primary: "rgba(var(--color-text) / var(--action-primary))",
-    secondary: "rgba(var(--color-text) / var(--action-secondary))",
-    tertiary: "rgba(var(--color-text) / var(--action-tertiary))",
-  },
-  color: {
-    accent: "rgba(var(--color-accent) / var(--action-primary))",
-    error: "rgba(var(--color-error) / var(--action-primary))",
-    warning: "rgba(var(--color-warning) / var(--action-primary))",
-    info: "rgba(var(--color-info) / var(--action-primary))",
-  },
-  grid: {
-    padding: "var(--grid-padding)",
-    margin: "var(--grid-margin)",
-  },
+  color: mapColor.reduce(
+    (newColors, color) => ({
+      ...newColors,
+      [color]: getColor(color),
+    }),
+    {} as Colors,
+  ),
+  size: getSize,
   media: {
-    sm: "@media (min-width: 0rem) or (max-width: 40rem)",
-    md: "@media (min-width: 40rem)",
-    lg: "@media (min-width: 80rem)",
+    sm: "@media (min-width: 0rem) or (max-width: 640px)",
+    md: "@media (min-width: 640px)",
+    lg: "@media (min-width: 1280px)",
     light:
       "@media (prefers-color-scheme: no-preference) or (prefers-color-scheme: light)",
     dark: "@media (prefers-color-scheme: dark)",
     idle: "@media (prefers-reduced-motion: reduce)",
     motion: "@media (prefers-reduced-motion: no-preference)",
-  },
-  size: {
-    2: "var(--size-02)",
-    4: "var(--size-04)",
-    8: "var(--size-08)",
-    12: "var(--size-12)",
-    16: "var(--size-16)",
-    20: "var(--size-20)",
-    24: "var(--size-24)",
-    32: "var(--size-32)",
-    40: "var(--size-40)",
-    44: "var(--size-44)",
-    48: "var(--size-48)",
-    56: "var(--size-56)",
-    64: "var(--size-64)",
-    96: "var(--size-96)",
-  },
-  font: {
-    overline: "var(--font-overline)",
-    body: "var(--font-body)",
-    subtitle: "var(--font-subtitle)",
-    subhead: "var(--font-subhead)",
-    headline: "var(--font-headline)",
   },
 } as const;

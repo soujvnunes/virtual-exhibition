@@ -10,23 +10,6 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://use.typekit.net/toj4mwx.css" />
     <title>Exposição Virtual</title>
-    <script>
-      (async function setFigmaTokens(w) {
-        w.figma = {};
-        w.figma.tokens = {};
-
-        if (w.JSON) {
-          try {
-            const response = await fetch("./figma.tokens.json");
-            const tokens = await response.json();
-
-            w.figma.tokens = tokens;
-          } catch (error) {
-            console.error(error);
-          }
-        }
-      })(window);
-    </script>
   </head>
   <body class="tk-futura-pt">
     <noscript>You need to enable JavaScript to run this app.</noscript>
