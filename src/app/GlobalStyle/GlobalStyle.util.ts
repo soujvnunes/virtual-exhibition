@@ -62,10 +62,7 @@ export function getCSSVarsSize(
 }
 
 export const CSSVarsSizes = cssVarsSizeProp
-  .reduce(
-    generateCSSVarsSize,
-    [] as (ReturnType<typeof generateCSSVarsSizeObject> | null)[],
-  )
+  .reduce(generateCSSVarsSize, [] as ReturnType<typeof generateCSSVarsSize>)
   .join(";\n");
 export const theme = {
   color: cssVarsColorChannelProp.reduce(
