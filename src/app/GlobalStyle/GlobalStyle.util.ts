@@ -37,7 +37,7 @@ export function getCSSVarsSize(
   _size: CSSVarsSize,
   options?: Partial<Record<typeof unitRem | "negative", boolean>>,
 ) {
-  const unit = options?.[unitRem] ? unitRem : "";
+  const unit = options?.[unitRem] ? unitRem : "px";
   const size = `var(--size-${_size}${unit})`;
 
   return options?.negative ? `calc(${size} * -1)` : size;
@@ -45,7 +45,7 @@ export function getCSSVarsSize(
 
 export const cssVarsSizes = cssVarsSizeProp
   .reduce((newSizes, size: CSSVarsSize) => {
-    const sizeInPx = `--size-${size}: ${size}px`;
+    const sizeInPx = `--size-${size}px: ${size}px`;
     const sizeInRem = `--size-${size}${unitRem}: ${size / 16}rem`;
     const renderInRem = size >= 12 && size <= 64 ? sizeInRem : null;
 
