@@ -7,7 +7,7 @@
 | Arg              | Type          | Default | Description                                                               | Example                              |
 | ---------------- | ------------- | ------- | ------------------------------------------------------------------------- | ------------------------------------ |
 | size             | `CSSVarsSize` |         | Specify a number that matchs with one of the CSS vars previously defined. | `theme.size(16)`                     |
-| options.pxToRem  | boolean       | false   | If true, size will match with one of the CSS vars with REM unit.          | `theme.size(16, { pxToRem: true })`  |
+| options.pxInRem  | boolean       | false   | If true, size will match with one of the CSS vars with REM unit.          | `theme.size(16, { pxInRem: true })`  |
 | options.negative | boolean       | false   | If true, size will return within CSS `calc` function minus value `1`.     | `theme.size(16, { negative: true })` |
 
 ### Color

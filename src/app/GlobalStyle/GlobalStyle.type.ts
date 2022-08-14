@@ -17,6 +17,8 @@ export type CSSVarsColorsChannel = Record<
 
 export type CSSVarsSize = typeof cssVarsSizeProp[number];
 
+export type CSSVarsSizes = (string | null)[];
+
 export type Theme = typeof theme;
 
 export type ThemeMedia = keyof Theme["media"];

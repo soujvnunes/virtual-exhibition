@@ -3,6 +3,7 @@ import type {
   CSSVarsColorChannel,
   CSSVarsColorsChannel,
   CSSVarsSize,
+  CSSVarsSizes,
 } from "app/GlobalStyle";
 
 export const cssVarsColorChannelProp = [
@@ -26,26 +27,7 @@ export const cssVarsSizeProp = [
   1280, 640, 320, 160, 80, 74, 72, 68, 64, 60, 56, 52, 48, 44, 40, 36, 32, 28,
   24, 20, 16, 12, 8, 4, 2, 1, 0,
 ] as const;
-export const UNIT_REM = "pxToRem";
-
-export function generateCSSVarsSizeObject(
-  prop: string | number,
-  value: string | number,
-) {
-  return `--size-${prop}: ${value}`;
-}
-export function generateCSSVarsSize(
-  newSizes: (string | null)[],
-  size: CSSVarsSize,
-) {
-  const sizeInPx = generateCSSVarsSizeObject(size, size ? `${size}px` : size);
-  const sizeInRem =
-    size >= 12 && size <= 64
-      ? generateCSSVarsSizeObject(`${size}${UNIT_REM}`, `${size / 16}rem`)
-      : null;
-
-  return [...newSizes, sizeInPx, sizeInRem];
-}
+export const unitRem = "pxInRem";
 
 export function getCSSVarsColorChannel(color: CSSVarsColorChannel) {
   return (alpha: CSSVarsColorAlpha = "primary") =>
@@ -53,16 +35,22 @@ export function getCSSVarsColorChannel(color: CSSVarsColorChannel) {
 }
 export function getCSSVarsSize(
   _size: CSSVarsSize,
-  options?: Partial<Record<typeof UNIT_REM | "negative", boolean>>,
+  options?: Partial<Record<typeof unitRem | "negative", boolean>>,
 ) {
-  const unit = options?.[UNIT_REM] ? UNIT_REM : "";
+  const unit = options?.[unitRem] ? unitRem : "";
   const size = `var(--size-${_size}${unit})`;
 
   return options?.negative ? `calc(${size} * -1)` : size;
 }
 
-export const CSSVarsSizes = cssVarsSizeProp
-  .reduce(generateCSSVarsSize, [] as ReturnType<typeof generateCSSVarsSize>)
+export const cssVarsSizes = cssVarsSizeProp
+  .reduce((newSizes, size: CSSVarsSize) => {
+    const sizeInPx = `--size-${size}: ${size}px`;
+    const sizeInRem = `--size-${size}${unitRem}: ${size / 16}rem`;
+    const renderInRem = size >= 12 && size <= 64 ? sizeInRem : null;
+
+    return [...newSizes, sizeInPx, renderInRem];
+  }, [] as CSSVarsSizes)
   .join(";\n");
 export const theme = {
   color: cssVarsColorChannelProp.reduce(
