@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { PropsWithAs } from "utils";
 import { mapTextVariant, mapTextSize, TextProps, isHeading } from "ui/Text";
-import { Size } from "app";
+import { CSSVarsSize } from "app";
 
 const Text = styled.span.attrs((p: PropsWithAs<TextProps>) => ({
   className:
@@ -20,17 +20,23 @@ const Text = styled.span.attrs((p: PropsWithAs<TextProps>) => ({
     p.$variant === "subhead" ||
     p.$variant === "subtitle" ||
     p.$variant === "overline"
-      ? p.theme.size(mapTextSize.sm[p.$variant] as Size, { pxToRem: true })
+      ? p.theme.size(mapTextSize.sm[p.$variant] as CSSVarsSize, {
+          pxToRem: true,
+        })
       : (p.$variant === "inherit" || p.$variant === "title") && "inherit"};
   ${(p) => p.theme.media.md} {
     font-size: ${(p) =>
       (p.$variant === "headline" || p.$variant === "subhead") &&
-      p.theme.size(mapTextSize.md[p.$variant] as Size, { pxToRem: true })};
+      p.theme.size(mapTextSize.md[p.$variant] as CSSVarsSize, {
+        pxToRem: true,
+      })};
   }
   ${(p) => p.theme.media.lg} {
     font-size: ${(p) =>
       (p.$variant === "headline" || p.$variant === "subhead") &&
-      p.theme.size(mapTextSize.lg[p.$variant] as Size, { pxToRem: true })};
+      p.theme.size(mapTextSize.lg[p.$variant] as CSSVarsSize, {
+        pxToRem: true,
+      })};
   }
 `;
 

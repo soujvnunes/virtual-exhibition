@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { CSSVarsSize } from "./GlobalStyle.util";
+import { CSSVarsSizes } from "./GlobalStyle.util";
 
 export const cssReset = css`
   html {
@@ -84,7 +84,7 @@ export const cssVars = css`
       --color-error: 255 51 51;
     }
     /** SIZE */
-    ${CSSVarsSize}
+    ${CSSVarsSizes}
   }
 `;
 export const cssGlobals = css`
