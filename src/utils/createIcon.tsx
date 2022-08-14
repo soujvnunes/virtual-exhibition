@@ -7,8 +7,8 @@ const IconRoot = styled.svg.attrs({
   viewBox: "0 0 24 24",
 })`
   fill: currentColor;
-  width: ${(p) => p.theme.size(24, { rem: true })};
-  height: ${(p) => p.theme.size(24, { rem: true })};
+  width: ${(p) => p.theme.size(24, { pxToRem: true })};
+  height: ${(p) => p.theme.size(24, { pxToRem: true })};
 `;
 
 function createIcon(name: string, path: string) {

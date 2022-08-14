@@ -9,8 +9,8 @@ export const LogosRoot = styled.a`
   color: ${(p) => p.theme.color.text()};
 `;
 export const LogosIcon = styled(Icon)`
-  width: ${(p) => p.theme.size(48, { rem: true })};
-  height: ${(p) => p.theme.size(48, { rem: true })};
+  width: ${(p) => p.theme.size(48, { pxToRem: true })};
+  height: ${(p) => p.theme.size(48, { pxToRem: true })};
 `;
 export const LogosPath = styled.path<LogosPathProps>`
   color: ${(p) => p.theme.color[p.color]()};

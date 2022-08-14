@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { generateSize } from "./GlobalStyle.util";
+import { CSSVarsSize } from "./GlobalStyle.util";
 
 export const cssReset = css`
   html {
@@ -84,12 +84,12 @@ export const cssVars = css`
       --color-error: 255 51 51;
     }
     /** SIZE */
-    ${generateSize()}
+    ${CSSVarsSize}
   }
 `;
 export const cssGlobals = css`
   body {
-    font-size: ${(p) => p.theme.size(16, { rem: true })};
+    font-size: ${(p) => p.theme.size(16, { pxToRem: true })};
     background-color: ${(p) => p.theme.color.background()};
     color: ${(p) => p.theme.color.text()};
     color-scheme: light;

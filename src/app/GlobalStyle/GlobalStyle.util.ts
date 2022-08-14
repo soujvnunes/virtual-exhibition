@@ -21,8 +21,7 @@ export const mapSize = [
   1280, 640, 320, 160, 80, 74, 72, 68, 64, 60, 56, 52, 48, 44, 40, 36, 32, 28,
   24, 20, 16, 12, 8, 4, 2, 1, 0,
 ] as const;
-export const PX = "px";
-export const REM = "rem";
+export const REM = "pxToRem";
 
 export function generateSizeObject(
   prop: string | number,
@@ -30,23 +29,14 @@ export function generateSizeObject(
 ) {
   return `--size-${prop}: ${value}`;
 }
-export function generateSize(sizes: Size[] = [...mapSize]) {
-  return sizes
-    .reduce((newSizes, size) => {
-      const cur = size as Size;
-      const sizeInPxProp = `${cur}${PX}`;
-      const sizeInPx = generateSizeObject(
-        sizeInPxProp,
-        cur ? sizeInPxProp : cur,
-      );
-      const sizeInRem =
-        cur >= 12 && cur <= 64
-          ? generateSizeObject(`${cur}${REM}`, `${cur / 16}${REM}`)
-          : null;
+export function generateSize(newSizes: (string | null)[], size: Size) {
+  const sizeInPx = generateSizeObject(size, size ? `${size}px` : size);
+  const sizeInRem =
+    size >= 12 && size <= 64
+      ? generateSizeObject(`${size}${REM}`, `${size / 16}rem`)
+      : null;
 
-      return [...newSizes, sizeInPx, sizeInRem];
-    }, [] as (ReturnType<typeof generateSizeObject> | null)[])
-    .join(";\n");
+  return [...newSizes, sizeInPx, sizeInRem];
 }
 
 export function getColor(color: Color) {
@@ -57,12 +47,15 @@ export function getSize(
   _size: Size,
   options?: Partial<Record<typeof REM | "negative", boolean>>,
 ) {
-  const unit = options?.rem ? REM : PX;
+  const unit = options?.[REM] ? REM : "";
   const size = `var(--size-${_size}${unit})`;
 
   return options?.negative ? `calc(${size} * -1)` : size;
 }
 
+export const CSSVarsSize = mapSize
+  .reduce(generateSize, [] as (ReturnType<typeof generateSizeObject> | null)[])
+  .join(";\n");
 export const theme = {
   color: mapColor.reduce(
     (newColors, color) => ({
