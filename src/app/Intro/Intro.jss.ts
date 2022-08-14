@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import { Row, Text } from "ui";
-import { getToken } from "utils";
 
 export const IntroRoot = styled.div`
-  border: solid ${getToken("main.secondary")};
+  border: solid ${(p) => p.theme.color.main("secondary")};
   border-width: 1px 0;
-  padding-top: ${getToken("size.48")};
+  padding-top: ${(p) => p.theme.size(48)};
   background-image: linear-gradient(
     to right,
-    ${getToken("main.tertiary")},
+    ${(p) => p.theme.color.main("tertiary")},
     transparent
   );
 `;
@@ -17,19 +16,19 @@ export const IntroHeadline = styled(Text)`
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  color: ${getToken("main.primary")};
+  color: ${(p) => p.theme.color.main()};
   background-image: linear-gradient(
     to right,
-    ${getToken("color.accent")},
-    ${getToken("main.primary")}
+    ${(p) => p.theme.color.accent()},
+    ${(p) => p.theme.color.main()}
   );
 `;
 export const IntroSlider = styled(Row)`
   align-items: center;
 `;
 export const IntroSliderItem = styled.div`
-  border-radius: ${getToken("size.16")};
-  box-shadow: 0 24px 32px ${getToken("background.primary")};
-  border: 1px solid ${getToken("main.secondary")};
+  border-radius: ${(p) => p.theme.size(16)};
+  box-shadow: 0 24px 32px ${(p) => p.theme.color.background()};
+  border: 1px solid ${(p) => p.theme.color.main()};
   overflow: hidden;
 `;

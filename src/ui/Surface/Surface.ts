@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { getToken } from "utils";
 
 const Surface = styled.div`
   display: flex;
-  border: 1px solid ${getToken("main.secondary")};
-  border-radius: ${getToken("size.16")};
-  color: ${getToken("color.accent")};
+  border: 1px solid ${(p) => p.theme.color.main("secondary")};
+  border-radius: ${(p) => p.theme.size(16)};
+  color: ${(p) => p.theme.color.accent()};
 `;
 
 Surface.displayName = "Surface";

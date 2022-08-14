@@ -2,8 +2,7 @@ import renderer from "react-test-renderer";
 import Col, { getColSize, mapCols, mapMediaQueries } from "ui/Col";
 import { find } from "styled-components/test-utils";
 import { render } from "@testing-library/react";
-import { theme } from "app";
-import { ThemeMediaQuery } from "utils";
+import { theme, ThemeMediaQuery } from "app";
 
 describe("Col", () => {
   it("should render without crash", () => {
@@ -15,8 +14,8 @@ describe("Col", () => {
     const tree = renderer.create(<Col theme={theme} />).toJSON();
 
     expect(tree).toMatchSnapshot();
-    expect(tree).toHaveStyleRule("padding-left", theme.grid.padding);
-    expect(tree).toHaveStyleRule("padding-top", theme.grid.padding);
+    expect(tree).toHaveStyleRule("padding-left", theme.size(8));
+    expect(tree).toHaveStyleRule("padding-top", theme.size(8));
   });
   mapCols.forEach((col) => {
     it(`should render ${col} column(s) with ${col} start/end span(s)`, () => {
@@ -38,8 +37,8 @@ describe("Col", () => {
         ? undefined
         : {
             media: {
-              md: "(min-width:40rem)",
-              lg: "(min-width:80rem)",
+              md: "(min-width:640px)",
+              lg: "(min-width:1280px)",
             }[media],
           };
 

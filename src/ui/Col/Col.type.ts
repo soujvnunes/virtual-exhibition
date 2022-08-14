@@ -1,4 +1,4 @@
-import { ThemeMediaQuery } from "utils";
+import { ThemeMediaQuery } from "app";
 import { mapCols } from "ui/Col";
 
 export type ColKs = "start" | "mid" | "end";

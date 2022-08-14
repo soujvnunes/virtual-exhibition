@@ -1,30 +1,37 @@
 import styled from "styled-components";
-import { getToken, PropsWithAs } from "utils";
-import { mapTextVariant, TextProps, isHeading } from "ui/Text";
+import { PropsWithAs } from "utils";
+import { mapTextVariant, mapTextSize, TextProps, isHeading } from "ui/Text";
+import { Size } from "app";
 
-const Text = styled.span.attrs((props: PropsWithAs<TextProps>) => ({
+const Text = styled.span.attrs((p: PropsWithAs<TextProps>) => ({
   className:
-    isHeading(props) &&
-    props.$variant !== "inherit" &&
-    "tk-freight-display-pro",
+    isHeading(p) && p.$variant !== "inherit" && "tk-freight-display-pro",
   as:
-    props.as ||
-    (props.$variant !== "inherit" &&
-      props.$variant &&
-      mapTextVariant[props.$variant]),
+    p.as ||
+    (p.$variant !== "inherit" && p.$variant && mapTextVariant[p.$variant]),
 }))<TextProps>`
-  margin-bottom: ${(props) => props.$gutterBottom && "1em"};
-  font-size: ${(props) =>
-    props.$variant === "title"
-      ? getToken("font.body")
-      : props.$variant !== "inherit" &&
-        props.$variant &&
-        getToken(`font.${props.$variant}`)};
-  text-align: ${(props) => props.$centered && "center"};
-  font-style: ${(props) => props.$italic && "italic"};
-  font-weight: ${(props) => (isHeading(props) ? 400 : props.$weight)};
-  line-height: ${(props) =>
-    isHeading(props) && props.$variant !== "inherit" && 1};
+  margin-bottom: ${(p) => p.$gutterBottom && "1em"};
+  text-align: ${(p) => p.$centered && "center"};
+  font-style: ${(p) => p.$italic && "italic"};
+  font-weight: ${(p) => (isHeading(p) ? 400 : p.$weight)};
+  line-height: ${(p) => isHeading(p) && p.$variant !== "inherit" && 1};
+  font-size: ${(p) =>
+    p.$variant === "headline" ||
+    p.$variant === "subhead" ||
+    p.$variant === "subtitle" ||
+    p.$variant === "overline"
+      ? p.theme.size(mapTextSize.sm[p.$variant] as Size, { rem: true })
+      : (p.$variant === "inherit" || p.$variant === "title") && "inherit"};
+  ${(p) => p.theme.media.md} {
+    font-size: ${(p) =>
+      (p.$variant === "headline" || p.$variant === "subhead") &&
+      p.theme.size(mapTextSize.md[p.$variant] as Size, { rem: true })};
+  }
+  ${(p) => p.theme.media.lg} {
+    font-size: ${(p) =>
+      (p.$variant === "headline" || p.$variant === "subhead") &&
+      p.theme.size(mapTextSize.lg[p.$variant] as Size, { rem: true })};
+  }
 `;
 
 Text.displayName = "Text";

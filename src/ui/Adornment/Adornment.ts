@@ -1,16 +1,15 @@
-import styled, { css } from "styled-components";
-import { getToken } from "utils";
+import styled from "styled-components";
 import { AdornmentProps } from "ui/Adornment";
 
 const Adornment = styled.span<AdornmentProps>`
-  margin-right: ${(props) =>
-    props.$edge === "start"
-      ? getToken("size.12")
-      : css`calc(${getToken("size.12")} * -1)`};
-  margin-left: ${(props) =>
-    props.$edge === "end"
-      ? getToken("size.12")
-      : css`calc(${getToken("size.12")} * -1)`};
+  margin-right: ${(p) =>
+    p.$edge === "start"
+      ? p.theme.size(12)
+      : p.theme.size(12, { negative: true })};
+  margin-left: ${(p) =>
+    p.$edge === "end"
+      ? p.theme.size(12)
+      : p.theme.size(12, { negative: true })};
   display: inherit;
 `;
 

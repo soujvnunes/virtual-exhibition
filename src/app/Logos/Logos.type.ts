@@ -1,3 +1,3 @@
 export type LogosPathProps = {
-  color: "main.primary" | `color.${"error" | "info"}`;
+  color: "main" | "error" | "info";
 };

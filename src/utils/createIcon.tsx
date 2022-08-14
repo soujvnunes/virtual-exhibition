@@ -1,6 +1,5 @@
 import { memo } from "react";
 import styled, { StyledComponentPropsWithRef } from "styled-components";
-import getToken from "utils/getToken";
 
 const IconRoot = styled.svg.attrs({
   focusable: "false",
@@ -8,8 +7,8 @@ const IconRoot = styled.svg.attrs({
   viewBox: "0 0 24 24",
 })`
   fill: currentColor;
-  width: ${getToken("size.24")};
-  height: ${getToken("size.24")};
+  width: ${(p) => p.theme.size(24, { rem: true })};
+  height: ${(p) => p.theme.size(24, { rem: true })};
 `;
 
 function createIcon(name: string, path: string) {

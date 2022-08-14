@@ -1,10 +1,18 @@
 import styled from "styled-components";
-import { getToken, ThemeMediaQuery } from "utils";
 import { ColProps, Cols, convertToObj, getColSize } from "ui/Col";
+import { ThemeMediaQuery } from "app";
 
 const Col = styled.li<ColProps>`
-  padding-left: ${getToken("grid.padding")};
-  padding-top: ${getToken("grid.padding")};
+  padding-left: ${(p) => p.theme.size(8)};
+  padding-top: ${(p) => p.theme.size(8)};
+  ${(p) => p.theme.media.md} {
+    padding-left: ${(p) => p.theme.size(12)};
+    padding-top: ${(p) => p.theme.size(12)};
+  }
+  ${(p) => p.theme.media.lg} {
+    padding-left: ${(p) => p.theme.size(16)};
+    padding-top: ${(p) => p.theme.size(16)};
+  }
   flex-grow: ${(props) => props.$mid && 0};
   ${(props) => {
     let styles: { [key: string]: { [key: string]: string | number } } = {};

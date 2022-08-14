@@ -1,11 +1,14 @@
 import styled from "styled-components";
-import { getToken } from "utils";
 
 const Container = styled.div`
-  max-width: 80rem;
-  margin-right: ${getToken("grid.margin")};
-  margin-left: ${getToken("grid.margin")};
-  ${getToken("media.lg")} {
+  max-width: ${(p) => p.theme.size(1280)};
+  margin-right: ${(p) => p.theme.size(16)};
+  margin-left: ${(p) => p.theme.size(16)};
+  ${(p) => p.theme.media.md} {
+    margin-right: ${(p) => p.theme.size(24)};
+    margin-left: ${(p) => p.theme.size(24)};
+  }
+  ${(p) => p.theme.media.lg} {
     margin-right: auto;
     margin-left: auto;
   }

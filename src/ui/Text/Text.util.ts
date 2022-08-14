@@ -9,5 +9,21 @@ export const mapTextVariant = {
   body: "p",
   overline: "span",
 };
+export const mapTextSize = {
+  sm: {
+    headline: 48,
+    subhead: 40,
+    subtitle: 20,
+    overline: 12,
+  },
+  md: {
+    headline: 56,
+    subhead: 44,
+  },
+  lg: {
+    headline: 64,
+    subhead: 48,
+  },
+};
 export const isHeading = (props: TextProps) =>
   isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);

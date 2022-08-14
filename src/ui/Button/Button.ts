@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { getToken } from "utils";
 import Surface from "ui/Surface";
 import Text from "ui/Text";
 import { ButtonProps } from "ui/Button";
@@ -12,8 +11,8 @@ const Button = styled(Text).attrs((props: ButtonProps) => ({
 }))<ButtonProps>`
   align-items: center;
   background-color: transparent;
-  height: ${getToken("size.40")};
-  padding: 0 ${getToken("size.24")};
+  height: ${(p) => p.theme.size(40)};
+  padding: 0 ${(p) => p.theme.size(24)};
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.167;

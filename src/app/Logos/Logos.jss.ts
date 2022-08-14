@@ -1,22 +1,21 @@
 import styled from "styled-components";
 import { Icon } from "ui";
-import { getToken } from "utils";
 import { LogosPathProps } from "app/Logos";
 
 export const LogosRoot = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${getToken("text.primary")};
+  color: ${(p) => p.theme.color.text()};
 `;
 export const LogosIcon = styled(Icon)`
-  width: ${getToken("size.48")};
-  height: ${getToken("size.48")};
+  width: ${(p) => p.theme.size(48, { rem: true })};
+  height: ${(p) => p.theme.size(48, { rem: true })};
 `;
 export const LogosPath = styled.path<LogosPathProps>`
-  color: ${(props) => getToken(props.color)(props)};
+  color: ${(p) => p.theme.color[p.color]()};
 `;
 export const LogosLabelTabbed = styled.span`
   display: block;
-  margin-left: calc(${getToken("size.16")} * -1);
+  margin-left: ${(p) => p.theme.size(16, { negative: true })};
 `;
