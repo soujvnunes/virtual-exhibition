@@ -1,19 +1,16 @@
 import {
-  getCSSVarsColorChannel,
-  cssVarsColorAlphaProp,
-  cssVarsColorChannelProp,
+  cssVarState,
+  cssVarColor,
   cssVarsSizeProp,
   theme,
+  cssVarTone,
 } from "./GlobalStyle.util";
 
-export type CSSVarsColorChannel = typeof cssVarsColorChannelProp[number];
+export type CSSVarColor = keyof typeof cssVarColor;
 
-export type CSSVarsColorAlpha = typeof cssVarsColorAlphaProp[number];
+export type CSSVarState = keyof typeof cssVarState;
 
-export type CSSVarsColorsChannel = Record<
-  CSSVarsColorChannel,
-  ReturnType<typeof getCSSVarsColorChannel>
->;
+export type CSSVarTone = keyof typeof cssVarTone;
 
 export type CSSVarsSize = typeof cssVarsSizeProp[number];
 

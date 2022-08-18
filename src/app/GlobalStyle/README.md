@@ -12,8 +12,8 @@ theme.size
 
 theme.color
 
-| Arg           | Type                                    | Default | Description                                                                                                             | Example                                      |
-| ------------- | --------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| color         | `CSSVarsColor`                          |         | Specify a color that matchs with one of the CSS vars previously defined.                                                | `theme.color('main')`                        |
-| options.mix   | `tint` `tone` `shade`                   |         | Mixing terminology where `tint` is closer to white, while `shade` is closer to black.                                   | `theme.color('main', { mix: 'tint' })`       |
-| options.alpha | number `primary` `secondary` `tertiary` |         | Alpha channel specified by number (0-1), percentage (0-100) or `primary` (0.6), `secondary` (0.4) and `tertiary` (0.2). | `theme.color('main', { alpha: 'primary' }) ` |
+| Arg           | Type                                    | Default   | Description                                                                                                             | Example                                      |
+| ------------- | --------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| color         | `CSSVarColor`                           |           | Specify a color that matchs with one of the CSS vars previously defined.                                                | `theme.color('main')`                        |
+| options.mix   | `tint` `tone` `shade`                   |           | Mixing terminology where `tint` is closer to white, while `shade` is closer to black.                                   | `theme.color('main', { mix: 'tint' })`       |
+| options.alpha | number `primary` `secondary` `tertiary` | `primary` | Alpha channel specified by number (0-1), percentage (0-100) or `primary` (0.6), `secondary` (0.4) and `tertiary` (0.2). | `theme.color('main', { alpha: 'primary' }) ` |
