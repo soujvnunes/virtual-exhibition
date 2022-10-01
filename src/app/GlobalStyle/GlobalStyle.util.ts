@@ -1,39 +1,11 @@
 import type {
-  CSSVarState,
-  CSSVarColor,
-  CSSVarTone,
-  CSSVarsSize,
-  CSSVarsSizes,
+  GlobalStyleColorProps,
+  GlobalStyleSizeProps,
 } from "app/GlobalStyle";
 import { mix, parseToRgb } from "polished";
 import type { RgbColor } from "polished/lib/types/color";
 import { isProp } from "utils";
 
-export const cssVarColor = {
-  main: "#ff99ff",
-  success: "#66ff33",
-  info: "#3399ff",
-  warning: "#ffcc00",
-  error: "#ff3333",
-} as const;
-export const cssVarState = {
-  primary: 1,
-  secondary: 0.6,
-  tertiary: 0.4,
-  quaternary: 0.2,
-  quinary: 0.16,
-  senary: 0.09,
-} as const;
-export const cssVarTone = {
-  lighter: 0.1,
-  light: 0.4,
-  dark: 0.8,
-  darker: 0.1,
-} as const;
-export const cssVarsSizeProp = [
-  1280, 640, 320, 160, 80, 74, 72, 68, 64, 60, 56, 52, 48, 44, 40, 36, 32, 28,
-  24, 20, 16, 12, 8, 4, 2, 1, 0,
-] as const;
 export const unitRem = "pxInRem";
 export const jointRegExp = ";\n";
 
@@ -54,49 +26,54 @@ function getColorChannel(color: string) {
  *
  *
  */
-export const cssVarsSizes = cssVarsSizeProp
-  .reduce((newSizes, size: CSSVarsSize) => {
-    const sizeInPx = `--size-${size}px: ${size}px`;
-    const sizeInRem = `--size-${size}${unitRem}: ${size / 16}rem`;
-    const renderInRem = size >= 12 && size <= 64 ? sizeInRem : null;
+export function generateCssVarsSize(_sizes: GlobalStyleSizeProps) {
+  let sizes: Array<string> = [];
 
-    return [...newSizes, sizeInPx, renderInRem];
-  }, [] as CSSVarsSizes)
-  .join(jointRegExp);
-export const cssVarColors = Object.keys(cssVarColor)
-  .reduce((colors, color) => {
-    const colorValue = cssVarColor[color as CSSVarColor];
-    const colorTones = Object.keys(cssVarTone).reduce((tones, tone) => {
-      const toneValue = cssVarTone[tone as CSSVarTone];
+  for (const size of _sizes) {
+    sizes = [
+      ...sizes,
+      `--size-${size}px: ${size}px`,
+      `--size-${size}${unitRem}: ${size / 16}rem`,
+    ];
+  }
+
+  return sizes.join(jointRegExp);
+}
+export function generateCssVarsColor(value: GlobalStyleColorProps) {
+  Object.keys(value.base)
+    .reduce((colors, color) => {
+      const colorValue = value.base[color];
+      const colorTones = Object.keys(value.tone).reduce((tones, tone) => {
+        const toneValue = value.tone[tone];
+
+        return [
+          ...tones,
+          `--color-${color}-${tone}: ${getColorChannel(
+            mix(
+              toneValue,
+              colorValue,
+              isProp(tone, ["lighter", "light"]) ? "#fff" : "#000",
+            ),
+          )}`,
+        ];
+      }, [] as string[]);
 
       return [
-        ...tones,
-        `--color-${color}-${tone}: ${getColorChannel(
-          mix(
-            toneValue,
-            colorValue,
-            isProp(tone, ["lighter", "light"]) ? "#fff" : "#000",
-          ),
-        )}`,
+        ...colors,
+        ...colorTones,
+        `--color-${color}: ${getColorChannel(colorValue)}`,
       ];
-    }, [] as string[]);
-
-    return [
-      ...colors,
-      ...colorTones,
-      `--color-${color}: ${getColorChannel(colorValue)}`,
-    ];
-  }, [] as string[])
-  .join(jointRegExp);
-export const cssVarStates = Object.keys(cssVarState)
-  .reduce(
-    (states, state) => [
-      ...states,
-      `--state-${state}: ${cssVarState[state as CSSVarState]}`,
-    ],
-    [] as string[],
-  )
-  .join(jointRegExp);
+    }, [] as string[])
+    .join(jointRegExp);
+}
+export function generateCssVarsState(value: GlobalStyleColorProps) {
+  return Object.keys(value.state)
+    .reduce(
+      (states, state) => [...states, `--state-${state}: ${value.state[state]}`],
+      [] as string[],
+    )
+    .join(jointRegExp);
+}
 /**
  *
  *
@@ -106,7 +83,7 @@ export const cssVarStates = Object.keys(cssVarState)
  */
 
 // TODO: get it like is being specified on the issue
-export function getCSSVarsColorChannel(
+export function getColor(
   color: CSSVarColor,
   options?: {
     tone?: CSSVarTone;
@@ -118,7 +95,7 @@ export function getCSSVarsColorChannel(
   return `rgba(var(--color-${color}) / var(--alpha-${state}))`;
 }
 // TODO: get it like is being specified on the issue
-export function getCSSVarsSize(
+export function getSize(
   _size: CSSVarsSize,
   options?: Partial<Record<typeof unitRem | "negative", boolean>>,
 ) {
@@ -129,8 +106,8 @@ export function getCSSVarsSize(
 }
 
 export const theme = {
-  color: getCSSVarsColorChannel,
-  size: getCSSVarsSize,
+  color: getColor,
+  size: getSize,
   media: {
     sm: "@media (min-width: 0rem) or (max-width: 640px)",
     md: "@media (min-width: 640px)",

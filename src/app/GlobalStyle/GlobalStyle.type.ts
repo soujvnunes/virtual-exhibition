@@ -1,20 +1,5 @@
-import {
-  cssVarState,
-  cssVarColor,
-  cssVarsSizeProp,
-  theme,
-  cssVarTone,
-} from "./GlobalStyle.util";
-
-export type CSSVarColor = keyof typeof cssVarColor;
-
-export type CSSVarState = keyof typeof cssVarState;
-
-export type CSSVarTone = keyof typeof cssVarTone;
-
-export type CSSVarsSize = typeof cssVarsSizeProp[number];
-
-export type CSSVarsSizes = (string | null)[];
+import React from "react";
+import { theme } from "./GlobalStyle.util";
 
 export type Theme = typeof theme;
 
@@ -24,3 +9,35 @@ export type ThemeMediaQuery = Exclude<
   ThemeMedia,
   "light" | "dark" | "idle" | "motion"
 >;
+
+export type GlobalStyleProps = React.PropsWithChildren<{
+  themeFactory: {
+    color: Partial<
+      Record<
+        "main" | "accent" | "success" | "info" | "warning" | "error",
+        | {
+            base: string;
+            tones?: Partial<
+              Record<"lighter" | "light" | "dark" | "darker" | string, number>
+            >;
+            state?: Partial<
+              Record<
+                "primary" | "secondary" | "tertiary" | "quaternary" | string,
+                number
+              >
+            >;
+            contrast?: Partial<Record<"black" | "white", string>>;
+          }
+        | string
+      >
+    >;
+    size: Array<number>;
+    media: Partial<
+      Record<"sm" | "md" | "lg" | "light" | "dark" | "idle" | "motion", string>
+    >;
+  };
+}>;
+
+export type GlobalStyleColorProps = GlobalStyleProps["themeFactory"]["color"];
+
+export type GlobalStyleSizeProps = GlobalStyleProps["themeFactory"]["size"];
