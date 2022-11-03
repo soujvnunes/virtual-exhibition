@@ -11,13 +11,13 @@ export const jointRegExp = ";\n";
 
 function getColorChannel(color: string) {
   const rgb = parseToRgb(color);
+  let channels: Array<number> = [];
 
-  return Object.keys(rgb)
-    .reduce(
-      (channels, channel) => [...channels, rgb[channel as keyof RgbColor]],
-      [] as number[],
-    )
-    .join(" ");
+  for (const channel in rgb) {
+    channels = [...channels, rgb[channel as keyof RgbColor]];
+  }
+
+  return channels.join(" ");
 }
 /**
  *
