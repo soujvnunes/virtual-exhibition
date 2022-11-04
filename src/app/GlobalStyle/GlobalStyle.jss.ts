@@ -4,11 +4,7 @@ import { cssVarsSizes } from "./GlobalStyle.util";
 export const cssReset = css`
   html {
     box-sizing: border-box;
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
     line-height: 1.5;
-    text-size-adjust: 100%;
   }
   *,
   *::before,
@@ -17,7 +13,7 @@ export const cssReset = css`
   }
   ul,
   ol {
-    padding: 0;
+    padding: 0px;
     list-style: none;
   }
   body,
@@ -34,7 +30,7 @@ export const cssReset = css`
   dd,
   ul,
   ol {
-    margin: 0;
+    margin: 0px;
   }
   a:not([class]) {
     text-decoration-skip-ink: auto;
@@ -92,11 +88,14 @@ export const cssGlobals = css`
     font-size: ${(p) => p.theme.size(16, { pxInRem: true })};
     background-color: ${(p) => p.theme.color.background()};
     color: ${(p) => p.theme.color.text()};
-    color-scheme: light;
+    color-scheme: light dark;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    text-size-adjust: 100%;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     ${(p) => p.theme.media.dark} {
-      color-scheme: dark;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
