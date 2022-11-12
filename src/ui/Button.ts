@@ -1,7 +1,11 @@
 import styled from "styled-components";
+import type { StyledComponentPropsWithRef } from "styled-components";
 import Surface from "ui/Surface";
 import Text from "ui/Text";
-import { ButtonProps } from "ui/Button";
+
+export type ButtonProps =
+  | ({ href?: string } & StyledComponentPropsWithRef<"a">)
+  | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
 
 const Button = styled(Text).attrs((props: ButtonProps) => ({
   as: Surface,

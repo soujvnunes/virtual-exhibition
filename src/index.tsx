@@ -1,14 +1,11 @@
 import App from "./App";
-import { StrictMode } from "react";
-import { render } from "react-dom";
 import { ReportHandler } from "web-vitals";
+import { createRoot } from "react-dom/client";
 
-render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById("root"),
-);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const root = createRoot(document.getElementById("root")!);
+
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

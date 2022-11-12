@@ -1,7 +1,41 @@
 import styled from "styled-components";
-import { PropsWithAs } from "utils";
-import { mapTextVariant, mapTextSize, TextProps, isHeading } from "ui/Text";
-import { CSSVarsSize } from "app";
+import type { PropsWithAs } from "styled-components";
+import { isProp } from "utils";
+
+export const mapTextVariant = {
+  title: "h1",
+  headline: "h2",
+  subhead: "h3",
+  subtitle: "h4",
+  body: "p",
+  overline: "span",
+};
+export const mapTextSize = {
+  sm: {
+    headline: 48,
+    subhead: 40,
+    subtitle: 20,
+    overline: 12,
+  },
+  md: {
+    headline: 56,
+    subhead: 44,
+  },
+  lg: {
+    headline: 64,
+    subhead: 48,
+  },
+};
+
+export type TextProps = Partial<
+  Record<"$gutterBottom" | "$centered" | "$italic", boolean>
+> & {
+  $variant?: keyof typeof mapTextVariant | "inherit";
+  $weight?: 400 | 500 | 600 | 700;
+};
+
+export const isHeading = (props: TextProps) =>
+  isProp(props.$variant, ["title", "headline", "subhead", "subtitle"]);
 
 const Text = styled.span.attrs((p: PropsWithAs<TextProps>) => ({
   className:

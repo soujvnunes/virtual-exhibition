@@ -1,6 +1,20 @@
 import styled from "styled-components";
-import { ColProps, Cols, convertToObj, getColSize } from "ui/Col";
 import { ThemeMediaQuery } from "app";
+
+export const mapMediaQueries = ["sm", "md", "lg"];
+export const mapCols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
+
+export type ColKs = "start" | "mid" | "end";
+export type Cols = typeof mapCols[number];
+export type ColProps = {
+  [K in ColKs as `$${K}`]?: Cols | Partial<Record<ThemeMediaQuery, Cols>>;
+};
+
+export const getColSize = (col: Cols) => `${(100 * col) / 12}%`;
+export const convertToObj = (
+  prop: unknown,
+): Partial<Record<"sm" | "md" | "lg", Cols>> =>
+  prop != null ? (typeof prop === "object" ? prop : { sm: prop }) : {};
 
 const Col = styled.li<ColProps>`
   padding-left: ${(p) => p.theme.size(8)};

@@ -1,4 +1,5 @@
-import { Header, Intro } from "app";
+import Header from "app/Header";
+import Intro from "app/Intro";
 import { Theme } from "theme";
 
 const themeFactory = {
