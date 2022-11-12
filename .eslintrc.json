@@ -33,14 +33,59 @@
     "jest"
   ],
   "rules": {
+    /**
+     * START COLLISIONS
+     */
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+
+    "no-use-before-define": ["error", "nofunc"],
+    "@typescript-eslint/no-use-before-define": ["error"],
+
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+
+    "no-undef": "off",
+    /**
+     * END COLLISIONS
+     */
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "import/no-unresolved": "error",
-    "prettier/prettier": ["error", { "trailingComma": "all" }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }],
+
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^app/",
+          "/^ui/",
+          "/^assets/",
+          "/^utils/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/prefer-default-export": "off",
+
+    "prettier/prettier": ["error", { "trailingComma": "all" }],
+
+    "object-curly-newline": "off",
+    "curly": ["error", "multi-line"],
     "quotes": ["error", "double"],
+
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" },
@@ -53,7 +98,6 @@
         "next": ["const", "let", "var"]
       }
     ],
-    "curly": ["error", "multi-line"],
     "no-param-reassign": [
       "error",
       {
@@ -68,10 +112,6 @@
         ]
       }
     ],
-    "no-use-before-define": ["error", "nofunc"],
-    "object-curly-newline": "off",
-    "react/jsx-one-expression-per-line": ["off", { "allow": "literal" }],
-    "import/prefer-default-export": "off",
     "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }]
   },
   "settings": {

@@ -1,5 +1,6 @@
-import Text from "ui/Text";
 import { LogosIcon, LogosLabelTabbed, LogosPath, LogosRoot } from "app/Logos";
+
+import Text from "ui/Text";
 
 export default function Logos() {
   return (

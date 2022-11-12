@@ -1,12 +1,10 @@
-import { GlobalStyle, Header, Intro, theme } from "app";
-import { useMemo } from "react";
 import { ThemeProvider } from "styled-components";
 
-export default function App() {
-  const themeMemo = useMemo(() => theme, []);
+import { GlobalStyle, Header, Intro, theme } from "app";
 
+export default function App() {
   return (
-    <ThemeProvider theme={themeMemo}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
       <Intro />
