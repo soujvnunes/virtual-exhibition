@@ -8,7 +8,6 @@ export default function useMedia(query: string) {
     function handleMedia(event: MediaQueryListEvent) {
       setMedia(event.matches);
     }
-
     mql.addEventListener("change", handleMedia);
 
     return () => mql.removeEventListener("change", handleMedia);

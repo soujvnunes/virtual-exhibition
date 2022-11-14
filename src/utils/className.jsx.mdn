@@ -1,0 +1,11 @@
+const classNames = className((props) => ({
+  color: props.theme.color.main,
+  padding: props.theme.size.sm,
+  ...(props.variant === "filled" && {
+    backgroundColor: props.theme.color.background,
+  }),
+}));
+
+function Component({ children, ...props }) {
+  return <button {...classNames(props)}>{children}</button>;
+}
