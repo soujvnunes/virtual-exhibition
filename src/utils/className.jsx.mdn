@@ -1,4 +1,8 @@
-const classNames = className((props) => ({
+type ButtonProps = {
+  variant?: 'filled';
+}
+
+const useCns = makeCns<ButtonProps>((props) => ({
   color: props.theme.color.main,
   padding: props.theme.size.sm,
   ...(props.variant === "filled" && {
@@ -6,6 +10,8 @@ const classNames = className((props) => ({
   }),
 }));
 
-function Component({ children, ...props }) {
-  return <button {...classNames(props)}>{children}</button>;
+function Button({ children, ...props }: ButtonProps) {
+  const cns = useCns(props);
+
+  return <button classNames={cns}>{children}</button>;
 }
