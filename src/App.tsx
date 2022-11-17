@@ -1,5 +1,5 @@
 import { Header } from "app";
-import "./App.scss";
+import "./App.css";
 import { ThemeProvider } from "utils";
 
 export default function App() {

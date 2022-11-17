@@ -1,7 +1,17 @@
-@value sm: (min-width: 0rem) or (max-width: 640px);
+@value sm: (min-width: 0px) or (max-width: 640px);
 @value md: (min-width: 640px);
 @value lg: (min-width: 1280px);
 @value light: (prefers-color-scheme: no-preference) or (prefers-color-scheme: light);
 @value dark: (prefers-color-scheme: dark);
 @value idle: (prefers-reduced-motion: reduce);
 @value motion: (prefers-reduced-motion: no-preference);
+
+.background {
+  background-color: rgb(var(--pink-500));
+}
+
+@media dark {
+  .background {
+    background-color: rgb(var(--pink-300));
+  }
+}
