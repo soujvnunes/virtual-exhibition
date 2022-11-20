@@ -68,10 +68,10 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
-          "/^app/",
           "/^ui/",
-          "/^assets/",
+          "/^app/",
           "/^utils/",
+          "/^assets/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
