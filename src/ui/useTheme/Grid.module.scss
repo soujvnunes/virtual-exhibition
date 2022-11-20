@@ -1,0 +1,33 @@
+@value lg from './Theme.scss';
+
+.padding {
+  padding-left: var(--size-xs);
+  padding-right: var(--size-xs);
+
+  @media lg {
+    & {
+      padding-left: var(--size-md);
+      padding-right: var(--size-md);
+    }
+  }
+}
+
+.margin {
+  margin-left: var(--size-md);
+  margin-right: var(--size-md);
+
+  @media lg {
+    & {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.container {
+  max-width: 100%;
+
+  @media lg {
+    max-width: var(--safe-area);
+  }
+}

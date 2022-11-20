@@ -1,5 +1,4 @@
-@value media: './base.css';
-@value dark from media;
+@value dark from './Theme.scss';
 
 .background {
   background-color: rgb(var(--pink-500));

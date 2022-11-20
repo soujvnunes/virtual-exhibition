@@ -1,4 +1,11 @@
 @import-normalize;
+@value sm: (min-width: 0px) or (max-width: 640px);
+@value md: (min-width: 640px);
+@value lg: (min-width: 1280px);
+@value light: (prefers-color-scheme: no-preference) or (prefers-color-scheme: light);
+@value dark: (prefers-color-scheme: dark);
+@value idle: (prefers-reduced-motion: reduce);
+@value motion: (prefers-reduced-motion: no-preference);
 
 :root {
   --size-0: 0px;
@@ -17,6 +24,7 @@
   --size-x6l: 3.5rem;
   --size-x7l: 4rem;
   --size-x8l: 6rem;
+  --safe-area: 1440px;
   --kerning-heading: 1;
   --kerning-paragraph: 1.5em;
   --font-sans: futura-pt, sans-serif;
