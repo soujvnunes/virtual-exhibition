@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withAlpha } = require("./tailwind.utils");
 
 module.exports = {
@@ -12,9 +13,6 @@ module.exports = {
       DEFAULT: "var(--size-1)",
     },
     colors: {
-      inherit: "var(--color-inherit)",
-      current: "var(--color-current)",
-      transparent: "var(--color-transparent)",
       light: withAlpha("var(--gray-100)"),
       dark: withAlpha("var(--gray-900)"),
       main: {
@@ -74,3 +72,4 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/aspect-ratio")],
 };
+export {};

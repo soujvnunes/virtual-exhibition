@@ -4,3 +4,4 @@ module.exports = {
     ({ opacityValue }) =>
       `rgb(${cssVar} ${opacityValue ? `/ ${opacityValue}` : ""})`,
 };
+export {};
