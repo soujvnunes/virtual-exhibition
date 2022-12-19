@@ -10,6 +10,17 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://use.typekit.net/toj4mwx.css" />
     <title>Exposição Virtual</title>
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.dataset.mode = "dark";
+      } else {
+        delete document.documentElement.dataset.mode;
+      }
+    </script>
   </head>
   <body
     class="bg-main-xlight dark:bg-main-xdark text-dark dark:text-light text-md font-normal subpixel-antialiased dark:antialiased"
