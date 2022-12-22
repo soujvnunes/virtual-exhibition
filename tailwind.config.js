@@ -2,14 +2,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx,svg}", "./public/**/*.html"],
   darkMode: "[data-mode='dark']",
   theme: {
-    extend: {
-      colors: {
-        fuchsia: {
-          950: "#210022",
-        },
-      },
-    },
+    extend: {},
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  plugins: [],
 };
-export {};

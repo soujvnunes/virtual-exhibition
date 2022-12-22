@@ -13,7 +13,7 @@ const Button = forwardRef<
 >(({ icon, children, className, ...props }, ref) => {
   const renderIcon = useCallback(() => {
     if (icon) {
-      cloneElement(icon, {
+      return cloneElement(icon, {
         className: cn({
           children: "ml-sm",
         }),

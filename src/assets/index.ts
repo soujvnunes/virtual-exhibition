@@ -61,8 +61,10 @@ import p1601 from "./p-aristoteles-simoes.jpg";
 import p1701 from "./p-nabuco-santos.jpg";
 import p1702 from "./p-manuel-azevedo.jpg";
 import p1801 from "./p-joao-azevedo.jpg";
+// eslint-disable-next-line import/no-duplicates
 import p1802 from "./p-fernando-gama.jpg";
 import p1803 from "./p-delza-gitai.jpg";
+// eslint-disable-next-line import/no-duplicates
 import p1901 from "./p-fernando-gama.jpg";
 import p1902 from "./p-rogerio-pinheiro.jpg";
 import p2001 from "./p-ana-dorea.jpg";

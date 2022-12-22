@@ -1,10 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "include": [
-    "./src",
-    ".eslintrc.json",
-    "tailwind.utils.js",
-    "tailwind.config.js",
-    "postcss.config.js"
-  ]
+  "include": ["./src", ".eslintrc.json", "tailwind.config.js"]
 }

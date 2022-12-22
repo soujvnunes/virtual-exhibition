@@ -1,6 +1,5 @@
 import cn from "classnames";
 import { ComponentPropsWithRef, forwardRef, memo, SVGProps } from "react";
-import { isEqual } from "lodash";
 
 function withSvgStyles(name: string, paths: SVGProps<SVGPathElement>) {
   const WithSvgStyles = forwardRef<
@@ -29,7 +28,7 @@ function withSvgStyles(name: string, paths: SVGProps<SVGPathElement>) {
 
   WithSvgStyles.displayName = `${name}WithSvgStyles`;
 
-  return memo(WithSvgStyles, isEqual);
+  return memo(WithSvgStyles);
 }
 
 export default withSvgStyles;
