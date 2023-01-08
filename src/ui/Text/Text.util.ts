@@ -1,5 +1,5 @@
-import { isProp } from "utils";
 import { TextProps } from "ui/Text";
+import isProp from "utils/isProp";
 
 export const mapTextVariant = {
   title: "h1",

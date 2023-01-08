@@ -1,5 +1,5 @@
-import { PropsWithAs } from "styled-components";
 import type { PropsWithAs } from "styled-components";
+import styled from "styled-components";
 import { mapTextVariant, mapTextSize, TextProps, isHeading } from "ui/Text";
 import { CSSVarsSize } from "app";
 

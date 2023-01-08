@@ -1,7 +1,7 @@
-import App from "./App";
 import { StrictMode } from "react";
 import { render } from "react-dom";
 import { ReportHandler } from "web-vitals";
+import App from "./App";
 
 render(
   <StrictMode>

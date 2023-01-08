@@ -65,7 +65,6 @@
     "import-helpers/order-imports": [
       "warn",
       {
-        "newlinesBetween": "always",
         "groups": [
           "module",
           "/^ui/",

@@ -1,0 +1,18 @@
+:root {
+  --text-primary: rgb(51, 51, 51, 1);
+  --background-primary: rgb(255, 246, 255, 1);
+  --accent-primary: rgb(255, 204, 255, 1);
+  --main-primary: rgb(255, 153, 255, 1);
+  --kerning-sm: 1;
+  --kerning-md: 1.5;
+  --size-0: 0px;
+  --size-1: 1px;
+  --size-2: 2px;
+  --size-4: 4px;
+  --size-8: 8px;
+  --size-xs: 0.75rem;
+  --size-sm: 1rem;
+  --size-md: 1.5rem;
+  --size-lg: 2.5rem;
+  --size-xl: 4rem;
+}

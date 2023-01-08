@@ -6,6 +6,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <span className="color-main">test</span>
       <Header />
       <Intro />
     </ThemeProvider>
