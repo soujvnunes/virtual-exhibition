@@ -1,4 +1,5 @@
-import { Col, Container, Text } from "ui";
+import { Container, Text } from "ui";
+import Col from "ui/Col";
 import {
   IntroHeadline,
   IntroRoot,
@@ -24,12 +25,12 @@ export default function Intro() {
               key={homage.title}
               {...(index === 0 && {
                 $start: {
-                  sm: 3,
+                  DEFAULT: 3,
                   md: 4,
                 },
               })}
               $mid={{
-                sm: index === 0 ? 6 : 3,
+                DEFAULT: index === 0 ? 6 : 3,
                 md: index === 0 ? 4 : 2,
               }}
             >
