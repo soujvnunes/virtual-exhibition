@@ -1,7 +1,6 @@
 export { default as Exhibition } from "./Exhibition";
 
-export { default as GlobalStyle } from "./GlobalStyle";
-export * from "./GlobalStyle";
+export { default as GlobalStyle, theme } from "./GlobalStyle";
 
 export { default as Header } from "./Header";
 
