@@ -30,7 +30,7 @@ export function getTheme<T extends DefaultTheme = DefaultTheme>(
           [styleKey]: {
             text: `rgb(${theme.channel.white} / ${theme.alpha[alpha]})`,
             background: `rgb(${theme.channel.pink.lighter} / ${theme.alpha[alpha]})`,
-            main: `rgb(${theme.channel.pink.base} / ${theme.alpha[alpha]})`,
+            main: `rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha[alpha]})`,
             accent: `rgb(${theme.channel.pink.dark} / ${theme.alpha[alpha]})`,
           }[channel],
           [theme.media.dark]: {
@@ -55,14 +55,14 @@ export function getTheme<T extends DefaultTheme = DefaultTheme>(
           md: theme.size.sm,
           lg: theme.size.md,
         }[styleValue],
-        [theme.media.tablet]: {
+        [theme.media.md]: {
           [styleKey]: {
             sm: theme.size.sm,
             md: theme.size.md,
             lg: theme.size.lg,
           }[styleValue],
         },
-        [theme.media.desktop]: {
+        [theme.media.lg]: {
           [styleKey]: {
             sm: theme.size.md,
             md: theme.size.lg,
@@ -77,7 +77,7 @@ export const theme = {
     pink: {
       lighter: "255 246 255",
       light: "255 204 255",
-      base: "255 153 255",
+      DEFAULT: "255 153 255",
       dark: "204 102 204",
       darker: "26 15 26",
     },
@@ -114,8 +114,9 @@ export const theme = {
     heading: 1,
   },
   media: {
-    tablet: "@media (min-width: 640px)",
-    desktop: "@media (min-width: 1280px)",
+    DEFAULT: "",
+    md: "@media (min-width: 640px)",
+    lg: "@media (min-width: 1280px)",
     dark: "@media (prefers-color-scheme: dark)",
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
