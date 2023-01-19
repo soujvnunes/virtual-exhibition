@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle, Header, Intro, theme } from "app";
+import { GlobalStyle, Header, Intro } from "app";
+import { theme } from "utils/theme";
 
 export default function App() {
   return (
