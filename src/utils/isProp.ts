@@ -1,6 +1,7 @@
-type V = string | number | boolean | undefined;
-
-export default function isProp(prop: V | V[], values: V[]): boolean {
+export default function isProp<V extends string | number | boolean | undefined>(
+  prop: V | V[],
+  values: V[],
+): prop is typeof values[number] {
   const newValues = new Set(values);
 
   if (Array.isArray(prop)) {
@@ -9,3 +10,7 @@ export default function isProp(prop: V | V[], values: V[]): boolean {
 
   return newValues.has(prop);
 }
+
+const test: "hey" | "test" | "boring" = "hey";
+
+const hey = isProp(test, ["hey", "what"]);
