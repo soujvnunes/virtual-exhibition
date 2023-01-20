@@ -2,7 +2,14 @@ import { css } from "styled-components";
 import type { DefaultTheme } from "styled-components";
 
 type CalorAlphas = keyof DefaultTheme["alpha"];
-type ColorChannels = "text" | "background" | "main" | "accent";
+type ColorChannels =
+  | "text"
+  | "background"
+  | "main"
+  | "accent"
+  | "warning"
+  | "error"
+  | "info";
 type ColorProps = "color" | "backgroundColor" | "borderColor";
 type ColorValues = `${ColorChannels}.${CalorAlphas}`;
 
@@ -15,45 +22,70 @@ type SizeProps =
   | "height"
   | "fontSize";
 type SizeKeys = "typography" | "grid";
-type SizeValues = `typography.${SizeTypography}` | `grid.${SizeGrid}`;
+type SizeSigns = "" | "-";
+type SizeValues =
+  | `${SizeSigns}typography.${SizeTypography}`
+  | `${SizeSigns}grid.${SizeGrid}`;
 
 type Styles = {
   [K in ColorProps]?: ColorValues;
 } & {
   [K in SizeProps]?: SizeValues;
 };
+type StylesProps = keyof Styles;
 
+function rgb(alpha: number) {
+  return (channel: string) => `rgb(${channel} / ${alpha})`;
+}
+function testAbs(key: string) {
+  return (value: string | number) =>
+    /-/.test(key)
+      ? typeof value === "number"
+        ? -Math.abs(value)
+        : `-${value}`
+      : value;
+}
+function isColor(prop: string): prop is ColorProps {
+  return (
+    prop === "color" || prop === "backgroundColor" || prop === "borderColor"
+  );
+}
 export function getResponsiveTheme(styles: Styles) {
   return css(({ theme }) =>
     Object.keys(styles).reduce((newStyles, prop) => {
-      const style = styles[prop as keyof Styles];
+      const style = styles[prop as StylesProps];
 
       if (!style) return newStyles;
 
-      if (
-        prop === "color" ||
-        prop === "backgroundColor" ||
-        prop === "borderColor"
-      ) {
-        const [channel, alpha] = style.split(".") as [
+      if (isColor(prop)) {
+        const [channel, alphaValue] = styles[prop]?.split(".") as [
           ColorChannels,
           CalorAlphas,
         ];
+        const color = rgb(theme.alpha[alphaValue]);
 
         return {
           ...newStyles,
           [prop]: {
-            text: `rgb(${theme.channel.white} / ${theme.alpha[alpha]})`,
-            background: `rgb(${theme.channel.pink.lighter} / ${theme.alpha[alpha]})`,
-            main: `rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha[alpha]})`,
-            accent: `rgb(${theme.channel.pink.dark} / ${theme.alpha[alpha]})`,
+            text: color(theme.channel.black),
+            background: color(theme.channel.pink.lighter),
+            main: color(theme.channel.pink.DEFAULT),
+            accent: color(theme.channel.pink.dark),
+            info: color(theme.channel.blue.DEFAULT),
+            warning: color(theme.channel.yellow.DEFAULT),
+            error: color(theme.channel.red.DEFAULT),
           }[channel],
           ...(channel !== "main" && {
             [theme.media.dark]: {
+              // @ts-expect-error Media types cannot be used to destruct object
+              ...newStyles[theme.media.dark],
               [prop]: {
-                text: `rgb(${theme.channel.black} / ${theme.alpha[alpha]})`,
-                background: `rgb(${theme.channel.pink.darker} / ${theme.alpha[alpha]})`,
-                accent: `rgb(${theme.channel.pink.lighter} / ${theme.alpha[alpha]})`,
+                text: color(theme.channel.white),
+                background: color(theme.channel.pink.darker),
+                accent: color(theme.channel.pink.lighter),
+                info: color(theme.channel.blue.dark),
+                warning: color(theme.channel.yellow.dark),
+                error: color(theme.channel.red.dark),
               }[channel],
             },
           }),
@@ -64,23 +96,24 @@ export function getResponsiveTheme(styles: Styles) {
         SizeKeys,
         SizeTypography | SizeGrid,
       ];
+      const abs = testAbs(key);
 
       return {
         ...newStyles,
         [prop]: {
-          width: `calc(100% + ${theme.sizing.x2s})`,
-          padding: theme.spacing.x2s,
-          margin: theme.spacing.sm,
-          h1: 64,
-          h2: 60,
-          h3: 48,
-          h4: 40,
-          h5: 32,
-          h6: 28,
-          body4: 24,
-          body3: 20,
-          body2: 16,
-          body1: 12,
+          width: `calc(100% - ${theme.spacing.x2s}px)`,
+          padding: abs(theme.spacing.x2s),
+          margin: abs(theme.spacing.sm),
+          h1: abs(48),
+          h2: abs(44),
+          h3: abs(40),
+          h4: abs(36),
+          h5: abs(32),
+          h6: abs(28),
+          body4: abs(24),
+          body3: abs(20),
+          body2: abs(16),
+          body1: abs(12),
         }[value],
         ...((value === "width" ||
           value === "padding" ||
@@ -90,25 +123,29 @@ export function getResponsiveTheme(styles: Styles) {
           value === "h3" ||
           value === "h4") && {
           [theme.media.md]: {
+            // @ts-expect-error Media types cannot be used to destruct object
+            ...newStyles[theme.media.md],
             [prop]: {
-              width: `calc(100% + ${theme.sizing.xs})`,
-              padding: theme.spacing.xs,
-              margin: theme.spacing.md,
-              h1: 56,
-              h2: 52,
-              h3: 44,
-              h4: 40,
+              width: `calc(100% - ${theme.spacing.xs}px)`,
+              padding: abs(theme.spacing.xs),
+              margin: abs(theme.spacing.md),
+              h1: abs(56),
+              h2: abs(52),
+              h3: abs(44),
+              h4: abs(40),
             }[value],
           },
           [theme.media.lg]: {
+            // @ts-expect-error Media types cannot be used to destruct object
+            ...newStyles[theme.media.lg],
             [prop]: {
-              width: `calc(100% + ${theme.sizing.sm})`,
-              padding: theme.spacing.sm,
-              margin: theme.spacing.lg,
-              h1: 48,
-              h2: 44,
-              h3: 40,
-              h4: 36,
+              width: `calc(100% - ${theme.spacing.sm}px)`,
+              padding: abs(theme.spacing.sm),
+              margin: abs(theme.spacing.lg),
+              h1: abs(64),
+              h2: abs(60),
+              h3: abs(48),
+              h4: abs(40),
             }[value],
           },
         }),
@@ -125,6 +162,18 @@ export const theme = {
       DEFAULT: "255 153 255",
       dark: "204 102 204",
       darker: "26 15 26",
+    },
+    red: {
+      DEFAULT: "255 51 51",
+      dark: "204 0 0",
+    },
+    blue: {
+      DEFAULT: "51 153 255",
+      dark: "0 102 187",
+    },
+    yellow: {
+      DEFAULT: "255 238 170",
+      dark: "204 204 119",
     },
     white: "255 255 255",
     black: "51 51 51",
