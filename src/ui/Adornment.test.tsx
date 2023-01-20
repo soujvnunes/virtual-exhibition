@@ -1,6 +1,6 @@
-import Adornment from "./Adornment";
-import { find } from "styled-components/test-utils";
 import { render } from "@testing-library/react";
+import { find } from "styled-components/test-utils";
+import Adornment from "./Adornment";
 
 describe("Adornment", () => {
   test("was found", () => {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { getTheme } from "app/GlobalStyle";
+import { getResponsiveTheme } from "utils/theme";
 
 export const cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
 export const medias = ["DEFAULT", "md", "lg"] as const;
@@ -24,29 +24,34 @@ function getStyles(prop: string, col: number) {
     ...(prop === "$start" && {
       marginLeft: value,
     }),
-    ...(prop === "$end" && {
-      marginRight: value,
-    }),
     ...(prop === "$mid" && {
       flexBasis: value,
       maxWidth: value,
+    }),
+    ...(prop === "$end" && {
+      marginRight: value,
     }),
   };
 }
 
 const Col = styled.li<ColProps>`
-  ${getTheme({
-    paddingLeft: "sm",
-    paddingTop: "sm",
+  flex-grow: ${({ theme, $mid }) => $mid && theme.spacing.x6s};
+  ${getResponsiveTheme({
+    paddingLeft: "grid.padding",
+    paddingTop: "grid.padding",
   })}
-  flex-grow: ${(props) => props.$mid && props.theme.size.x6s};
-  ${(props) =>
-    Object.keys(["$start", "$mid", "$end"]).reduce((styles, prop) => {
+  ${({ theme, ...props }) =>
+    ["$start", "$mid", "$end"].reduce((styles, prop) => {
       const value = props[prop as ColKs];
 
-      if (!value) return {};
+      if (!value) return styles;
 
-      if (typeof value === "number") return getStyles(prop, value);
+      if (typeof value === "number") {
+        return {
+          ...styles,
+          ...getStyles(prop, value),
+        };
+      }
 
       return {
         ...styles,
@@ -54,11 +59,15 @@ const Col = styled.li<ColProps>`
           const media = _media as Medias;
           const mediaValue = value[media];
 
-          if (!mediaValue) return {};
+          if (!mediaValue) return mediaStyles;
 
           return {
             ...mediaStyles,
-            [props.theme.media[media]]: getStyles(prop, mediaValue),
+            [theme.media[media]]: {
+              // @ts-expect-error Media types cannot be used to destruct object
+              ...mediaStyles[theme.media[media]],
+              ...getStyles(prop, mediaValue),
+            },
           };
         }, {}),
       };

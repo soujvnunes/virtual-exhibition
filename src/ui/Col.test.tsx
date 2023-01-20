@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import { find } from "styled-components/test-utils";
 import Col, { getColSize, cols, medias } from "ui/Col";
-import { theme } from "app";
+import { theme } from "utils/theme";
 
 it("should render without crash", () => {
   render(<Col />);
@@ -14,8 +14,8 @@ it("should render default styles correctly", () => {
   const tree = renderer.create(<Col theme={theme} />).toJSON();
 
   expect(tree).toMatchSnapshot();
-  expect(tree).toHaveStyleRule("padding-left", theme.size.x2s);
-  expect(tree).toHaveStyleRule("padding-top", theme.size.x2s);
+  expect(tree).toHaveStyleRule("padding-left", theme.spacing.x2s);
+  expect(tree).toHaveStyleRule("padding-top", theme.spacing.x2s);
 });
 
 cols.forEach((col) => {
