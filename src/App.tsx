@@ -5,12 +5,14 @@ import Intro from "app/Intro";
 
 import { theme } from "utils/theme";
 
-export default function App() {
-  return (
-    <ThemeProvider theme={theme}>
+export default function App({
+  children = (
+    <>
       <GlobalStyle />
       <Header />
       <Intro />
-    </ThemeProvider>
-  );
+    </>
+  ),
+}: React.PropsWithChildren<Record<string, unknown>>) {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
