@@ -90,7 +90,6 @@ export function getResponsiveTheme(styles: Styles) {
           }[channel],
           ...(channel !== "main" && {
             [theme.media.dark]: {
-              // @ts-expect-error Media types cannot be used to destruct object
               ...newStyles[theme.media.dark],
               [prop]: {
                 text: color(theme.channel.gray.light),
@@ -114,7 +113,7 @@ export function getResponsiveTheme(styles: Styles) {
       return {
         ...newStyles,
         [prop]: {
-          width: `calc(100% - ${theme.value[8]}px)`,
+          width: `calc(100% + ${theme.value[8]})`,
           padding: abs(theme.value[8]),
           margin: abs(theme.value[16]),
           h1: abs(theme.value[48]),
@@ -130,10 +129,9 @@ export function getResponsiveTheme(styles: Styles) {
         }[value],
         ...(isValueResponsive(value) && {
           [theme.media.md]: {
-            // @ts-expect-error Media types cannot be used to destruct object
             ...newStyles[theme.media.md],
             [prop]: {
-              width: `calc(100% - ${theme.value[12]}px)`,
+              width: `calc(100% + ${theme.value[12]})`,
               padding: abs(theme.value[12]),
               margin: abs(theme.value[24]),
               h1: abs(theme.value[56]),
@@ -143,10 +141,9 @@ export function getResponsiveTheme(styles: Styles) {
             }[value],
           },
           [theme.media.lg]: {
-            // @ts-expect-error Media types cannot be used to destruct object
             ...newStyles[theme.media.lg],
             [prop]: {
-              width: `calc(100% - ${theme.value[16]}px)`,
+              width: `calc(100% + ${theme.value[16]})`,
               padding: abs(theme.value[16]),
               margin: abs(theme.value[32]),
               h1: abs(theme.value[64]),
@@ -157,7 +154,7 @@ export function getResponsiveTheme(styles: Styles) {
           },
         }),
       };
-    }, {}),
+    }, {} as Record<string, Record<string, string | number>>),
   );
 }
 
@@ -200,7 +197,6 @@ export const theme = {
     768: "768px",
     384: "384px",
     96: "96px",
-    // /\ big enough values to need resize by a11y tools
     64: "4rem",
     60: "3.75rem",
     56: "3.5rem",
@@ -215,7 +211,6 @@ export const theme = {
     20: "1.25rem",
     16: "1rem",
     12: "0.75rem",
-    // \/ small enough values to need resize by a11y tools
     8: "8px",
     2: "2px",
     1: "1px",
@@ -232,7 +227,7 @@ export const theme = {
     heavy: 700,
   },
   media: {
-    DEFAULT: "", // sm, light, idle...
+    DEFAULT: "",
     md: "@media (min-width: 640px)",
     lg: "@media (min-width: 1280px)",
     dark: "@media (prefers-color-scheme: dark)",
