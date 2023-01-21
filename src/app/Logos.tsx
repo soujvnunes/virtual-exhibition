@@ -7,7 +7,7 @@ type LogosPathProps = {
   $color: "main" | "error" | "info";
 };
 
-export const LogosRoot = styled.a`
+const LogosRoot = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -15,14 +15,14 @@ export const LogosRoot = styled.a`
     color: "text.primary",
   })}
 `;
-export const LogosIcon = styled(Icon)`
+const LogosIcon = styled(Icon)`
   width: ${({ theme }) => theme.value[48]};
   height: ${({ theme }) => theme.value[48]};
 `;
-export const LogosPath = styled.path<LogosPathProps>(({ $color }) =>
+const LogosPath = styled.path<LogosPathProps>(({ $color }) =>
   getResponsiveTheme({ color: `${$color}.primary` }),
 );
-export const LogosLabelTabbed = styled.span`
+const LogosLabelTabbed = styled.span`
   display: block;
   margin-left: ${({ theme }) => theme.value[16]};
 `;

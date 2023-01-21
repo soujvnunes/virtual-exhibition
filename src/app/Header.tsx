@@ -7,17 +7,17 @@ import Icon from "ui/Icon";
 import Logos from "app/Logos";
 import { getResponsiveTheme } from "utils/theme";
 
-export const HeaderRoot = styled(Container)`
+const HeaderRoot = styled(Container)`
   display: flex;
   align-items: center;
   ${getResponsiveTheme({
     height: "typography.h1",
   })}
 `;
-export const HeaderButtonTheme = styled(Button)`
+const HeaderButtonTheme = styled(Button)`
   margin-left: auto;
 `;
-export const HeaderButtonNews = styled(Button)`
+const HeaderButtonNews = styled(Button)`
   margin-left: ${({ theme }) => theme.value[12]};
 `;
 

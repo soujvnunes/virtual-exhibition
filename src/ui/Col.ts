@@ -22,7 +22,7 @@ export type ColProps<
 };
 
 export function getColSize(col?: number) {
-  return col ? `${((100 * col) / 12).toFixed(2)}%` : "";
+  return col ? `${((100 * col) / 12).toFixed(7)}%` : "";
 }
 function toObj(prop: unknown) {
   return (

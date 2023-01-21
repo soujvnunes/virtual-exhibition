@@ -6,8 +6,8 @@ import Text from "ui/Text";
 import getHomages from "utils/getHomages";
 import { getResponsiveTheme } from "utils/theme";
 
-export const IntroRoot = styled.div`
-  border-width: 1px 0;
+const IntroRoot = styled.div`
+  border-width: ${({ theme }) => `${theme.value[1]} ${theme.value[0]}`};
   padding-top: ${({ theme }) => theme.value[48]};
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha.tertiary}), transparent)`};
@@ -15,7 +15,7 @@ export const IntroRoot = styled.div`
     borderColor: "main.secondary",
   })};
 `;
-export const IntroHeadline = styled(Text)`
+const IntroHeadline = styled(Text)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -30,19 +30,15 @@ export const IntroHeadline = styled(Text)`
     color: "main.primary",
   })}
 `;
-export const IntroSlider = styled(Row)`
+const IntroSlider = styled(Row)`
   align-items: center;
 `;
-export const IntroSliderItem = styled.div`
+const IntroSliderItem = styled.div`
   border-radius: ${({ theme }) => theme.value[16]};
   box-shadow: ${({ theme }) =>
-    `${theme.value[0]} ${theme.value[24]} ${theme.value[32]} var(--shadow)`};
+    `${theme.value[0]} ${theme.value[24]} ${theme.value[32]} rgb(${theme.channel.pink.darker})`};
   border: ${({ theme }) => `${theme.value[1]} solid`};
   overflow: hidden;
-  --shadow: rgb(${({ theme }) => theme.channel.pink.lighter});
-  ${({ theme }) => theme.media.dark} {
-    --shadow: rgb(${({ theme }) => theme.channel.pink.darker});
-  }
   ${getResponsiveTheme({
     borderColor: "main.primary",
   })}
@@ -65,15 +61,15 @@ export default function Intro() {
           {homages.map((homage, index) => (
             <Col
               key={homage.title}
-              {...(index === 0 && {
+              {...(!index && {
                 $start: {
                   DEFAULT: 3,
                   md: 4,
                 },
               })}
               $mid={{
-                DEFAULT: index === 0 ? 6 : 3,
-                md: index === 0 ? 4 : 2,
+                DEFAULT: !index ? 6 : 3,
+                md: !index ? 4 : 2,
               }}
             >
               <IntroSliderItem>
