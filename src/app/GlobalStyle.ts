@@ -37,11 +37,11 @@ export default createGlobalStyle`
   dd,
   ul,
   ol {
-    margin: ${({ theme }) => theme.spacing.x6s};
+    margin: ${({ theme }) => theme.value[0]};
   }
   ul,
   ol {
-    padding: ${({ theme }) => theme.spacing.x6s};
+    padding: ${({ theme }) => theme.value[0]};
     list-style: none;
   }
   a:not([class]) {

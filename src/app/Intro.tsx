@@ -8,7 +8,7 @@ import { getResponsiveTheme } from "utils/theme";
 
 export const IntroRoot = styled.div`
   border-width: 1px 0;
-  padding-top: ${({ theme }) => theme.spacing.xl};
+  padding-top: ${({ theme }) => theme.value[48]};
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha.tertiary}), transparent)`};
   ${getResponsiveTheme({
@@ -34,9 +34,10 @@ export const IntroSlider = styled(Row)`
   align-items: center;
 `;
 export const IntroSliderItem = styled.div`
-  border-radius: ${({ theme }) => theme.sizing.sm};
-  box-shadow: 0 24px 32px var(--shadow);
-  border: 1px solid;
+  border-radius: ${({ theme }) => theme.value[16]};
+  box-shadow: ${({ theme }) =>
+    `${theme.value[0]} ${theme.value[24]} ${theme.value[32]} var(--shadow)`};
+  border: ${({ theme }) => `${theme.value[1]} solid`};
   overflow: hidden;
   --shadow: rgb(${({ theme }) => theme.channel.pink.lighter});
   ${({ theme }) => theme.media.dark} {

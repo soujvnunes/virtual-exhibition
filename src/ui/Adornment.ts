@@ -6,9 +6,9 @@ type AdornmentProps = {
 
 const Adornment = styled.span<AdornmentProps>`
   margin-right: ${({ theme, $edge }) =>
-    $edge === "start" ? `${theme.spacing.xs}px` : `-${theme.spacing.xs}px`};
+    `${$edge === "start" ? "" : "-"}${theme.value[12]}`};
   margin-left: ${({ theme, $edge }) =>
-    $edge === "end" ? `${theme.spacing.xs}px` : `-${theme.spacing.xs}px`};
+    `${$edge === "end" ? "" : "-"}${theme.value[12]}`};
   display: inherit;
 `;
 

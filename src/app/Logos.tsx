@@ -16,15 +16,15 @@ export const LogosRoot = styled.a`
   })}
 `;
 export const LogosIcon = styled(Icon)`
-  width: ${({ theme }) => theme.sizing.xl};
-  height: ${({ theme }) => theme.sizing.xl};
+  width: ${({ theme }) => theme.value[48]};
+  height: ${({ theme }) => theme.value[48]};
 `;
 export const LogosPath = styled.path<LogosPathProps>(({ $color }) =>
   getResponsiveTheme({ color: `${$color}.primary` }),
 );
 export const LogosLabelTabbed = styled.span`
   display: block;
-  margin-left: ${({ theme }) => theme.spacing.sm};
+  margin-left: ${({ theme }) => theme.value[16]};
 `;
 
 export default function Logos() {

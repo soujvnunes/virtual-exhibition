@@ -39,7 +39,7 @@ function rgb(alpha: number) {
 }
 function testAbs(key: string) {
   return (value: string | number) =>
-    /-/.test(key)
+    /^-/.test(key)
       ? typeof value === "number"
         ? -Math.abs(value)
         : `-${value}`
@@ -48,6 +48,19 @@ function testAbs(key: string) {
 function isColor(prop: string): prop is ColorProps {
   return (
     prop === "color" || prop === "backgroundColor" || prop === "borderColor"
+  );
+}
+function isValueResponsive(
+  value: string,
+): value is "width" | "padding" | "margin" | "h1" | "h2" | "h3" | "h4" {
+  return (
+    value === "width" ||
+    value === "padding" ||
+    value === "margin" ||
+    value === "h1" ||
+    value === "h2" ||
+    value === "h3" ||
+    value === "h4"
   );
 }
 export function getResponsiveTheme(styles: Styles) {
@@ -67,7 +80,7 @@ export function getResponsiveTheme(styles: Styles) {
         return {
           ...newStyles,
           [prop]: {
-            text: color(theme.channel.black),
+            text: color(theme.channel.gray.dark),
             background: color(theme.channel.pink.lighter),
             main: color(theme.channel.pink.DEFAULT),
             accent: color(theme.channel.pink.dark),
@@ -80,7 +93,7 @@ export function getResponsiveTheme(styles: Styles) {
               // @ts-expect-error Media types cannot be used to destruct object
               ...newStyles[theme.media.dark],
               [prop]: {
-                text: color(theme.channel.white),
+                text: color(theme.channel.gray.light),
                 background: color(theme.channel.pink.darker),
                 accent: color(theme.channel.pink.lighter),
                 info: color(theme.channel.blue.dark),
@@ -101,51 +114,45 @@ export function getResponsiveTheme(styles: Styles) {
       return {
         ...newStyles,
         [prop]: {
-          width: `calc(100% - ${theme.spacing.x2s}px)`,
-          padding: abs(theme.spacing.x2s),
-          margin: abs(theme.spacing.sm),
-          h1: abs(48),
-          h2: abs(44),
-          h3: abs(40),
-          h4: abs(36),
-          h5: abs(32),
-          h6: abs(28),
-          body4: abs(24),
-          body3: abs(20),
-          body2: abs(16),
-          body1: abs(12),
+          width: `calc(100% - ${theme.value[8]}px)`,
+          padding: abs(theme.value[8]),
+          margin: abs(theme.value[16]),
+          h1: abs(theme.value[48]),
+          h2: abs(theme.value[44]),
+          h3: abs(theme.value[40]),
+          h4: abs(theme.value[36]),
+          h5: abs(theme.value[32]),
+          h6: abs(theme.value[28]),
+          body4: abs(theme.value[24]),
+          body3: abs(theme.value[20]),
+          body2: abs(theme.value[16]),
+          body1: abs(theme.value[12]),
         }[value],
-        ...((value === "width" ||
-          value === "padding" ||
-          value === "margin" ||
-          value === "h1" ||
-          value === "h2" ||
-          value === "h3" ||
-          value === "h4") && {
+        ...(isValueResponsive(value) && {
           [theme.media.md]: {
             // @ts-expect-error Media types cannot be used to destruct object
             ...newStyles[theme.media.md],
             [prop]: {
-              width: `calc(100% - ${theme.spacing.xs}px)`,
-              padding: abs(theme.spacing.xs),
-              margin: abs(theme.spacing.md),
-              h1: abs(56),
-              h2: abs(52),
-              h3: abs(44),
-              h4: abs(40),
+              width: `calc(100% - ${theme.value[12]}px)`,
+              padding: abs(theme.value[12]),
+              margin: abs(theme.value[24]),
+              h1: abs(theme.value[56]),
+              h2: abs(theme.value[52]),
+              h3: abs(theme.value[44]),
+              h4: abs(theme.value[40]),
             }[value],
           },
           [theme.media.lg]: {
             // @ts-expect-error Media types cannot be used to destruct object
             ...newStyles[theme.media.lg],
             [prop]: {
-              width: `calc(100% - ${theme.spacing.sm}px)`,
-              padding: abs(theme.spacing.sm),
-              margin: abs(theme.spacing.lg),
-              h1: abs(64),
-              h2: abs(60),
-              h3: abs(48),
-              h4: abs(40),
+              width: `calc(100% - ${theme.value[16]}px)`,
+              padding: abs(theme.value[16]),
+              margin: abs(theme.value[32]),
+              h1: abs(theme.value[64]),
+              h2: abs(theme.value[60]),
+              h3: abs(theme.value[48]),
+              h4: abs(theme.value[40]),
             }[value],
           },
         }),
@@ -175,8 +182,10 @@ export const theme = {
       DEFAULT: "255 238 170",
       dark: "204 204 119",
     },
-    white: "255 255 255",
-    black: "51 51 51",
+    gray: {
+      light: "255 255 255",
+      dark: "51 51 51",
+    },
   },
   alpha: {
     primary: 1,
@@ -186,46 +195,44 @@ export const theme = {
     shadow: 0.16,
     opaque: 0,
   },
-  spacing: {
-    x6s: 0,
-    x5s: 1,
-    x4s: 2,
-    x3s: 4,
-    x2s: 8,
-    xs: 12,
-    sm: 16,
-    md: 24,
-    lg: 32,
-    xl: 48,
-    x2l: 64,
-    x3l: 96,
-    x4l: 128,
-    x5l: 192,
-    x6l: 256,
-  },
-  sizing: {
-    x6s: "0rem",
-    x5s: "0.0625rem",
-    x4s: "0.125rem",
-    x3s: "0.25rem",
-    x2s: "0.5rem",
-    xs: "0.75rem",
-    sm: "1rem",
-    md: "1.5rem",
-    lg: "2rem",
-    xl: "3rem",
-    x2l: "4rem",
-    x3l: "6rem",
-    x4l: "8rem",
-    x5l: "12rem",
-    x6l: "16rem",
+  value: {
+    1536: "1536px",
+    768: "768px",
+    384: "384px",
+    96: "96px",
+    // /\ big enough values to need resize by a11y tools
+    64: "4rem",
+    60: "3.75rem",
+    56: "3.5rem",
+    52: "3.25rem",
+    48: "3rem",
+    44: "2.75rem",
+    40: "2.5rem",
+    36: "2.25rem",
+    32: "2rem",
+    28: "1.75rem",
+    24: "1.5rem",
+    20: "1.25rem",
+    16: "1rem",
+    12: "0.75rem",
+    // \/ small enough values to need resize by a11y tools
+    8: "8px",
+    2: "2px",
+    1: "1px",
+    0: "0px",
   },
   kerning: {
-    base: 1.5,
+    DEFAULT: 1.5,
     heading: 1,
   },
+  weight: {
+    regular: 400,
+    bold: 500,
+    bolder: 600,
+    heavy: 700,
+  },
   media: {
-    DEFAULT: "",
+    DEFAULT: "", // sm, light, idle...
     md: "@media (min-width: 640px)",
     lg: "@media (min-width: 1280px)",
     dark: "@media (prefers-color-scheme: dark)",

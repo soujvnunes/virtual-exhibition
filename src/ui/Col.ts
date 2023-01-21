@@ -15,12 +15,13 @@ export type ColProps = {
 };
 
 export function getColSize(col: number) {
-  return `${(100 * col) / 12}%`;
+  return `${((100 * col) / 12).toFixed(6)}%`;
 }
 function getStyles(prop: string, col: number) {
   const value = getColSize(col);
 
   return {
+    // TODO: they're being ignored for some reason
     ...(prop === "$start" && {
       marginLeft: value,
     }),
@@ -35,7 +36,7 @@ function getStyles(prop: string, col: number) {
 }
 
 const Col = styled.li<ColProps>`
-  flex-grow: ${({ theme, $mid }) => $mid && theme.spacing.x6s};
+  flex-grow: ${({ $mid }) => $mid && 0};
   ${getResponsiveTheme({
     paddingLeft: "grid.padding",
     paddingTop: "grid.padding",

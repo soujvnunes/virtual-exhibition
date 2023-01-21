@@ -14,8 +14,8 @@ it("should render default styles correctly", () => {
   const tree = renderer.create(<Col theme={theme} />).toJSON();
 
   expect(tree).toMatchSnapshot();
-  expect(tree).toHaveStyleRule("padding-left", theme.spacing.x2s);
-  expect(tree).toHaveStyleRule("padding-top", theme.spacing.x2s);
+  expect(tree).toHaveStyleRule("padding-left", theme.value[8]);
+  expect(tree).toHaveStyleRule("padding-top", theme.value[8]);
 });
 
 cols.forEach((col) => {

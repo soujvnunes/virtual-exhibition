@@ -13,20 +13,26 @@ const Button = styled.button.attrs(({ href }: ButtonProps) => ({
 }))<ButtonProps>`
   display: flex;
   align-items: center;
-  height: ${({ theme }) => theme.sizing.xl};
-  border: ${({ theme }) => `${theme.spacing.x5s}px solid`};
-  border-radius: ${({ theme }) => `${theme.spacing.sm}px`};
-  padding: ${({ theme }) => `${theme.spacing.x6s}px ${theme.spacing.md}px`};
-  text-transform: uppercase;
+  height: ${({ theme }) => theme.value[48]};
+  border: ${({ theme }) => `${theme.value[1]} solid`};
+  border-radius: ${({ theme }) => theme.value[16]};
+  padding: ${({ theme }) => `${theme.value[0]} ${theme.value[24]}`};
   background-color: transparent;
+  // TODO: prefer extends from <Text />
+  text-transform: uppercase;
+  // TODO: prefer extends from <Text />
   letter-spacing: 0.1em;
+  // TODO: prefer extends from <Text />
   line-height: 1.168;
+  // TODO: prefer extends from <Text />
   font-weight: 700;
-  font-size: ${({ theme }) => theme.sizing.xs};
-  &:focus {
-    outline: ${({ theme }) => theme.sizing.x6s};
-  }
+  // TODO: prefer extends from <Text />>
+  font-size: ${({ theme }) => theme.value[12]};
+  // TODO: prefer extends from <Text />>
   text-decoration: ${({ href }) => href && "none"};
+  &:focus {
+    outline: ${({ theme }) => theme.value[0]};
+  }
   ${getResponsiveTheme({
     borderColor: "main.secondary",
     color: "accent.primary",

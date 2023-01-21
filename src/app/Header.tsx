@@ -18,7 +18,7 @@ export const HeaderButtonTheme = styled(Button)`
   margin-left: auto;
 `;
 export const HeaderButtonNews = styled(Button)`
-  margin-left: ${({ theme }) => `${theme.spacing.xs}px`};
+  margin-left: ${({ theme }) => theme.value[12]};
 `;
 
 export default function Header() {
