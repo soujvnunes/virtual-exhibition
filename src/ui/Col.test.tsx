@@ -1,28 +1,28 @@
-import { render } from "@testing-library/react";
+import App from "App";
 import renderer from "react-test-renderer";
-import { find } from "styled-components/test-utils";
-import Col, { getColSize, cols, medias } from "ui/Col";
+import Col, { getColSize, cols, medias, ColProps } from "ui/Col";
 import { theme } from "utils/theme";
 
-it("should render without crash", () => {
-  render(<Col />);
+function renderCol(props: ColProps) {
+  return renderer
+    .create(
+      <App>
+        <Col {...props} />
+      </App>,
+    )
+    .toJSON();
+}
 
-  expect(find(document.body, Col)).toBeTruthy();
-});
-
-it("should render default styles correctly", () => {
-  const tree = renderer.create(<Col theme={theme} />).toJSON();
+it("renders without crash", () => {
+  const tree = renderCol({});
 
   expect(tree).toMatchSnapshot();
   expect(tree).toHaveStyleRule("padding-left", theme.value[8]);
   expect(tree).toHaveStyleRule("padding-top", theme.value[8]);
 });
-
 cols.forEach((col) => {
-  it(`should render ${col} column(s) with ${col} start/end span(s)`, () => {
-    const tree = renderer
-      .create(<Col $start={col} $mid={col} $end={col} theme={theme} />)
-      .toJSON();
+  it(`renders ${col} column(s) with ${col} start/end span(s)`, () => {
+    const tree = renderCol({ $start: col, $mid: col, $end: col });
 
     expect(tree).toMatchSnapshot();
     expect(tree).toHaveStyleRule("flex-grow", "0");
@@ -31,7 +31,6 @@ cols.forEach((col) => {
     expect(tree).toHaveStyleRule("flex-basis", getColSize(col));
     expect(tree).toHaveStyleRule("max-width", getColSize(col));
   });
-
   medias.forEach((media) => {
     const isDefault = media === "DEFAULT";
     const options = isDefault
@@ -44,16 +43,11 @@ cols.forEach((col) => {
         };
 
     it(`should render ${col} column(s) with ${col} start/end span(s) on ${media} media`, () => {
-      const tree = renderer
-        .create(
-          <Col
-            $start={{ [media]: col }}
-            $mid={{ [media]: col }}
-            $end={{ [media]: col }}
-            theme={theme}
-          />,
-        )
-        .toJSON();
+      const tree = renderCol({
+        $start: { [media]: col },
+        $mid: { [media]: col },
+        $end: { [media]: col },
+      });
 
       expect(tree).toMatchSnapshot();
       expect(tree).toHaveStyleRule(
