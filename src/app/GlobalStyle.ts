@@ -13,14 +13,14 @@ export default createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    line-height: 1.5;
+    line-height: ${({ theme }) => theme.kerning.DEFAULT};
     color-scheme: light dark; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     ${getResponsiveTheme({
       color: "text.primary",
       backgroundColor: "background.primary",
-      fontSize: "typography.body2",
+      fontSize: "md",
     })}
   }
   body,

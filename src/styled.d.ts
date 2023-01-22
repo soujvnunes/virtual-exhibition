@@ -6,7 +6,13 @@ type Theme = typeof theme;
 declare module "styled-components" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface DefaultTheme extends Theme {}
-  export type PropsWithAs<P extends Record<string, unknown>> = {
-    as?: keyof JSX.IntrinsicElements | React.ComponentType<P>;
+  export type PropsWithAs<
+    P extends Record<string, unknown>,
+    E extends keyof JSX.IntrinsicElements | React.ComponentType<P> =
+      | keyof JSX.IntrinsicElements
+      | React.ComponentType<P>,
+  > = {
+    as?: E;
+    forwardedAs?: E;
   } & P;
 }

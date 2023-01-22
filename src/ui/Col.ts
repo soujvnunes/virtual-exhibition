@@ -71,8 +71,8 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
 const Col = styled.li<ColProps>`
   flex-grow: ${({ $mid }) => $mid && 0};
   ${getResponsiveTheme({
-    paddingLeft: "grid.padding",
-    paddingTop: "grid.padding",
+    paddingLeft: "gapin",
+    paddingTop: "gapin",
   })}
   ${getColStyles}
 `;

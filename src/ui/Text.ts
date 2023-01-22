@@ -2,19 +2,27 @@ import styled, { DefaultTheme } from "styled-components";
 import type { PropsWithAs } from "styled-components";
 import { getResponsiveTheme } from "utils/theme";
 
-const mapTextVariant = {
+const textEls = {
   h1: "h1",
   h2: "h2",
   h3: "h3",
   h4: "h4",
-  body2: "p",
-  body1: "span",
+  body1: "p",
+  body2: "span",
 };
+const textVars = {
+  h1: "x7l",
+  h2: "x6l",
+  h3: "x5l",
+  h4: "x4l",
+  body1: "md",
+  body2: "sm",
+} as const;
 
 export type TextProps = Partial<
-  Record<"$gutterBottom" | "$centered" | "$italic", boolean>
+  Record<"$gutterBottom" | "$centered" | "$italic" | "$heading", boolean>
 > & {
-  $variant?: keyof typeof mapTextVariant | "inherit";
+  $variant?: keyof typeof textEls | "inherit";
   $weight?: keyof DefaultTheme["weight"];
 };
 
@@ -31,23 +39,25 @@ function isInherit(
   return variant === "inherit" || typeof variant === "undefined";
 }
 
-const Text = styled.span.attrs(({ $variant, as }: PropsWithAs<TextProps>) => ({
-  className: isHeading($variant) && "tk-freight-display-pro",
-  as: as || (!isInherit($variant) && mapTextVariant[$variant]),
-}))<TextProps>`
+const Text = styled.span.attrs(
+  ({ $variant, $heading, as }: PropsWithAs<TextProps>) => ({
+    className: (isHeading($variant) || $heading) && "tk-freight-display-pro",
+    as: as || (!isInherit($variant) && textEls[$variant]),
+  }),
+)<TextProps>`
   margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
   text-align: ${({ $centered }) => $centered && "center"};
   font-style: ${({ $italic }) => $italic && "italic"};
-  line-height: ${({ $variant, theme }) =>
-    isHeading($variant) && theme.kerning.heading};
-  font-weight: ${({ $variant, theme, $weight }) =>
-    isHeading($variant)
+  line-height: ${({ $variant, $heading, theme }) =>
+    (isHeading($variant) || $heading) && theme.kerning.heading};
+  font-weight: ${({ $variant, theme, $weight, $heading }) =>
+    isHeading($variant) || $heading
       ? theme.weight.regular
       : $weight && theme.weight[$weight]};
   ${({ $variant }) =>
     !isInherit($variant) &&
     getResponsiveTheme({
-      fontSize: `typography.${$variant}`,
+      fontSize: textVars[$variant],
     })}
 `;
 

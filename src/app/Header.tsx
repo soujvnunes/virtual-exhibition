@@ -11,7 +11,7 @@ const HeaderRoot = styled(Container)`
   display: flex;
   align-items: center;
   ${getResponsiveTheme({
-    height: "typography.h1",
+    height: "x7l",
   })}
 `;
 const HeaderButtonTheme = styled(Button)`

@@ -37,8 +37,8 @@ cols.forEach((col) => {
       ? undefined
       : {
           media: {
-            md: "(min-width:640px)",
-            lg: "(min-width:1280px)",
+            md: "(min-width:512px)",
+            lg: "(min-width:1024px)",
           }[media],
         };
 

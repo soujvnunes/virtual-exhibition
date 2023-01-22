@@ -5,9 +5,9 @@ const Row = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   ${getResponsiveTheme({
-    width: "grid.width",
-    marginTop: "-grid.padding",
-    marginLeft: "-grid.padding",
+    width: "area",
+    marginTop: "-gapin",
+    marginLeft: "-gapin",
   })}
 `;
 

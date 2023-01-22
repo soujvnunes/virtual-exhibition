@@ -1,6 +1,8 @@
 import { css } from "styled-components";
 import type { DefaultTheme } from "styled-components";
 
+const minus = /^-/;
+
 type CalorAlphas = keyof DefaultTheme["alpha"];
 type ColorChannels =
   | "text"
@@ -13,19 +15,19 @@ type ColorChannels =
 type ColorProps = "color" | "backgroundColor" | "borderColor";
 type ColorValues = `${ColorChannels}.${CalorAlphas}`;
 
-type SizePlacements = Capitalize<"" | "top" | "right" | "bottom" | "left">;
-type SizeTypography = `h${1 | 2 | 3 | 4 | 5 | 6}` | `body${1 | 2 | 3 | 4}`;
-type SizeGrid = "margin" | "padding" | "width";
 type SizeProps =
-  | `${"margin" | "padding"}${SizePlacements}`
+  | `${"margin" | "padding"}${"" | "Top" | "Right" | "Bottom" | "Left"}`
   | "width"
   | "height"
   | "fontSize";
-type SizeKeys = "typography" | "grid";
-type SizeSigns = "" | "-";
-type SizeValues =
-  | `${SizeSigns}typography.${SizeTypography}`
-  | `${SizeSigns}grid.${SizeGrid}`;
+type SizeValues = `${"" | "-"}${
+  | "area"
+  | "gapout"
+  | "gapin"
+  | "sm"
+  | "md"
+  | "lg"
+  | `x${"" | 2 | 3 | 4 | 5 | 6 | 7}l`}`;
 
 type Styles = {
   [K in ColorProps]?: ColorValues;
@@ -39,7 +41,7 @@ function rgb(alpha: number) {
 }
 function testAbs(key: string) {
   return (value: string | number) =>
-    /^-/.test(key)
+    minus.test(key)
       ? typeof value === "number"
         ? -Math.abs(value)
         : `-${value}`
@@ -52,15 +54,15 @@ function isColor(prop: string): prop is ColorProps {
 }
 function isValueResponsive(
   value: string,
-): value is "width" | "padding" | "margin" | "h1" | "h2" | "h3" | "h4" {
+): value is "area" | "gapin" | "gapout" | "x7l" | "x6l" | "x5l" | "x4l" {
   return (
-    value === "width" ||
-    value === "padding" ||
-    value === "margin" ||
-    value === "h1" ||
-    value === "h2" ||
-    value === "h3" ||
-    value === "h4"
+    value === "area" ||
+    value === "gapin" ||
+    value === "gapout" ||
+    value === "x7l" ||
+    value === "x6l" ||
+    value === "x5l" ||
+    value === "x4l"
   );
 }
 export function getResponsiveTheme(styles: Styles) {
@@ -104,52 +106,49 @@ export function getResponsiveTheme(styles: Styles) {
         };
       }
 
-      const [key, value] = style.split(".") as [
-        SizeKeys,
-        SizeTypography | SizeGrid,
-      ];
-      const abs = testAbs(key);
+      const value = style.replace(minus, "");
+      const abs = testAbs(style);
 
       return {
         ...newStyles,
         [prop]: {
-          width: `calc(100% + ${theme.value[8]})`,
-          padding: abs(theme.value[8]),
-          margin: abs(theme.value[16]),
-          h1: abs(theme.value[48]),
-          h2: abs(theme.value[44]),
-          h3: abs(theme.value[40]),
-          h4: abs(theme.value[36]),
-          h5: abs(theme.value[32]),
-          h6: abs(theme.value[28]),
-          body4: abs(theme.value[24]),
-          body3: abs(theme.value[20]),
-          body2: abs(theme.value[16]),
-          body1: abs(theme.value[12]),
+          area: `calc(100% + ${theme.value[8]})`,
+          gapin: abs(theme.value[8]),
+          gapout: abs(theme.value[16]),
+          x7l: abs(theme.value[48]),
+          x6l: abs(theme.value[44]),
+          x5l: abs(theme.value[40]),
+          x4l: abs(theme.value[36]),
+          x3l: abs(theme.value[32]),
+          x2l: abs(theme.value[28]),
+          xl: abs(theme.value[24]),
+          lg: abs(theme.value[20]),
+          md: abs(theme.value[16]),
+          sm: abs(theme.value[12]),
         }[value],
         ...(isValueResponsive(value) && {
           [theme.media.md]: {
             ...newStyles[theme.media.md],
             [prop]: {
-              width: `calc(100% + ${theme.value[12]})`,
-              padding: abs(theme.value[12]),
-              margin: abs(theme.value[24]),
-              h1: abs(theme.value[56]),
-              h2: abs(theme.value[52]),
-              h3: abs(theme.value[44]),
-              h4: abs(theme.value[40]),
+              area: `calc(100% + ${theme.value[12]})`,
+              gapin: abs(theme.value[12]),
+              gapout: abs(theme.value[24]),
+              x7l: abs(theme.value[56]),
+              x6l: abs(theme.value[52]),
+              x5l: abs(theme.value[44]),
+              x4l: abs(theme.value[40]),
             }[value],
           },
           [theme.media.lg]: {
             ...newStyles[theme.media.lg],
             [prop]: {
-              width: `calc(100% + ${theme.value[16]})`,
-              padding: abs(theme.value[16]),
-              margin: abs(theme.value[32]),
-              h1: abs(theme.value[64]),
-              h2: abs(theme.value[60]),
-              h3: abs(theme.value[48]),
-              h4: abs(theme.value[40]),
+              area: `calc(100% + ${theme.value[16]})`,
+              gapin: abs(theme.value[16]),
+              gapout: abs(theme.value[32]),
+              x7l: abs(theme.value[64]),
+              x6l: abs(theme.value[60]),
+              x5l: abs(theme.value[48]),
+              x4l: abs(theme.value[40]),
             }[value],
           },
         }),
@@ -193,9 +192,9 @@ export const theme = {
     opaque: 0,
   },
   value: {
-    1536: "1536px",
-    768: "768px",
-    384: "384px",
+    256: "256px",
+    192: "192px",
+    128: "128px",
     96: "96px",
     64: "4rem",
     60: "3.75rem",
@@ -228,8 +227,8 @@ export const theme = {
   },
   media: {
     DEFAULT: "",
-    md: "@media (min-width: 640px)",
-    lg: "@media (min-width: 1280px)",
+    md: "@media (min-width: 512px)",
+    lg: "@media (min-width: 1024px)",
     dark: "@media (prefers-color-scheme: dark)",
     motion: "@media (prefers-reduced-motion: no-preference)",
   },
