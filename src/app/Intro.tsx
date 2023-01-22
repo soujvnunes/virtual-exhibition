@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 import Col from "ui/Col";
 import Container from "ui/Container";
@@ -8,11 +9,12 @@ import { getResponsiveTheme } from "utils/theme";
 
 const IntroRoot = styled.div`
   border-width: ${({ theme }) => `${theme.value[1]} ${theme.value[0]}`};
+  border-style: solid;
   padding-top: ${({ theme }) => theme.value[48]};
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha.tertiary}), transparent)`};
   ${getResponsiveTheme({
-    borderColor: "main.secondary",
+    borderColor: "main.tertiary",
   })};
 `;
 const IntroHeadline = styled(Text)`
@@ -40,38 +42,53 @@ const IntroSliderItem = styled.div`
   border: ${({ theme }) => `${theme.value[1]} solid`};
   overflow: hidden;
   ${getResponsiveTheme({
-    borderColor: "main.primary",
+    borderColor: "main.tertiary",
   })}
 `;
 
 export default function Intro() {
-  const homages = getHomages();
+  const [initialHomage, ...homages] = getHomages();
+  const [initialHomageY, setInitialHomageY] = useState(0);
 
   return (
-    <IntroRoot>
+    <>
+      <IntroRoot style={{ paddingBottom: `${initialHomageY}px` }}>
+        <Container as="section">
+          <Text $variant="h2" $centered $gutterBottom>
+            A{" "}
+            <IntroHeadline $italic $variant="inherit">
+              Universidade Federal de Alagoas
+            </IntroHeadline>{" "}
+            completa 60 anos com uma história enraizada na vida do povo
+            alagoano.
+          </Text>
+        </Container>
+      </IntroRoot>
       <Container as="section">
-        <Text $variant="h2" $centered $gutterBottom>
-          A{" "}
-          <IntroHeadline $italic $variant="inherit">
-            Universidade Federal de Alagoas
-          </IntroHeadline>{" "}
-          completa 60 anos com uma história enraizada na vida do povo alagoano.
-        </Text>
-        <IntroSlider>
-          {homages.map((homage, index) => (
-            <Col
-              key={homage.title}
-              {...(!index && {
-                $start: {
-                  DEFAULT: 3,
-                  md: 4,
-                },
-              })}
-              $mid={{
-                DEFAULT: !index ? 6 : 3,
-                md: !index ? 4 : 2,
-              }}
-            >
+        <IntroSlider style={{ marginTop: `-${initialHomageY}px` }}>
+          <Col
+            ref={useCallback(
+              (node: HTMLLIElement) =>
+                node &&
+                setInitialHomageY(node.getBoundingClientRect().height / 2),
+              [],
+            )}
+            $start={{ DEFAULT: 3, md: 4 }}
+            $mid={{ DEFAULT: 6, md: 4 }}
+          >
+            <IntroSliderItem>
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                {...initialHomage}
+              />
+            </IntroSliderItem>
+          </Col>
+          {homages.map((homage) => (
+            <Col key={homage.title} $mid={{ DEFAULT: 3, md: 2 }}>
               <IntroSliderItem>
                 <iframe
                   width="100%"
@@ -86,6 +103,6 @@ export default function Intro() {
           ))}
         </IntroSlider>
       </Container>
-    </IntroRoot>
+    </>
   );
 }
