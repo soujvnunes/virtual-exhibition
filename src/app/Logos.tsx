@@ -21,7 +21,7 @@ const LogosPath = styled.path<LogosPathProps>`
 `;
 const LogosLabelTabbed = styled.span`
   display: block;
-  margin-left: calc(-1 * ${({ theme }) => theme.sizing.md});
+  margin-left: -8px;
 `;
 
 export default function Logos() {

@@ -12,7 +12,7 @@ export default createGlobalStyle`
     --channel-background: 255 246 255;
     --channel-foreground: 51 51 51;
     --channel-main: 255 153 255;
-    --channel-accent: 204 102 204; 
+    --channel-accent: 204 102 204;
     --channel-success: 0 102 187;
     --channel-error: 255 51 51;
     --channel-warning: 255 238 170;
@@ -47,7 +47,6 @@ export default createGlobalStyle`
       --channel-warning: 204 204 119;
     }
     ${({ theme }) => theme.media.md} {
-      --sizing-sm: 10px;
       --sizing-lg: 1.25rem;
       --sizing-xl: 1.75rem;
       --sizing-x2l: 2rem;

@@ -15,13 +15,15 @@ const Button = styled(Text).attrs<ButtonProps>(({ href }) => ({
   display: flex;
   align-items: center;
   height: ${({ theme }) => theme.sizing.x3l};
-  border: ${({ theme }) =>
-    `1px solid rgb(${theme.channel.main} / ${theme.alpha.secondary})`};
+  border: 1px solid
+    ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.secondary})`};
   border-radius: ${({ theme }) => theme.sizing.md};
   padding: 0px ${({ theme }) => theme.sizing.lg};
   background-color: transparent;
   color: rgb(${({ theme }) => theme.channel.accent});
-  text-decoration: ${({ href }) => href && "none"};
+  text-decoration: ${({ href }) => {
+    if (href) return "none";
+  }};
 `;
 
 Button.displayName = "Button";

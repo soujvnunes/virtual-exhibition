@@ -52,21 +52,35 @@ const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
   className: isHeading($variant) && "tk-freight-display-pro",
   as: as || (!isInherit($variant) && VARIANTS_ELEMENTS[$variant]),
 }))<TextProps>`
-  margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
-  text-align: ${({ $center }) => $center && "center"};
-  text-transform: ${({ $variant }) => $variant === "label" && "uppercase"};
-  letter-spacing: ${({ $variant }) => $variant === "label" && "0.1em"};
-  line-height: ${({ $variant, theme }) =>
-    ($variant === "label" && theme.kerning.wide) ||
-    (isHeading($variant) && theme.kerning.tight)};
-  font-weight: ${({ $variant, theme, $weight }) =>
-    (isHeading($variant) && theme.weight.regular) ||
-    ($variant === "label" && theme.weight.bolder) ||
-    ($weight && theme.weight[$weight])};
-  font-size: ${({ $variant, theme }) =>
-    isSmall($variant)
-      ? "0.75rem"
-      : !isInherit($variant) && theme.sizing[VARIANTS_SIZING[$variant]]};
+  margin-bottom: ${({ $gutterBottom }) => {
+    if ($gutterBottom) return "1em";
+  }};
+  text-align: ${({ $center }) => {
+    if ($center) return "center";
+  }};
+  text-transform: ${({ $variant }) => {
+    if ($variant === "label") return "uppercase";
+  }};
+  letter-spacing: ${({ $variant }) => {
+    if ($variant === "label") return "0.1em";
+  }};
+  line-height: ${({ $variant, theme }) => {
+    if ($variant === "label") return theme.kerning.wide;
+
+    if (isHeading($variant)) return theme.kerning.tight;
+  }};
+  font-weight: ${({ $variant, theme, $weight }) => {
+    if (isHeading($variant)) return theme.weight.regular;
+
+    if ($variant === "label") return theme.weight.heavy;
+
+    if ($weight) return theme.weight[$weight];
+  }};
+  font-size: ${({ $variant, theme }) => {
+    if (isSmall($variant)) return "0.75rem";
+
+    if (!isInherit($variant)) return theme.sizing[VARIANTS_SIZING[$variant]];
+  }};
 `;
 
 Text.displayName = "Text";
