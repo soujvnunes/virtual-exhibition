@@ -5,45 +5,38 @@ import Container from "ui/Container";
 import Row from "ui/Row";
 import Text from "ui/Text";
 import getHomages from "utils/getHomages";
-import { getResponsiveTheme } from "utils/theme";
 
 const IntroRoot = styled.div`
-  border-width: ${({ theme }) => `${theme.value[1]} ${theme.value[0]}`};
+  border-width: 1px 0px;
   border-style: solid;
-  padding-top: ${({ theme }) => theme.value[48]};
+  border-color: ${({ theme }) =>
+    `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
+  padding-top: 48px;
   background-image: ${({ theme }) =>
-    `linear-gradient(to right, rgb(${theme.channel.pink.DEFAULT} / ${theme.alpha.tertiary}), transparent)`};
-  ${getResponsiveTheme({
-    borderColor: "main.tertiary",
-  })};
+    `linear-gradient(to right, rgb(${theme.channel.main} / ${theme.alpha.tertiary}), transparent)`};
 `;
-const IntroHeadline = styled(Text)`
+const IntroHeadline = styled(Text).attrs({
+  as: "em",
+})`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  color: ${({ theme }) =>
+    `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
   background-image: ${({ theme }) =>
-    `linear-gradient(to right, rgb(var(--from)), rgb(${theme.channel.pink.DEFAULT}))`};
-  --from: ${({ theme }) => theme.channel.pink.dark};
-  ${({ theme }) => theme.media.dark} {
-    --from: ${({ theme }) => theme.channel.pink.lighter};
-  }
-  ${getResponsiveTheme({
-    color: "main.primary",
-  })}
+    `linear-gradient(to right, rgb(${theme.channel.accent}), rgb(${theme.channel.main}))`};
 `;
 const IntroSlider = styled(Row)`
   align-items: center;
 `;
 const IntroSliderItem = styled.div`
-  border-radius: ${({ theme }) => theme.value[16]};
-  box-shadow: ${({ theme }) =>
-    `${theme.value[0]} ${theme.value[24]} ${theme.value[32]} rgb(${theme.channel.pink.darker})`};
-  border: ${({ theme }) => `${theme.value[1]} solid`};
   overflow: hidden;
-  ${getResponsiveTheme({
-    borderColor: "main.tertiary",
-  })}
+  border-radius: ${({ theme }) => theme.sizing.md};
+  box-shadow: ${({ theme }) =>
+    `0px 24px 32px rgb(${theme.channel.background})`};
+  border: ${({ theme }) =>
+    `1px solid rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
 `;
 
 export default function Intro() {
@@ -54,9 +47,9 @@ export default function Intro() {
     <>
       <IntroRoot style={{ paddingBottom: `${initialHomageY}px` }}>
         <Container as="section">
-          <Text $variant="h2" $centered $gutterBottom>
+          <Text $variant="headline" $center $gutterBottom>
             A{" "}
-            <IntroHeadline $italic $variant="inherit">
+            <IntroHeadline $variant="inherit">
               Universidade Federal de Alagoas
             </IntroHeadline>{" "}
             completa 60 anos com uma história enraizada na vida do povo

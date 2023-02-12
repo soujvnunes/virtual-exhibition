@@ -18,8 +18,8 @@ const Icon = styled.svg.attrs(({ children }) => ({
     ),
 }))`
   fill: currentColor;
-  width: ${({ theme }) => theme.value[24]};
-  height: ${({ theme }) => theme.value[24]};
+  width: ${({ theme }) => theme.sizing.lg};
+  height: ${({ theme }) => theme.sizing.lg};
 `;
 
 Icon.displayName = "Icon";

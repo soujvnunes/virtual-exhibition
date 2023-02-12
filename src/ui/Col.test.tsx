@@ -17,8 +17,8 @@ it("renders without crash", () => {
   const tree = renderCol({});
 
   expect(tree).toMatchSnapshot();
-  expect(tree).toHaveStyleRule("padding-left", theme.value[8]);
-  expect(tree).toHaveStyleRule("padding-top", theme.value[8]);
+  expect(tree).toHaveStyleRule("padding-left", theme.grid.padding);
+  expect(tree).toHaveStyleRule("padding-top", theme.grid.padding);
 });
 cols.forEach((col) => {
   it(`renders ${col} column(s) with ${col} start/end span(s)`, () => {

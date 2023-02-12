@@ -5,10 +5,10 @@ type AdornmentProps = {
 };
 
 const Adornment = styled.span<AdornmentProps>`
-  margin-right: ${({ theme, $edge }) =>
-    `${$edge === "start" ? "" : "-"}${theme.value[12]}`};
-  margin-left: ${({ theme, $edge }) =>
-    `${$edge === "end" ? "" : "-"}${theme.value[12]}`};
+  margin-right: ${({ $edge, theme }) =>
+    `calc(${$edge === "start" ? 1 : -1} * ${theme.sizing.sm})`};
+  margin-left: ${({ $edge, theme }) =>
+    `calc(${$edge === "end" ? 1 : -1} * ${theme.sizing.sm})`};
   display: inherit;
 `;
 

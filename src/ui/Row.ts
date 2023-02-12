@@ -1,14 +1,11 @@
 import styled from "styled-components";
-import { getResponsiveTheme } from "utils/theme";
 
 const Row = styled.ul`
   display: flex;
   flex-flow: row nowrap;
-  ${getResponsiveTheme({
-    width: "area",
-    marginTop: "-gapin",
-    marginLeft: "-gapin",
-  })}
+  width: calc(100% + ${({ theme }) => theme.grid.padding});
+  margin-top: calc(-1 * ${({ theme }) => theme.grid.padding});
+  margin-left: calc(-1 * ${({ theme }) => theme.grid.padding});
 `;
 
 Row.displayName = "Row";

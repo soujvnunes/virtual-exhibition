@@ -1,42 +1,27 @@
 import styled from "styled-components";
 import type { StyledComponentPropsWithRef } from "styled-components";
-import { getResponsiveTheme } from "utils/theme";
+import Text from "./Text";
 
 type ButtonProps =
   | ({ href?: string } & StyledComponentPropsWithRef<"a">)
   | ({ href?: undefined } & StyledComponentPropsWithRef<"button">);
 
-const Button = styled.button.attrs(({ href }: ButtonProps) => ({
+const Button = styled(Text).attrs<ButtonProps>(({ href }) => ({
+  $variant: "label",
   ...(href && {
-    forwardedAs: "a",
+    as: "a",
   }),
 }))<ButtonProps>`
   display: flex;
   align-items: center;
-  height: ${({ theme }) => theme.value[48]};
-  border: ${({ theme }) => `${theme.value[1]} solid`};
-  border-radius: ${({ theme }) => theme.value[16]};
-  padding: ${({ theme }) => `${theme.value[0]} ${theme.value[24]}`};
+  height: ${({ theme }) => theme.sizing.x3l};
+  border: ${({ theme }) =>
+    `1px solid rgb(${theme.channel.main} / ${theme.alpha.secondary})`};
+  border-radius: ${({ theme }) => theme.sizing.md};
+  padding: 0px ${({ theme }) => theme.sizing.lg};
   background-color: transparent;
-  // TODO: prefer extends from <Text />
-  text-transform: uppercase;
-  // TODO: prefer extends from <Text />
-  letter-spacing: 0.1em;
-  // TODO: prefer extends from <Text />
-  line-height: 1.168;
-  // TODO: prefer extends from <Text />
-  font-weight: 700;
-  // TODO: prefer extends from <Text />>
-  font-size: ${({ theme }) => theme.value[12]};
-  // TODO: prefer extends from <Text />>
+  color: rgb(${({ theme }) => theme.channel.accent});
   text-decoration: ${({ href }) => href && "none"};
-  &:focus {
-    outline: ${({ theme }) => theme.value[0]};
-  }
-  ${getResponsiveTheme({
-    borderColor: "main.secondary",
-    color: "accent.primary",
-  })}
 `;
 
 Button.displayName = "Button";

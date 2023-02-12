@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import type { ThemeProps, DefaultTheme } from "styled-components";
-import { getResponsiveTheme } from "utils/theme";
 
 const colKs = ["$start", "$mid", "$end"] as const;
 
@@ -51,14 +50,13 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
         [mediaKey]: {
           ...styles[mediaKey],
           ...(prop === "$start" && {
-            marginLeft: colSize,
+            "--columns-start": colSize,
           }),
           ...(prop === "$mid" && {
-            flexBasis: colSize,
-            maxWidth: colSize,
+            "--columns-mid": colSize,
           }),
           ...(prop === "$end" && {
-            marginRight: colSize,
+            "--columns-end": colSize,
           }),
         },
       };
@@ -69,12 +67,14 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
 });
 
 const Col = styled.li<ColProps>`
-  flex-grow: ${({ $mid }) => $mid && 0};
-  ${getResponsiveTheme({
-    paddingLeft: "gapin",
-    paddingTop: "gapin",
-  })}
   ${getColStyles}
+  flex-grow: ${({ $mid }) => $mid && 0};
+  padding-left: ${({ theme }) => theme.grid.padding};
+  padding-top: ${({ theme }) => theme.grid.padding};
+  margin-left: var(--columns-start, unset);
+  margin-right: var(--columns-end, unset);
+  flex-basis: var(--columns-mid, unset);
+  max-width: var(--columns-mid, unset);
 `;
 
 Col.displayName = "Col";

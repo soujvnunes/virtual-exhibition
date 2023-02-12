@@ -5,20 +5,17 @@ import Button from "ui/Button";
 import Container from "ui/Container";
 import Icon from "ui/Icon";
 import Logos from "app/Logos";
-import { getResponsiveTheme } from "utils/theme";
 
 const HeaderRoot = styled(Container)`
   display: flex;
   align-items: center;
-  ${getResponsiveTheme({
-    height: "x7l",
-  })}
+  height: ${({ theme }) => theme.sizing.x6l};
 `;
 const HeaderButtonTheme = styled(Button)`
   margin-left: auto;
 `;
 const HeaderButtonNews = styled(Button)`
-  margin-left: ${({ theme }) => theme.value[12]};
+  margin-left: ${({ theme }) => theme.sizing.sm};
 `;
 
 export default function Header() {
