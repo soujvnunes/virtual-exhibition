@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import type { DefaultTheme } from "styled-components";
 import { PropsWithAs } from "utils/types";
 
@@ -52,35 +52,27 @@ const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
   className: isHeading($variant) && "tk-freight-display-pro",
   as: as || (!isInherit($variant) && VARIANTS_ELEMENTS[$variant]),
 }))<TextProps>`
-  margin-bottom: ${({ $gutterBottom }) => {
-    if ($gutterBottom) return "1em";
-  }};
-  text-align: ${({ $center }) => {
-    if ($center) return "center";
-  }};
-  text-transform: ${({ $variant }) => {
-    if ($variant === "label") return "uppercase";
-  }};
-  letter-spacing: ${({ $variant }) => {
-    if ($variant === "label") return "0.1em";
-  }};
-  line-height: ${({ $variant, theme }) => {
-    if ($variant === "label") return theme.kerning.wide;
-
-    if (isHeading($variant)) return theme.kerning.tight;
-  }};
-  font-weight: ${({ $variant, theme, $weight }) => {
-    if (isHeading($variant)) return theme.weight.regular;
-
-    if ($variant === "label") return theme.weight.heavy;
-
-    if ($weight) return theme.weight[$weight];
-  }};
-  font-size: ${({ $variant, theme }) => {
-    if (isSmall($variant)) return "0.75rem";
-
-    if (!isInherit($variant)) return theme.sizing[VARIANTS_SIZING[$variant]];
-  }};
+  margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
+  text-align: ${({ $center }) => $center && "center"};
+  font-weight: ${({ theme, $weight }) => $weight && theme.weight[$weight]};
+  font-size: ${({ $variant, theme }) =>
+    isSmall($variant)
+      ? "0.75rem"
+      : !isInherit($variant) && theme.sizing[VARIANTS_SIZING[$variant]]};
+  ${({ $variant, theme }) =>
+    $variant === "label" &&
+    css`
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: ${theme.kerning.wide};
+      font-weight: ${theme.weight.heavy};
+    `};
+  ${({ $variant, theme }) =>
+    isHeading($variant) &&
+    css`
+      line-height: ${theme.kerning.tight};
+      font-weight: ${theme.weight.regular};
+    `};
 `;
 
 Text.displayName = "Text";

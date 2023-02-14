@@ -68,9 +68,7 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
 
 const Col = styled.li<ColProps>`
   ${getColStyles}
-  flex-grow: ${({ $mid }) => {
-    if ($mid) return 0;
-  }};
+  flex-grow: ${({ $mid }) => $mid && 0};
   padding-left: ${({ theme }) => theme.grid.padding};
   padding-top: ${({ theme }) => theme.grid.padding};
   margin-left: var(--columns-start, unset);

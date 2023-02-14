@@ -17,13 +17,11 @@ const Button = styled(Text).attrs<ButtonProps>(({ href }) => ({
   height: ${({ theme }) => theme.sizing.x3l};
   border: 1px solid
     ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.secondary})`};
-  border-radius: ${({ theme }) => theme.sizing.md};
+  border-radius: ${({ theme }) => theme.grid.padding};
   padding: 0px ${({ theme }) => theme.sizing.lg};
   background-color: transparent;
   color: rgb(${({ theme }) => theme.channel.accent});
-  text-decoration: ${({ href }) => {
-    if (href) return "none";
-  }};
+  text-decoration: ${({ href }) => href && "none"};
 `;
 
 Button.displayName = "Button";
