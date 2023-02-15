@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import styled from "styled-components";
 import Col from "ui/Col";
 import Container from "ui/Container";
+import Iframe from "ui/Iframe";
 import Row from "ui/Row";
 import Text from "ui/Text";
 import getHomages from "utils/getHomages";
@@ -33,10 +34,9 @@ const IntroSlider = styled(Row)`
 const IntroSliderItem = styled.div`
   overflow: hidden;
   border-radius: ${({ theme }) => theme.sizing.md};
-  box-shadow: ${({ theme }) =>
-    `0px 24px 32px rgb(${theme.channel.background})`};
-  border: ${({ theme }) =>
-    `1px solid rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
+  box-shadow: 0px 24px 32px rgb(${({ theme }) => theme.channel.background});
+  border: 1px solid
+    ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
 `;
 
 export default function Intro() {
@@ -61,7 +61,7 @@ export default function Intro() {
         <IntroSlider style={{ marginTop: `-${initialHomageY}px` }}>
           <Col
             ref={useCallback(
-              (node: HTMLLIElement) =>
+              (node: HTMLLIElement | null) =>
                 node &&
                 setInitialHomageY(node.getBoundingClientRect().height / 2),
               [],
@@ -70,27 +70,13 @@ export default function Intro() {
             $mid={{ DEFAULT: 6, md: 4 }}
           >
             <IntroSliderItem>
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                {...initialHomage}
-              />
+              <Iframe {...initialHomage} />
             </IntroSliderItem>
           </Col>
           {homages.map((homage) => (
             <Col key={homage.title} $mid={{ DEFAULT: 3, md: 2 }}>
               <IntroSliderItem>
-                <iframe
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  {...homage}
-                />
+                <Iframe {...homage} />
               </IntroSliderItem>
             </Col>
           ))}
