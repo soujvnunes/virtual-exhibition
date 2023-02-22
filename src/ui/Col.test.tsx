@@ -17,8 +17,8 @@ it("renders without crash", () => {
   const tree = renderCol({});
 
   expect(tree).toMatchSnapshot();
-  expect(tree).toHaveStyleRule("padding-left", theme.grid.padding);
-  expect(tree).toHaveStyleRule("padding-top", theme.grid.padding);
+  expect(tree).toHaveStyleRule("padding-left", theme.size.x2s);
+  expect(tree).toHaveStyleRule("padding-top", theme.size.x2s);
 });
 cols.forEach((col) => {
   it(`renders ${col} column(s) with ${col} start/end span(s)`, () => {
@@ -31,22 +31,16 @@ cols.forEach((col) => {
     expect(tree).toHaveStyleRule("flex-basis", getColSize(col));
     expect(tree).toHaveStyleRule("max-width", getColSize(col));
   });
-  medias.forEach((media) => {
-    const isDefault = media === "DEFAULT";
-    const options = isDefault
-      ? undefined
-      : {
-          media: {
-            md: "(min-width:512px)",
-            lg: "(min-width:1024px)",
-          }[media],
-        };
+  medias.forEach((_media) => {
+    const isDefault = _media === "_";
+    const media = _media === "_" ? "default" : _media;
+    const options = isDefault ? undefined : { media: "(min-width:1024px)" };
 
     it(`should render ${col} column(s) with ${col} start/end span(s) on ${media} media`, () => {
       const tree = renderCol({
-        $start: { [media]: col },
-        $mid: { [media]: col },
-        $end: { [media]: col },
+        $start: { [_media]: col },
+        $mid: { [_media]: col },
+        $end: { [_media]: col },
       });
 
       expect(tree).toMatchSnapshot();

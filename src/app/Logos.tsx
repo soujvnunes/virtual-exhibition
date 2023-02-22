@@ -13,8 +13,8 @@ const LogosRoot = styled.a`
   color: rgb(${({ theme }) => theme.channel.foreground});
 `;
 const LogosIcon = styled(Icon)`
-  width: ${({ theme }) => theme.sizing.x3l};
-  height: ${({ theme }) => theme.sizing.x3l};
+  width: ${({ theme }) => theme.size.xl};
+  height: ${({ theme }) => theme.size.xl};
 `;
 const LogosPath = styled.path<LogosPathProps>`
   color: rgb(${({ theme, $color }) => theme.channel[$color]});

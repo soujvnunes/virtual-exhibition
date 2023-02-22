@@ -8,17 +8,15 @@ type ButtonProps =
 
 const Button = styled(Text).attrs<ButtonProps>(({ href }) => ({
   $variant: "label",
-  ...(href && {
-    as: "a",
-  }),
+  as: href ? "a" : "button",
 }))<ButtonProps>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  height: ${({ theme }) => theme.sizing.x3l};
+  height: ${({ theme }) => theme.size.xl};
   border: 1px solid
     ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.secondary})`};
-  border-radius: ${({ theme }) => theme.grid.padding};
-  padding: 0px ${({ theme }) => theme.sizing.lg};
+  border-radius: ${({ theme }) => theme.size.x2s};
+  padding: 0px ${({ theme }) => theme.size.xs};
   background-color: transparent;
   color: rgb(${({ theme }) => theme.channel.accent});
   text-decoration: ${({ href }) => href && "none"};

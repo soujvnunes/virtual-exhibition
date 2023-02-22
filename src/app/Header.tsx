@@ -9,34 +9,34 @@ import Logos from "app/Logos";
 const HeaderRoot = styled(Container)`
   display: flex;
   align-items: center;
-  height: ${({ theme }) => theme.sizing.x6l};
+  height: ${({ theme }) => theme.size.x3l};
 `;
-const HeaderButtonTheme = styled(Button)`
+const HeaderTheme = styled(Button)`
   margin-left: auto;
 `;
-const HeaderButtonNews = styled(Button)`
-  margin-left: ${({ theme }) => theme.sizing.sm};
+const HeaderNews = styled(Button)`
+  margin-left: ${({ theme }) => theme.size.x2s};
 `;
 
 export default function Header() {
   return (
     <HeaderRoot as="header">
       <Logos />
-      <HeaderButtonTheme>
+      <HeaderTheme>
         <Adornment>
-          <Icon>Sun</Icon>
+          <Icon $name="Sun" />
         </Adornment>
-      </HeaderButtonTheme>
-      <HeaderButtonNews
+      </HeaderTheme>
+      <HeaderNews
         href="https://ufal.br/noticias?tag=Ufal60anos"
         rel="noreferrer"
         target="_blank"
       >
         Notícias
         <Adornment $edge="end">
-          <Icon>Exit</Icon>
+          <Icon $name="Exit" />
         </Adornment>
-      </HeaderButtonNews>
+      </HeaderNews>
     </HeaderRoot>
   );
 }

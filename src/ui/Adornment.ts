@@ -7,10 +7,8 @@ type AdornmentProps = {
 
 const getEdgeStyles =
   (edge: AdornmentProps["$edge"]) =>
-  (props: ThemeProps<DefaultTheme> & AdornmentProps) =>
-    edge === props.$edge
-      ? props.theme.sizing.sm
-      : `calc(-1 * ${props.theme.sizing.sm})`;
+  ({ $edge, theme }: ThemeProps<DefaultTheme> & AdornmentProps) =>
+    edge === $edge ? theme.size.x3s : `calc(-1 * ${theme.size.x3s})`;
 
 const Adornment = styled.span<AdornmentProps>`
   margin-right: ${getEdgeStyles("start")};

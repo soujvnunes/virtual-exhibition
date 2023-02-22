@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 const Iframe = styled.iframe.attrs({
-  allow:
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+  allow: [
+    "accelerometer",
+    "autoplay",
+    "clipboard-write",
+    "encrypted-media",
+    "gyroscope",
+    "picture-in-picture",
+  ].join("; "),
   allowFullScreen: true,
 })`
   width: 100%;

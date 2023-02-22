@@ -4,9 +4,9 @@ import type { ThemeProps, DefaultTheme } from "styled-components";
 const colKs = ["$start", "$mid", "$end"] as const;
 
 export const cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
-export const medias = ["DEFAULT", "md", "lg"] as const;
+export const medias = ["_", "desktop"] as const;
 
-type Medias = typeof medias[number];
+type Medias = Exclude<keyof DefaultTheme["media"], "dark" | "reduce"> | "_";
 
 type Cols = typeof cols[number];
 
@@ -20,19 +20,14 @@ export type ColProps<
   [K in P]?: V | Partial<Record<M, V>>;
 };
 
-export function getColSize(col?: number) {
-  return col ? `${((100 * col) / 12).toFixed(7)}%` : "";
-}
-function toObj(prop: unknown) {
-  return (
-    prop != null
-      ? typeof prop === "object"
-        ? prop
-        : { [medias[0]]: prop }
-      : {}
-  ) as Partial<Record<Medias, Cols>>;
-}
-
+export const getColSize = (col?: number) =>
+  col ? `${((100 * col) / 12).toFixed(7)}%` : "";
+const toObj = (prop: unknown) =>
+  (prop != null
+    ? typeof prop === "object"
+      ? prop
+      : { _: prop }
+    : {}) as Partial<Record<Medias, Cols>>;
 const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
   let styles: Record<string, Record<string, string>> = {};
 
@@ -42,7 +37,7 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     for (const _media in value) {
       const media = _media as Medias;
-      const mediaKey = props.theme.media[media];
+      const mediaKey = media === "_" ? "" : props.theme.media[media];
       const colSize = getColSize(value[media]);
 
       styles = {
@@ -68,13 +63,17 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
 
 const Col = styled.li<ColProps>`
   ${getColStyles}
-  flex-grow: ${({ $mid }) => $mid && 0};
-  padding-left: ${({ theme }) => theme.grid.padding};
-  padding-top: ${({ theme }) => theme.grid.padding};
-  margin-left: var(--columns-start, unset);
-  margin-right: var(--columns-end, unset);
-  flex-basis: var(--columns-mid, unset);
-  max-width: var(--columns-mid, unset);
+  padding-left: ${({ theme }) => theme.size.x2s};
+  padding-top: ${({ theme }) => theme.size.x2s};
+  margin-left: ${({ $start }) => $start && "var(--columns-start)"};
+  margin-right: ${({ $end }) => $end && "var(--columns-end)"};
+  ${({ $mid }) =>
+    $mid &&
+    css`
+      flex-grow: 0;
+      flex-basis: var(--columns-mid);
+      max-width: var(--columns-mid);
+    `}
 `;
 
 Col.displayName = "Col";

@@ -12,7 +12,7 @@ const IntroRoot = styled.div`
   border-style: solid;
   border-color: ${({ theme }) =>
     `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
-  padding-top: 48px;
+  padding-top: ${({ theme }) => theme.size.xl};
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.main} / ${theme.alpha.tertiary}), transparent)`};
 `;
@@ -33,7 +33,7 @@ const IntroSlider = styled(Row)`
 `;
 const IntroSliderItem = styled.div`
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.sizing.md};
+  border-radius: ${({ theme }) => theme.size.x2s};
   box-shadow: 0px 24px 32px rgb(${({ theme }) => theme.channel.background});
   border: 1px solid
     ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
@@ -42,6 +42,11 @@ const IntroSliderItem = styled.div`
 export default function Intro() {
   const [initialHomage, ...homages] = getHomages();
   const [initialHomageY, setInitialHomageY] = useState(0);
+  const handleInitialHomageRef = useCallback(
+    (node: HTMLLIElement | null) =>
+      node && setInitialHomageY(node.getBoundingClientRect().height / 2),
+    [],
+  );
 
   return (
     <>
@@ -57,24 +62,31 @@ export default function Intro() {
           </Text>
         </Container>
       </IntroRoot>
-      <Container as="section">
-        <IntroSlider style={{ marginTop: `-${initialHomageY}px` }}>
+      <Container as="section" style={{ marginTop: `-${initialHomageY}px` }}>
+        <IntroSlider>
           <Col
-            ref={useCallback(
-              (node: HTMLLIElement | null) =>
-                node &&
-                setInitialHomageY(node.getBoundingClientRect().height / 2),
-              [],
-            )}
-            $start={{ DEFAULT: 3, md: 4 }}
-            $mid={{ DEFAULT: 6, md: 4 }}
+            ref={handleInitialHomageRef}
+            $start={{
+              _: 3,
+              desktop: 4,
+            }}
+            $mid={{
+              _: 6,
+              desktop: 4,
+            }}
           >
             <IntroSliderItem>
               <Iframe {...initialHomage} />
             </IntroSliderItem>
           </Col>
           {homages.map((homage) => (
-            <Col key={homage.title} $mid={{ DEFAULT: 3, md: 2 }}>
+            <Col
+              key={homage.title}
+              $mid={{
+                _: 3,
+                desktop: 2,
+              }}
+            >
               <IntroSliderItem>
                 <Iframe {...homage} />
               </IntroSliderItem>

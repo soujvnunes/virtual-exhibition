@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import type { DefaultTheme } from "styled-components";
 import { PropsWithAs } from "utils/types";
 
@@ -12,12 +12,9 @@ const VARIANTS_ELEMENTS = {
   overline: "span",
 };
 const VARIANTS_SIZING = {
-  title: "md",
-  headline: "x4l",
-  subhead: "x3l",
-  subtitle: "x2l",
-  body: "md",
-  label: "sm",
+  headline: "x3l",
+  subhead: "x2l",
+  subtitle: "xl",
 } as const;
 
 export type TextProps = Partial<
@@ -27,26 +24,21 @@ export type TextProps = Partial<
   $weight?: keyof DefaultTheme["weight"];
 };
 
-function isHeading(
+const isHeading = (
   variant: TextProps["$variant"],
-): variant is "title" | "headline" | "subhead" | "subtitle" {
-  return (
-    variant === "title" ||
-    variant === "headline" ||
-    variant === "subhead" ||
-    variant === "subtitle"
-  );
-}
-function isInherit(
+): variant is "title" | "headline" | "subhead" | "subtitle" =>
+  variant === "title" ||
+  variant === "headline" ||
+  variant === "subhead" ||
+  variant === "subtitle";
+const isInherit = (
   variant: TextProps["$variant"],
-): variant is "inherit" | undefined {
-  return variant === "inherit" || typeof variant === "undefined";
-}
-function isSmall(
+): variant is "inherit" | undefined =>
+  variant === "inherit" || typeof variant === "undefined";
+const isSmall = (
   variant: TextProps["$variant"],
-): variant is "label" | "overline" {
-  return variant === "label" || variant === "overline";
-}
+): variant is "label" | "overline" =>
+  variant === "label" || variant === "overline";
 
 const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
   className: isHeading($variant) && "tk-freight-display-pro",
@@ -54,25 +46,22 @@ const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
 }))<TextProps>`
   margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
   text-align: ${({ $center }) => $center && "center"};
-  font-weight: ${({ theme, $weight }) => $weight && theme.weight[$weight]};
+  text-transform: ${({ $variant }) => $variant === "label" && "uppercase"};
+  letter-spacing: ${({ $variant }) => $variant === "label" && "0.1em"};
+  line-height: ${({ $variant, theme }) =>
+    (isHeading($variant) || $variant === "label") && theme.kerning.tight};
   font-size: ${({ $variant, theme }) =>
-    isSmall($variant)
+    $variant === "title" || $variant === "body"
+      ? "1rem"
+      : isSmall($variant)
       ? "0.75rem"
-      : !isInherit($variant) && theme.sizing[VARIANTS_SIZING[$variant]]};
-  ${({ $variant, theme }) =>
-    $variant === "label" &&
-    css`
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      line-height: ${theme.kerning.wide};
-      font-weight: ${theme.weight.heavy};
-    `};
-  ${({ $variant, theme }) =>
-    isHeading($variant) &&
-    css`
-      line-height: ${theme.kerning.tight};
-      font-weight: ${theme.weight.regular};
-    `};
+      : isHeading($variant) && theme.size[VARIANTS_SIZING[$variant]]};
+  font-weight: ${({ $variant, $weight, theme }) =>
+    $variant === "label"
+      ? theme.weight.heavy
+      : isHeading($variant)
+      ? theme.weight.regular
+      : $weight && theme.weight[$weight]};
 `;
 
 Text.displayName = "Text";

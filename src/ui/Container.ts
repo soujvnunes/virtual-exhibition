@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  max-width: ${({ theme }) => theme.grid.area};
-  padding-left: ${({ theme }) => theme.grid.margin};
-  padding-right: ${({ theme }) => theme.grid.margin};
+  max-width: 1538px;
+  width: 100%;
+  padding-left: ${({ theme }) => theme.size.sm};
+  padding-right: ${({ theme }) => theme.size.sm};
   margin-left: auto;
   margin-right: auto;
 `;
