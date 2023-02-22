@@ -1,13 +1,16 @@
 import { ThemeProvider } from "styled-components";
-import GlobalStyle from "app/GlobalStyle";
+import CSSGlobalStyles from "ui/CSSGlobalStyles";
+import CSSNormalize from "ui/CSSNormalize";
 import Header from "app/Header";
 import Intro from "app/Intro";
-import { theme } from "utils/theme";
+import { CSSThemeVars, theme } from "utils/theme";
 
 export default function App({
   children = (
     <>
-      <GlobalStyle />
+      <CSSThemeVars />
+      <CSSNormalize />
+      <CSSGlobalStyles />
       <Header />
       <Intro />
     </>
