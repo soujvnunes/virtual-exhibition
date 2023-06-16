@@ -39,14 +39,10 @@ const IntroSliderItem = styled.div`
     ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
 `;
 
+const [initialHomage, ...homages] = getHomages();
+
 export default function Intro() {
-  const [initialHomage, ...homages] = getHomages();
   const [initialHomageY, setInitialHomageY] = useState(0);
-  const handleInitialHomageRef = useCallback(
-    (node: HTMLLIElement | null) =>
-      node && setInitialHomageY(node.getBoundingClientRect().height / 2),
-    [],
-  );
 
   return (
     <>
@@ -65,7 +61,11 @@ export default function Intro() {
       <Container as="section" style={{ marginTop: `-${initialHomageY}px` }}>
         <IntroSlider>
           <Col
-            ref={handleInitialHomageRef}
+            ref={useCallback((node: HTMLLIElement | null) => {
+              if (node) {
+                setInitialHomageY(node.getBoundingClientRect().height / 2);
+              }
+            }, [])}
             $start={{
               _: 3,
               desktop: 4,
