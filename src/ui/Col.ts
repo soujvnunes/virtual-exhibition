@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import type { ThemeProps, DefaultTheme } from "styled-components";
+import type { DefaultTheme } from "styled-components";
 
 const colKs = ["$start", "$mid", "$end"] as const;
 
@@ -28,7 +28,7 @@ const toObj = (prop: unknown) =>
       ? prop
       : { _: prop }
     : {}) as Partial<Record<Medias, Cols>>;
-const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
+const getColStyles = css<ColProps>(({ theme, ...props }) => {
   let styles: Record<string, Record<string, string>> = {};
 
   for (const prop of colKs) {
@@ -37,7 +37,7 @@ const getColStyles = css((props: ThemeProps<DefaultTheme> & ColProps) => {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     for (const _media in value) {
       const media = _media as Medias;
-      const mediaKey = media === "_" ? "" : props.theme.media[media];
+      const mediaKey = media === "_" ? "" : theme.media[media];
       const colSize = getColSize(value[media]);
 
       styles = {
