@@ -985,6 +985,59 @@ exports[`should render 1 column(s) with 1 start/end span(s) on DEFAULT media 1`]
 />
 `;
 
+exports[`should render 1 column(s) with 1 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 8.3333333%;
+  --columns-mid: 8.3333333%;
+  --columns-end: 8.3333333%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 1 column(s) with 1 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 8.3333333%;
+    --columns-mid: 8.3333333%;
+    --columns-end: 8.3333333%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 1 column(s) with 1 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -1127,6 +1180,59 @@ exports[`should render 2 column(s) with 2 start/end span(s) on DEFAULT media 1`]
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 2 column(s) with 2 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 16.6666667%;
+  --columns-mid: 16.6666667%;
+  --columns-end: 16.6666667%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 2 column(s) with 2 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 16.6666667%;
+    --columns-mid: 16.6666667%;
+    --columns-end: 16.6666667%;
   }
 }
 
@@ -1285,6 +1391,59 @@ exports[`should render 3 column(s) with 3 start/end span(s) on DEFAULT media 1`]
 />
 `;
 
+exports[`should render 3 column(s) with 3 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 25.0000000%;
+  --columns-mid: 25.0000000%;
+  --columns-end: 25.0000000%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 3 column(s) with 3 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 25.0000000%;
+    --columns-mid: 25.0000000%;
+    --columns-end: 25.0000000%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 3 column(s) with 3 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -1427,6 +1586,59 @@ exports[`should render 4 column(s) with 4 start/end span(s) on DEFAULT media 1`]
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 4 column(s) with 4 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 33.3333333%;
+  --columns-mid: 33.3333333%;
+  --columns-end: 33.3333333%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 4 column(s) with 4 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 33.3333333%;
+    --columns-mid: 33.3333333%;
+    --columns-end: 33.3333333%;
   }
 }
 
@@ -1585,6 +1797,59 @@ exports[`should render 5 column(s) with 5 start/end span(s) on DEFAULT media 1`]
 />
 `;
 
+exports[`should render 5 column(s) with 5 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 41.6666667%;
+  --columns-mid: 41.6666667%;
+  --columns-end: 41.6666667%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 5 column(s) with 5 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 41.6666667%;
+    --columns-mid: 41.6666667%;
+    --columns-end: 41.6666667%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 5 column(s) with 5 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -1727,6 +1992,59 @@ exports[`should render 6 column(s) with 6 start/end span(s) on DEFAULT media 1`]
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 6 column(s) with 6 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 50.0000000%;
+  --columns-mid: 50.0000000%;
+  --columns-end: 50.0000000%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 6 column(s) with 6 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 50.0000000%;
+    --columns-mid: 50.0000000%;
+    --columns-end: 50.0000000%;
   }
 }
 
@@ -1885,6 +2203,59 @@ exports[`should render 7 column(s) with 7 start/end span(s) on DEFAULT media 1`]
 />
 `;
 
+exports[`should render 7 column(s) with 7 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 58.3333333%;
+  --columns-mid: 58.3333333%;
+  --columns-end: 58.3333333%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 7 column(s) with 7 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 58.3333333%;
+    --columns-mid: 58.3333333%;
+    --columns-end: 58.3333333%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 7 column(s) with 7 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -2027,6 +2398,59 @@ exports[`should render 8 column(s) with 8 start/end span(s) on DEFAULT media 1`]
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 8 column(s) with 8 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 66.6666667%;
+  --columns-mid: 66.6666667%;
+  --columns-end: 66.6666667%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 8 column(s) with 8 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 66.6666667%;
+    --columns-mid: 66.6666667%;
+    --columns-end: 66.6666667%;
   }
 }
 
@@ -2185,6 +2609,59 @@ exports[`should render 9 column(s) with 9 start/end span(s) on DEFAULT media 1`]
 />
 `;
 
+exports[`should render 9 column(s) with 9 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 75.0000000%;
+  --columns-mid: 75.0000000%;
+  --columns-end: 75.0000000%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 9 column(s) with 9 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 75.0000000%;
+    --columns-mid: 75.0000000%;
+    --columns-end: 75.0000000%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 9 column(s) with 9 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -2327,6 +2804,59 @@ exports[`should render 10 column(s) with 10 start/end span(s) on DEFAULT media 1
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 10 column(s) with 10 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 83.3333333%;
+  --columns-mid: 83.3333333%;
+  --columns-end: 83.3333333%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 10 column(s) with 10 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 83.3333333%;
+    --columns-mid: 83.3333333%;
+    --columns-end: 83.3333333%;
   }
 }
 
@@ -2485,6 +3015,59 @@ exports[`should render 11 column(s) with 11 start/end span(s) on DEFAULT media 1
 />
 `;
 
+exports[`should render 11 column(s) with 11 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 91.6666667%;
+  --columns-mid: 91.6666667%;
+  --columns-end: 91.6666667%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 11 column(s) with 11 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 91.6666667%;
+    --columns-mid: 91.6666667%;
+    --columns-end: 91.6666667%;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
 exports[`should render 11 column(s) with 11 start/end span(s) on lg media 1`] = `
 .c0 {
   -webkit-box-flex: 0;
@@ -2627,6 +3210,59 @@ exports[`should render 12 column(s) with 12 start/end span(s) on DEFAULT media 1
   .c0 {
     padding-left: 1rem;
     padding-top: 1rem;
+  }
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 12 column(s) with 12 start/end span(s) on default media 1`] = `
+.c0 {
+  --columns-start: 100.0000000%;
+  --columns-mid: 100.0000000%;
+  --columns-end: 100.0000000%;
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+<li
+  className="c0"
+/>
+`;
+
+exports[`should render 12 column(s) with 12 start/end span(s) on desktop media 1`] = `
+.c0 {
+  padding-left: var(--size-x2s);
+  padding-top: var(--size-x2s);
+  margin-left: var(--columns-start);
+  margin-right: var(--columns-end);
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-basis: var(--columns-mid);
+  -ms-flex-preferred-size: var(--columns-mid);
+  flex-basis: var(--columns-mid);
+  max-width: var(--columns-mid);
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    --columns-start: 100.0000000%;
+    --columns-mid: 100.0000000%;
+    --columns-end: 100.0000000%;
   }
 }
 
