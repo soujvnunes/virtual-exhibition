@@ -31,7 +31,8 @@
     "prettier",
     "import",
     "eslint-plugin-import-helpers",
-    "jest"
+    "jest",
+    "jsx-a11y"
   ],
   "rules": {
     /**
