@@ -33,6 +33,7 @@ export const theme = {
     x6l: "var(--size-x6l)",
   },
   kerning: {
+    tighter: "var(--kerning-tighter)",
     tight: "var(--kerning-tight)",
     wide: "var(--kerning-wide)",
   },
@@ -78,6 +79,7 @@ export const CSSThemeVars = createGlobalStyle`
     --size-x5l: 3rem;
     --size-x6l: 3.25rem;
 
+    --kerning-tighter: 0.75;
     --kerning-tight: 1;
     --kerning-wide: 1.5;
 
