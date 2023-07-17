@@ -1,11 +1,10 @@
-import { useCallback, useState } from "react";
+import { Suspense, lazy, useCallback, useState } from "react";
 import styled from "styled-components";
-import Col from "ui/Col";
 import Container from "ui/Container";
-import Iframe from "ui/Iframe";
-import Row from "ui/Row";
 import Text from "ui/Text";
-import getHomages from "utils/getHomages";
+import useData from "utils/useData";
+
+const IntroSlider = lazy(() => import("./IntroSlider"));
 
 const IntroRoot = styled.div`
   border-width: 1px 0px;
@@ -28,21 +27,15 @@ const IntroHeadline = styled(Text).attrs({
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.accent}), rgb(${theme.channel.main}))`};
 `;
-const IntroSlider = styled(Row)`
-  align-items: center;
-`;
-const IntroSliderItem = styled.div`
-  overflow: hidden;
-  border-radius: ${({ theme }) => theme.size.x2s};
-  box-shadow: 0px 24px 32px rgb(${({ theme }) => theme.channel.background});
-  border: 1px solid
-    ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
-`;
-
-const [initialHomage, ...homages] = getHomages();
 
 export default function Intro() {
+  const data = useData();
   const [initialHomageY, setInitialHomageY] = useState(0);
+  const handleRef = useCallback((node: HTMLLIElement | null) => {
+    if (node) {
+      setInitialHomageY(node.getBoundingClientRect().height / 2);
+    }
+  }, []);
 
   return (
     <>
@@ -59,40 +52,9 @@ export default function Intro() {
         </Container>
       </IntroRoot>
       <Container as="section" style={{ marginTop: `-${initialHomageY}px` }}>
-        <IntroSlider>
-          <Col
-            ref={useCallback((node: HTMLLIElement | null) => {
-              if (node) {
-                setInitialHomageY(node.getBoundingClientRect().height / 2);
-              }
-            }, [])}
-            $start={{
-              _: 3,
-              desktop: 4,
-            }}
-            $mid={{
-              _: 6,
-              desktop: 4,
-            }}
-          >
-            <IntroSliderItem>
-              <Iframe {...initialHomage} />
-            </IntroSliderItem>
-          </Col>
-          {homages.map((homage) => (
-            <Col
-              key={homage.title}
-              $mid={{
-                _: 3,
-                desktop: 2,
-              }}
-            >
-              <IntroSliderItem>
-                <Iframe {...homage} />
-              </IntroSliderItem>
-            </Col>
-          ))}
-        </IntroSlider>
+        <Suspense fallback="loading...">
+          {data.homages && <IntroSlider ref={handleRef} data={data.homages} />}
+        </Suspense>
       </Container>
     </>
   );

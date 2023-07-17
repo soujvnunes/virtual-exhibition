@@ -1,32 +1,39 @@
+import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import CSSGlobalStyles from "ui/CSSGlobalStyles";
 import CSSNormalize from "ui/CSSNormalize";
 import Header from "app/Header";
 import Intro from "app/Intro";
-import createMeta from "utils/createMeta";
+import type { Data } from "utils/getData";
 import { CSSThemeVars, theme } from "utils/theme";
-import { ReactComponent as People } from "assets/People.svg";
+import { DataContext } from "utils/useData";
 
 export default function App({
   children = (
     <>
       <Header />
       <Intro />
-      <People />
     </>
   ),
-}: React.PropsWithChildren<Record<string, unknown>>) {
-  createMeta({
-    name: "theme-color",
-    content: `rgb(${theme.channel.background})`,
-  });
+}: React.PropsWithChildren) {
+  const [data, setData] = useState<Data>({});
+
+  useEffect(() => {
+    (async function handleData() {
+      const { default: getData } = await import("utils/getData");
+
+      setData(await getData());
+    })();
+  }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CSSThemeVars />
-      <CSSNormalize />
-      <CSSGlobalStyles />
-      {children}
-    </ThemeProvider>
+    <DataContext.Provider value={data}>
+      <ThemeProvider theme={theme}>
+        <CSSThemeVars />
+        <CSSNormalize />
+        <CSSGlobalStyles />
+        {children}
+      </ThemeProvider>
+    </DataContext.Provider>
   );
 }
