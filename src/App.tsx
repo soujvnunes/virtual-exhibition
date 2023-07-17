@@ -7,6 +7,7 @@ import Intro from "app/Intro";
 import type { Data } from "utils/getData";
 import { CSSThemeVars, theme } from "utils/theme";
 import { DataContext } from "utils/useData";
+import useMeta from "utils/useMeta";
 
 export default function App({
   children = (
@@ -18,6 +19,10 @@ export default function App({
 }: React.PropsWithChildren) {
   const [data, setData] = useState<Data>({});
 
+  useMeta({
+    name: "theme-color",
+    content: `rgb(${theme.channel.background})`,
+  });
   useEffect(() => {
     (async function handleData() {
       const { default: getData } = await import("utils/getData");
