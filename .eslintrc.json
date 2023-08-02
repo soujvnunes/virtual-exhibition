@@ -111,7 +111,9 @@
         ]
       }
     ],
-    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }]
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
   "settings": {
     "import/resolver": {
