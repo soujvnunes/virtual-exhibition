@@ -12,6 +12,7 @@ const VARIANTS_ELEMENTS = {
   overline: "span",
 };
 const VARIANTS_SIZING = {
+  title: "xs",
   headline: "x3l",
   subhead: "x2l",
   subtitle: "xl",
@@ -47,17 +48,19 @@ const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
   margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
   text-align: ${({ $center }) => $center && "center"};
   text-transform: ${({ $variant }) => $variant === "label" && "uppercase"};
-  letter-spacing: ${({ $variant }) => $variant === "label" && "0.1em"};
+  letter-spacing: ${({ $variant }) =>
+    ($variant === "label" || $variant === "title") && "0.1em"};
   line-height: ${({ $variant, theme }) =>
-    (isHeading($variant) || $variant === "label") && theme.kerning.tight};
+    ($variant === "title" && theme.kerning.tighter) ||
+    ((isHeading($variant) || $variant === "label") && theme.kerning.tight)};
   font-size: ${({ $variant, theme }) =>
-    $variant === "title" || $variant === "body"
+    $variant === "body"
       ? "1rem"
       : isSmall($variant)
       ? "0.75rem"
       : isHeading($variant) && theme.size[VARIANTS_SIZING[$variant]]};
   font-weight: ${({ $variant, $weight, theme }) =>
-    $variant === "label"
+    $variant === "label" || $variant === "title"
       ? theme.weight.heavy
       : isHeading($variant)
       ? theme.weight.regular

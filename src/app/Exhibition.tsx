@@ -1,7 +1,7 @@
-import getExhibitions from "utils/getExhibitions";
-
-const exhibitions = getExhibitions();
+import useData from "utils/useData";
 
 export default function Exhibition() {
-  return exhibitions[0].dean[0].alt;
+  const data = useData();
+
+  return <>{data.exhibition?.[0].professors?.[0].alt}</>;
 }

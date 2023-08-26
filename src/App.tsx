@@ -1,18 +1,20 @@
 import getMedia from "ui/getMedia";
 import Header from "app/Header";
 import Intro from "app/Intro";
-import { ReactComponent as People } from "assets/People.svg";
+import { DataProvider } from "utils/useData";
+import useMeta from "utils/useMeta";
 
-export default () => {
-  const isThemeDark = getMedia("(prefers-color-scheme: dark)");
-
-  document.documentElement.dataset.mode = isThemeDark ? "dark" : "light";
-
-  return (
+export default function App({
+  children = (
     <>
       <Header />
       <Intro />
-      <People />
     </>
-  );
-};
+  ),
+}: React.PropsWithChildren) {
+  const isThemeDark = getMedia("(prefers-color-scheme: dark)");
+
+  useMeta("theme-color", isThemeDark ? "#000" : "#fff");
+
+  return <DataProvider>{children}</DataProvider>;
+}

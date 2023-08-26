@@ -1,0 +1,372 @@
+{
+  "homages": [
+    {
+      "title": "Ufal 60 Anos-Raízes",
+      "src": "https://www.youtube.com/embed/RYb0tvEygNo"
+    },
+    {
+      "title": "Ufal 60 Anos: raízes conectad@s com o futuro",
+      "src": "https://www.youtube.com/embed/jr-EcARAio4"
+    },
+    {
+      "title": "Servidoras parabenizam Ufal pelos 60 anos",
+      "src": "https://www.youtube.com/embed/u22TU6KEgHc"
+    },
+    {
+      "title": "Professores parabenizam Ufal pelos seus 60 anos",
+      "src": "https://www.youtube.com/embed/V7N8akgwPJA"
+    }
+  ],
+  "exhibition": [
+    {
+      "id": 1960,
+      "professors": [
+        {
+          "id": 1,
+          "alt": "Aristóteles Calazans Simões",
+          "period": [1961, 1971],
+          "description": "No final do governo de Juscelino Kubitschek, no Palácio da Alvorada, na capital da república recém-transferida para Brasília, o reitor Aristótoles Calazans Simões alcançou a assinatura presidencial para a criação da Universidade Federal de Alagoas. Sobre esse período, disse o reitor: /quote Num Estado pequeno e pobre como as Alagoas, a instituição e o desenvolvimento de uma Universidade em seu seio trará, não tenhamos dúvida, verdadeira revolução não somente sociocultural mas, ainda, verdadeira revolução econômico-financeira."
+        }
+      ],
+      "gallery": [
+        {
+          "id": 1,
+          "alt": "Canteiro de obras."
+        },
+        {
+          "id": 5,
+          "alt": "Trabalhadores no canteiro de obras da Ufal."
+        },
+        {
+          "id": 6,
+          "alt": "Tomada do campus da Ufal em construção."
+        },
+        {
+          "id": 9,
+          "alt": "Prédio que se tornaria sede da 1° Reitoria da Ufal na Praça Sinimbu."
+        },
+        {
+          "id": 3,
+          "alt": "Janeiro de 1961: Presidente Juscelino Kubitschek sancionando a lei de criação da Ufal."
+        },
+        {
+          "id": 7,
+          "alt": "1965: Reunião do Conselho Universitário da Ufal quando da assinatura do contrato para elaboração do Plano Diretor da construção da Cidade Universitária."
+        },
+        {
+          "id": 8,
+          "alt": "1966: Residência Universitária Masculina."
+        },
+        {
+          "id": 10,
+          "alt": "1967: Início das obras de implantação do Campus, na Cidade Universitária."
+        },
+        {
+          "id": 2,
+          "alt": "Outubro de 1968: Construção do Instituto de Química."
+        },
+        {
+          "id": 4,
+          "alt": "Junho de 1969: Sala de Aula do Curso de Administração e Economia."
+        }
+      ]
+    },
+    {
+      "id": 1970,
+      "professors": [
+        {
+          "id": 2,
+          "alt": "Nabuco Lopes",
+          "period": [1971, 1975],
+          "description": "Na gestão do reitor Nabuco Lopes, a Ufal investiu na expansão e qualificação do quadro de servidores docentes e técnico-administrativos. O reitor buscou financiamento para cursos de aperfeiçoamento, especialização, e, inclusive, as primeiras bolsas de mestrado e doutorado. Em seu discurso, na comemoração dos 25 anos da Ufal, Nabuco Lopes relembrou esse esforço: /quote O programa ensaiou seus primeiros passos favorecendo professores e alunos com estágios de aperfeiçoamento, monitoria e iniciação científica. Na realidade, a maior beneficiária era a própria instituição na medida em que, dessa forma, se contribuía para enriquecer a qualidade das atividades universitárias."
+        },
+        {
+          "id": 3,
+          "alt": "Manoel Ramalho",
+          "period": [1975, 1979],
+          "description": "Na gestão do engenheiro Manoel Ramalho como reitor da Ufal, alguns cursos ainda funcionavam no Campus Tamandaré, no Pontal, quando foi implantada a empresa Salgema naquela região. O jornalista e economista Roberto Vilanova, que era estudante nesse período, relatou em seu blog que o reitor, mesmo em tempos de Ditadura Militar, agiu com firmeza e coragem: /quote O reitor Manoel Ramalho exigiu uma brigada de combate a incêndio do Corpo de Bombeiros e 500 máscaras contra gás, numa permanente atitude de vigilância, para continuar com a área 3 da Ufal no Pontal da Barra./ Como a exigência não foi atendida, os cursos foram transferidos para o Campus A.C. Simões."
+        }
+      ],
+      "gallery": [
+        {
+          "id": 8,
+          "alt": "Ministro Ney Braga, Governador Divaldo Suruagy e Reitor Nabuco Lopes."
+        },
+        {
+          "id": 2,
+          "alt": "Outubro de 1971: Diploma recebido pelo Corufal pela participação do 3º Festival Nacional de Coros."
+        },
+        {
+          "id": 10,
+          "alt": "1973: Vista parcial do Vestibular Unificado, realizado no Estádio Rei Pelé."
+        },
+        {
+          "id": 3,
+          "alt": "1974: Formatura Unificada no Estádio Rei Pelé."
+        },
+        {
+          "id": 5,
+          "alt": "Abril de 1974: Inauguração do Núcleo de Educação Física e Desportos."
+        },
+        {
+          "id": 6,
+          "alt": "1975: Inauguração do Salão Nobre Professor Guedes de Miranda."
+        },
+        {
+          "id": 7,
+          "alt": "1975: Instalação do Museu de Artes plásticas."
+        },
+        {
+          "id": 4,
+          "alt": "1976: Impresso contendo a programação da 1ª Semana de Cultura Popular."
+        },
+        {
+          "id": 9,
+          "alt": "Março de 1977: Navio Hope em Maceió."
+        },
+        {
+          "id": 1,
+          "alt": "1978: Capa da primeira edição da Revista Scientia Ad Sapientiam."
+        }
+      ]
+    },
+    {
+      "id": 1980,
+      "professors": [
+        {
+          "id": 4,
+          "alt": "João Azevedo",
+          "period": [1979, 1983],
+          "description": "O reitor João Azevedo foi empossado no cargo no período em que se intensificaram as lutas sociais pela abertura política no Brasil. A solenidade de posse foi representativa dessa época histórica, segundo narra o historiador Edberto Ticianeli: /quote Como a posse do novo reitor, João Azevedo, aconteceria no dia 29 de novembro de 1979, os alunos da Ufal preparam uma ação para impedir o ato, caso não houvesse proposta da Reitoria para as suas reivindicações. Na quinta-feira (29) à tarde, a Reitoria, que ficava na Praça Sinimbu, foi tomada de assalto por centenas de estudantes. O auditório, onde haveria a transmissão de cargo, foi invadido e ocupado por jovens com faixas que cobravam o direito do representante da UNE falar na solenidade. Houve uma negociação e ficou acertado que Aldo Rebelo, então secretário-geral da entidade nacional dos estudantes, usaria da palavra."
+        },
+        {
+          "id": 5,
+          "alt": "Fernando Gama",
+          "period": [1983, 1987],
+          "description": "O primeiro mandato do professor Fernando Gama, ainda por indicação do presidente João Figueiredo, foi marcado pela expansão da Ufal. O reitor buscou recursos para duplicar a estrutura física da Universidade, no Campus A.C. Simões. na Cidade Universitária. No livro dos 50 anos da Ufal, ressalta-se que Gama foi um grande defensor da comunidade universitária, aberto ao diálogo com as entidades estudantis e sindicais. 'Para as entidades que congregavam docentes e servidores, o reitor Gama sempre teve a mão estendida, colaborando, inclusive, nas políticas assistenciais e nas condições de funcionamento dos órgãos corporativos.'"
+        },
+        {
+          "id": 6,
+          "alt": "Delza Gitaí",
+          "period": [1987, 1991],
+          "description": "A gestão da professora Delza Gitaí marca a democratização da Universidade, condizente com os tempos de redemocratização do país. O Congresso Acadêmico realizando ainda na gestão do professor Gama aprovou a eleição direta para o cargo de reitor. Delza Gitaí foi a primeira gestão eleita pelo voto da comunidade universitária. Também foi a primeira mulher a ocupar o cargo na Reitoria da Ufal. Na sua gestão, foi inaugurada a nova Reitoria na Cidade Universitária. Na antiga Reitoria, por pressão dos estudantes, que se organizaram e ocuparam parte da sede na praça Sinimbú, foi reaberta a Residência Universitária. Também foi marcante a atuação da Reitora no enfrentamento ao analfabetismo, estabelecendo parcerias com instituições em Alagoas e realizando o 1º Seminário Estadual sobre Alfabetização e Cidadania, com a participação de Paulo Freire."
+        }
+      ],
+      "gallery": [
+        {
+          "id": "5",
+          "alt": "Embaixador de Israel em visita a Ufal."
+        },
+        {
+          "id": "3",
+          "alt": "1986: Campanha para Reitor da Ufal."
+        },
+        {
+          "id": "6",
+          "alt": "Janeiro de 1986: Ex-reitores na comemoração de 25 anos da Ufal."
+        },
+        {
+          "id": "1",
+          "alt": "Março de 1986: Visita do Ministro da Educação Jorge BornHausen às dependências da Ufal."
+        },
+        {
+          "id": "10",
+          "alt": "Novembro de 1986: Eleição direta para reitor. Flagrante da apuração de votos."
+        },
+        {
+          "id": "8",
+          "alt": "Novembro de 1987: Inauguração da reitoria no campus universitário."
+        },
+        {
+          "id": "7",
+          "alt": "Março de 1988: Manifestação dos Estudantes da Ufal reinvidicando o Restaurante Universitário."
+        },
+        {
+          "id": "2",
+          "alt": "Setembro de 1988: Abertura dos Jogos Internos do Curso de Educação Física."
+        },
+        {
+          "id": "4",
+          "alt": "Outubro de 1989: Cônsul da Alemanha em visita à Ufal."
+        },
+        {
+          "id": "9",
+          "alt": "Dezembro de 1989: Espaço Cultural da Ufal."
+        }
+      ]
+    },
+    {
+      "id": 1990,
+      "professors": [
+        {
+          "id": 5,
+          "alt": "Fernando Gama",
+          "period": [1991, 1995],
+          "description": "Dessa vez, eleito pelo voto direto, o professor Fernando Gama retorna para mais uma gestão como reitor da Ufal. Nessa etapa, enfrentando várias dificuldades, o reitor conseguiu atender a uma demanda por cursos noturnos, para o acesso à Universidade de trabalhadores e trabalhadoras, além de revitalizar a Fazenda São Luiz, em Viçosa, como campo de pesquisa agropecuária. Foi um período também de fortes reivindicações das entidades sindicais representativas dos docentes e técnico-administrativos das universidades brasileiras, que sofreram muitas perdas salariais no período do governo de FHC."
+        },
+        {
+          "id": 7,
+          "alt": "Rogério Pinheiro",
+          "period": [1995, 2003],
+          "description": "O primeiro mandato do reitor Rogério Pinheiro destacou-se pelo planejamento administrativo para adequar as ações da Universidade às condições do orçamento. Registra-se ainda a tramitação para que posteriormente fossem abertos novos mestrados, como o Prodema -mestrado em Desenvolvimento e Meio Ambiente. As ações de extensão também foram fortalecidas, com a criação do Núcleo Temático de Assistência Social (Nutas), Núcleo de Educação Ambiental (NEA) e Núcleo de Educação a Distância (Nead), além da revitalização da Editora Universitária (Edufal), com a realização da 1ª Bienal do Livro e da Arte, em 1998. No segundo mandato foi inaugurado o Radar Meteorológico da Ufal."
+        }
+      ],
+      "gallery": [
+        {
+          "id": "8",
+          "alt": "Novembro de 1990: Assinatura de convência com o MEC sobre o programa nacional de Alfabetização."
+        },
+        {
+          "id": "2",
+          "alt": "Dezembro de 1990: Aula Inaugural do Curso de Formação do Ator no Circo Cultural."
+        },
+        {
+          "id": "5",
+          "alt": "Março de 1991: Inauguração das salas de música do Departamento de Arte."
+        },
+        {
+          "id": "7",
+          "alt": "Maio de 1991: Primeira defesa de tese do curso de mestrado em Letras da Ufal."
+        },
+        {
+          "id": "1",
+          "alt": "1994: Atendimento aos alunos na Proest."
+        },
+        {
+          "id": "3",
+          "alt": "Março de 1996: Aula Inaugural Noturna."
+        },
+        {
+          "id": "10",
+          "alt": "Agosto de 1996: Exposição de livros no pátio da Reitoria promovida pela Edufal."
+        },
+        {
+          "id": "6",
+          "alt": "Janeiro de 1997: Novos alunos passando pela experiência do trote."
+        },
+        {
+          "id": "4",
+          "alt": "Setembro de 1998: Frei Beto em sessão de autógrafos na Bienal do Livro."
+        },
+        {
+          "id": "9",
+          "alt": "1999: Reitor Rogério Pinheiro, a diretora do Museu Théo Brandão, Cármen Lúcia Dantas, e o senador Teotônio Vilela Filho, que destinou recursos de emenda parlamentar para restauração do MTB."
+        }
+      ]
+    },
+    {
+      "id": 2000,
+      "professors": [
+        {
+          "id": 8,
+          "alt": "Ana Dayse Dorea",
+          "period": [2003, 2011],
+          "description": "A reitora Ana Dayse Dorea também foi eleita por dois mandatos consecutivos. Neste período, a reitora soube aproveitar ao máximo a política do Governo Lula para a expansão do Ensino Superior. Com recursos federais, a Ufal inaugurou o Campus Arapiraca, em setembro de 2006. Em seguida, a Universidade aderiu ao Programa de Apoio a Planos de Reestruturação e Expansão das Universidades Federais (Reuni). Com o financiamento do programa, foi possível inaugurar o Campus do Sertão, já no segundo mandato, em 2010. Nessa ocasião muito comemorada, a reitora Ana Dayse disse: /quote A universidade brota da pedra e da caatinga. Essa história será contada por vocês, e estejam certos que estamos ajudando a fazer um Brasil diferente, a acabar com indicadores sociais que ainda envergonham o nosso Estado."
+        }
+      ],
+      "gallery": [
+        {
+          "id": "2",
+          "alt": "Inauguração Fórum Ufal-CJUR."
+        },
+        {
+          "id": "8",
+          "alt": "Janeiro de 2001: Inauguração do busto do primeiro reitor, AC Simoes."
+        },
+        {
+          "id": "10",
+          "alt": "Julho de 2002: Reinauguração do Museu Théo Brandão na Avenida da Paz fechada para a celebração."
+        },
+        {
+          "id": "1",
+          "alt": "Novembro de 2003: Reunião do Consuni sobre cotas raciais."
+        },
+        {
+          "id": "3",
+          "alt": "Setembro de 2004: XI Encontro Nacional de Corais Amadores."
+        },
+        {
+          "id": "9",
+          "alt": "Outubro de 2005: Público na II Bienal Internacional do Livro."
+        },
+        {
+          "id": "4",
+          "alt": "Janeiro de 2006: Abertura da exposição de paineis em comemoração aos 45 anos da Ufal no Shopping Iguatemi."
+        },
+        {
+          "id": "6",
+          "alt": "Maio de 2006: Alunos da rede púplica de ensino participando da Expofísica."
+        },
+        {
+          "id": "5",
+          "alt": "Novembro de 2008: Abertura dos Jogos Internos."
+        },
+        {
+          "id": "7",
+          "alt": "2010: Área destinada à construção da sede da Ufal em Delmiro Gouveia."
+        }
+      ]
+    },
+    {
+      "id": 2010,
+      "professors": [
+        {
+          "id": 9,
+          "alt": "Eurico Lôbo",
+          "period": [2011, 2015],
+          "description": "Em dezembro de 2011, foi empossado o reitor Eurico Lôbo. O desafio dessa gestão foi consolidar a expansão, qualificando os campi do interior, e responder também a uma educação globalizada, com muitas ações de intercâmbio internacional. A Assessoria Internacional da Ufal trabalhou a todo vapor. A Universidade chegou a ter 200 estudantes no exterior no mesmo período. Só pelo programa Ciências sem Fronteiras, em 2012, enquanto cerca de 70 alunos estavam retornando dos intercâmbios realizados no primeiro semestre, aproximadamente 60 estavam arrumando as malas e organizando a documentação para embarcar. Além da internacionalização, a modernização dos sistemas de comunicação, com a implantação da rede lógica, possibilitou uma Universidade em diálogo com o mundo. Nessa gestão e embaixo de muita polêmica, o Hospital Universitário (HU) aderiu à Rede Ebserh -Empresa Brasileira de Serviços Hospitalares, empresa pública de direito privado do Governo Federal."
+        },
+        {
+          "id": 10,
+          "alt": "Valéria Correia",
+          "period": [2016, 2020],
+          "description": "A gestão da professora Valéria Correia é marcada pela proposta de Universidade socialmente referenciada. A Ufal implantou o Fórum Social Universitário e fortaleceu as parcerias com as entidades da sociedade civil organizada. No seu mandato, Valéria Correia inaugurou o primeiro curso de bacharelado em Agroecologia, promovido pelo Programa Nacional de Educação na Reforma Agrária (Pronera) em parceria com o Centro de Ciências Agrárias (Ceca), para a formação superior de assentados. Sobre a universidade, Valéria Correia afirmou: /quote Somos uma organização histórica, com a responsabilidade de responder às demandas da sociedade do presente. Isso nos leva a pensar o contexto político, social, cultural e econômico do nosso tempo. Contexto em que a defesa da universidade pública deve ser reafirmada."
+        },
+        {
+          "id": 11,
+          "alt": "Josealdo Tonholo",
+          "period": [2020, "atualmente"],
+          "description": "Essa década é iniciada com a posse do Reitor Josealdo Tonholo, para um mandato que prossegue até 2024. Ao tomar posse, em 28 de janeiro de 2020, o reitor afirmou o papel social, econômico e educacional da Universidade. /quote A melhor maneira de legitimar tudo isso é aproximá-la dos mais diferentes segmentos e setores da sociedade civil local: na sua dimensão produtivo-econômica, na sua dimensão político-partidária e na dimensão dos movimentos sociais. Nosso desafio é gigantesco, mas é também extremamente estimulante/ disse Tonholo."
+        }
+      ],
+      "gallery": [
+        {
+          "id": "1",
+          "alt": "2016: Solenidade de Abertura do Caiite."
+        },
+        {
+          "id": "2",
+          "alt": "Tenda Cultural da Ufal."
+        },
+        {
+          "id": "3",
+          "alt": "Apresentação teatral parte do Natal da Avenida, realizado no Museu Theo Brandão."
+        },
+        {
+          "id": "4",
+          "alt": "Criança recebendo atendimento na Faculdade de Odontologia."
+        },
+        {
+          "id": "5",
+          "alt": "Integrantes do Movimento dos Trabalhadores sem Terra fazem plantio em terreno ocioso da Ufal."
+        },
+        {
+          "id": "6",
+          "alt": "Montagem das estruturas da SBPC no campus A.C. Simões."
+        },
+        {
+          "id": "7",
+          "alt": "Público tomando as ruas do Jaraguá na 9ª edição da Bienal Internacional do Livro de Alagoas."
+        },
+        {
+          "id": "8",
+          "alt": "Sede do Campus do Sertão em Delmiro Gouveia."
+        },
+        {
+          "id": "9",
+          "alt": "Apresentação Musical durante as atividades do Caiite em Penedo."
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jest/recommended",
     "airbnb-typescript",
@@ -30,7 +31,8 @@
     "prettier",
     "import",
     "eslint-plugin-import-helpers",
-    "jest"
+    "jest",
+    "jsx-a11y"
   ],
   "rules": {
     /**
