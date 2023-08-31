@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import Col from "ui/Col";
 import Iframe from "ui/Iframe";
 import Row from "ui/Row";
-import type { Data } from "utils/getData";
+import { type Data } from "utils/useData";
 
 const IntroSliderRoot = styled(Row)`
   align-items: center;
@@ -16,12 +16,10 @@ const IntroSliderItem = styled.div`
     ${({ theme }) => `rgb(${theme.channel.main} / ${theme.alpha.tertiary})`};
 `;
 
-const IntroSlider = forwardRef(function IntroSlider(
-  {
-    data: [initialHomage, ...homages],
-  }: Record<"data", NonNullable<Data["homages"]>>,
-  ref: React.ForwardedRef<HTMLLIElement>,
-) {
+const IntroSlider = forwardRef<
+  HTMLLIElement,
+  Record<"data", NonNullable<Data["homages"]>>
+>(function IntroSlider({ data: [initialHomage, ...homages] }, ref) {
   return (
     <IntroSliderRoot>
       <Col
