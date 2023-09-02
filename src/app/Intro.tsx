@@ -1,5 +1,5 @@
 import { Suspense, lazy, useCallback, useState } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import Container from "ui/Container";
 import Text from "ui/Text";
 import useData from "utils/useData";
@@ -15,9 +15,7 @@ const IntroRoot = styled.div`
   background-image: ${({ theme }) =>
     `linear-gradient(to right, rgb(${theme.channel.main} / ${theme.alpha.tertiary}), transparent)`};
 `;
-const IntroHeadline = styled(Text).attrs({
-  as: "em",
-})`
+const IntroHeadline = styled(Text)`
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -31,11 +29,11 @@ const IntroHeadline = styled(Text).attrs({
 export default function Intro() {
   const data = useData();
   const [initialHomageY, setInitialHomageY] = useState(0);
-  const handleRef = useCallback((node: HTMLLIElement | null) => {
-    if (node) {
-      setInitialHomageY(node.getBoundingClientRect().height / 2);
-    }
-  }, []);
+  const handleRef = useCallback(
+    (node: HTMLLIElement | null) =>
+      setInitialHomageY((node?.getBoundingClientRect().height || 0) / 2),
+    [],
+  );
 
   return (
     <>
@@ -43,7 +41,7 @@ export default function Intro() {
         <Container as="section">
           <Text $variant="headline" $center $gutterBottom>
             A{" "}
-            <IntroHeadline $variant="inherit">
+            <IntroHeadline as="em" $variant="inherit">
               Universidade Federal de Alagoas
             </IntroHeadline>{" "}
             completa 60 anos com uma história enraizada na vida do povo

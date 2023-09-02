@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
-import Adornment from "ui/Adornment";
 import Button from "ui/Button";
 import Container from "ui/Container";
 import Icon from "ui/Icon";
@@ -15,7 +14,10 @@ const HeaderTheme = styled(Button)`
   margin-left: auto;
 `;
 const HeaderNews = styled(Button)`
-  margin-left: ${({ theme }) => theme.size.x2s};
+  margin-left: ${({ theme }) => theme.size.x3s};
+`;
+const HeaderNewsIcon = styled(Icon)`
+  margin-left: 8px;
 `;
 
 export default function Header() {
@@ -23,19 +25,16 @@ export default function Header() {
     <HeaderRoot as="header">
       <Logos />
       <HeaderTheme>
-        <Adornment>
-          <Icon $name="Sun" />
-        </Adornment>
+        <Icon $name="Sun" />
       </HeaderTheme>
       <HeaderNews
+        as="a"
         href="https://ufal.br/noticias?tag=Ufal60anos"
         rel="noreferrer"
         target="_blank"
       >
         Notícias
-        <Adornment $edge="end">
-          <Icon $name="Exit" />
-        </Adornment>
+        <HeaderNewsIcon $name="Exit" />
       </HeaderNews>
     </HeaderRoot>
   );
