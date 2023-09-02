@@ -1,6 +1,4 @@
-import styled from "styled-components";
-import type { DefaultTheme } from "styled-components";
-import { PropsWithAs } from "utils/types";
+import { styled, type DefaultTheme } from "styled-components";
 
 const VARIANTS_ELEMENTS = {
   title: "h1",
@@ -10,7 +8,7 @@ const VARIANTS_ELEMENTS = {
   body: "p",
   label: "button",
   overline: "span",
-};
+} as const;
 const VARIANTS_SIZING = {
   title: "xs",
   headline: "x3l",
@@ -41,31 +39,42 @@ const isSmall = (
 ): variant is "label" | "overline" =>
   variant === "label" || variant === "overline";
 
-const Text = styled.span.attrs<PropsWithAs<TextProps>>(({ $variant, as }) => ({
-  className: isHeading($variant) && "tk-freight-display-pro",
-  as: as || (!isInherit($variant) && VARIANTS_ELEMENTS[$variant]),
-}))<TextProps>`
-  margin-bottom: ${({ $gutterBottom }) => $gutterBottom && "1em"};
-  text-align: ${({ $center }) => $center && "center"};
-  text-transform: ${({ $variant }) => $variant === "label" && "uppercase"};
-  letter-spacing: ${({ $variant }) =>
-    ($variant === "label" || $variant === "title") && "0.1em"};
-  line-height: ${({ $variant, theme }) =>
-    ($variant === "title" && theme.kerning.tighter) ||
-    ((isHeading($variant) || $variant === "label") && theme.kerning.tight)};
-  font-size: ${({ $variant, theme }) =>
-    $variant === "body"
-      ? "1rem"
-      : isSmall($variant)
-      ? "0.75rem"
-      : isHeading($variant) && theme.size[VARIANTS_SIZING[$variant]]};
-  font-weight: ${({ $variant, $weight, theme }) =>
-    $variant === "label" || $variant === "title"
-      ? theme.weight.heavy
-      : isHeading($variant)
-      ? theme.weight.regular
-      : $weight && theme.weight[$weight]};
-`;
-
-Text.displayName = "Text";
-export default Text;
+export default styled.span.attrs<TextProps>(({ $variant, as }) => ({
+  ...(isHeading($variant) && {
+    className: "tk-freight-display-pro",
+  }),
+  as: as || (!isInherit($variant) ? VARIANTS_ELEMENTS[$variant] : undefined),
+}))<TextProps>(({ $gutterBottom, $center, $variant, $weight, theme }) => ({
+  ...($gutterBottom && {
+    marginBottom: "1em",
+  }),
+  ...($center && {
+    textAlign: "center",
+  }),
+  ...($variant === "label" && {
+    textTransform: "uppercase",
+  }),
+  ...(($variant === "label" || $variant === "title") && {
+    fontWeight: theme.weight.heavy,
+    letterSpacing: "0.1em",
+  }),
+  ...($variant === "title" && {
+    lineHeight: theme.kerning.tighter,
+  }),
+  ...((isHeading($variant) || $variant === "label") && {
+    lineHeight: theme.kerning.tight,
+  }),
+  ...($variant === "body" && {
+    fontSize: "1rem",
+  }),
+  ...(isSmall($variant) && {
+    fontSize: "0.75rem",
+  }),
+  ...(isHeading($variant) && {
+    fontSize: theme.size[VARIANTS_SIZING[$variant]],
+    fontWeight: theme.weight.regular,
+  }),
+  ...($weight && {
+    fontWeight: theme.weight[$weight],
+  }),
+}));

@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-import type { DefaultTheme } from "styled-components";
+import { styled, css, type DefaultTheme } from "styled-components";
 
 const colKs = ["$start", "$mid", "$end"] as const;
 
@@ -61,20 +60,17 @@ const getColStyles = css<ColProps>(({ theme, ...props }) => {
   return styles;
 });
 
-const Col = styled.li<ColProps>`
-  ${getColStyles}
-  padding-left: ${({ theme }) => theme.size.x2s};
-  padding-top: ${({ theme }) => theme.size.x2s};
-  margin-left: ${({ $start }) => $start && "var(--columns-start)"};
-  margin-right: ${({ $end }) => $end && "var(--columns-end)"};
-  ${({ $mid }) =>
-    $mid &&
-    css`
-      flex-grow: 0;
-      flex-basis: var(--columns-mid);
-      max-width: var(--columns-mid);
-    `}
-`;
-
-Col.displayName = "Col";
-export default Col;
+export default styled.li<ColProps>(({ theme, $start, $end, $mid }) => ({
+  ...getColStyles,
+  paddingLeft: theme.size.x2s,
+  paddingTop: theme.size.x2s,
+  ...($start && {
+    marginLeft: "var(--columns-start)",
+  }),
+  ...($end && {
+    marginRight: "var(--columns-end)",
+  }),
+  ...($mid && {
+    flex: "0 0 var(--columns-mid)",
+  }),
+}));

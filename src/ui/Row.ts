@@ -1,11 +1,12 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
-const Row = styled.ul`
-  display: flex;
-  width: calc(100% + ${({ theme }) => theme.size.x2s});
-  margin-top: calc(-1 * ${({ theme }) => theme.size.x2s});
-  margin-left: calc(-1 * ${({ theme }) => theme.size.x2s});
-`;
+export default styled.ul(({ theme }) => {
+  const marginTop = `calc(-1 * ${theme.size.x2s})`;
 
-Row.displayName = "Row";
-export default Row;
+  return {
+    display: "flex",
+    width: `calc(100% + ${theme.size.x2s})`,
+    marginTop,
+    marginLeft: marginTop,
+  };
+});

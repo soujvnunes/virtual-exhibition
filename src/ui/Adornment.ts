@@ -1,20 +1,16 @@
-import styled from "styled-components";
-import type { DefaultTheme, ThemeProps } from "styled-components";
+import { styled } from "styled-components";
 
 type AdornmentProps = {
   $edge?: "start" | "end";
 };
 
-const getEdgeStyles =
-  (edge: AdornmentProps["$edge"]) =>
-  ({ $edge, theme }: ThemeProps<DefaultTheme> & AdornmentProps) =>
-    edge === $edge ? theme.size.x3s : `calc(-1 * ${theme.size.x3s})`;
+export default styled.span<AdornmentProps>(({ $edge, theme }) => {
+  function getEdge(edge: AdornmentProps["$edge"]) {
+    return $edge === edge ? theme.size.x3s : `calc(-1 * ${theme.size.x3s})`;
+  }
 
-const Adornment = styled.span<AdornmentProps>`
-  margin-right: ${getEdgeStyles("start")};
-  margin-left: ${getEdgeStyles("end")};
-  display: inherit;
-`;
-
-Adornment.displayName = "Adornment";
-export default Adornment;
+  return {
+    marginRight: getEdge("start"),
+    marginLeft: getEdge("end"),
+  };
+});

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 import Icon from "ui/Icon";
 import Text from "ui/Text";
 
